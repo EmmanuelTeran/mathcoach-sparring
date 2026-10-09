@@ -1,9 +1,9 @@
 # [MATH-US-04] Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Actualización SRS
 
-- **Estado:** Verificado
+- **Estado:** Done
 - **Rama:** `feature/MATH-US-04-multimodal-pipeline`
 - **Fecha de Inicio:** 2026-10-09
-- **Fecha de Cierre:** -
+- **Fecha de Cierre:** 2026-10-09
 
 ## 1. Descripción
 
@@ -185,5 +185,5 @@ El harness E2E en `tests/e2e/math-vision.spec.js` valida el flujo completo de Ac
 
 ## 5. Commit de Cierre en dev
 
-`<!-- PENDIENTE: Commit generado tras verificación y merge -->`
+`0bcec7f`
 
