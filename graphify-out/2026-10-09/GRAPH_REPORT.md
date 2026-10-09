@@ -1,13 +1,13 @@
 # Graph Report - mathcoach-sparring  (2026-10-09)
 
 ## Corpus Check
-- 65 files · ~47,073 words
+- 65 files · ~47,651 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .css 1, .example 1)
 
 ## Summary
-- 405 nodes · 584 edges · 28 communities (21 shown, 7 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.94)
+- 410 nodes · 592 edges · 28 communities (21 shown, 7 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -36,17 +36,17 @@
 - server/package.json
 - 2. Criterios de Aceptación (AC)
 - Arquitectura Técnica del Sistema: DevCoach Sparring
-- devDependencies
+- MathVisionUploader
 - 2. Criterios de Aceptación (AC)
+- dependencies
 - practice.js
-- softSkillPractice.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `Guía de Usuario: DevCoach Sparring` - 15 edges
 2. `mongoose` - 14 edges
 3. `Topic` - 12 edges
-4. `Arquitectura Técnica del Sistema: DevCoach Sparring` - 11 edges
-5. `MathVisionUploader()` - 10 edges
+4. `Arquitectura Técnica del Sistema: DevCoach Sparring` - 12 edges
+5. `MathVisionUploader()` - 11 edges
 6. `@playwright/test` - 10 edges
 7. `connectDB()` - 10 edges
 8. `4. Historias Pendientes` - 10 edges
@@ -54,16 +54,16 @@
 10. `scripts` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `[MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx)` --references--> `MathStatement()`  [INFERRED]
-  .antigravity/graph.md → client/src/components/MathStatement.jsx
-- `[MATH-US-07] Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes` --references--> `MathVisionUploader()`  [INFERRED]
-  .antigravity/graph.md → client/src/components/MathVisionUploader.jsx
-- `AC-1: Montaje Único de `MathVisionUploader` y Test de Instancia Única` --references--> `MathVisionUploader()`  [INFERRED]
-  tickets/MATH-US-07-hotfix-ui.md → client/src/components/MathVisionUploader.jsx
 - `Contexto y Defectos Detectados` --references--> `MathVisionUploader()`  [INFERRED]
   tickets/MATH-US-07-hotfix-ui.md → client/src/components/MathVisionUploader.jsx
 - `1.3 Acoplamiento con Spaced Repetition (SM-2 por pista)` --references--> `calculateNextReview()`  [INFERRED]
   .antigravity/graph.md → server/src/utils/srsCalculator.js
+- `10.4 Acoplamiento con el Motor SRS (SM-2) y Persistencia en Mongoose` --references--> `calculateNextReview()`  [INFERRED]
+  docs/ARCHITECTURE.md → server/src/utils/srsCalculator.js
+- `AC-4: Motor SRS SM-2 y Persistencia Atómica en `MathTopic`` --references--> `calculateNextReview()`  [INFERRED]
+  tickets/MATH-US-04-multimodal-pipeline.md → server/src/utils/srsCalculator.js
+- `3. Subgrafo Afectado (Identificado con Graphify)` --references--> `App()`  [INFERRED]
+  tickets/MATH-US-03-vision-uploader.md → client/src/App.jsx
 
 ## Import Cycles
 - None detected.
@@ -72,7 +72,7 @@
 
 ### Community 0 - "4. Historias Pendientes"
 Cohesion: 0.08
-Nodes (25): 0. Glosario y Modelo Mental del Producto, 1.1 Composición de rondas (`ROUND_BUDGET_MIN = 15`), 1.2 Score de ronda y progresión adaptativa, 1.3 Acoplamiento con Spaced Repetition (SM-2 por pista), 1. Reglas de Negocio Globales (aplican a varias historias), 2.1 Orden de ejecución recomendado, 2. Grafo de Dependencias, 3. Historias Completadas (referencia) (+17 more)
+Nodes (23): 0. Glosario y Modelo Mental del Producto, 1.1 Composición de rondas (`ROUND_BUDGET_MIN = 15`), 1.2 Score de ronda y progresión adaptativa, 1.3 Acoplamiento con Spaced Repetition (SM-2 por pista), 1. Reglas de Negocio Globales (aplican a varias historias), 2.1 Orden de ejecución recomendado, 2. Grafo de Dependencias, 3. Historias Completadas (referencia) (+15 more)
 
 ### Community 1 - "[US-XX] {{TITULO_HISTORIA}}"
 Cohesion: 0.22
@@ -104,7 +104,7 @@ Nodes (3): Pasos de Ejecución, Propósito, Skill: verify-user-story
 
 ### Community 11 - "client/package.json"
 Cohesion: 0.06
-Nodes (41): dependencies, katex, lucide-react, react, react-dom, react-markdown, rehype-katex, remark-math (+33 more)
+Nodes (31): devDependencies, autoprefixer, jsdom, postcss, tailwindcss, @testing-library/jest-dom, @testing-library/react, vite (+23 more)
 
 ### Community 12 - "app.js"
 Cohesion: 0.15
@@ -116,11 +116,11 @@ Nodes (20): description, devDependencies, concurrently, @playwright/test, name, 
 
 ### Community 14 - "Guía de Usuario: DevCoach Sparring"
 Cohesion: 0.04
-Nodes (45): 10.1 Interpretación de Métricas Rápidas, 10.2 Priorización Automática: Botón "Entrenar Ahora" (`recommendedNext`), 10.3 Gestión y Limpieza de Áreas Críticas, 10. Panel de Control y Dashboard Operativo, 11.1 Distribución del Catálogo, 11.2 Interacciones Críticas Junior en Soft Skills, 11.3 Sincronización Visual y Filtros en la Plataforma, 11. Catálogo Multinivel (Junior, Mid, Senior) y Sincronización en UI (US-08) (+37 more)
+Nodes (47): 10.1 Interpretación de Métricas Rápidas, 10.2 Priorización Automática: Botón "Entrenar Ahora" (`recommendedNext`), 10.3 Gestión y Limpieza de Áreas Críticas, 10. Panel de Control y Dashboard Operativo, 11.1 Distribución del Catálogo, 11.2 Interacciones Críticas Junior en Soft Skills, 11.3 Sincronización Visual y Filtros en la Plataforma, 11. Catálogo Multinivel (Junior, Mid, Senior) y Sincronización en UI (US-08) (+39 more)
 
 ### Community 15 - "2. Criterios de Aceptación (AC)"
 Cohesion: 0.12
-Nodes (15): 1. Descripción, 2. Criterios de Aceptación (AC), 4. Evidencia de Pruebas (Completado por verify-user-story), 5. Commit de Cierre en dev, AC-1: Inicialización y Gestión Defensiva de Permisos WebRTC, AC-2: Estado "Capturar Ejercicio" (Stream en Vivo y Guías de Encuadre), AC-3: Congelado de Fotograma, Canvas y Conversión Base64, AC-4: Estado "Analizando con IA..." (Feedback Inmersivo) (+7 more)
+Nodes (16): 1. Descripción, 2. Criterios de Aceptación (AC), 3. Subgrafo Afectado (Identificado con Graphify), 4. Evidencia de Pruebas (Completado por verify-user-story), 5. Commit de Cierre en dev, AC-1: Inicialización y Gestión Defensiva de Permisos WebRTC, AC-2: Estado "Capturar Ejercicio" (Stream en Vivo y Guías de Encuadre), AC-3: Congelado de Fotograma, Canvas y Conversión Base64 (+8 more)
 
 ### Community 16 - "2. Contratos de API"
 Cohesion: 0.12
@@ -138,41 +138,41 @@ Nodes (14): 1. Descripción, 2. Criterios de Aceptación (AC), 3. Subgrafo Afect
 Cohesion: 0.05
 Nodes (37): 10.1 Arquitectura del Flujo Multimodal, 10.2 Conexión Express con Gemini 1.5 Pro (`@google/genai`), 10.3 Formato del JSON Estricto y Parsing Defensivo, 10.4 Acoplamiento con el Motor SRS (SM-2) y Persistencia en Mongoose, 10.5 Manejo de Errores y Códigos HTTP, 10. Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Acoplamiento SRS (MATH-US-04), 1. Topología del Monorepo, 3. Modelo de Datos (Mongoose Schemas) (+29 more)
 
-### Community 22 - "devDependencies"
-Cohesion: 0.20
-Nodes (10): devDependencies, autoprefixer, jsdom, postcss, tailwindcss, @testing-library/jest-dom, @testing-library/react, vite (+2 more)
+### Community 22 - "MathVisionUploader"
+Cohesion: 0.14
+Nodes (17): [MATH-US-07] Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes, [MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx), App(), DEFAULT_TOPIC, Dashboard(), MathStatement(), MathVisionUploader(), SAMPLE_TOPIC (+9 more)
 
 ### Community 23 - "2. Criterios de Aceptación (AC)"
 Cohesion: 0.12
-Nodes (16): 1. Descripción, 2. Criterios de Aceptación (AC), 4. Evidencia de Pruebas (Completado por verify-user-story), 5. Commit de Cierre en dev, AC-1: Montaje Único de `MathVisionUploader` y Test de Instancia Única, AC-2: Componente `MathStatement.jsx` con Markdown + LaTeX (KaTeX), AC-3: Estado Vacío cuando no hay Ejercicio Cargado, AC-4: Eliminación Total de "Coding Playground" y Navegación Simplificada (+8 more)
+Nodes (15): 1. Descripción, 2. Criterios de Aceptación (AC), 4. Evidencia de Pruebas (Completado por verify-user-story), 5. Commit de Cierre en dev, AC-2: Componente `MathStatement.jsx` con Markdown + LaTeX (KaTeX), AC-3: Estado Vacío cuando no hay Ejercicio Cargado, AC-4: Eliminación Total de "Coding Playground" y Navegación Simplificada, AC-5: Limpieza de Copys Legados en `Dashboard.jsx` (+7 more)
 
-### Community 26 - "practice.js"
-Cohesion: 0.47
-Nodes (7): practiceRouter, evaluateCodingSolution(), evaluateHardSkillSolution(), evaluateMathVisionSolution(), generateHardSkillChallenge(), generateHint(), getClient()
+### Community 26 - "dependencies"
+Cohesion: 0.25
+Nodes (8): dependencies, katex, lucide-react, react, react-dom, react-markdown, rehype-katex, remark-math
 
-### Community 27 - "softSkillPractice.js"
-Cohesion: 0.29
-Nodes (7): softSkillPracticeRouter, getClient(), replySoftSkillSparring(), SPARRING_ROLES, SPARRING_ROLES_BY_LEVEL, startSoftSkillSparring(), calculateNextReview()
+### Community 27 - "practice.js"
+Cohesion: 0.18
+Nodes (14): practiceRouter, softSkillPracticeRouter, evaluateCodingSolution(), evaluateHardSkillSolution(), evaluateMathVisionSolution(), generateHardSkillChallenge(), generateHint(), getClient() (+6 more)
 
 ## Knowledge Gaps
-- **212 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+207 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 245 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **214 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+209 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 247 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `calculateNextReview()` connect `softSkillPractice.js` to `4. Historias Pendientes`, `app.js`, `2. Criterios de Aceptación (AC)`, `Arquitectura Técnica del Sistema: DevCoach Sparring`, `practice.js`?**
-  _High betweenness centrality (0.207) - this node is a cross-community bridge._
-- **Why does `10.4 Acoplamiento con el Motor SRS (SM-2) y Persistencia en Mongoose` connect `Arquitectura Técnica del Sistema: DevCoach Sparring` to `softSkillPractice.js`?**
-  _High betweenness centrality (0.151) - this node is a cross-community bridge._
+- **Why does `Arquitectura Técnica del Sistema: DevCoach Sparring` connect `Arquitectura Técnica del Sistema: DevCoach Sparring` to `2. Contratos de API`, `MathVisionUploader`?**
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+- **Why does `calculateNextReview()` connect `practice.js` to `4. Historias Pendientes`, `2. Criterios de Aceptación (AC)`, `Arquitectura Técnica del Sistema: DevCoach Sparring`, `app.js`?**
+  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+- **Why does `MathVisionUploader()` connect `MathVisionUploader` to `2. Criterios de Aceptación (AC)`, `2. Criterios de Aceptación (AC)`?**
+  _High betweenness centrality (0.112) - this node is a cross-community bridge._
+- **Are the 6 inferred relationships involving `MathVisionUploader()` (e.g. with `[MATH-US-07] Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes` and `11.2 Purga Arquitectónica de Monaco Editor y Coding Playground`) actually correct?**
+  _`MathVisionUploader()` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _212 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _214 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `4. Historias Pendientes` be split into smaller, more focused modules?**
-  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `client/package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.058001397624039136 - nodes in this community are weakly interconnected._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
-- **Should `Guía de Usuario: DevCoach Sparring` be split into smaller, more focused modules?**
-  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06386554621848739 - nodes in this community are weakly interconnected._

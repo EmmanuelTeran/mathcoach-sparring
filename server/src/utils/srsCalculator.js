@@ -1,11 +1,11 @@
 /**
- * Algoritmo SRS (adaptación de SM-2 para DevCoach Sparring)
+ * Algoritmo SRS (adaptación de SM-2 para MathCoach Sparring)
  *
  * @param {number} currentStage - Nivel actual de repetición (0, 1, 2, ...)
  * @param {number} easeFactor - Factor de facilidad previo (mínimo 1.3, default 2.5)
- * @param {number} score - Calificación de la sesión (1 a 5)
+ * @param {number} score - Calificación de la sesión (0 a 5)
  * @param {number} [previousInterval=0] - Intervalo en días previo (opcional, default 0)
- * @returns {{ srsStage: number, easeFactor: number, intervalDays: number, nextReviewAt: Date }}
+ * @returns {{ repetition: number, efactor: number, interval: number, dueDate: Date, srsStage: number, easeFactor: number, intervalDays: number, nextReviewAt: Date }}
  */
 export function calculateNextReview(currentStage, easeFactor, score, previousInterval = 0) {
   let srsStage = Number(currentStage) || 0;
@@ -29,7 +29,6 @@ export function calculateNextReview(currentStage, easeFactor, score, previousInt
     intervalDays = 1;
   } else if (s === 3) {
     // Score 3 (aprobado raspado): intervalo corto de 3 días
-    // Si estaba en 0 avanza a 1, si ya estaba avanzado mantiene la etapa
     srsStage = srsStage === 0 ? 1 : srsStage + 1;
     intervalDays = 3;
   } else {

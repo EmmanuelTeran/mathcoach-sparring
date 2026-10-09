@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791585895.413978,
-    "seen": 1791586663.3470984,
-    "ast_hash": "85ee46c36c2c38c38089175cde559457",
+    "mtime": 1791587188.7141356,
+    "seen": 1791587198.7640004,
+    "ast_hash": "9b358889ab388fdaeec8b3fa76e5b344",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791577642.4730504,
-    "seen": 1791577651.520046,
-    "ast_hash": "a3e82abe37e54b5277991b9daf21270b",
+    "mtime": 1791587158.9901443,
+    "seen": 1791587198.764011,
+    "ast_hash": "4c143f45e2080f7aa9f634c5f07dfeb0",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791577613.2849967,
-    "seen": 1791577651.5200446,
-    "ast_hash": "1099a2969dada81f8d6b3819d857d020",
+    "mtime": 1791587176.4581435,
+    "seen": 1791587198.76401,
+    "ast_hash": "1b4cd18dd5b3f5776cafd82d6d5fc868",
     "semantic_hash": ""
   },
   "server/src/models/Topic.js": {
