@@ -1,13 +1,23 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** MATH-US-05
+- **Historia activa:** MATH-US-07 (siguiente a iniciar con `new-user-story`)
 - **Rama actual:** dev
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
   - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)
   - [x] MATH-US-03: UI de Cero Fricción para Active Recall (MathVisionUploader.jsx) (Done)
   - [x] MATH-US-04: Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Actualización SRS (Done)
-  - [ ] MATH-US-05: Dashboard Matemático & Cola Diaria de Ejercicios por Nivel (Backlog)
-  - [ ] MATH-US-06: Seed de Ejercicios Multinivel (CONAMAT / Stewart / Spivak) & E2E Final (Backlog)
+  - [-] MATH-US-05: Dashboard Matemático & Cola Diaria por Nivel (Cancelada → reemplazada por MATH-US-14)
+  - [-] MATH-US-06: Seed Multinivel & E2E Final (Cancelada → reemplazada por MATH-US-09 + MATH-US-15)
+  - [ ] MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes (Backlog) — depende de 04
+  - [ ] MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado (Backlog) — depende de 07
+  - [ ] MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente) (Backlog) — depende de 08
+  - [ ] MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista) (Backlog) — depende de 08
+  - [ ] MATH-US-11: Constructor de Rondas de 15 min + API de Rondas (Backlog) — depende de 08
+  - [ ] MATH-US-12: Evaluación Multimodal de Rondas + Progresión (Backlog) — depende de 10, 11
+  - [ ] MATH-US-13: UI de Sesión de Ronda (RoundSession.jsx) (Backlog) — depende de 12 (y 09 para prueba manual)
+  - [ ] MATH-US-14: Dashboard por Tema y Categoría (Backlog) — depende de 13
+  - [ ] MATH-US-15: Validación E2E Final + Documentación (Backlog) — depende de 09, 14
+- **Decisiones aprobadas (2026-10-09):** Categorías Técnica / Aplicación / Demostración con dificultad adaptativa 1–3 por pista (Tema × Categoría); rondas de ~15 min de tiempo experto (Técnica 3–10, Aplicación 1–3, Demostración 1); promoción con `roundScore ≥ 4.0` y `passRate ≥ 0.8`, sin degradación; promoción → repaso en 3 días; evaluación de ronda completa con 1–6 fotos y `422` si falta algún ejercicio. Detalle en `.antigravity/graph.md` §1.
 - **Bloqueos:** Ninguno
