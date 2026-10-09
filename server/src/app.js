@@ -13,10 +13,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', healthRouter);
+app.use('/api', practiceRouter);
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/topics', topicsRouter);
 app.use('/api/practice', practiceRouter);
 app.use('/api/practice', softSkillPracticeRouter);
 app.use('/api/practice', codingPracticeRouter);
+
 
 
