@@ -1,17 +1,17 @@
 # Graph Report - mathcoach-sparring  (2026-10-09)
 
 ## Corpus Check
-- 63 files · ~36,233 words
+- 67 files · ~39,336 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .css 1, .example 1)
 
 ## Summary
-- 323 nodes · 490 edges · 24 communities (19 shown, 5 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.88)
+- 334 nodes · 509 edges · 27 communities (20 shown, 7 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.91)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `955a9a4f`
+- Built from commit: `133dbfe4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,21 +29,22 @@
 - heartbeat.md
 - client/package.json
 - codingPractice.test.js
-- package.json
+- @playwright/test
 - Guía de Usuario: DevCoach Sparring
 - 2. Criterios de Aceptación (AC)
 - 2. Contratos de API
 - server/package.json
-- App.jsx
+- codeRunner.js
 - Arquitectura Técnica del Sistema: DevCoach Sparring
-- dashboardController.js
+- devDependencies
+- scripts
 - app.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `mongoose` - 14 edges
 2. `Guía de Usuario: DevCoach Sparring` - 13 edges
 3. `Topic` - 12 edges
-4. `@playwright/test` - 10 edges
+4. `@playwright/test` - 11 edges
 5. `connectDB()` - 10 edges
 6. `scripts` - 9 edges
 7. `mongodb-memory-server` - 9 edges
@@ -52,21 +53,21 @@
 10. `Arquitectura Técnica del Sistema: DevCoach Sparring` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `[MATH-US-05] Dashboard Matemático & Cola Diaria de Ejercicios por Nivel` --references--> `MathVisionUploader()`  [INFERRED]
+  .antigravity/graph.md → client/src/components/MathVisionUploader.jsx
 - `3. Subgrafo Afectado (Identificado con Graphify)` --references--> `App()`  [INFERRED]
   tickets/MATH-US-03-vision-uploader.md → client/src/App.jsx
-- `bootstrap()` --calls--> `connectDB()`  [EXTRACTED]
-  server/src/server.js → server/src/db.js
-- `App()` --calls--> `CodingPlayground()`  [EXTRACTED]
-  client/src/App.jsx → client/src/components/CodingPlayground.jsx
-- `App()` --calls--> `Dashboard()`  [EXTRACTED]
-  client/src/App.jsx → client/src/components/Dashboard.jsx
+- `3. Subgrafo Afectado (Identificado con Graphify)` --references--> `MathVisionUploader()`  [INFERRED]
+  tickets/MATH-US-03-vision-uploader.md → client/src/components/MathVisionUploader.jsx
 - `CodingPlayground()` --calls--> `runCodeInWorker()`  [EXTRACTED]
   client/src/components/CodingPlayground.jsx → client/src/utils/codeRunner.js
+- `bootstrap()` --calls--> `connectDB()`  [EXTRACTED]
+  server/src/server.js → server/src/db.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (24 total, 5 thin omitted)
+## Communities (27 total, 7 thin omitted)
 
 ### Community 0 - "Grafo de Dependencias"
 Cohesion: 0.22
@@ -101,15 +102,15 @@ Cohesion: 0.50
 Nodes (3): Pasos de Ejecución, Propósito, Skill: verify-user-story
 
 ### Community 11 - "client/package.json"
-Cohesion: 0.06
-Nodes (30): dependencies, lucide-react, monaco-editor, @monaco-editor/react, react, react-dom, devDependencies, autoprefixer (+22 more)
+Cohesion: 0.07
+Nodes (32): dependencies, lucide-react, monaco-editor, @monaco-editor/react, react, react-dom, vitest, name (+24 more)
 
 ### Community 12 - "codingPractice.test.js"
-Cohesion: 0.28
-Nodes (13): mongodb-memory-server, mongoose, supertest, app, connectDB(), disconnectDB(), MathTopic, mathTopicSchema (+5 more)
+Cohesion: 0.23
+Nodes (16): dotenv, mongodb-memory-server, mongoose, supertest, app, connectDB(), disconnectDB(), MathTopic (+8 more)
 
-### Community 13 - "package.json"
-Cohesion: 0.07
+### Community 13 - "@playwright/test"
+Cohesion: 0.06
 Nodes (20): description, devDependencies, concurrently, @playwright/test, name, private, scripts, dev (+12 more)
 
 ### Community 14 - "Guía de Usuario: DevCoach Sparring"
@@ -126,42 +127,46 @@ Nodes (17): 2.1 `GET /api/health`, 2.2 `GET /api/topics/due`, 2.3 `POST /api/top
 
 ### Community 17 - "server/package.json"
 Cohesion: 0.09
-Nodes (21): cors, dotenv, dependencies, cors, dotenv, express, @google/genai, mongoose (+13 more)
+Nodes (21): cors, @google/genai, dependencies, cors, dotenv, express, @google/genai, mongoose (+13 more)
 
-### Community 18 - "App.jsx"
-Cohesion: 0.13
-Nodes (14): App(), CodingPlayground(), Dashboard(), LEVEL_ACTIVE, LEVEL_LABELS, LEVEL_STYLES, deepEqual(), executeTests() (+6 more)
+### Community 18 - "codeRunner.js"
+Cohesion: 0.57
+Nodes (4): deepEqual(), executeTests(), runCodeInWorker(), serializeValue()
 
 ### Community 19 - "Arquitectura Técnica del Sistema: DevCoach Sparring"
 Cohesion: 0.08
 Nodes (23): 1. Topología del Monorepo, 3. Modelo de Datos (Mongoose Schemas), 4.1 Flujo de Active Recall y Evaluación de Hard Skills (Gemini + SRS), 4.2 Máquina de Estados del Motor Algorítmico SRS (SM-2 Adaptado), 4.3 Flujo de Arranque y Healthcheck, 4.4 Harness de Testing y E2E Playwright, 4.5 Flujo de Sparring por Voz (Web Speech API + Gemini + SRS), 4.6 Lógica de Recomendación Acoplada (Hard Skills + Soft Skills) (+15 more)
 
-### Community 25 - "dashboardController.js"
-Cohesion: 0.48
-Nodes (5): areTopicsRelated(), extractKeywords(), getDashboardSummary(), getLastScore(), dashboardRouter
+### Community 22 - "devDependencies"
+Cohesion: 0.20
+Nodes (10): devDependencies, autoprefixer, jsdom, postcss, tailwindcss, @testing-library/jest-dom, @testing-library/react, vite (+2 more)
+
+### Community 23 - "scripts"
+Cohesion: 0.40
+Nodes (5): scripts, build, dev, preview, test
 
 ### Community 26 - "app.js"
-Cohesion: 0.14
-Nodes (20): express, @google/genai, SessionLog, sessionLogSchema, codingPracticeRouter, healthRouter, practiceRouter, softSkillPracticeRouter (+12 more)
+Cohesion: 0.12
+Nodes (22): express, areTopicsRelated(), extractKeywords(), getDashboardSummary(), getLastScore(), codingPracticeRouter, dashboardRouter, healthRouter (+14 more)
 
 ## Knowledge Gaps
-- **158 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+153 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 188 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **161 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+156 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 193 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `3. Subgrafo Afectado (Identificado con Graphify)` connect `App.jsx` to `2. Criterios de Aceptación (AC)`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `[MATH-US-03] UI de Cero Fricción para Active Recall (MathVisionUploader.jsx)` connect `2. Criterios de Aceptación (AC)` to `App.jsx`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `MathVisionUploader()` connect `client/package.json` to `Grafo de Dependencias`?**
+  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+- **Why does `3. Subgrafo Afectado (Identificado con Graphify)` connect `client/package.json` to `2. Criterios de Aceptación (AC)`?**
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _158 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _161 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `client/package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.06439393939393939 - nodes in this community are weakly interconnected._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06868686868686869 - nodes in this community are weakly interconnected._
+- **Should `@playwright/test` be split into smaller, more focused modules?**
+  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `Guía de Usuario: DevCoach Sparring` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
 - **Should `2. Criterios de Aceptación (AC)` be split into smaller, more focused modules?**

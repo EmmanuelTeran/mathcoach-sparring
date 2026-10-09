@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "client/package.json": {
-    "mtime": 1791528245.5954664,
-    "seen": 1791529931.9933965,
-    "ast_hash": "273c707fcf688a50a0ceb9381180929d",
+    "mtime": 1791530281.0901325,
+    "seen": 1791530655.93749,
+    "ast_hash": "4f305035862d9468525fca2b2b864fd5",
     "semantic_hash": ""
   },
   "client/postcss.config.js": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "client/src/App.jsx": {
-    "mtime": 1791067261.4174788,
-    "seen": 1791067581.0096765,
-    "ast_hash": "6912b38646baea23294f30621a567b23",
+    "mtime": 1791530509.5844972,
+    "seen": 1791530655.937499,
+    "ast_hash": "a64ee0c7b05c30726c882de368af5574",
     "semantic_hash": ""
   },
   "client/src/main.jsx": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "client/vite.config.js": {
-    "mtime": 1790823494.176413,
-    "seen": 1790823494.975404,
-    "ast_hash": "a36ed08efc9bdec45442e4f6066d2a8a",
+    "mtime": 1791530287.3220773,
+    "seen": 1791530655.937521,
+    "ast_hash": "cfda9c12a7fde6fcd577a7e78c3d2b62",
     "semantic_hash": ""
   },
   "package.json": {
@@ -378,9 +378,33 @@
     "semantic_hash": ""
   },
   "tickets/MATH-US-03-vision-uploader.md": {
-    "mtime": 1791529870.609594,
-    "seen": 1791529931.9936388,
-    "ast_hash": "f1ab329228fba4e01dac1a546b11724e",
+    "mtime": 1791530632.6677442,
+    "seen": 1791530655.9376664,
+    "ast_hash": "6c951c2bb98a1936a5f8c70024830ed7",
+    "semantic_hash": ""
+  },
+  "client/src/components/MathVisionUploader.jsx": {
+    "mtime": 1791530376.0892928,
+    "seen": 1791530655.9375052,
+    "ast_hash": "df8fa40dc88166222972752b807bbbb0",
+    "semantic_hash": ""
+  },
+  "client/tests/MathVisionUploader.test.jsx": {
+    "mtime": 1791530404.0051353,
+    "seen": 1791530655.937518,
+    "ast_hash": "efedc9089c60f1a59832bb61e3f409f6",
+    "semantic_hash": ""
+  },
+  "client/tests/setup.js": {
+    "mtime": 1791530291.846036,
+    "seen": 1791530655.9375193,
+    "ast_hash": "00e47f7b9836e8f731101981fa2bb2de",
+    "semantic_hash": ""
+  },
+  "tests/e2e/math-vision.spec.js": {
+    "mtime": 1791530577.7801442,
+    "seen": 1791530655.9376035,
+    "ast_hash": "43e87b6e28ec1a9300cd6736fcff370a",
     "semantic_hash": ""
   }
 }
