@@ -1,17 +1,17 @@
 # Graph Report - mathcoach-sparring  (2026-10-09)
 
 ## Corpus Check
-- 67 files · ~40,345 words
+- 68 files · ~43,898 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .css 1, .example 1)
 
 ## Summary
-- 347 nodes · 522 edges · 26 communities (19 shown, 7 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.91)
+- 364 nodes · 541 edges · 29 communities (22 shown, 7 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `49002493`
+- Built from commit: `c4b39b1d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,17 +27,20 @@
 - rules/graphify.md
 - workflows/graphify.md
 - heartbeat.md
-- App.jsx
-- app.js
+- client/package.json
+- practice.test.js
 - @playwright/test
 - Guía de Usuario: DevCoach Sparring
 - 2. Criterios de Aceptación (AC)
 - 2. Contratos de API
 - server/package.json
-- practice.js
+- 2. Criterios de Aceptación (AC)
 - Arquitectura Técnica del Sistema: DevCoach Sparring
-- client/package.json
-- softSkillPractice.js
+- devDependencies
+- codeRunner.js
+- app.js
+- dependencies
+- scripts
 
 ## God Nodes (most connected - your core abstractions)
 1. `mongoose` - 14 edges
@@ -54,23 +57,23 @@
 ## Surprising Connections (you probably didn't know these)
 - `[MATH-US-05] Dashboard Matemático & Cola Diaria de Ejercicios por Nivel` --references--> `MathVisionUploader()`  [INFERRED]
   .antigravity/graph.md → client/src/components/MathVisionUploader.jsx
+- `AC-4: Motor SRS SM-2 y Persistencia Atómica en `MathTopic`` --references--> `calculateNextReview()`  [INFERRED]
+  tickets/MATH-US-04-multimodal-pipeline.md → server/src/utils/srsCalculator.js
 - `3. Subgrafo Afectado (Identificado con Graphify)` --references--> `App()`  [INFERRED]
   tickets/MATH-US-03-vision-uploader.md → client/src/App.jsx
 - `3. Subgrafo Afectado (Identificado con Graphify)` --references--> `MathVisionUploader()`  [INFERRED]
   tickets/MATH-US-03-vision-uploader.md → client/src/components/MathVisionUploader.jsx
-- `bootstrap()` --calls--> `connectDB()`  [EXTRACTED]
-  server/src/server.js → server/src/db.js
-- `App()` --calls--> `CodingPlayground()`  [EXTRACTED]
-  client/src/App.jsx → client/src/components/CodingPlayground.jsx
+- `CodingPlayground()` --calls--> `runCodeInWorker()`  [EXTRACTED]
+  client/src/components/CodingPlayground.jsx → client/src/utils/codeRunner.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (26 total, 7 thin omitted)
+## Communities (29 total, 7 thin omitted)
 
 ### Community 0 - "Grafo de Dependencias"
-Cohesion: 0.25
-Nodes (7): Grafo de Dependencias, Grafo de Implementación: MathCoach Sparring, [MATH-US-01] Limpieza de Base Legada y Renombrado Monorepo, [MATH-US-02] Modelo de Datos MathTopic y Motor SRS SM-2, [MATH-US-03] UI de Cero Fricción para Active Recall (MathVisionUploader.jsx), [MATH-US-04] Pipeline Evaluador Multimodal y Actualización SRS, [MATH-US-06] Seed de Ejercicios Multinivel y Validación E2E Final
+Cohesion: 0.22
+Nodes (8): Grafo de Dependencias, Grafo de Implementación: MathCoach Sparring, [MATH-US-01] Limpieza de Base Legada y Renombrado Monorepo, [MATH-US-02] Modelo de Datos MathTopic y Motor SRS SM-2, [MATH-US-03] UI de Cero Fricción para Active Recall (MathVisionUploader.jsx), [MATH-US-04] Pipeline Evaluador Multimodal y Actualización SRS, [MATH-US-05] Dashboard Matemático & Cola Diaria de Ejercicios por Nivel, [MATH-US-06] Seed de Ejercicios Multinivel y Validación E2E Final
 
 ### Community 1 - "[US-XX] {{TITULO_HISTORIA}}"
 Cohesion: 0.22
@@ -100,13 +103,13 @@ Nodes (3): Pasos de Ejecución, Propósito, Skill: new-user-story
 Cohesion: 0.50
 Nodes (3): Pasos de Ejecución, Propósito, Skill: verify-user-story
 
-### Community 11 - "App.jsx"
-Cohesion: 0.11
-Nodes (19): [MATH-US-05] Dashboard Matemático & Cola Diaria de Ejercicios por Nivel, App(), CodingPlayground(), Dashboard(), LEVEL_ACTIVE, LEVEL_LABELS, LEVEL_STYLES, MathVisionUploader() (+11 more)
+### Community 11 - "client/package.json"
+Cohesion: 0.08
+Nodes (26): vitest, name, private, type, version, App(), CodingPlayground(), Dashboard() (+18 more)
 
-### Community 12 - "app.js"
-Cohesion: 0.22
-Nodes (17): mongodb-memory-server, mongoose, supertest, app, connectDB(), disconnectDB(), MathTopic, mathTopicSchema (+9 more)
+### Community 12 - "practice.test.js"
+Cohesion: 0.18
+Nodes (21): dotenv, mongodb-memory-server, mongoose, supertest, app, areTopicsRelated(), extractKeywords(), getDashboardSummary() (+13 more)
 
 ### Community 13 - "@playwright/test"
 Cohesion: 0.06
@@ -125,41 +128,53 @@ Cohesion: 0.12
 Nodes (17): 2.1 `GET /api/health`, 2.2 `GET /api/topics/due`, 2.3 `POST /api/topics/review`, 2.4 `POST /api/practice/hard-skill/generate`, 2.5 `POST /api/practice/hard-skill/evaluate`, 2.6 `POST /api/practice/soft-skill/start`, 2.7 `POST /api/practice/soft-skill/reply`, 2.8 `GET /api/dashboard/summary` (+9 more)
 
 ### Community 17 - "server/package.json"
-Cohesion: 0.09
-Nodes (22): cors, dotenv, @google/genai, dependencies, cors, dotenv, express, @google/genai (+14 more)
+Cohesion: 0.10
+Nodes (20): cors, dependencies, cors, dotenv, express, @google/genai, mongoose, devDependencies (+12 more)
 
-### Community 18 - "practice.js"
-Cohesion: 0.50
-Nodes (6): practiceRouter, evaluateCodingSolution(), evaluateHardSkillSolution(), generateHardSkillChallenge(), generateHint(), getClient()
+### Community 18 - "2. Criterios de Aceptación (AC)"
+Cohesion: 0.13
+Nodes (14): 1. Descripción, 2. Criterios de Aceptación (AC), 3. Subgrafo Afectado (Identificado con Graphify), 4. Evidencia de Pruebas (Completado por verify-user-story), 5. Commit de Cierre en dev, AC-1: Endpoint `POST /api/evaluate-math` y Validación Defensiva de Entrada, AC-2: Inferencia Multimodal con Gemini 1.5 Pro y Prompts Estratificados por Nivel, AC-3: Salida JSON Estricta Forzada con `responseMimeType` (+6 more)
 
 ### Community 19 - "Arquitectura Técnica del Sistema: DevCoach Sparring"
 Cohesion: 0.06
 Nodes (31): 1. Topología del Monorepo, 3. Modelo de Datos (Mongoose Schemas), 4.1 Flujo de Active Recall y Evaluación de Hard Skills (Gemini + SRS), 4.2 Máquina de Estados del Motor Algorítmico SRS (SM-2 Adaptado), 4.3 Flujo de Arranque y Healthcheck, 4.4 Harness de Testing y E2E Playwright, 4.5 Flujo de Sparring por Voz (Web Speech API + Gemini + SRS), 4.6 Lógica de Recomendación Acoplada (Hard Skills + Soft Skills) (+23 more)
 
-### Community 22 - "client/package.json"
-Cohesion: 0.06
-Nodes (33): dependencies, lucide-react, monaco-editor, @monaco-editor/react, react, react-dom, devDependencies, autoprefixer (+25 more)
+### Community 22 - "devDependencies"
+Cohesion: 0.20
+Nodes (10): devDependencies, autoprefixer, jsdom, postcss, tailwindcss, @testing-library/jest-dom, @testing-library/react, vite (+2 more)
 
-### Community 26 - "softSkillPractice.js"
-Cohesion: 0.15
-Nodes (14): express, areTopicsRelated(), extractKeywords(), getDashboardSummary(), getLastScore(), dashboardRouter, softSkillPracticeRouter, topicsRouter (+6 more)
+### Community 23 - "codeRunner.js"
+Cohesion: 0.57
+Nodes (4): deepEqual(), executeTests(), runCodeInWorker(), serializeValue()
+
+### Community 26 - "app.js"
+Cohesion: 0.14
+Nodes (20): express, @google/genai, codingPracticeRouter, dashboardRouter, healthRouter, practiceRouter, softSkillPracticeRouter, topicsRouter (+12 more)
+
+### Community 27 - "dependencies"
+Cohesion: 0.33
+Nodes (6): dependencies, lucide-react, monaco-editor, @monaco-editor/react, react, react-dom
+
+### Community 28 - "scripts"
+Cohesion: 0.40
+Nodes (5): scripts, build, dev, preview, test
 
 ## Knowledge Gaps
-- **171 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+166 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 203 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **182 isolated node(s):** `name`, `version`, `private`, `type`, `dev` (+177 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 215 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `App.jsx` to `client/package.json`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
-- **Why does `3. Subgrafo Afectado (Identificado con Graphify)` connect `App.jsx` to `2. Criterios de Aceptación (AC)`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `MathVisionUploader()` connect `client/package.json` to `Grafo de Dependencias`?**
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+- **Why does `3. Subgrafo Afectado (Identificado con Graphify)` connect `client/package.json` to `2. Criterios de Aceptación (AC)`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `private` to the rest of the system?**
-  _171 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11491935483870967 - nodes in this community are weakly interconnected._
+  _182 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `client/package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.08367071524966262 - nodes in this community are weakly interconnected._
 - **Should `@playwright/test` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `Guía de Usuario: DevCoach Sparring` be split into smaller, more focused modules?**

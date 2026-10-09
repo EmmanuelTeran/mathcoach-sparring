@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   ".antigravity/graph.md": {
-    "mtime": 1791529922.069179,
-    "seen": 1791529931.993582,
+    "mtime": 1791574818.4427667,
+    "seen": 1791576494.2991176,
     "ast_hash": "62391e357f5ab3e662a4d1306be01b80",
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791529905.1053264,
-    "seen": 1791529931.993585,
-    "ast_hash": "1e129383f61de41549e9609bb991583d",
+    "mtime": 1791576283.4798324,
+    "seen": 1791576494.2991216,
+    "ast_hash": "7c81d54643d2b4d08f4534e10cf413a6",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -66,8 +66,8 @@
     "semantic_hash": ""
   },
   "client/package.json": {
-    "mtime": 1791530281.0901325,
-    "seen": 1791530655.93749,
+    "mtime": 1791574818.4467666,
+    "seen": 1791576494.298913,
     "ast_hash": "4f305035862d9468525fca2b2b864fd5",
     "semantic_hash": ""
   },
@@ -78,8 +78,8 @@
     "semantic_hash": ""
   },
   "client/src/App.jsx": {
-    "mtime": 1791530509.5844972,
-    "seen": 1791530655.937499,
+    "mtime": 1791574818.4467666,
+    "seen": 1791576494.2989314,
     "ast_hash": "a64ee0c7b05c30726c882de368af5574",
     "semantic_hash": ""
   },
@@ -96,8 +96,8 @@
     "semantic_hash": ""
   },
   "client/vite.config.js": {
-    "mtime": 1791530287.3220773,
-    "seen": 1791530655.937521,
+    "mtime": 1791574818.4547665,
+    "seen": 1791576494.2989776,
     "ast_hash": "cfda9c12a7fde6fcd577a7e78c3d2b62",
     "semantic_hash": ""
   },
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "server/src/app.js": {
-    "mtime": 1791067111.8011198,
-    "seen": 1791067581.009728,
-    "ast_hash": "dcfcc3680140aeef0c4f5cdc19e1536d",
+    "mtime": 1791576251.3676734,
+    "seen": 1791576494.29899,
+    "ast_hash": "5fdb395e75ffb3565c04415d09715b43",
     "semantic_hash": ""
   },
   "server/src/db.js": {
@@ -162,14 +162,14 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791530813.3146787,
-    "seen": 1791530829.793178,
+    "mtime": 1791574818.4587665,
+    "seen": 1791576494.299351,
     "ast_hash": "4d77df711b95c6b4158cad20cc4bba4f",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791530797.498779,
-    "seen": 1791530829.7931764,
+    "mtime": 1791574818.4547665,
+    "seen": 1791576494.2993467,
     "ast_hash": "7ae396fc961ffa7531fd4ec36724354b",
     "semantic_hash": ""
   },
@@ -210,21 +210,21 @@
     "semantic_hash": ""
   },
   "server/src/routes/practice.js": {
-    "mtime": 1790996148.299983,
-    "seen": 1790996159.220925,
-    "ast_hash": "2b9202513b43758da983e5bead1431f3",
+    "mtime": 1791576251.3756735,
+    "seen": 1791576494.2990215,
+    "ast_hash": "ffcea30fed0967b560a5e61f1840ee3b",
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
-    "mtime": 1791067101.8571236,
-    "seen": 1791067581.0097682,
-    "ast_hash": "6f016c36fe3a681f15129d3feb04ea06",
+    "mtime": 1791576251.3756735,
+    "seen": 1791576494.2990353,
+    "ast_hash": "9451dbf60782249cca4b611bbf47d476",
     "semantic_hash": ""
   },
   "server/tests/practice.test.js": {
-    "mtime": 1790996148.3625855,
-    "seen": 1790996159.2209427,
-    "ast_hash": "47f4ca1601cea62bdbcd85919ebf1f01",
+    "mtime": 1791576251.3756735,
+    "seen": 1791576494.2990615,
+    "ast_hash": "2a4e95f9506274dd5ca0132431aa9841",
     "semantic_hash": ""
   },
   "tests/e2e/hard-skills.spec.js": {
@@ -366,9 +366,9 @@
     "semantic_hash": ""
   },
   "server/src/models/MathTopic.js": {
-    "mtime": 1791528245.6034656,
-    "seen": 1791529931.9934695,
-    "ast_hash": "04cee1c23e6b202f8c9d4ff405062c1e",
+    "mtime": 1791576251.3676734,
+    "seen": 1791576494.299,
+    "ast_hash": "02e85f128ce685c13ee2f1bd457623bd",
     "semantic_hash": ""
   },
   "server/tests/mathTopic.test.js": {
@@ -378,33 +378,39 @@
     "semantic_hash": ""
   },
   "tickets/MATH-US-03-vision-uploader.md": {
-    "mtime": 1791530632.6677442,
-    "seen": 1791530655.9376664,
-    "ast_hash": "6c951c2bb98a1936a5f8c70024830ed7",
+    "mtime": 1791575161.178873,
+    "seen": 1791576494.2993548,
+    "ast_hash": "39af70893ff8a34e24335861b65eae28",
     "semantic_hash": ""
   },
   "client/src/components/MathVisionUploader.jsx": {
-    "mtime": 1791530376.0892928,
-    "seen": 1791530655.9375052,
+    "mtime": 1791574818.4467666,
+    "seen": 1791576494.2989438,
     "ast_hash": "df8fa40dc88166222972752b807bbbb0",
     "semantic_hash": ""
   },
   "client/tests/MathVisionUploader.test.jsx": {
-    "mtime": 1791530404.0051353,
-    "seen": 1791530655.937518,
+    "mtime": 1791574818.4507666,
+    "seen": 1791576494.2989717,
     "ast_hash": "efedc9089c60f1a59832bb61e3f409f6",
     "semantic_hash": ""
   },
   "client/tests/setup.js": {
-    "mtime": 1791530291.846036,
-    "seen": 1791530655.9375193,
+    "mtime": 1791574818.4547665,
+    "seen": 1791576494.2989748,
     "ast_hash": "00e47f7b9836e8f731101981fa2bb2de",
     "semantic_hash": ""
   },
   "tests/e2e/math-vision.spec.js": {
-    "mtime": 1791530577.7801442,
-    "seen": 1791530655.9376035,
+    "mtime": 1791574818.4747663,
+    "seen": 1791576494.2990887,
     "ast_hash": "43e87b6e28ec1a9300cd6736fcff370a",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-04-multimodal-pipeline.md": {
+    "mtime": 1791576268.9957674,
+    "seen": 1791576494.2993584,
+    "ast_hash": "b856caaa82a6e7697c18fcb773f17aa9",
     "semantic_hash": ""
   }
 }
