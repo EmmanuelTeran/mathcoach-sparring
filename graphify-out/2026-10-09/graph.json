@@ -4,12 +4,24 @@
   "graph": {},
   "nodes": [
     {
+      "id": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
+      "label": "useVoiceInteraction()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "code",
+      "norm_label": "usevoiceinteraction()",
+      "source_file": "client/src/hooks/useVoiceInteraction.js",
+      "source_location": "L7"
+    },
+    {
       "id": "server_src_db_connectdb",
       "label": "connectDB()",
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "connectdb()",
       "source_file": "server/src/db.js",
@@ -21,35 +33,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "disconnectdb()",
       "source_file": "server/src/db.js",
       "source_location": "L13"
-    },
-    {
-      "id": "server_src_scripts_seed_runstandaloneseed",
-      "label": "runStandaloneSeed()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "runstandaloneseed()",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L763"
-    },
-    {
-      "id": "server_src_scripts_seed_seedtopics",
-      "label": "seedTopics()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "seedtopics()",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L730"
     },
     {
       "id": "server_src_server_bootstrap",
@@ -57,7 +45,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "bootstrap()",
       "source_file": "server/src/server.js",
@@ -100,48 +88,12 @@
       "source_location": "L35"
     },
     {
-      "id": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "label": "HardSkillTrainer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "hardskilltrainer()",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L33"
-    },
-    {
-      "id": "client_src_components_softskilltrainer_softskilltrainer",
-      "label": "SoftSkillTrainer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "softskilltrainer()",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L37"
-    },
-    {
-      "id": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
-      "label": "useVoiceInteraction()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "usevoiceinteraction()",
-      "source_file": "client/src/hooks/useVoiceInteraction.js",
-      "source_location": "L7"
-    },
-    {
       "id": "server_src_controllers_dashboardcontroller_aretopicsrelated",
       "label": "areTopicsRelated()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
+      "community": 25,
+      "community_name": "dashboardController.js",
       "file_type": "code",
       "norm_label": "aretopicsrelated()",
       "source_file": "server/src/controllers/dashboardController.js",
@@ -152,8 +104,8 @@
       "label": "extractKeywords()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
+      "community": 25,
+      "community_name": "dashboardController.js",
       "file_type": "code",
       "norm_label": "extractkeywords()",
       "source_file": "server/src/controllers/dashboardController.js",
@@ -164,8 +116,8 @@
       "label": "getDashboardSummary()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
+      "community": 25,
+      "community_name": "dashboardController.js",
       "file_type": "code",
       "norm_label": "getdashboardsummary()",
       "source_file": "server/src/controllers/dashboardController.js",
@@ -176,8 +128,8 @@
       "label": "getLastScore()",
       "_callable": true,
       "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
+      "community": 25,
+      "community_name": "dashboardController.js",
       "file_type": "code",
       "norm_label": "getlastscore()",
       "source_file": "server/src/controllers/dashboardController.js",
@@ -189,7 +141,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "evaluatecodingsolution()",
       "source_file": "server/src/services/geminiService.js",
@@ -201,7 +153,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "evaluatehardskillsolution()",
       "source_file": "server/src/services/geminiService.js",
@@ -213,7 +165,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "generatehardskillchallenge()",
       "source_file": "server/src/services/geminiService.js",
@@ -225,7 +177,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "generatehint()",
       "source_file": "server/src/services/geminiService.js",
@@ -237,7 +189,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "getclient()",
       "source_file": "server/src/services/geminiService.js",
@@ -249,7 +201,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "getclient()",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -261,7 +213,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "replysoftskillsparring()",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -273,7 +225,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "startsoftskillsparring()",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -285,7 +237,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "calculatenextreview()",
       "source_file": "server/src/utils/srsCalculator.js",
@@ -412,6 +364,18 @@
       "source_location": "L36"
     },
     {
+      "id": "antigravity_graph_us_04_m\u00f3dulo_soft_skills_sparring_por_voz_web_speech_api_gemini",
+      "label": "[US-04] M\u00f3dulo Soft Skills: Sparring por Voz (Web Speech API + Gemini)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[us-04] modulo soft skills: sparring por voz (web speech api + gemini)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L44"
+    },
+    {
       "id": "antigravity_graph_us_05_dashboard_operativo_y_acoplamiento_de_habilidades",
       "label": "[US-05] Dashboard Operativo y Acoplamiento de Habilidades",
       "_origin": "ast",
@@ -482,6 +446,102 @@
       "norm_label": "[us-10] coding playground interactivo (monaco + sandbox runner + test cases)",
       "source_file": ".antigravity/graph.md",
       "source_location": "L139"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice",
+      "label": "US-04-soft-skills-voice.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "us-04-soft-skills-voice.md",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_1_descripci\u00f3n",
+      "label": "1. Descripci\u00f3n",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. descripcion",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_2_criterios_de_aceptaci\u00f3n_ac",
+      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. criterios de aceptacion (ac)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_tests_end_to_end_frontend_playwright",
+      "label": "Tests End-to-End Frontend (Playwright)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests end-to-end frontend (playwright)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L69"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_tests_unitarios_e_integraci\u00f3n_backend_vitest_supertest",
+      "label": "Tests Unitarios e Integraci\u00f3n Backend (Vitest / Supertest)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests unitarios e integracion backend (vitest / supertest)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "tickets_us_04_soft_skills_voice_us_04_m\u00f3dulo_soft_skills_sparring_por_voz_web_speech_api_gemini",
+      "label": "[US-04] M\u00f3dulo Soft Skills: Sparring por Voz (Web Speech API + Gemini)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Grafo de Dependencias",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[us-04] modulo soft skills: sparring por voz (web speech api + gemini)",
+      "source_file": "tickets/US-04-soft-skills-voice.md",
+      "source_location": "L1"
     },
     {
       "id": "tickets_templates_ticket_template",
@@ -627,149 +687,6 @@
       "source_location": "L1"
     },
     {
-      "id": "client_package_dependencies",
-      "label": "dependencies",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "client/package.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "client_package_dependencies_lucide_react",
-      "label": "lucide-react",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "lucide-react",
-      "source_file": "client/package.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "client_package_dependencies_monaco_editor",
-      "label": "monaco-editor",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "monaco-editor",
-      "source_file": "client/package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "client_package_dependencies_monaco_editor_react",
-      "label": "@monaco-editor/react",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "@monaco-editor/react",
-      "source_file": "client/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "client_package_dependencies_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "react",
-      "source_file": "client/package.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "client_package_dependencies_react_dom",
-      "label": "react-dom",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "react-dom",
-      "source_file": "client/package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "client_package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "client/package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "client_package_devdependencies_autoprefixer",
-      "label": "autoprefixer",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "autoprefixer",
-      "source_file": "client/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "client_package_devdependencies_postcss",
-      "label": "postcss",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "postcss",
-      "source_file": "client/package.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "client_package_devdependencies_tailwindcss",
-      "label": "tailwindcss",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "tailwindcss",
-      "source_file": "client/package.json",
-      "source_location": "L23"
-    },
-    {
-      "id": "client_package_devdependencies_vite",
-      "label": "vite",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "vite",
-      "source_file": "client/package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "client_package_devdependencies_vitejs_plugin_react",
-      "label": "@vitejs/plugin-react",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "@vitejs/plugin-react",
-      "source_file": "client/package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "client_package_devdependencies_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "vitest",
-      "source_file": "client/package.json",
-      "source_location": "L25"
-    },
-    {
       "id": "client_package_name",
       "label": "name",
       "_origin": "ast",
@@ -790,61 +707,6 @@
       "norm_label": "private",
       "source_file": "client/package.json",
       "source_location": "L4"
-    },
-    {
-      "id": "client_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "client/package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "client_package_scripts_build",
-      "label": "build",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "build",
-      "source_file": "client/package.json",
-      "source_location": "L8"
-    },
-    {
-      "id": "client_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "client/package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "client_package_scripts_preview",
-      "label": "preview",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "preview",
-      "source_file": "client/package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "client_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "client/package.json",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "client/package.json",
-      "source_location": "L10"
     },
     {
       "id": "client_package_type",
@@ -878,6 +740,17 @@
       "norm_label": "vite.config.js",
       "source_file": "client/vite.config.js",
       "source_location": "L1"
+    },
+    {
+      "id": "client_package_json_ref_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "client/package.json",
+      "file_type": "concept",
+      "norm_label": "vitest",
+      "source_file": "client/package.json",
+      "source_location": "L25"
     },
     {
       "id": "ref_autoprefixer",
@@ -935,11 +808,22 @@
       "source_location": "L20"
     },
     {
+      "id": "server_src_app",
+      "label": "app.js",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "app.js",
+      "source_file": "server/src/app.js",
+      "source_location": "L1"
+    },
+    {
       "id": "server_src_app_app",
       "label": "app",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "app",
       "source_file": "server/src/app.js",
@@ -950,18 +834,73 @@
       "label": "db.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "db.js",
       "source_file": "server/src/db.js",
       "source_location": "L1"
     },
     {
+      "id": "server_src_models_mathtopic",
+      "label": "MathTopic.js",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "mathtopic.js",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_models_mathtopic_mathtopic",
+      "label": "MathTopic",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "mathtopic",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L106"
+    },
+    {
+      "id": "server_src_models_mathtopic_mathtopicschema",
+      "label": "mathTopicSchema",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "mathtopicschema",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L44"
+    },
+    {
+      "id": "server_src_models_mathtopic_reviewhistoryschema",
+      "label": "reviewHistorySchema",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "reviewhistoryschema",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "server_src_models_mathtopic_topic",
+      "label": "Topic",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "topic",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L107"
+    },
+    {
       "id": "server_src_models_sessionlog",
       "label": "SessionLog.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "sessionlog.js",
       "source_file": "server/src/models/SessionLog.js",
@@ -972,7 +911,7 @@
       "label": "SessionLog",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "sessionlog",
       "source_file": "server/src/models/SessionLog.js",
@@ -983,7 +922,7 @@
       "label": "sessionLogSchema",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "sessionlogschema",
       "source_file": "server/src/models/SessionLog.js",
@@ -994,95 +933,84 @@
       "label": "Topic.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "topic.js",
       "source_file": "server/src/models/Topic.js",
       "source_location": "L1"
     },
     {
-      "id": "server_src_models_topic_codingchallengeschema",
-      "label": "codingChallengeSchema",
+      "id": "server_src_routes_codingpractice",
+      "label": "codingPractice.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
-      "norm_label": "codingchallengeschema",
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L39"
-    },
-    {
-      "id": "server_src_models_topic_reviewhistoryschema",
-      "label": "reviewHistorySchema",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "reviewhistoryschema",
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L3"
-    },
-    {
-      "id": "server_src_models_topic_testcaseschema",
-      "label": "testCaseSchema",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "testcaseschema",
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L27"
-    },
-    {
-      "id": "server_src_models_topic_topic",
-      "label": "Topic",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "topic",
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L112"
-    },
-    {
-      "id": "server_src_models_topic_topicschema",
-      "label": "topicSchema",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "topicschema",
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L61"
-    },
-    {
-      "id": "server_src_scripts_seed",
-      "label": "seed.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "seed.js",
-      "source_file": "server/src/scripts/seed.js",
+      "norm_label": "codingpractice.js",
+      "source_file": "server/src/routes/codingPractice.js",
       "source_location": "L1"
     },
     {
-      "id": "server_src_scripts_seed_seed_topics",
-      "label": "SEED_TOPICS",
+      "id": "server_src_routes_codingpractice_codingpracticerouter",
+      "label": "codingPracticeRouter",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
-      "norm_label": "seed_topics",
-      "source_file": "server/src/scripts/seed.js",
+      "norm_label": "codingpracticerouter",
+      "source_file": "server/src/routes/codingPractice.js",
       "source_location": "L8"
+    },
+    {
+      "id": "server_src_routes_health",
+      "label": "health.js",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "health.js",
+      "source_file": "server/src/routes/health.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_routes_health_healthrouter",
+      "label": "healthRouter",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "healthrouter",
+      "source_file": "server/src/routes/health.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "server_src_routes_topics",
+      "label": "topics.js",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "topics.js",
+      "source_file": "server/src/routes/topics.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_routes_topics_topicsrouter",
+      "label": "topicsRouter",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "topicsrouter",
+      "source_file": "server/src/routes/topics.js",
+      "source_location": "L5"
     },
     {
       "id": "server_src_server",
       "label": "server.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "server.js",
       "source_file": "server/src/server.js",
@@ -1093,7 +1021,7 @@
       "label": "codingPractice.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "codingpractice.test.js",
       "source_file": "server/tests/codingPractice.test.js",
@@ -1104,7 +1032,7 @@
       "label": "dashboard.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "dashboard.test.js",
       "source_file": "server/tests/dashboard.test.js",
@@ -1115,7 +1043,7 @@
       "label": "health.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "health.test.js",
       "source_file": "server/tests/health.test.js",
@@ -1126,10 +1054,21 @@
       "label": "hint.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "hint.test.js",
       "source_file": "server/tests/hint.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_tests_mathtopic_test",
+      "label": "mathTopic.test.js",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "app.js",
+      "file_type": "code",
+      "norm_label": "mathtopic.test.js",
+      "source_file": "server/tests/mathTopic.test.js",
       "source_location": "L1"
     },
     {
@@ -1137,7 +1076,7 @@
       "label": "practice.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "practice.test.js",
       "source_file": "server/tests/practice.test.js",
@@ -1148,29 +1087,18 @@
       "label": "geminiCallHistory",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "geminicallhistory",
       "source_file": "server/tests/practice.test.js",
       "source_location": "L7"
     },
     {
-      "id": "server_tests_seed_test",
-      "label": "seed.test.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "code",
-      "norm_label": "seed.test.js",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L1"
-    },
-    {
       "id": "server_tests_softskillpractice_test",
       "label": "softSkillPractice.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "softskillpractice.test.js",
       "source_file": "server/tests/softSkillPractice.test.js",
@@ -1181,7 +1109,7 @@
       "label": "geminiSoftSkillCallHistory",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "geminisoftskillcallhistory",
       "source_file": "server/tests/softSkillPractice.test.js",
@@ -1192,20 +1120,20 @@
       "label": "topics.test.js",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "code",
       "norm_label": "topics.test.js",
       "source_file": "server/tests/topics.test.js",
       "source_location": "L1"
     },
     {
-      "id": "ref_dotenv",
-      "label": "dotenv",
+      "id": "ref_express",
+      "label": "express",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "concept",
-      "norm_label": "dotenv",
+      "norm_label": "express",
       "source_file": "server/package.json",
       "source_location": "L15"
     },
@@ -1214,44 +1142,33 @@
       "label": "mongodb-memory-server",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "concept",
       "norm_label": "mongodb-memory-server",
       "source_file": "server/package.json",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "ref_mongoose",
       "label": "mongoose",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "concept",
       "norm_label": "mongoose",
       "source_file": "server/package.json",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "ref_supertest",
       "label": "supertest",
       "_origin": "ast",
       "community": 12,
-      "community_name": "Topic.js",
+      "community_name": "app.js",
       "file_type": "concept",
       "norm_label": "supertest",
       "source_file": "server/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "ref_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "Topic.js",
-      "file_type": "concept",
-      "norm_label": "vitest",
-      "source_file": "client/package.json",
-      "source_location": "L25"
+      "source_location": "L20"
     },
     {
       "id": "package",
@@ -1284,7 +1201,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "package_devdependencies_concurrently",
@@ -1295,7 +1212,7 @@
       "file_type": "code",
       "norm_label": "concurrently",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L23"
     },
     {
       "id": "package_devdependencies_playwright_test",
@@ -1306,7 +1223,7 @@
       "file_type": "code",
       "norm_label": "@playwright/test",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L22"
     },
     {
       "id": "package_name",
@@ -1375,17 +1292,6 @@
       "source_location": "L12"
     },
     {
-      "id": "package_scripts_seed",
-      "label": "seed",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "seed",
-      "source_file": "package.json",
-      "source_location": "L15"
-    },
-    {
       "id": "package_scripts_test",
       "label": "test",
       "_origin": "ast",
@@ -1394,7 +1300,7 @@
       "file_type": "code",
       "norm_label": "test",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L17"
     },
     {
       "id": "package_scripts_test_all",
@@ -1405,7 +1311,7 @@
       "file_type": "code",
       "norm_label": "test:all",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "package_scripts_test_client",
@@ -1416,7 +1322,7 @@
       "file_type": "code",
       "norm_label": "test:client",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "package_scripts_test_e2e",
@@ -1427,7 +1333,7 @@
       "file_type": "code",
       "norm_label": "test:e2e",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L18"
     },
     {
       "id": "package_scripts_test_server",
@@ -1438,7 +1344,7 @@
       "file_type": "code",
       "norm_label": "test:server",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "package_type",
@@ -1581,7 +1487,7 @@
       "file_type": "concept",
       "norm_label": "concurrently",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L23"
     },
     {
       "id": "ref_playwright_test",
@@ -1592,7 +1498,7 @@
       "file_type": "concept",
       "norm_label": "@playwright/test",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L22"
     },
     {
       "id": "docs_user_guide",
@@ -2358,7 +2264,7 @@
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "server/package.json",
-      "source_location": "L12"
+      "source_location": "L11"
     },
     {
       "id": "server_package_dependencies_cors",
@@ -2369,7 +2275,7 @@
       "file_type": "code",
       "norm_label": "cors",
       "source_file": "server/package.json",
-      "source_location": "L14"
+      "source_location": "L13"
     },
     {
       "id": "server_package_dependencies_dotenv",
@@ -2380,7 +2286,7 @@
       "file_type": "code",
       "norm_label": "dotenv",
       "source_file": "server/package.json",
-      "source_location": "L15"
+      "source_location": "L14"
     },
     {
       "id": "server_package_dependencies_express",
@@ -2391,7 +2297,7 @@
       "file_type": "code",
       "norm_label": "express",
       "source_file": "server/package.json",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "server_package_dependencies_google_genai",
@@ -2402,7 +2308,7 @@
       "file_type": "code",
       "norm_label": "@google/genai",
       "source_file": "server/package.json",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "server_package_dependencies_mongoose",
@@ -2413,7 +2319,7 @@
       "file_type": "code",
       "norm_label": "mongoose",
       "source_file": "server/package.json",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "server_package_devdependencies",
@@ -2424,7 +2330,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "server/package.json",
-      "source_location": "L19"
+      "source_location": "L18"
     },
     {
       "id": "server_package_devdependencies_mongodb_memory_server",
@@ -2435,7 +2341,7 @@
       "file_type": "code",
       "norm_label": "mongodb-memory-server",
       "source_file": "server/package.json",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "server_package_devdependencies_supertest",
@@ -2446,7 +2352,7 @@
       "file_type": "code",
       "norm_label": "supertest",
       "source_file": "server/package.json",
-      "source_location": "L21"
+      "source_location": "L20"
     },
     {
       "id": "server_package_devdependencies_vitest",
@@ -2457,7 +2363,7 @@
       "file_type": "code",
       "norm_label": "vitest",
       "source_file": "server/package.json",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "server_package_name",
@@ -2504,17 +2410,6 @@
       "source_location": "L7"
     },
     {
-      "id": "server_package_scripts_seed",
-      "label": "seed",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "seed",
-      "source_file": "server/package.json",
-      "source_location": "L9"
-    },
-    {
       "id": "server_package_scripts_start",
       "label": "start",
       "_origin": "ast",
@@ -2534,7 +2429,7 @@
       "file_type": "code",
       "norm_label": "test",
       "source_file": "server/package.json",
-      "source_location": "L10"
+      "source_location": "L9"
     },
     {
       "id": "server_package_type",
@@ -2567,6 +2462,17 @@
       "file_type": "concept",
       "norm_label": "cors",
       "source_file": "server/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "server/package.json",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "server/package.json",
       "source_location": "L14"
     },
     {
@@ -2578,7 +2484,7 @@
       "file_type": "concept",
       "norm_label": "@google/genai",
       "source_file": "server/package.json",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "server_package_json_ref_vitest",
@@ -2589,7 +2495,7 @@
       "file_type": "concept",
       "norm_label": "vitest",
       "source_file": "server/package.json",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "client_src_app",
@@ -2600,17 +2506,6 @@
       "file_type": "code",
       "norm_label": "app.jsx",
       "source_file": "client/src/App.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_src_components_codingplayground",
-      "label": "CodingPlayground.jsx",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "codingplayground.jsx",
-      "source_file": "client/src/components/CodingPlayground.jsx",
       "source_location": "L1"
     },
     {
@@ -2658,94 +2553,6 @@
       "source_location": "L22"
     },
     {
-      "id": "client_src_components_hardskilltrainer",
-      "label": "HardSkillTrainer.jsx",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "hardskilltrainer.jsx",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_src_components_hardskilltrainer_level_active",
-      "label": "LEVEL_ACTIVE",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_active",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L27"
-    },
-    {
-      "id": "client_src_components_hardskilltrainer_level_colors",
-      "label": "LEVEL_COLORS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_colors",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L22"
-    },
-    {
-      "id": "client_src_components_hardskilltrainer_level_labels",
-      "label": "LEVEL_LABELS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_labels",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L21"
-    },
-    {
-      "id": "client_src_components_softskilltrainer",
-      "label": "SoftSkillTrainer.jsx",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "softskilltrainer.jsx",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_src_components_softskilltrainer_level_active",
-      "label": "LEVEL_ACTIVE",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_active",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L31"
-    },
-    {
-      "id": "client_src_components_softskilltrainer_level_colors",
-      "label": "LEVEL_COLORS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_colors",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L26"
-    },
-    {
-      "id": "client_src_components_softskilltrainer_level_labels",
-      "label": "LEVEL_LABELS",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "level_labels",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L25"
-    },
-    {
       "id": "client_src_hooks_usevoiceinteraction",
       "label": "useVoiceInteraction.js",
       "_origin": "ast",
@@ -2768,28 +2575,6 @@
       "source_location": "L1"
     },
     {
-      "id": "client_src_utils_monacosetup",
-      "label": "monacoSetup.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "monacosetup.js",
-      "source_file": "client/src/utils/monacoSetup.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_controllers_dashboardcontroller",
-      "label": "dashboardController.js",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "code",
-      "norm_label": "dashboardcontroller.js",
-      "source_file": "server/src/controllers/dashboardController.js",
-      "source_location": "L1"
-    },
-    {
       "id": "ref_lucide_react",
       "label": "lucide-react",
       "_origin": "ast",
@@ -2799,28 +2584,6 @@
       "norm_label": "lucide-react",
       "source_file": "client/package.json",
       "source_location": "L14"
-    },
-    {
-      "id": "ref_monaco_editor",
-      "label": "monaco-editor",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "concept",
-      "norm_label": "monaco-editor",
-      "source_file": "client/package.json",
-      "source_location": "L15"
-    },
-    {
-      "id": "ref_monaco_editor_react",
-      "label": "@monaco-editor/react",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "concept",
-      "norm_label": "@monaco-editor/react",
-      "source_file": "client/package.json",
-      "source_location": "L13"
     },
     {
       "id": "ref_react",
@@ -2845,114 +2608,6 @@
       "source_location": "L17"
     },
     {
-      "id": "antigravity_graph_us_04_m\u00f3dulo_soft_skills_sparring_por_voz_web_speech_api_gemini",
-      "label": "[US-04] M\u00f3dulo Soft Skills: Sparring por Voz (Web Speech API + Gemini)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[us-04] modulo soft skills: sparring por voz (web speech api + gemini)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L44"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice",
-      "label": "US-04-soft-skills-voice.md",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "us-04-soft-skills-voice.md",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_1_descripci\u00f3n",
-      "label": "1. Descripci\u00f3n",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. descripcion",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L8"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_2_criterios_de_aceptaci\u00f3n_ac",
-      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. criterios de aceptacion (ac)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L12"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L25"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_4_evidencia_de_pruebas_completado_por_verify_user_story",
-      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L41"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_tests_end_to_end_frontend_playwright",
-      "label": "Tests End-to-End Frontend (Playwright)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests end-to-end frontend (playwright)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L69"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_tests_unitarios_e_integraci\u00f3n_backend_vitest_supertest",
-      "label": "Tests Unitarios e Integraci\u00f3n Backend (Vitest / Supertest)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests unitarios e integracion backend (vitest / supertest)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L43"
-    },
-    {
-      "id": "tickets_us_04_soft_skills_voice_us_04_m\u00f3dulo_soft_skills_sparring_por_voz_web_speech_api_gemini",
-      "label": "[US-04] M\u00f3dulo Soft Skills: Sparring por Voz (Web Speech API + Gemini)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[us-04] modulo soft skills: sparring por voz (web speech api + gemini)",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L1"
-    },
-    {
       "id": "tickets_us_07_progression_levels_and_scaffolding_3_subgrafo_afectado_identificado_con_graphify",
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
@@ -2963,18 +2618,6 @@
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
       "source_file": "tickets/US-07-progression-levels-and-scaffolding.md",
       "source_location": "L22"
-    },
-    {
-      "id": "tickets_us_08_multilevel_catalog_and_ui_sync_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 18,
-      "community_name": "App.jsx",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/US-08-multilevel-catalog-and-ui-sync.md",
-      "source_location": "L29"
     },
     {
       "id": "docs_architecture",
@@ -3349,6 +2992,17 @@
       "source_location": "L1"
     },
     {
+      "id": "tailwindcss",
+      "label": "tailwindcss",
+      "_origin": "ast",
+      "community": 20,
+      "community_name": "tailwind.config.js",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "tailwindcss",
+      "source_file": "tailwindcss"
+    },
+    {
       "id": "client_tailwind_config",
       "label": "tailwind.config.js",
       "_origin": "ast",
@@ -3671,11 +3325,44 @@
       "source_location": "L1"
     },
     {
+      "id": "server_src_controllers_dashboardcontroller",
+      "label": "dashboardController.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "dashboardController.js",
+      "file_type": "code",
+      "norm_label": "dashboardcontroller.js",
+      "source_file": "server/src/controllers/dashboardController.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_routes_dashboard",
+      "label": "dashboard.js",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "dashboardController.js",
+      "file_type": "code",
+      "norm_label": "dashboard.js",
+      "source_file": "server/src/routes/dashboard.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_routes_dashboard_dashboardrouter",
+      "label": "dashboardRouter",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "dashboardController.js",
+      "file_type": "code",
+      "norm_label": "dashboardrouter",
+      "source_file": "server/src/routes/dashboard.js",
+      "source_location": "L4"
+    },
+    {
       "id": "tickets_us_08_multilevel_catalog_and_ui_sync",
       "label": "US-08-multilevel-catalog-and-ui-sync.md",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "us-08-multilevel-catalog-and-ui-sync.md",
@@ -3687,7 +3374,7 @@
       "label": "1. Descripci\u00f3n",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. descripcion",
@@ -3699,7 +3386,7 @@
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
@@ -3707,11 +3394,23 @@
       "source_location": "L12"
     },
     {
+      "id": "tickets_us_08_multilevel_catalog_and_ui_sync_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "dashboardController.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/US-08-multilevel-catalog-and-ui-sync.md",
+      "source_location": "L29"
+    },
+    {
       "id": "tickets_us_08_multilevel_catalog_and_ui_sync_4_evidencia_de_pruebas_completado_por_verify_user_story",
       "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
@@ -3723,7 +3422,7 @@
       "label": "5. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. commit de cierre en dev",
@@ -3735,7 +3434,7 @@
       "label": "Tests E2E (Playwright)",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright)",
@@ -3747,7 +3446,7 @@
       "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests unitarios e integracion (vitest / supertest)",
@@ -3759,7 +3458,7 @@
       "label": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
       "_origin": "ast",
       "community": 25,
-      "community_name": "[US-08] Cat\u00e1logo Completo Multinivel (Junior/Mid/Senior) y Sincronizaci\u00f3n UI",
+      "community_name": "dashboardController.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "[us-08] catalogo completo multinivel (junior/mid/senior) y sincronizacion ui",
@@ -3767,88 +3466,11 @@
       "source_location": "L1"
     },
     {
-      "id": "server_src_app",
-      "label": "app.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "app.js",
-      "source_file": "server/src/app.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_routes_codingpractice",
-      "label": "codingPractice.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "codingpractice.js",
-      "source_file": "server/src/routes/codingPractice.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_routes_codingpractice_codingpracticerouter",
-      "label": "codingPracticeRouter",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "codingpracticerouter",
-      "source_file": "server/src/routes/codingPractice.js",
-      "source_location": "L8"
-    },
-    {
-      "id": "server_src_routes_dashboard",
-      "label": "dashboard.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "dashboard.js",
-      "source_file": "server/src/routes/dashboard.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_routes_dashboard_dashboardrouter",
-      "label": "dashboardRouter",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "dashboardrouter",
-      "source_file": "server/src/routes/dashboard.js",
-      "source_location": "L4"
-    },
-    {
-      "id": "server_src_routes_health",
-      "label": "health.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "health.js",
-      "source_file": "server/src/routes/health.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_routes_health_healthrouter",
-      "label": "healthRouter",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "healthrouter",
-      "source_file": "server/src/routes/health.js",
-      "source_location": "L4"
-    },
-    {
       "id": "server_src_routes_practice",
       "label": "practice.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "practice.js",
       "source_file": "server/src/routes/practice.js",
@@ -3859,7 +3481,7 @@
       "label": "practiceRouter",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "practicerouter",
       "source_file": "server/src/routes/practice.js",
@@ -3870,7 +3492,7 @@
       "label": "softSkillPractice.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "softskillpractice.js",
       "source_file": "server/src/routes/softSkillPractice.js",
@@ -3881,40 +3503,18 @@
       "label": "softSkillPracticeRouter",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "softskillpracticerouter",
       "source_file": "server/src/routes/softSkillPractice.js",
       "source_location": "L10"
     },
     {
-      "id": "server_src_routes_topics",
-      "label": "topics.js",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "topics.js",
-      "source_file": "server/src/routes/topics.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_src_routes_topics_topicsrouter",
-      "label": "topicsRouter",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "code",
-      "norm_label": "topicsrouter",
-      "source_file": "server/src/routes/topics.js",
-      "source_location": "L5"
-    },
-    {
       "id": "server_src_services_geminiservice",
       "label": "geminiService.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "geminiservice.js",
       "source_file": "server/src/services/geminiService.js",
@@ -3925,7 +3525,7 @@
       "label": "softSkillSparringService.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "softskillsparringservice.js",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -3936,7 +3536,7 @@
       "label": "SPARRING_ROLES",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "sparring_roles",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -3947,7 +3547,7 @@
       "label": "SPARRING_ROLES_BY_LEVEL",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "sparring_roles_by_level",
       "source_file": "server/src/services/softSkillSparringService.js",
@@ -3958,7 +3558,7 @@
       "label": "srsCalculator.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "srscalculator.js",
       "source_file": "server/src/utils/srsCalculator.js",
@@ -3969,29 +3569,18 @@
       "label": "srsCalculator.test.js",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "code",
       "norm_label": "srscalculator.test.js",
       "source_file": "server/tests/srsCalculator.test.js",
       "source_location": "L1"
     },
     {
-      "id": "ref_express",
-      "label": "express",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "app.js",
-      "file_type": "concept",
-      "norm_label": "express",
-      "source_file": "server/package.json",
-      "source_location": "L16"
-    },
-    {
       "id": "tickets_us_09_stratified_prompts_and_dynamic_badges_3_subgrafo_afectado_identificado_con_graphify",
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
       "community": 26,
-      "community_name": "app.js",
+      "community_name": "practice.js",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
@@ -4584,6 +4173,248 @@
       "source_location": "L341"
     },
     {
+      "id": "client_package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "client/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "client_package_devdependencies_autoprefixer",
+      "label": "autoprefixer",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "autoprefixer",
+      "source_file": "client/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "client_package_devdependencies_postcss",
+      "label": "postcss",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "postcss",
+      "source_file": "client/package.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "client_package_devdependencies_tailwindcss",
+      "label": "tailwindcss",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "tailwindcss",
+      "source_file": "client/package.json",
+      "source_location": "L23"
+    },
+    {
+      "id": "client_package_devdependencies_vite",
+      "label": "vite",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vite",
+      "source_file": "client/package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "client_package_devdependencies_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@vitejs/plugin-react",
+      "source_file": "client/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "client_package_devdependencies_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 31,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vitest",
+      "source_file": "client/package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "client_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "client/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "client_package_dependencies_lucide_react",
+      "label": "lucide-react",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "lucide-react",
+      "source_file": "client/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "client_package_dependencies_monaco_editor",
+      "label": "monaco-editor",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "monaco-editor",
+      "source_file": "client/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "client_package_dependencies_monaco_editor_react",
+      "label": "@monaco-editor/react",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "@monaco-editor/react",
+      "source_file": "client/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "client_package_dependencies_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "react",
+      "source_file": "client/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "client_package_dependencies_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "react-dom",
+      "source_file": "client/package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "client_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "client/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "client_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "client/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "client_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "client/package.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "client_package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "client/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "client_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "client/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "client_src_components_codingplayground",
+      "label": "CodingPlayground.jsx",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "CodingPlayground.jsx",
+      "file_type": "code",
+      "norm_label": "codingplayground.jsx",
+      "source_file": "client/src/components/CodingPlayground.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_utils_monacosetup",
+      "label": "monacoSetup.js",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "CodingPlayground.jsx",
+      "file_type": "code",
+      "norm_label": "monacosetup.js",
+      "source_file": "client/src/utils/monacoSetup.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_monaco_editor",
+      "label": "monaco-editor",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "CodingPlayground.jsx",
+      "file_type": "concept",
+      "norm_label": "monaco-editor",
+      "source_file": "client/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "ref_monaco_editor_react",
+      "label": "@monaco-editor/react",
+      "_origin": "ast",
+      "community": 34,
+      "community_name": "CodingPlayground.jsx",
+      "file_type": "concept",
+      "norm_label": "@monaco-editor/react",
+      "source_file": "client/package.json",
+      "source_location": "L13"
+    },
+    {
       "id": "antigravity_skills_document_user_guide",
       "label": "document-user-guide.md",
       "_origin": "ast",
@@ -4842,6 +4673,50 @@
       "norm_label": "client_src_index",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "ref_vitest",
+      "label": "ref_vitest",
+      "community": 12,
+      "community_name": "app.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_vitest",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "server_src_models_topic_topic",
+      "label": "server_src_models_topic_topic",
+      "community": 12,
+      "community_name": "app.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "server_src_models_topic_topic",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_components_hardskilltrainer",
+      "label": "ref_components_hardskilltrainer",
+      "community": 18,
+      "community_name": "App.jsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_components_hardskilltrainer",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_components_softskilltrainer",
+      "label": "ref_components_softskilltrainer",
+      "community": 18,
+      "community_name": "App.jsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_components_softskilltrainer",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
@@ -4855,30 +4730,6 @@
       "context": "call",
       "source_file": "client/src/App.jsx",
       "source_location": "L115",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_app_app",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "client/src/App.jsx",
-      "source_location": "L118",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_app_app",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "client/src/App.jsx",
-      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -4903,18 +4754,6 @@
       "context": "call",
       "source_file": "client/src/components/CodingPlayground.jsx",
       "source_location": "L91",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer_softskilltrainer",
-      "target": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -4987,42 +4826,6 @@
       "context": "call",
       "source_file": "server/src/controllers/dashboardController.js",
       "source_location": "L156",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed_runstandaloneseed",
-      "target": "server_src_db_connectdb",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L767",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed_runstandaloneseed",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L770",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed_runstandaloneseed",
-      "target": "server_src_db_disconnectdb",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L777",
       "weight": 1.0
     },
     {
@@ -5107,6 +4910,18 @@
       "context": "call",
       "source_file": "server/src/services/softSkillSparringService.js",
       "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_models_topic",
+      "target": "server_src_models_mathtopic",
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "server/src/models/Topic.js",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5231,7 +5046,7 @@
     },
     {
       "source": "client_package",
-      "target": "ref_vitest",
+      "target": "client_package_json_ref_vitest",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5251,30 +5066,6 @@
       "context": "import",
       "source_file": "client/src/App.jsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_app",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/App.jsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_app",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/App.jsx",
-      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -5299,18 +5090,6 @@
       "context": "import",
       "source_file": "client/src/components/CodingPlayground.jsx",
       "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -5370,7 +5149,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -5382,7 +5161,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -5394,7 +5173,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -5406,7 +5185,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -5418,7 +5197,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -5430,7 +5209,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -5442,7 +5221,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -5454,7 +5233,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -5466,7 +5245,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -5478,7 +5257,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -5555,6 +5334,18 @@
     },
     {
       "source": "server_src_controllers_dashboardcontroller",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/controllers/dashboardController.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_controllers_dashboardcontroller",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -5575,6 +5366,18 @@
       "context": "import",
       "source_file": "server/src/controllers/dashboardController.js",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_routes_codingpractice",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/routes/codingPractice.js",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -5623,6 +5426,18 @@
       "context": "import",
       "source_file": "server/src/routes/codingPractice.js",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_routes_practice",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/routes/practice.js",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5699,6 +5514,18 @@
     },
     {
       "source": "server_src_routes_softskillpractice",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/routes/softSkillPractice.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_routes_softskillpractice",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -5759,6 +5586,18 @@
     },
     {
       "source": "server_src_routes_topics",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/routes/topics.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_routes_topics",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -5779,42 +5618,6 @@
       "context": "import",
       "source_file": "server/src/routes/topics.js",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_models_topic_topic",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_db_connectdb",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_db_disconnectdb",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5891,6 +5694,18 @@
     },
     {
       "source": "server_tests_codingpractice_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/codingPractice.test.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_codingpractice_test",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -5947,6 +5762,18 @@
       "context": "import",
       "source_file": "server/tests/dashboard.test.js",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_dashboard_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/dashboard.test.js",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -6023,6 +5850,18 @@
     },
     {
       "source": "server_tests_hint_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/hint.test.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_hint_test",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -6031,6 +5870,42 @@
       "context": "import",
       "source_file": "server/tests/hint.test.js",
       "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "server_src_db_connectdb",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "server_src_db_disconnectdb",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "server_src_models_mathtopic_mathtopic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6071,6 +5946,18 @@
     },
     {
       "source": "server_tests_practice_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/practice.test.js",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_practice_test",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -6091,66 +5978,6 @@
       "context": "import",
       "source_file": "server/tests/practice.test.js",
       "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_db_connectdb",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_db_disconnectdb",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_models_topic_topic",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_scripts_seed_seed_topics",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6187,6 +6014,18 @@
       "context": "import",
       "source_file": "server/tests/softSkillPractice.test.js",
       "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_softskillpractice_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/softSkillPractice.test.js",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -6263,6 +6102,18 @@
     },
     {
       "source": "server_tests_topics_test",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/topics.test.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_topics_test",
       "target": "server_src_models_topic_topic",
       "relation": "imports",
       "_origin": "ast",
@@ -6311,7 +6162,7 @@
     },
     {
       "source": "client_src_app",
-      "target": "client_src_components_hardskilltrainer",
+      "target": "ref_components_hardskilltrainer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6323,7 +6174,7 @@
     },
     {
       "source": "client_src_app",
-      "target": "client_src_components_softskilltrainer",
+      "target": "ref_components_softskilltrainer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6427,66 +6278,6 @@
       "context": "import",
       "source_file": "client/src/components/Dashboard.jsx",
       "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "ref_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "ref_lucide_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "ref_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "ref_lucide_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_hooks_usevoiceinteraction",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -6778,6 +6569,18 @@
       "weight": 1.0
     },
     {
+      "source": "server_src_models_mathtopic",
+      "target": "ref_mongoose",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "server_src_models_sessionlog",
       "target": "ref_mongoose",
       "relation": "imports_from",
@@ -6786,18 +6589,6 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "server/src/models/SessionLog.js",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "ref_mongoose",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/models/Topic.js",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -7075,54 +6866,6 @@
       "context": "import",
       "source_file": "server/src/routes/topics.js",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "ref_dotenv",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "ref_mongoose",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_models_topic",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_db",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -7546,6 +7289,66 @@
       "weight": 1.0
     },
     {
+      "source": "server_tests_mathtopic_test",
+      "target": "ref_vitest",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "ref_mongodb_memory_server",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "ref_mongoose",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "server_src_db",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_mathtopic_test",
+      "target": "server_src_models_mathtopic",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/tests/mathTopic.test.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "server_tests_practice_test",
       "target": "ref_vitest",
       "relation": "imports_from",
@@ -7639,78 +7442,6 @@
       "context": "import",
       "source_file": "server/tests/practice.test.js",
       "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "ref_vitest",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "ref_mongodb_memory_server",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "ref_mongoose",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_db",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_models_topic",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "server_tests_seed_test",
-      "target": "server_src_scripts_seed",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "server/tests/seed.test.js",
-      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -8718,94 +8449,6 @@
       "weight": 1.0
     },
     {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "client_src_components_hardskilltrainer_level_labels",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "client_src_components_hardskilltrainer_level_colors",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "client_src_components_hardskilltrainer_level_active",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_hardskilltrainer",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/HardSkillTrainer.jsx",
-      "source_location": "L33",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_components_softskilltrainer_level_labels",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_components_softskilltrainer_level_colors",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_components_softskilltrainer_level_active",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "client_src_components_softskilltrainer",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "client/src/components/SoftSkillTrainer.jsx",
-      "source_location": "L37",
-      "weight": 1.0
-    },
-    {
       "source": "client_src_hooks_usevoiceinteraction",
       "target": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
       "relation": "contains",
@@ -9715,7 +9358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -9781,7 +9424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -9792,7 +9435,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -9830,7 +9473,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_seed",
+      "target": "package_scripts_test_server",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9841,7 +9484,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_test_server",
+      "target": "package_scripts_test_client",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9852,7 +9495,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_test_client",
+      "target": "package_scripts_test",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9863,7 +9506,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_test",
+      "target": "package_scripts_test_e2e",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9874,24 +9517,13 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_test_e2e",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "package_scripts",
       "target": "package_scripts_test_all",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -9902,7 +9534,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -9913,7 +9545,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -9979,7 +9611,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -9990,7 +9622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -10001,7 +9633,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -10012,7 +9644,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -10023,7 +9655,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -10034,7 +9666,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -10045,7 +9677,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -10056,18 +9688,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/package.json",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "server_package_scripts",
-      "target": "server_package_scripts_test",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/package.json",
-      "source_location": "L10",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -10094,7 +9715,7 @@
     },
     {
       "source": "server_package_scripts",
-      "target": "server_package_scripts_seed",
+      "target": "server_package_scripts_test",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -10181,6 +9802,50 @@
       "weight": 1.0
     },
     {
+      "source": "server_src_models_mathtopic",
+      "target": "server_src_models_mathtopic_mathtopic",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_models_mathtopic",
+      "target": "server_src_models_mathtopic_topic",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_models_mathtopic",
+      "target": "server_src_models_mathtopic_reviewhistoryschema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "server_src_models_mathtopic",
+      "target": "server_src_models_mathtopic_mathtopicschema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/src/models/MathTopic.js",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
       "source": "server_src_models_sessionlog",
       "target": "server_src_models_sessionlog_sessionlogschema",
       "relation": "contains",
@@ -10200,61 +9865,6 @@
       "confidence_score": 1.0,
       "source_file": "server/src/models/SessionLog.js",
       "source_location": "L71",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "server_src_models_topic_topic",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L112",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "server_src_models_topic_testcaseschema",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "server_src_models_topic_reviewhistoryschema",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "server_src_models_topic_codingchallengeschema",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L39",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_models_topic",
-      "target": "server_src_models_topic_topicschema",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/models/Topic.js",
-      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -10321,39 +9931,6 @@
       "confidence_score": 1.0,
       "source_file": "server/src/routes/topics.js",
       "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L730",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_scripts_seed_runstandaloneseed",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L763",
-      "weight": 1.0
-    },
-    {
-      "source": "server_src_scripts_seed",
-      "target": "server_src_scripts_seed_seed_topics",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/src/scripts/seed.js",
-      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -11543,6 +11120,15 @@
       "source_file": "client/src/utils/codeRunner.js"
     },
     {
+      "source": "client_tailwind_config",
+      "target": "tailwindcss",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "client/tailwind.config.js"
+    },
+    {
       "source": "client_src_utils_coderunner_executetests",
       "target": "client_src_utils_coderunner_serializevalue",
       "relation": "indirect_call",
@@ -11588,102 +11174,6 @@
       "context": "Dashboard()",
       "source_file": "tickets/US-07-progression-levels-and-scaffolding.md",
       "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_03_hard_skills_module_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "HardSkillTrainer",
-      "source_file": "tickets/US-03-hard-skills-module.md",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_07_progression_levels_and_scaffolding_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "HardSkillTrainer()",
-      "source_file": "tickets/US-07-progression-levels-and-scaffolding.md",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_08_multilevel_catalog_and_ui_sync_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "HardSkillTrainer()",
-      "source_file": "tickets/US-08-multilevel-catalog-and-ui-sync.md",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_09_stratified_prompts_and_dynamic_badges_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "HardSkillTrainer()",
-      "source_file": "tickets/US-09-stratified-prompts-and-dynamic-badges.md",
-      "source_location": "L36",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_10_coding_playground_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_hardskilltrainer_hardskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "HardSkillTrainer()",
-      "source_file": "tickets/US-10-coding-playground.md",
-      "source_location": "L388",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_04_soft_skills_voice_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "SoftSkillTrainer",
-      "source_file": "tickets/US-04-soft-skills-voice.md",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_08_multilevel_catalog_and_ui_sync_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "SoftSkillTrainer()",
-      "source_file": "tickets/US-08-multilevel-catalog-and-ui-sync.md",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_09_stratified_prompts_and_dynamic_badges_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "client_src_components_softskilltrainer_softskilltrainer",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "SoftSkillTrainer()",
-      "source_file": "tickets/US-09-stratified-prompts-and-dynamic-badges.md",
-      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -11927,42 +11417,6 @@
       "weight": 1.0
     },
     {
-      "source": "tickets_us_08_multilevel_catalog_and_ui_sync_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "seedTopics()",
-      "source_file": "tickets/US-08-multilevel-catalog-and-ui-sync.md",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_10_coding_playground_3_subgrafo_afectado_identificado_con_graphify",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "seedTopics()",
-      "source_file": "tickets/US-10-coding-playground.md",
-      "source_location": "L388",
-      "weight": 1.0
-    },
-    {
-      "source": "tickets_us_10_coding_playground_x_ac_8_seeding_de_6_retos_server_src_scripts_seed_js",
-      "target": "server_src_scripts_seed_seedtopics",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "context": "seedTopics()",
-      "source_file": "tickets/US-10-coding-playground.md",
-      "source_location": "L314",
-      "weight": 1.0
-    },
-    {
       "source": "tickets_us_09_stratified_prompts_and_dynamic_badges_3_subgrafo_afectado_identificado_con_graphify",
       "target": "server_src_services_softskillsparringservice_startsoftskillsparring",
       "relation": "references",
@@ -12000,5 +11454,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9448d19eee7d34fe013124982158851c1e157666"
+  "built_at_commit": "553c821c3abbb7cd456e477035c6cf0f789c161d"
 }

@@ -1,17 +1,13 @@
-# Heartbeat del Proyecto
+# Heartbeat del Proyecto: MathCoach Sparring
 
-- **Última actualización:** 2026-10-03
-- **Historia activa:** US-10
-- **Rama actual:** feature/US-10-coding-playground
+- **Última actualización:** 2026-10-09
+- **Historia activa:** MATH-US-03
+- **Rama actual:** feature/MATH-US-03-vision-uploader
 - **Estado de Tickets:**
-  - [x] US-01: Scaffolding, Playwright & Mongo
-  - [x] US-02: Schemas Mongo & Motor SRS
-  - [x] US-03: Módulo Hard Skills
-  - [x] US-04: Módulo Soft Skills (Voz)
-  - [x] US-05: Dashboard & Cola Diaria
-  - [x] US-06: Seed Senior & E2E Final
-  - [x] US-07: Niveles de Progresión y Andamiaje Pedagógico (Done)
-  - [x] US-08: Catálogo Completo Multinivel y Sincronización UI (Done)
-  - [x] US-09: Prompts de IA Estratificados por Nivel y UI Badges Dinámicos (Done)
-  - [ ] US-10: Coding Playground Interactivo (En Progreso)
+  - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
+  - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)
+  - [ ] MATH-US-03: UI de Cero Fricción para Active Recall (MathVisionUploader.jsx) (En Progreso)
+  - [ ] MATH-US-04: Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Actualización SRS (Backlog)
+  - [ ] MATH-US-05: Dashboard Matemático & Cola Diaria de Ejercicios por Nivel (Backlog)
+  - [ ] MATH-US-06: Seed de Ejercicios Multinivel (CONAMAT / Stewart / Spivak) & E2E Final (Backlog)
 - **Bloqueos:** Ninguno

@@ -11,7 +11,7 @@
   "9": "workflows/graphify.md",
   "10": "heartbeat.md",
   "11": "client/package.json",
-  "12": "Topic.js",
+  "12": "app.js",
   "13": "package.json",
   "14": "Guía de Usuario: DevCoach Sparring",
   "15": "[US-01] Scaffolding, Base Monorepo y Harness de Tests (Vitest + Playwright)",
@@ -24,10 +24,14 @@
   "22": "[US-03] Módulo Hard Skills: Active Recall Teórico y Práctico con IA",
   "23": "[US-02] Schemas Mongoose y Motor Algorítmico SRS (SM-2 Adaptado)",
   "24": "[US-05] Dashboard Operativo y Acoplamiento de Habilidades (Hard + Soft Skills)",
-  "25": "[US-08] Catálogo Completo Multinivel (Junior/Mid/Senior) y Sincronización UI",
-  "26": "app.js",
+  "25": "dashboardController.js",
+  "26": "practice.js",
   "27": "[US-09] Prompts de IA Estratificados por Nivel y UI Badges Dinámicos",
   "28": "[US-06] Seed Senior (30 Temas Clave) y Suite E2E Final",
   "29": "[US-07] Niveles de Progresión y Andamiaje Pedagógico (Scaffolding)",
-  "30": "2. Criterios de Aceptación (AC)"
+  "30": "2. Criterios de Aceptación (AC)",
+  "31": "devDependencies",
+  "32": "dependencies",
+  "33": "scripts",
+  "34": "CodingPlayground.jsx"
 }
