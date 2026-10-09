@@ -1,0 +1,21 @@
+# ──────────────────────────────────────────────
+# Graphify – archivos generados automáticamente
+# Estos archivos se regeneran por los hooks pre/post-commit y post-checkout.
+# Usar merge=ours evita conflictos al hacer merge entre ramas porque
+# graphify siempre reconstruye el grafo tras el merge.
+# ──────────────────────────────────────────────
+
+# Grafo principal (driver personalizado de graphify)
+graphify-out/graph.json        merge=graphify
+
+# Archivos HTML/JSON de visualización y manifesto → siempre usar la versión destino
+graphify-out/graph.html        merge=ours
+graphify-out/manifest.json     merge=ours
+
+# Cache de estadísticas y snapshots fechados → completamente regenerables
+graphify-out/cache/**          merge=ours
+graphify-out/2[0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/**  merge=ours
+
+# Labels y root marker
+graphify-out/.graphify_labels.json      merge=ours
+graphify-out/.graphify_labels.json.sig  merge=ours

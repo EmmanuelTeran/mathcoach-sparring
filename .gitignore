@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+coverage/
+test-results/
+playwright-report/
+.playwright/
+blob-report/
+
+# Graphify – cache AST regenerable automáticamente
+# graph.json, GRAPH_REPORT.md, graph.html sí se versiona (útil para el equipo)
+# pero el cache interno es ruido puro en el historial de git
+graphify-out/cache/
