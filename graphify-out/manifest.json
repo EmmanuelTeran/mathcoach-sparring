@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791574818.4587665,
-    "seen": 1791576494.299351,
-    "ast_hash": "4d77df711b95c6b4158cad20cc4bba4f",
+    "mtime": 1791577642.4730504,
+    "seen": 1791577651.520046,
+    "ast_hash": "a3e82abe37e54b5277991b9daf21270b",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791574818.4547665,
-    "seen": 1791576494.2993467,
-    "ast_hash": "7ae396fc961ffa7531fd4ec36724354b",
+    "mtime": 1791577613.2849967,
+    "seen": 1791577651.5200446,
+    "ast_hash": "1099a2969dada81f8d6b3819d857d020",
     "semantic_hash": ""
   },
   "server/src/models/Topic.js": {

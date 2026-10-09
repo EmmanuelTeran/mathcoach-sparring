@@ -444,6 +444,69 @@ Al pulsar **"🚀 Evaluar con IA"**, el fotograma se envía al backend evaluador
 4. **Actualización SRS (Spaced Repetition):** Reprogramación del ejercicio según el algoritmo SM-2 (ejemplo: *"Reprogramado para repaso en 6 días"*).
 5. **Continuar Práctica:** Pulsa **"Practicar Otro Problema"** para reiniciar el uploader con el siguiente ejercicio de tu cola diaria.
 
+---
+
+## 14. Flujo Detallado de Evaluación Multimodal: Qué Sucede tras "Capturar Ejercicio" (MATH-US-04)
+
+Esta sección explica paso a paso lo que experimentas como estudiante desde el momento en que tomas la fotografía de tu libreta hasta que el sistema determina cuándo debes volver a repasar el problema.
+
+### 14.1 La Experiencia del Estudiante tras el Clic en "Capturar Ejercicio" / "Tomar Foto"
+
+```text
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        FLUJO VISUAL DEL ESTUDIANTE EN LIBRETA                          │
+├──────────────────────────┬─────────────────────────────┬───────────────────────────────┤
+│ 1. Encuadre & Captura    │ 2. Inspección Visual de IA  │ 3. Calificación & Repaso SRS  │
+│ (📸 Tomar Foto)          │ (Escaneo de trazos & letra) │ (Veredicto y Próxima Fecha)   │
+├──────────────────────────┼─────────────────────────────┼───────────────────────────────┤
+│ • Se congela el fotograma│ • Gemini 1.5 Pro lee tu     │ • Badge 0 a 5 + Feedback      │
+│ • La cámara se apaga     │   letra y símbolos a mano   │ • Pista socrática para dudas  │
+│ • Eliges "Evaluar con IA"│ • Revisa paso a paso signos │ • El motor SM-2 reprograma    │
+│   o "Repetir Foto"       │   y despejes algebraicos    │   la fecha exacta de repaso   │
+└──────────────────────────┴─────────────────────────────┴───────────────────────────────┘
+```
+
+1. **Congelamiento Inmediato y Ahorro de Recursos:**
+   - En cuanto pulsas **"📸 Tomar Foto / Capturar"**, el stream de la cámara se detiene inmediatamente. Esto evita que tu dispositivo consuma batería innecesariamente o se caliente mientras revisas la imagen.
+   - La pantalla muestra una previsualización estática del fotograma. Si notas que la imagen quedó borrosa, fuera de foco o con sombras que tapan algún número, puedes hacer clic en **"🔄 Repetir Foto"** sin costo alguno.
+2. **Envío y Modo Escaneo Activo:**
+   - Al hacer clic en **"🚀 Evaluar con IA"**, el componente entra en el estado inmersivo **"Analizando con IA..."**.
+   - Verás una animación de barrido lumínico sobre tu libreta acompañada del mensaje: *"El profesor de IA está evaluando tus deducciones matemáticas..."*. Durante los siguientes segundos, el servidor y Gemini 1.5 Pro procesan tus trazos.
+
+### 14.2 Cómo la Inteligencia Artificial Analiza tu Letra Manuscrita
+
+El motor de visión multimodal de **Gemini 1.5 Pro** no realiza un simple reconocimiento OCR tradicional de texto; realiza un **análisis semántico y deductivo completo** adaptado al nivel del ejercicio:
+
+- **Lectura de Caligrafía y Notación Matemática:**
+  - El modelo interpreta tus números manuscritos, variables ($x, y, t$), fracciones, raíces cuadradas, integrales ($\int$), límites ($\lim$) y exponentes, distinguiendo con precisión trazos similares (por ejemplo, el número $1$ de la letra $l$, o la variable $z$ del número $2$).
+- **Auditoría Paso a Paso (Sin saltos injustificados):**
+  - La IA no se limita a mirar el resultado final en la esquina inferior. Revisa **cada renglón de tu cuaderno de arriba hacia abajo**:
+    1. *¿Copiaste bien el enunciado original?*
+    2. *¿Es correcto el primer despeje o factorización?*
+    3. *¿Hubo algún error al cambiar de signo al cruzar la igualdad o distribuir un paréntesis?*
+    4. *¿La simplificación es válida matemáticamente?*
+- **Criterio Pedagógico Estratificado:**
+  - **En Nivel 1 (CONAMAT - Álgebra y Aritmética):** Revisa con lupa la jerarquía de operaciones y la manipulación de signos. Si te equivocaste en un signo al final pero todo el procedimiento fue impecable, no te califica con cero: te otorga 3 o 4 y te señala exactamente el renglón del fallo.
+  - **En Nivel 2 (Stewart - Cálculo Diferencial e Integral):** Revisa si planteaste bien la función, si aplicaste la regla de la cadena correctamente o si justificaste las condiciones del teorema.
+  - **En Nivel 3 (Spivak - Demostraciones Rigurosas):** Audita la lógica formal. No permite saltos deductivos ni hipótesis no declaradas.
+
+### 14.3 Cómo la Calificación Afecta Cuándo Volverás a Ver el Ejercicio (Motor SRS SM-2)
+
+Tu calificación (de 0 a 5) no es una simple nota escolar: es la señal matemática que ajusta tu **curva de olvido personal** mediante el algoritmo **SuperMemo SM-2**:
+
+| Calificación Obtenida | Diagnóstico del Sistema | Impacto en la Repetición Espaciada (SRS) | ¿Cuándo reaparece el ejercicio? |
+| :--- | :--- | :--- | :--- |
+| **Score 0 a 2** *(Rojo / Fallo)* | Error conceptual grave, procedimiento roto o confusión en la técnica base. | **Reinicio Total:** El contador de repeticiones vuelve a 0 y el factor de facilidad disminuye severamente para darte más práctica. | **Mañana mismo (1 día).** Reaparecerá en tu cola de repaso para consolidar el concepto antes de que se olvide. |
+| **Score 3** *(Ámbar / Aprobado Raspado)* | El resultado o idea es correcta, pero hubo dudas notorias, tropiezos de signos o desarrollo titubeante. | **Intervalo de Precaución:** El ejercicio cuenta como superado pero el algoritmo evita darte un salto largo de tiempo. | **En 3 días.** Te da tiempo de asimilar la pista socrática antes de volver a retarte. |
+| **Score 4** *(Esmeralda Claro / Buen Desempeño)* | Procedimiento sólido, orden impecable y resultado correcto con algún detalle menor de notación. | **Avance de Etapa:** Si es tu primera vez aprobándolo, avanza a etapa 1 (1 día); si es tu segunda vez, avanza a etapa 2 (6 días). | **En 1 o 6 días**, consolidando la memoria de trabajo. |
+| **Score 5** *(Esmeralda / Dominio Absoluto)* | Demostración o despeje impecable, caligrafía clara, rigor absoluto sin vacilaciones. | **Escalado Exponencial:** El factor de facilidad ($EF$) aumenta y el intervalo se multiplica ($interval = interval_{prev} \times EF$). | **Salto a largo plazo (ej. 6, 15, 35+ días).** El sistema asume que la huella de memoria está fijada en tu cerebro a largo plazo. |
+
+### 14.4 Consejos para una Máxima Precisión en la Evaluación
+1. **Luz directa sobre la libreta:** Evita que la sombra de tu propio teléfono o mano tape los renglones centrales del ejercicio.
+2. **Encierra tu resultado final:** Aunque la IA audita todo el desarrollo, trazar un recuadro o subrayar la conclusión final ayuda a guiar el resumen del desglose paso a paso.
+3. **Usa la Pista Socrática (`💡 hint`):** Si obtuviste score 2 o 3, lee atentamente la pista antes de pulsar *"Practicar Otro Problema"*. Te orientará en cómo encarar el ejercicio en su próxima fecha de vencimiento.
+
+
 
 
 

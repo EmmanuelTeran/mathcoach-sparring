@@ -809,6 +809,147 @@ sequenceDiagram
 2. **Fallback Accesible:** Si el usuario rechaza los permisos (`NotAllowedError`) o el dispositivo carece de cámara (`NotFoundError` o navegador no compatible), la UI transiciona de inmediato ofreciendo un input de subida de archivos nativo con atributos accesibles `type="file" accept="image/*" capture="environment"`.
 3. **Reintento Defensivo:** Ante respuestas 4xx/5xx del backend o interrupciones de red, la imagen capturada se preserva intacta en el estado de React para evitar que el estudiante tenga que repetir la foto.
 
+---
+
+## 10. Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Acoplamiento SRS (MATH-US-04)
+
+### 10.1 Arquitectura del Flujo Multimodal
+
+El pipeline de evaluación multimodal en `POST /api/evaluate-math` procesa las resoluciones matemáticas manuscritas capturadas por el frontend conectando tres subsistemas: el servidor HTTP Express, el servicio de inferencia multimodal Gemini 1.5 Pro de `@google/genai` y el motor de repetición espaciada `srsCalculator` (SM-2) persistido en MongoDB (`MathTopic`).
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Estudiante as Estudiante (Cuaderno Físico)
+    participant UI as MathVisionUploader (React)
+    participant Route as Express Router (practiceRouter.js)
+    participant Model as MongoDB (MathTopic Mongoose)
+    participant GeminiSvc as geminiService.js (@google/genai)
+    participant GeminiAPI as Google Gemini 1.5 Pro (Multimodal)
+    participant SRS as srsCalculator.js (SM-2 Adaptado)
+
+    Estudiante->>UI: Captura foto del cuaderno ("📸 Tomar Foto")
+    UI->>UI: Proyecta Canvas a Base64 JPEG (calidad 0.85)
+    UI->>Route: POST /api/evaluate-math { problemId, image, metadata }
+    
+    activate Route
+    Note over Route: Validación Defensiva (AC-1):<br/>- problemId (string no vacío, ObjectId válido)<br/>- image (Base64 válido)
+    Route->>Model: MathTopic.findById(problemId)
+    Model-->>Route: Documento MathTopic (level, problemStatement, repetition, efactor, interval)
+    
+    Route->>GeminiSvc: evaluateMathVisionSolution({ topic, imageBase64: image })
+    activate GeminiSvc
+    Note over GeminiSvc: 1. Sanitización Base64 (remove data URI)<br/>2. Estratificación System Prompt (Nivel 1, 2 o 3)<br/>3. inlineData { mimeType: 'image/jpeg', data }
+    GeminiSvc->>GeminiAPI: generateContent({ model: 'gemini-1.5-pro', contents: [prompt, imagePart], config: { systemInstruction, temperature: 0.2, responseMimeType: 'application/json' } })
+    GeminiAPI-->>GeminiSvc: JSON Estricto { score, feedback_paso_a_paso, hint }
+    Note over GeminiSvc: Parsing defensivo, strips markdown y normaliza score [0..5]
+    GeminiSvc-->>Route: { score, feedback_paso_a_paso, hint }
+    deactivate GeminiSvc
+
+    Note over Route: Acoplamiento Motor SRS (AC-4):<br/>calculateNextReview(repetition, efactor, score, interval)
+    Route->>SRS: calculateNextReview(problem.repetition, problem.efactor, score, problem.interval)
+    SRS-->>Route: { repetition, interval, efactor, dueDate }
+
+    Route->>Model: Actualiza metadatos SRS y appends a history [{ score, feedback, hint, imageUrl, evaluatedAt }]
+    Route->>Model: await problem.save()
+    Model-->>Route: Guardado atómico confirmado
+
+    Route-->>UI: 200 OK { success: true, score, feedback_paso_a_paso, hint, srs: { repetition, interval, efactor, dueDate } }
+    deactivate Route
+
+    UI-->>Estudiante: Renderiza Score Badge, Desglose paso a paso, Pista Socrática y Fecha de Próximo Repaso
+```
+
+### 10.2 Conexión Express con Gemini 1.5 Pro (`@google/genai`)
+
+La comunicación con el modelo multimodal se realiza mediante el SDK oficial `@google/genai`:
+
+1. **Sanitización de la Carga Útil:** La imagen enviada por el cliente puede contener el prefijo Data URL (`data:image/jpeg;base64,...`). El servicio aplica una expresión regular defensiva para extraer únicamente la cadena base64 pura:
+   ```javascript
+   const sanitizedBase64 = imageBase64.replace(/^data:image\/[a-zA-Z+]+;base64,/, '').trim();
+   ```
+2. **Estructura `inlineData`:** Se construye el objeto multipart requerido por `@google/genai`:
+   ```javascript
+   const imagePart = {
+     inlineData: {
+       mimeType: 'image/jpeg',
+       data: sanitizedBase64,
+     },
+   };
+   ```
+3. **Parámetros de Inferencia Multimodal:**
+   - **Modelo:** `gemini-1.5-pro` (aprovecha la ventana de contexto extendida y la capacidad de visión de alta fidelidad para lectura de caracteres matemáticos manuscritos, subíndices, superíndices y signos).
+   - **Temperatura:** `0.2` para garantizar determinismo, consistencia pedagógica y minimizar alucinaciones en cómputos algebraicos.
+   - **System Prompts Estratificados:**
+     - **Nivel 1 (Computacional / Mecánico - CONAMAT):** Verifica jerarquía de operaciones, leyes de exponentes, signos y factorizaciones. Identifica el paso exacto del error aritmético o algebraico.
+     - **Nivel 2 (Modelado y Cálculo - Stewart):** Evalúa el planteamiento analítico de razones de cambio, límites, derivadas, integrales y consistencia física/geométrica.
+     - **Nivel 3 (Rigor Formal y Demostraciones - Spivak):** Audita demostraciones deductivas (directa, contradicción, inducción, $\epsilon$-$\delta$), exigiendo completitud de hipótesis y justificación de axiomas lógicos.
+
+### 10.3 Formato del JSON Estricto y Parsing Defensivo
+
+Para evitar que el modelo responda con texto explicativo no estructurado, se activa `responseMimeType: 'application/json'`. Adicionalmente, el servicio cuenta con un pipeline defensivo de limpieza:
+
+```typescript
+// Contrato estricto generado por Gemini 1.5 Pro
+interface IEvaluateMathAIResponse {
+  score: number;               // Entero entre 0 y 5
+  feedback_paso_a_paso: string; // Desglose exhaustivo paso a paso de lo observado en la libreta
+  hint: string;                // Pista socrática sin dar la respuesta final
+}
+```
+
+Mecanismo de parsing tolerante a fallos:
+1. Se remueven delimitadores de bloques de código markdown como ````json ... ```` en caso de que el modelo los incluya.
+2. Si `JSON.parse` directo falla, se extrae mediante expresión regular el bloque que contenga `{ ... }`.
+3. Se normaliza el `score` asegurando que sea un número entero acotado: `Math.max(0, Math.min(5, Math.round(score)))`.
+4. Si la clave `GEMINI_API_KEY` no está presente en el entorno, el servicio activa un **fallback offline determinista** que retorna una evaluación simulada válida para pruebas continuas sin requerir credenciales externas.
+
+### 10.4 Acoplamiento con el Motor SRS (SM-2) y Persistencia en Mongoose
+
+El puntaje devuelto por la IA (`score` $\in [0, 5]$) alimenta directamente la función pura `calculateNextReview` de `srsCalculator.js`:
+
+$$\Delta EF = 0.1 - (5 - score) \cdot (0.08 + (5 - score) \cdot 0.02)$$
+$$EF' = \max(1.3, EF + \Delta EF)$$
+
+Reglas de transición de intervalos:
+- **Fallo / Duda severa ($score < 3$):** Se reinicia la etapa de repetición a `0` y el intervalo a `1 día` ($dueDate = \text{hoy} + 1\text{ día}$).
+- **Aprobado límite ($score = 3$):** Se avanza la etapa ($srsStage \gets srsStage + 1$) y se fija un intervalo precautorio de `3 días`.
+- **Rendimiento sólido ($score \in \{4, 5\}$):**
+  - Si $srsStage = 0 \implies srsStage = 1, interval = 1\text{ día}$.
+  - Si $srsStage = 1 \implies srsStage = 2, interval = 6\text{ días}$.
+  - Si $srsStage \ge 2 \implies interval = \text{round}(interval_{prev} \cdot EF'), srsStage \gets srsStage + 1$.
+
+**Persistencia Atómica en `MathTopic`:**
+```javascript
+// Actualización del documento en MongoDB
+problem.repetition = srsResult.repetition;
+problem.interval = srsResult.interval;
+problem.efactor = srsResult.efactor;
+problem.dueDate = srsResult.dueDate;
+
+// Inserción en el subdocumento de auditoría
+problem.history.push({
+  score,
+  feedback_paso_a_paso: aiResult.feedback_paso_a_paso,
+  hint: aiResult.hint,
+  imageUrl: image.length > 500 ? image.substring(0, 100) + '...[truncated]' : image,
+  evaluatedAt: new Date(),
+});
+
+await problem.save();
+```
+
+### 10.5 Manejo de Errores y Códigos HTTP
+
+| Código HTTP | Causa / Condición | Payload de Respuesta |
+| :--- | :--- | :--- |
+| `200 OK` | Evaluación exitosa e inserción atómica en base de datos | `{"success": true, "score": 4, "feedback_paso_a_paso": "...", "hint": "...", "srs": { "repetition": 2, "interval": 6, "efactor": 2.6, "dueDate": "..." }}` |
+| `400 Bad Request` | Falta `problemId` o la imagen no es un string Base64 válido | `{"error": "problemId is required"}` o `{"error": "image must be a valid base64 string"}` |
+| `404 Not Found` | `problemId` inválido para ObjectId o no encontrado en `MathTopic` | `{"error": "Math problem not found"}` |
+| `502 Bad Gateway` | Fallo de red, cuota excedida o excepción al invocar `@google/genai` | `{"error": "AI evaluation service unavailable", "details": "..."}` |
+| `500 Internal Error` | Excepción no controlada durante el guardado en base de datos | `{"error": "AI evaluation service unavailable", "details": "..."}` |
+
+
 
 
 
