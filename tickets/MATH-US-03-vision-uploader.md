@@ -1,9 +1,9 @@
 # [MATH-US-03] UI de Cero Fricción para Active Recall (MathVisionUploader.jsx)
 
-- **Estado:** En Progreso
+- **Estado:** Done
 - **Rama:** `feature/MATH-US-03-vision-uploader`
 - **Fecha de Inicio:** 2026-10-09
-- **Fecha de Cierre:** -
+- **Fecha de Cierre:** 2026-10-09
 
 ## 1. Descripción
 
@@ -152,5 +152,5 @@ El harness E2E se encuentra definido en `tests/e2e/math-vision.spec.js` cubriend
 
 ## 5. Commit de Cierre en dev
 
-`<!-- PENDIENTE: Commit generado tras verificación -->`
+`e159325`
 
