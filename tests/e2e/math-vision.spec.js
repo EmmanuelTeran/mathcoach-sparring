@@ -29,16 +29,22 @@ test.describe('Math Vision Uploader - Active Recall E2E Flow', () => {
     const tabMathVision = page.locator('#tab-math-vision');
     await expect(tabMathVision).toBeVisible();
 
-    // 3. Verificar el contenedor del uploader y el botón de activar cámara
+    // 3. Verificar el contenedor del uploader y el enunciado visible
     const container = page.locator('#math-vision-uploader-container');
     await expect(container).toBeVisible();
-    await expect(page.locator('#btn-activate-camera')).toBeVisible();
+    await expect(page.locator('#problem-statement')).toBeVisible();
+    await expect(page.locator('#problem-statement')).toContainText('Simplifica la siguiente fracción algebraica');
 
-    // 4. Verificar disponibilidad del botón de fallback para subida manual
+    // 4. Verificar botón de activar cámara único
+    const activateBtn = page.locator('#btn-activate-camera');
+    await expect(activateBtn).toBeVisible();
+    await expect(activateBtn).toHaveCount(1);
+
+    // 5. Verificar disponibilidad del botón de fallback para subida manual
     const manualBtn = page.locator('#btn-manual-upload');
     await expect(manualBtn).toBeVisible();
 
-    // 5. Verificar que el input de archivo está disponible en el DOM
+    // 6. Verificar que el input de archivo está disponible en el DOM
     const fileInput = page.locator('#camera-fallback-file-input');
     await expect(fileInput).toBeAttached();
   });

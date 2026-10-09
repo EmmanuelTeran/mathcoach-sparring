@@ -12,7 +12,10 @@ import {
   Calendar,
   X,
   FlipHorizontal,
+  BookOpen,
 } from 'lucide-react';
+import { MathStatement } from './MathStatement';
+
 
 /**
  * Estados del componente MathVisionUploader:
@@ -292,50 +295,81 @@ export function MathVisionUploader({
     );
   };
 
-  return (
-    <div
-      id="math-vision-uploader-container"
-      className="w-full max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden"
-    >
-      <canvas ref={canvasRef} className="hidden" />
-
-      {/* Input de archivo accesible para fallback */}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="image/*"
-        capture="environment"
-        data-testid="camera-fallback-file-input"
-        id="camera-fallback-file-input"
-        className="hidden"
-        onChange={handleFileUpload}
-      />
-
-      {/* HEADER DEL COMPONENTE */}
-      <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
-        <div>
-          <span className="text-xs uppercase tracking-wider font-bold text-indigo-400">
-            Active Recall Multimodal
-          </span>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            Captura de Cuaderno Físico
-            {topic.title && (
-              <span className="text-xs font-normal text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full">
-                {topic.title}
-              </span>
-            )}
-          </h3>
+  if (!topic?.problemStatement) {
+    return (
+      <div
+        id="math-vision-empty-state"
+        className="w-full max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl text-center flex flex-col items-center justify-center my-6"
+      >
+        <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-4 shadow-inner">
+          <BookOpen className="w-8 h-8" />
         </div>
-        {state !== 'IDLE' && state !== 'ANALYZING' && (
+        <h4 className="text-lg font-bold text-white mb-2">
+          No hay ejercicio cargado — elige un tema desde el Panel
+        </h4>
+        <p className="text-xs text-slate-400 max-w-md mb-6 leading-relaxed">
+          Para realizar una práctica con evaluación multimodal, primero selecciona un tema disponible con enunciado en el panel de control.
+        </p>
+        {onCancel && (
           <button
-            onClick={handleCloseCamera}
-            className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
-            title="Cerrar uploader"
+            onClick={onCancel}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition shadow-lg shadow-indigo-600/20"
           >
-            <X className="w-5 h-5" />
+            <span>Ir al Panel</span>
           </button>
         )}
       </div>
+    );
+  }
+
+  return (
+    <div
+      id="math-vision-uploader-container"
+      className="w-full max-w-2xl mx-auto space-y-4"
+    >
+      <MathStatement statement={topic.problemStatement} />
+
+      <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+        <canvas ref={canvasRef} className="hidden" />
+
+        {/* Input de archivo accesible para fallback */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          data-testid="camera-fallback-file-input"
+          id="camera-fallback-file-input"
+          className="hidden"
+          onChange={handleFileUpload}
+        />
+
+        {/* HEADER DEL COMPONENTE */}
+        <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
+          <div>
+            <span className="text-xs uppercase tracking-wider font-bold text-indigo-400">
+              Active Recall Multimodal
+            </span>
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              Captura de Cuaderno Físico
+              {topic.title && (
+                <span className="text-xs font-normal text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full">
+                  {topic.title}
+                </span>
+              )}
+            </h3>
+          </div>
+          {state !== 'IDLE' && state !== 'ANALYZING' && (
+            <button
+              onClick={handleCloseCamera}
+              className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
+              title="Cerrar uploader"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+
 
       {/* MENSAJES DE ERROR / ADVERTENCIA */}
       {errorMessage && (
@@ -594,6 +628,7 @@ export function MathVisionUploader({
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

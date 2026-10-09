@@ -949,6 +949,45 @@ await problem.save();
 | `502 Bad Gateway` | Fallo de red, cuota excedida o excepción al invocar `@google/genai` | `{"error": "AI evaluation service unavailable", "details": "..."}` |
 | `500 Internal Error` | Excepción no controlada durante el guardado en base de datos | `{"error": "AI evaluation service unavailable", "details": "..."}` |
 
+---
+
+## 11. Pila de Renderizado Matemático y Purga de Frontend (MATH-US-07)
+
+### 11.1 Pila de Renderizado de `MathStatement` (Markdown + LaTeX con KaTeX)
+
+Con el fin de garantizar que el estudiante visualice el enunciado matemático formal antes de encender la cámara y realizar la captura manuscrita, se introdujo el componente `client/src/components/MathStatement.jsx` (`#problem-statement`), reemplazando la dependencia de editores interactivos pesados por una pila ligera y optimizada de parseo y renderizado tipográfico:
+
+- **`react-markdown` (`^10.1.0`):** Motor de parseo de sintaxis Markdown a componentes React seguros sin uso de `dangerouslySetInnerHTML`.
+- **`remark-math` (`^6.0.0`):** Plugin de AST (Abstract Syntax Tree) que reconoce expresiones matemáticas delimitadas por notación estándar:
+  - En línea (*inline*): `$ E = mc^2 $`
+  - En bloque (*display*): `$$ \frac{x^2 - 9}{x^2 + 5x + 6} $$`
+- **`rehype-katex` (`^7.0.1`):** Transforma los nodos matemáticos del AST a nodos HTML procesados directamente mediante KaTeX.
+- **`katex` (`^0.16.22`) y Hoja de Estilos:** Inclusión directa de `katex/dist/katex.min.css` para el renderizado nativo de símbolos algebraicos, integrales, fracciones y matrices con fidelidad matemática.
+
+```mermaid
+flowchart LR
+    A["Raw Problem Statement (Markdown + LaTeX)"] --> B["react-markdown"]
+    B --> C["remark-math (AST Parsing)"]
+    C --> D["rehype-katex (HTML Transform)"]
+    D --> E["KaTeX CSS Engine"]
+    E --> F["DOM Render (#problem-statement)"]
+```
+
+### 11.2 Purga Arquitectónica de Monaco Editor y Coding Playground
+
+Como parte de la transición hacia el rigor pedagógico en libreta física y la eliminación de deuda técnica del prototipo original:
+1. **Desinstalación de Dependencias Pesadas:**
+   - Se removieron completamente `@monaco-editor/react` y `monaco-editor` de `client/package.json`, reduciendo significativamente el tamaño del bundle cliente y el tiempo de compilación Vite.
+2. **Eliminación de Componentes y Utilidades:**
+   - Eliminados: `client/src/components/CodingPlayground.jsx`, `client/src/utils/codeRunner.js`, `client/src/utils/codeRunner.test.js`, `client/src/utils/monacoSetup.js`, `client/src/workers/codeRunner.worker.js` y `tests/e2e/coding-playground.spec.js`.
+3. **Navegación Unificada:**
+   - La navegación superior en `App.jsx` quedó estructurada en dos únicas vistas:
+     - **Entrenar (`#tab-math-vision`):** Montaje único y exclusivo de `MathVisionUploader` con visualización de `MathStatement`.
+     - **Panel (`#tab-dashboard`):** Centro de métricas neutrales matemáticas (repasos pendientes y áreas críticas).
+4. **Protección de Estado Vacío:**
+   - Si `!topic?.problemStatement`, `MathVisionUploader` evita el inicio innecesario de dispositivos de captura de video y proyecta el contenedor accesible `#math-vision-empty-state`.
+
+
 
 
 

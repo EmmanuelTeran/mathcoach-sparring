@@ -1,8 +1,8 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** MATH-US-07 (siguiente a iniciar con `new-user-story`)
-- **Rama actual:** dev
+- **Historia activa:** MATH-US-08
+- **Rama actual:** `feature/MATH-US-08-domain-model`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
   - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)
@@ -10,8 +10,8 @@
   - [x] MATH-US-04: Pipeline Evaluador Multimodal (Gemini 1.5 Pro) y Actualización SRS (Done)
   - [-] MATH-US-05: Dashboard Matemático & Cola Diaria por Nivel (Cancelada → reemplazada por MATH-US-14)
   - [-] MATH-US-06: Seed Multinivel & E2E Final (Cancelada → reemplazada por MATH-US-09 + MATH-US-15)
-  - [ ] MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes (Backlog) — depende de 04
-  - [ ] MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado (Backlog) — depende de 07
+  - [x] MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes (Done) — depende de 04
+  - [/] MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado (En Progreso) — depende de 07
   - [ ] MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente) (Backlog) — depende de 08
   - [ ] MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista) (Backlog) — depende de 08
   - [ ] MATH-US-11: Constructor de Rondas de 15 min + API de Rondas (Backlog) — depende de 08

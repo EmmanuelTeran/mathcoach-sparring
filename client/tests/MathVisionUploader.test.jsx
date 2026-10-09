@@ -3,6 +3,12 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { MathVisionUploader } from '../src/components/MathVisionUploader';
 
+const SAMPLE_TOPIC = {
+  _id: '123',
+  title: 'Álgebra',
+  problemStatement: 'Factoriza la siguiente expresión: $$x^2 - 4$$',
+};
+
 describe('MathVisionUploader Integration & Unit Tests', () => {
   let mockMediaStream;
   let mockTrack;
@@ -44,15 +50,32 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
     vi.restoreAllMocks();
   });
 
-  it('AC-1: renderiza estado inicial IDLE sin activar la cámara', async () => {
-    render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+  it('AC-3: muestra estado vacío cuando topic no tiene problemStatement', () => {
+    render(<MathVisionUploader topic={{ _id: '123', title: 'Sin Enunciado' }} />);
+
+    expect(
+      screen.getByText('No hay ejercicio cargado — elige un tema desde el Panel')
+    ).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /activar cámara/i })).not.toBeInTheDocument();
+  });
+
+  it('AC-2: renderiza MathStatement con id problem-statement cuando topic tiene enunciado', () => {
+    const { container } = render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
+
+    const statementEl = container.querySelector('#problem-statement');
+    expect(statementEl).toBeInTheDocument();
+    expect(screen.getByText(/Factoriza la siguiente expresión/i)).toBeInTheDocument();
+  });
+
+  it('AC-1: renderiza estado inicial IDLE sin activar la cámara si hay problemStatement', async () => {
+    render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     expect(await screen.findByRole('button', { name: /activar cámara/i })).toBeInTheDocument();
     expect(global.navigator.mediaDevices.getUserMedia).not.toHaveBeenCalled();
   });
 
   it('AC-1: solicita permisos con constraints correctos al hacer clic en Activar Cámara', async () => {
-    render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+    render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     const activateBtn = screen.getByRole('button', { name: /activar cámara/i });
     fireEvent.click(activateBtn);
@@ -77,7 +100,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
     error.name = 'NotAllowedError';
     global.navigator.mediaDevices.getUserMedia.mockRejectedValueOnce(error);
 
-    render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+    render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     const activateBtn = screen.getByRole('button', { name: /activar cámara/i });
     fireEvent.click(activateBtn);
@@ -92,7 +115,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
   });
 
   it('AC-1: limpia y detiene los tracks del stream al desmontar el componente', async () => {
-    const { unmount } = render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+    const { unmount } = render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     fireEvent.click(screen.getByRole('button', { name: /activar cámara/i }));
     await screen.findByRole('button', { name: /tomar foto/i });
@@ -102,7 +125,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
   });
 
   it('AC-2 & AC-3: captura imagen con canvas, detiene el stream y entra en estado preview', async () => {
-    render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+    render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     fireEvent.click(screen.getByRole('button', { name: /activar cámara/i }));
     const captureBtn = await screen.findByRole('button', { name: /tomar foto/i });
@@ -115,7 +138,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
   });
 
   it('AC-3: permite repetir la foto y volver al stream de video en vivo', async () => {
-    render(<MathVisionUploader topic={{ _id: '123', title: 'Álgebra' }} />);
+    render(<MathVisionUploader topic={SAMPLE_TOPIC} />);
 
     fireEvent.click(screen.getByRole('button', { name: /activar cámara/i }));
     const captureBtn = await screen.findByRole('button', { name: /tomar foto/i });
@@ -151,7 +174,13 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
 
     render(
       <MathVisionUploader
-        topic={{ _id: '651a2b3c4d5e6f7a8b9c0d1e', title: 'Factorización', level: 1, source: 'CONAMAT' }}
+        topic={{
+          _id: '651a2b3c4d5e6f7a8b9c0d1e',
+          title: 'Factorización',
+          level: 1,
+          source: 'CONAMAT',
+          problemStatement: 'Factoriza la siguiente expresión: $$x^2 - 4$$',
+        }}
         onEvaluationComplete={onEvaluationComplete}
       />
     );
@@ -195,7 +224,11 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
 
     render(
       <MathVisionUploader
-        topic={{ _id: '651a2b3c4d5e6f7a8b9c0d1e', title: 'Factorización' }}
+        topic={{
+          _id: '651a2b3c4d5e6f7a8b9c0d1e',
+          title: 'Factorización',
+          problemStatement: 'Factoriza la siguiente expresión: $$x^2 - 4$$',
+        }}
       />
     );
 
@@ -214,7 +247,11 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
   it('AC-1 fallback: permite seleccionar archivo si no hay cámara y procesa a Base64', async () => {
     render(
       <MathVisionUploader
-        topic={{ _id: '651a2b3c4d5e6f7a8b9c0d1e', title: 'Factorización' }}
+        topic={{
+          _id: '651a2b3c4d5e6f7a8b9c0d1e',
+          title: 'Factorización',
+          problemStatement: 'Factoriza la siguiente expresión: $$x^2 - 4$$',
+        }}
       />
     );
 

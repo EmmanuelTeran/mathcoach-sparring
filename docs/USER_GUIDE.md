@@ -414,26 +414,44 @@ La interfaz gráfica (`HardSkillTrainer.jsx` y `SoftSkillTrainer.jsx`) proporcio
 
 ---
 
-## 13. Módulo de Captura Visual para Active Recall: Math Vision (MATH-US-03)
+## 13. Módulo de Entrenamiento Visual y Enunciados Matemáticos: Math Vision (MATH-US-03 & MATH-US-07)
 
-El módulo **Math Vision** permite entrenar la deducción matemática de manera tangible en tu libreta o cuaderno físico, evitando la fricción de escribir fórmulas complejas en editores de texto o LaTeX.
+El módulo **Math Vision** permite entrenar la deducción matemática de manera tangible en tu libreta o cuaderno físico, visualizando claramente la formulación del ejercicio antes de activar la cámara o realizar la captura.
 
-### 13.1 Cómo Iniciar el Entrenamiento Visual
-1. En la barra superior de navegación, selecciona la pestaña **"Math Vision (Active Recall)"** (icono de cámara).
-2. Verás el panel principal del uploader con el estado inicial **IDLE** indicando el ejercicio o tema matemático en curso.
-3. Haz clic en el botón primario **"Activar Cámara"** o en **"Subir foto manualmente"** si estás en un ordenador de escritorio sin webcam.
+### 13.1 Estructura de la Interfaz y Navegación Limpia
+La barra de navegación superior ha sido unificada en dos únicas pestañas esenciales:
+- **Entrenar (`#tab-math-vision`):** Área de Active Recall visual y resolución manuscrita en cuaderno.
+- **Panel (`#tab-dashboard`):** Centro de control con métricas de retención espaciada (repasos pendientes y áreas críticas).
 
-### 13.2 Interacción y Captura con la Cámara
+Toda la interfaz ha sido completamente purgada de pestañas legadas (como *Coding Playground*, editores de código monaco o filtros de roles Junior/Senior).
+
+### 13.2 Visualización del Enunciado Matemático (`MathStatement.jsx`)
+Antes de iniciar cualquier captura, la pantalla despliega de forma prominente el componente **`#problem-statement`**:
+- **Notación Matemática LaTeX:** Renderizado enriquecido mediante **KaTeX** y **Markdown**, soportando expresiones en línea (`$ ... $`) y en bloque (`$$ ... $$`).
+- **Claridad Previa a la Captura:** El estudiante puede leer cómodamente las instrucciones algebraicas, restricciones del dominio o demostraciones requeridas sin distracciones.
+- **Estado Vacío Amigable:** Si no existe un ejercicio cargado o el tema seleccionado carece de formulación (`!problemStatement`), la interfaz oculta la cámara y presenta un mensaje directo:
+  > *"No hay ejercicio cargado — elige un tema desde el Panel"*
+  junto a una acción para ir directamente al panel de control.
+
+### 13.3 Cómo Iniciar el Entrenamiento Visual
+1. En la barra superior de navegación, asegúrate de estar en la pestaña **"Entrenar"** (icono de cámara).
+2. Lee el enunciado del ejercicio desplegado en la tarjeta superior con notación matemática formateada.
+3. Resuelve el procedimiento paso a paso a lápiz en tu libreta física.
+4. Cuando tengas listo el desarrollo, haz clic en el botón primario **"Activar Cámara"** (o en **"Subir foto manualmente"** si estás en un ordenador sin webcam o deseas usar una fotografía previa).
+
+### 13.4 Interacción y Captura con la Cámara
+- **Instancia Única Garantizada:** La aplicación monta un único visor de cámara web en el DOM, evitando colisiones de flujos de video o bloqueos de hardware.
 - **Encuadre con Guías:** Al autorizar la cámara, verás el visor de video en tiempo real con un overlay estilo escáner (esquinas resaltadas y retícula central). Sitúa la hoja de tu cuaderno dentro del recuadro.
 - **Consejo de Legibilidad:** Asegúrate de contar con buena luz sobre la hoja y que los trazos de lápiz o pluma no generen reflejos ni sombras pronunciadas.
 - **Captura:** Presiona el botón flotante **"📸 Tomar Foto / Capturar"**. La cámara se detendrá de inmediato para congelar el fotograma y ahorrar batería.
-- **Alternar Cámara (Móviles):** Si estás en un teléfono o tablet, pulsa el botón **"Voltear"** para alternar entre la cámara trasera (`environment`) y la frontal.
+- **Alternar Cámara (Móviles):** Si estás en un teléfono o tablet con múltiples lentes, pulsa el botón **"Voltear"** para alternar entre la cámara trasera (`environment`) y la frontal.
 - **Revisión previa:** Puedes presionar **"🔄 Repetir Foto"** si el enfoque no fue nítido, o **"🚀 Evaluar con IA"** para iniciar el análisis.
 
-### 13.3 Degradación Elegante y Fallback de Archivo
+### 13.5 Degradación Elegante y Fallback de Archivo
 - Si deniegas el acceso a la cámara o tu navegador no dispone de soporte WebRTC, la interfaz mostrará una advertencia clara junto a un botón para seleccionar una imagen guardada (`PNG`, `JPEG`, etc.) desde tu dispositivo o disparar la app nativa de cámara de tu teléfono móvil mediante `<input type="file" capture="environment">`.
 
-### 13.4 Qué Evalúa el Sistema y Criterios Pedagógicos
+
+### 13.6 Qué Evalúa el Sistema y Criterios Pedagógicos
 Al pulsar **"🚀 Evaluar con IA"**, el fotograma se envía al backend evaluador con Gemini 1.5 Pro:
 1. **Badge Dinámico de Puntaje (0 a 5):**
    - **4 a 5 (Esmeralda):** Resolución sólida y rigor matemático completo. Demostración o despeje sin inconsistencias.

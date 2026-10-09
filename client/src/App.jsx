@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Activity, ShieldCheck, LayoutDashboard, Code2, Camera, Calculator } from 'lucide-react';
+import { Activity, ShieldCheck, LayoutDashboard, Camera, Calculator } from 'lucide-react';
 import { Dashboard } from './components/Dashboard';
-import { CodingPlayground } from './components/CodingPlayground';
 import { MathVisionUploader } from './components/MathVisionUploader';
+
+const DEFAULT_TOPIC = {
+  _id: '651a2b3c4d5e6f7a8b9c0d1e',
+  title: 'Factorización y Fracciones Algebraicas',
+  level: 1,
+  source: 'CONAMAT',
+  problemStatement: `Simplifica la siguiente fracción algebraica factorizando numerador y denominador:
+
+$$\\frac{x^2 - 9}{x^2 + 5x + 6}$$
+
+Indica con claridad cada factorización y las restricciones del dominio para los valores de $x$.`,
+};
 
 export function App() {
   const [healthStatus, setHealthStatus] = useState('checking...');
   const [activeTab, setActiveTab] = useState('math-vision');
 
-  const [selectedTopicForTraining, setSelectedTopicForTraining] = useState(null);
+  const [selectedTopicForTraining, setSelectedTopicForTraining] = useState(DEFAULT_TOPIC);
 
   useEffect(() => {
     fetch('http://localhost:5000/api/health')
@@ -17,9 +28,9 @@ export function App() {
       .catch(() => setHealthStatus('offline / standalone'));
   }, []);
 
-  const handleStartTraining = (targetTab, topic) => {
+  const handleStartTraining = (_targetTab, topic) => {
     setSelectedTopicForTraining(topic);
-    setActiveTab(targetTab === 'hard-skills' ? 'math-vision' : targetTab);
+    setActiveTab('math-vision');
   };
 
   const handleTabChange = (tab) => {
@@ -41,7 +52,7 @@ export function App() {
         </div>
       </header>
 
-      <main className={`flex-1 ${activeTab === 'coding-playground' ? 'max-w-7xl' : 'max-w-5xl'} mx-auto w-full p-6 sm:p-8 flex flex-col items-center`}>
+      <main className="flex-1 max-w-5xl mx-auto w-full p-6 sm:p-8 flex flex-col items-center">
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-4">
           <ShieldCheck className="w-4 h-4" />
           <span>Entrenador Personal de Matemáticas Multinivel (Active Recall & SRS)</span>
@@ -55,8 +66,7 @@ export function App() {
           Resuelve a lápiz, captura tu procedimiento con la cámara y recibe evaluación pedagógica multimodal con Gemini 1.5 Pro.
         </p>
 
-
-        {/* Selector de Pestañas Unificado: Dashboard, Hard Skills, Soft Skills, Coding Playground */}
+        {/* Selector de Pestañas Simplificado: Entrenar y Panel */}
         <div className="flex flex-wrap justify-center items-center gap-2 p-1.5 bg-slate-900 border border-slate-800 rounded-xl mb-6 shadow-lg">
           <button
             id="tab-math-vision"
@@ -68,7 +78,7 @@ export function App() {
             }`}
           >
             <Camera className="w-4 h-4" />
-            <span>Math Vision (Active Recall)</span>
+            <span>Entrenar</span>
           </button>
 
           <button
@@ -81,59 +91,29 @@ export function App() {
             }`}
           >
             <LayoutDashboard className="w-4 h-4" />
-            <span>Dashboard</span>
-          </button>
-
-          <button
-            id="tab-coding-playground"
-            onClick={() => handleTabChange('coding-playground')}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
-              activeTab === 'coding-playground'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-            }`}
-          >
-            <Code2 className="w-4 h-4" />
-            <span>Coding Playground</span>
+            <span>Panel</span>
           </button>
         </div>
 
         {/* Contenido Dinámico según la pestaña activa */}
         {activeTab === 'math-vision' && (
           <MathVisionUploader
-            topic={selectedTopicForTraining || {
-              _id: '651a2b3c4d5e6f7a8b9c0d1e',
-              title: 'Factorización y Fracciones Algebraicas',
-              level: 1,
-              source: 'CONAMAT',
-            }}
+            topic={selectedTopicForTraining}
+            onCancel={() => setActiveTab('dashboard')}
           />
         )}
         {activeTab === 'dashboard' && (
           <Dashboard onStartTraining={handleStartTraining} />
-        )}
-        {activeTab === 'coding-playground' && (
-          <CodingPlayground />
-        )}
-        {activeTab === 'math-vision' && (
-          <MathVisionUploader
-            topic={selectedTopicForTraining || {
-              _id: '651a2b3c4d5e6f7a8b9c0d1e',
-              title: 'Factorización y Fracciones Algebraicas',
-              level: 1,
-              source: 'CONAMAT',
-            }}
-          />
         )}
       </main>
 
       <footer className="border-t border-slate-900 py-4 text-center text-xs text-slate-600">
         MathCoach Sparring &copy; 2026
       </footer>
-
     </div>
   );
 }
 
 export default App;
+
 

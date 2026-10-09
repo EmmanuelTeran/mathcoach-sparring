@@ -133,7 +133,7 @@ export function useVoiceInteraction({ onTranscriptComplete } = {}) {
     setIsListening(false);
   }, []);
 
-  // Sintetizar voz para reproducir la réplica del stakeholder
+  // Sintetizar voz para reproducir la réplica del coach o interlocutor
   const speakText = useCallback((text) => {
     if (!window.speechSynthesis || !text) return;
 

@@ -1,5 +1,5 @@
 {
-  "0": "Grafo de Dependencias",
+  "0": "4. Historias Pendientes",
   "1": "[US-XX] {{TITULO_HISTORIA}}",
   "2": "Contexto del Proyecto: Entrenador Personal Fullstack (Hard & Soft Skills)",
   "3": "Skill: document-tech-specs",
@@ -11,8 +11,8 @@
   "9": "workflows/graphify.md",
   "10": "heartbeat.md",
   "11": "client/package.json",
-  "12": "practice.test.js",
-  "13": "@playwright/test",
+  "12": "app.js",
+  "13": "package.json",
   "14": "Guía de Usuario: DevCoach Sparring",
   "15": "2. Criterios de Aceptación (AC)",
   "16": "2. Contratos de API",
@@ -22,10 +22,9 @@
   "20": "tailwind.config.js",
   "21": "postcss.config.js",
   "22": "devDependencies",
-  "23": "codeRunner.js",
+  "23": "2. Criterios de Aceptación (AC)",
   "24": "ref_components_hardskilltrainer",
   "25": "ref_components_softskilltrainer",
-  "26": "app.js",
-  "27": "dependencies",
-  "28": "scripts"
+  "26": "practice.js",
+  "27": "softSkillPractice.js"
 }
