@@ -712,6 +712,104 @@ Los componentes `HardSkillTrainer.jsx` y `SoftSkillTrainer.jsx` sincronizan din�
 | **Catálogo Multinivel & Seeding** | Supertest / MongoMemoryServer (`seed.test.js`) | 5 tests de verificación de 62 temas y niveles | **100% PASS** |
 | **Calidad de Código y Tipos** | AST Analysis / Graphify / ESLint | 0 regresiones | **Aprobado** |
 
+---
+
+## 9. Arquitectura de Captura Visual: MathVisionUploader (MATH-US-03)
+
+### 9.1 Descripción y Propósito
+El componente `MathVisionUploader.jsx` (`client/src/components/MathVisionUploader.jsx`) provee una interfaz de **cero fricción** para la práctica de Active Recall en libreta física. Permite al estudiante escribir a mano el desarrollo matemático (álgebra, cálculo, demostraciones), encuadrar su cuaderno mediante guías visuales en pantalla, proyectar el fotograma nativo a un elemento `<canvas>` HTML5 invisible y serializarlo a JPEG Base64 (`image/jpeg`, calidad 0.85) para su evaluación multimodal con Gemini 1.5 Pro.
+
+### 9.2 Diagrama de Flujo y Máquina de Estados (Mermaid)
+
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE: Montaje del Componente
+    IDLE --> STREAMING: Click "Activar Cámara" (getUserMedia)
+    IDLE --> PREVIEW: Fallback / Subida Manual (FileReader)
+    
+    STREAMING --> PREVIEW: Click "📸 Tomar Foto" (Canvas drawImage & stop tracks)
+    STREAMING --> IDLE: Click "Cerrar Cámara" / Error permisos
+    
+    PREVIEW --> STREAMING: Click "🔄 Repetir Foto" (Reinicia WebRTC)
+    PREVIEW --> ANALYZING: Click "🚀 Evaluar con IA" (POST /api/evaluate-math)
+    
+    ANALYZING --> RESULT: Respuesta 200 OK (Score, Feedback, SRS)
+    ANALYZING --> PREVIEW: Error de red o Timeout (35s AbortController)
+    
+    RESULT --> IDLE: Click "Practicar Otro Problema"
+```
+
+### 9.3 Diagrama de Secuencia de Datos (Mermaid)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Usuario as Estudiante
+    participant React as MathVisionUploader (React)
+    participant WebRTC as navigator.mediaDevices
+    participant Canvas as Canvas HTML5 Native
+    participant API as Backend (/api/evaluate-math)
+    participant Gemini as Gemini 1.5 Pro Multimodal
+
+    Usuario->>React: Click "Activar Cámara"
+    React->>WebRTC: getUserMedia({ video: { facingMode: 'environment', width: 1920, height: 1080 }, audio: false })
+    WebRTC-->>React: MediaStream activo
+    React->>Usuario: Vista previa en vivo con guías de escáner
+    Usuario->>React: Click "📸 Tomar Foto"
+    React->>Canvas: drawImage(video, 0, 0, width, height)
+    React->>WebRTC: stream.getTracks().forEach(t => t.stop())
+    Canvas-->>React: toDataURL('image/jpeg', 0.85) (Base64)
+    React->>Usuario: Previsualización congelada ("Repetir" o "Evaluar con IA")
+    Usuario->>React: Click "🚀 Evaluar con IA"
+    React->>API: POST /api/evaluate-math { problemId, image, metadata }
+    API->>Gemini: Inspección visual de trazos manuscritos y rigor
+    Gemini-->>API: { score, feedback_paso_a_paso, hint, srs }
+    API-->>React: 200 OK con payload de evaluación
+    React->>Usuario: Renderiza Score Badge, Desglose paso a paso, Pista y Tarjeta SRS
+```
+
+### 9.4 Especificación del Contrato POST `/api/evaluate-math`
+
+- **Método:** `POST`
+- **Ruta:** `/api/evaluate-math`
+- **Headers:** `{ "Content-Type": "application/json" }`
+- **Timeout en Cliente:** 35 segundos gestionados mediante `AbortController`.
+
+#### Request Payload
+```json
+{
+  "problemId": "651a2b3c4d5e6f7a8b9c0d1e",
+  "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...",
+  "metadata": {
+    "level": 1,
+    "source": "CONAMAT",
+    "capturedAt": "2026-10-09T07:15:00.000Z"
+  }
+}
+```
+
+#### Response Payload (200 OK)
+```json
+{
+  "success": true,
+  "score": 4,
+  "feedback_paso_a_paso": "Paso 1: Planteamiento y factorización correctos. Paso 2: Error menor en simplificación de signos en el denominador.",
+  "hint": "Recuerda que (a - b) = -(b - a) antes de cancelar factores comunes.",
+  "srs": {
+    "repetition": 2,
+    "interval": 6,
+    "efactor": 2.6,
+    "dueDate": "2026-10-15T07:15:00.000Z"
+  }
+}
+```
+
+### 9.5 Políticas de Degrada y Resiliencia WebRTC
+1. **Privacidad y Ahorro de Batería:** La cámara nunca inicia de forma automática; el stream arranca bajo demanda del usuario y se detiene inmediatamente tras la captura del fotograma o al desmontar el componente (`track.stop()`).
+2. **Fallback Accesible:** Si el usuario rechaza los permisos (`NotAllowedError`) o el dispositivo carece de cámara (`NotFoundError` o navegador no compatible), la UI transiciona de inmediato ofreciendo un input de subida de archivos nativo con atributos accesibles `type="file" accept="image/*" capture="environment"`.
+3. **Reintento Defensivo:** Ante respuestas 4xx/5xx del backend o interrupciones de red, la imagen capturada se preserva intacta en el estado de React para evitar que el estudiante tenga que repetir la foto.
+
+
 
 
 

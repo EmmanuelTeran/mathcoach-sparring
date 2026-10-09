@@ -412,5 +412,38 @@ La interfaz gráfica (`HardSkillTrainer.jsx` y `SoftSkillTrainer.jsx`) proporcio
 4. **Badges de Calificación Contextuales:**
    - La retroalimentación de evaluación muestra calificaciones como `Score 5/5 - Nivel Junior Sólido` evitando mostrar etiquetas de nivel Senior en retos formativos de Junior.
 
+---
+
+## 13. Módulo de Captura Visual para Active Recall: Math Vision (MATH-US-03)
+
+El módulo **Math Vision** permite entrenar la deducción matemática de manera tangible en tu libreta o cuaderno físico, evitando la fricción de escribir fórmulas complejas en editores de texto o LaTeX.
+
+### 13.1 Cómo Iniciar el Entrenamiento Visual
+1. En la barra superior de navegación, selecciona la pestaña **"Math Vision (Active Recall)"** (icono de cámara).
+2. Verás el panel principal del uploader con el estado inicial **IDLE** indicando el ejercicio o tema matemático en curso.
+3. Haz clic en el botón primario **"Activar Cámara"** o en **"Subir foto manualmente"** si estás en un ordenador de escritorio sin webcam.
+
+### 13.2 Interacción y Captura con la Cámara
+- **Encuadre con Guías:** Al autorizar la cámara, verás el visor de video en tiempo real con un overlay estilo escáner (esquinas resaltadas y retícula central). Sitúa la hoja de tu cuaderno dentro del recuadro.
+- **Consejo de Legibilidad:** Asegúrate de contar con buena luz sobre la hoja y que los trazos de lápiz o pluma no generen reflejos ni sombras pronunciadas.
+- **Captura:** Presiona el botón flotante **"📸 Tomar Foto / Capturar"**. La cámara se detendrá de inmediato para congelar el fotograma y ahorrar batería.
+- **Alternar Cámara (Móviles):** Si estás en un teléfono o tablet, pulsa el botón **"Voltear"** para alternar entre la cámara trasera (`environment`) y la frontal.
+- **Revisión previa:** Puedes presionar **"🔄 Repetir Foto"** si el enfoque no fue nítido, o **"🚀 Evaluar con IA"** para iniciar el análisis.
+
+### 13.3 Degradación Elegante y Fallback de Archivo
+- Si deniegas el acceso a la cámara o tu navegador no dispone de soporte WebRTC, la interfaz mostrará una advertencia clara junto a un botón para seleccionar una imagen guardada (`PNG`, `JPEG`, etc.) desde tu dispositivo o disparar la app nativa de cámara de tu teléfono móvil mediante `<input type="file" capture="environment">`.
+
+### 13.4 Qué Evalúa el Sistema y Criterios Pedagógicos
+Al pulsar **"🚀 Evaluar con IA"**, el fotograma se envía al backend evaluador con Gemini 1.5 Pro:
+1. **Badge Dinámico de Puntaje (0 a 5):**
+   - **4 a 5 (Esmeralda):** Resolución sólida y rigor matemático completo. Demostración o despeje sin inconsistencias.
+   - **2 a 3 (Ámbar):** Procedimiento en desarrollo con fallos de signos, omisión de hipótesis o simplificaciones erróneas.
+   - **0 a 1 (Rojo):** Error conceptual o procedimiento inconcluso.
+2. **Desglose Paso a Paso:** Análisis estructurado de los pasos deductivos identificados en tu letra manuscrita.
+3. **Pista Socrática (`💡 hint`):** Sugerencia orientativa que guía tu razonamiento sin dar la respuesta directamente.
+4. **Actualización SRS (Spaced Repetition):** Reprogramación del ejercicio según el algoritmo SM-2 (ejemplo: *"Reprogramado para repaso en 6 días"*).
+5. **Continuar Práctica:** Pulsa **"Practicar Otro Problema"** para reiniciar el uploader con el siguiente ejercicio de tu cola diaria.
+
+
 
 
