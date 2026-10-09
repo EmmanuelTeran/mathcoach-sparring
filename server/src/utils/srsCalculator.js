@@ -10,7 +10,8 @@
 export function calculateNextReview(currentStage, easeFactor, score, previousInterval = 0) {
   let srsStage = Number(currentStage) || 0;
   let ef = typeof easeFactor === 'number' && !isNaN(easeFactor) ? easeFactor : 2.5;
-  const s = Math.max(1, Math.min(5, Math.round(Number(score) || 1)));
+  const numScore = Number(score);
+  const s = Math.max(0, Math.min(5, Math.round(Number.isFinite(numScore) ? numScore : 1)));
 
   // Fórmula estándar SM-2 para ajuste del Ease Factor:
   // EF' = EF + (0.1 - (5 - score) * (0.08 + (5 - score) * 0.02))
@@ -23,7 +24,7 @@ export function calculateNextReview(currentStage, easeFactor, score, previousInt
   let intervalDays = 1;
 
   if (s < 3) {
-    // Scores 1 y 2 (fallo o duda severa): reinicio total a etapa 0 y 1 día de intervalo
+    // Scores 0, 1 y 2 (fallo o duda severa): reinicio total a etapa 0 y 1 día de intervalo
     srsStage = 0;
     intervalDays = 1;
   } else if (s === 3) {
@@ -54,5 +55,9 @@ export function calculateNextReview(currentStage, easeFactor, score, previousInt
     easeFactor: ef,
     intervalDays,
     nextReviewAt,
+    repetition: srsStage,
+    efactor: ef,
+    interval: intervalDays,
+    dueDate: nextReviewAt,
   };
 }

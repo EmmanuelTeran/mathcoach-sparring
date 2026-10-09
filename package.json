@@ -1,8 +1,8 @@
 {
-  "name": "devcoach-sparring",
+  "name": "mathcoach-sparring",
   "version": "1.0.0",
   "private": true,
-  "description": "Entrenador personal fullstack (Hard & Soft skills) con Active Recall y Sparring por voz",
+  "description": "Plataforma de Active Recall multimodal y Spaced Repetition (SRS SM-2) para aprendizaje de matemáticas en 3 niveles",
   "type": "module",
   "workspaces": [
     "server",
@@ -12,7 +12,6 @@
     "dev:server": "npm --workspace=server run dev",
     "dev:client": "npm --workspace=client run dev",
     "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev:server\" \"npm run dev:client\"",
-    "seed": "npm --workspace=server run seed",
     "test:server": "npm --workspace=server test",
     "test:client": "npm --workspace=client test",
     "test": "npm run test:server && npm run test:client",
