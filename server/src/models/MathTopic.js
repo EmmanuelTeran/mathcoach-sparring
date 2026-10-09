@@ -53,15 +53,28 @@ const mathTopicSchema = new mongoose.Schema(
       trim: true,
       default: 'CONAMAT',
     },
+    type: {
+      type: String,
+      default: 'practice',
+    },
+    category: {
+      type: String,
+      default: 'hard_skill',
+    },
     level: {
-      type: Number,
+      type: mongoose.Schema.Types.Mixed,
       required: true,
-      enum: [1, 2, 3], // 1: Computacional, 2: Aplicación, 3: Demostraciones lógicas
       default: 1,
+      validate: {
+        validator: function (v) {
+          return [1, 2, 3, '1', '2', '3', 'junior', 'mid', 'senior'].includes(v);
+        },
+        message: props => `${props.value} no es un nivel válido`,
+      },
     },
     problemStatement: {
       type: String,
-      required: true,
+      default: 'Ejercicio general de evaluación',
       trim: true,
     },
 
