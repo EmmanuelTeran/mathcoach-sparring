@@ -248,29 +248,39 @@ npm run test:all
 
 ---
 
-## 7. Módulo de Entrenamiento en Cuaderno Físico y Evaluación de Rondas
+## 7. Módulo de Entrenamiento en Cuaderno Físico y Evaluación de Rondas (`RoundSession`)
 
-El módulo de entrenamiento permite ejercitar el razonamiento matemático sobre papel y libreta física, resolviendo sesiones de práctica completas sin interrupciones digitales.
+El módulo de entrenamiento (**pestaña "Entrenar"**) permite ejercitar el razonamiento matemático sobre papel y libreta física, resolviendo sesiones de práctica completas sin interrupciones digitales.
 
 ### 7.1 El Flujo de Trabajo en Libreta Física (Ronda Completa)
 
-A diferencia de los flujos de un único problema aislado, una ronda de MathCoach Sparring representa un bloque de práctica deliberada equivalente a ~15 minutos de tiempo experto:
+A diferencia de los flujos legados de un único problema aislado, una ronda de MathCoach Sparring representa un bloque inmutable de práctica deliberada equivalente a ~15 minutos de tiempo experto:
 
-1. **Revisión de Enunciados en Pantalla:**
-   - La plataforma presenta todos los ejercicios de la ronda ordenados didácticamente (`1..N`) con tipografía matemática rigurosa en LaTeX / KaTeX.
-   - Cada ejercicio indica su número de orden, enunciado formal y tiempo experto estimado.
-2. **Resolución Continua en Cuaderno:**
-   - Trabajas directamente sobre tu libreta de papel con pluma o lápiz, resolviendo la ronda completa de principio a fin.
-   - Es recomendable rotular claramente en tu libreta el número de cada ejercicio (ej. *"Ejercicio 1"*, *"Ejercicio 2"*) para facilitar la lectura visual por parte de la IA.
-   - Tus soluciones pueden ocupar una o varias páginas (típicamente entre 1 y 4 páginas según la extensión de los desarrollos).
+1. **Inicio de Sesión desde la Pestaña "Entrenar":**
+   - Al pulsar la pestaña **"Entrenar"** (o hacer clic en *"Entrenar"* desde una tarjeta del Panel), la interfaz contacta de forma transparente con el backend (`POST /api/rounds`) enviando el `{ topicId, category }`.
+   - Si existía una ronda en estado pendiente para esa pista, se recupera exactamente la misma ronda (idempotencia); si no, se ensambla una nueva con ejercicios rotados.
+2. **Encabezado Informativo (`#round-header`) y Cronómetro de Referencia (`#round-timer`):**
+   - El encabezado destaca el título del tema, la categoría traducida al español (*Técnica*, *Aplicación*, *Demostración*), la dificultad activa (1, 2 o 3) y la leyenda de tiempo de referencia (*"Un experto lo resuelve en ~15 min"*).
+   - Incluye un **cronómetro informativo no punitivo** en formato `MM:SS`. Este cronómetro **no bloquea la pantalla, no impone límite de tiempo estricto ni genera penalizaciones**; su propósito es ofrecerte visibilidad sobre tu ritmo real de resolución.
+3. **Revisión de Enunciados con Fórmulas KaTeX (`#round-exercise-<order>`):**
+   - La plataforma presenta todos los ejercicios de la ronda ordenados didácticamente (`1..N`) con tipografía matemática rigurosa en LaTeX / KaTeX mediante el componente `MathStatement`.
+   - Cada ejercicio indica su número de orden (#1, #2...), su tiempo experto aproximado y el enunciado formal.
+4. **Resolución Continua en Cuaderno:**
+   - Trabajas directamente sobre tu libreta de papel con pluma o lápiz, resolviendo la ronda completa de principio a fin sin tocar la computadora o el teléfono.
+   - Es altamente recomendable rotular claramente en tu libreta el número de cada ejercicio (ej. *"Ejercicio 1"*, *"Ejercicio 2"*) para facilitar la lectura visual por parte de la IA.
+   - Tus soluciones pueden ocupar entre 1 y 6 páginas según la extensión de tus desarrollos.
 
-### 7.2 Captura Multimodal de la Libreta (1 a 6 Fotografías)
+### 7.2 Captura Fotográfica Multimodal (1 a 6 Fotografías)
 
-Al terminar todos los ejercicios de la ronda:
-1. Dirígete a la sección de entrega de la ronda y activa la captura de fotos (mediante cámara web/smartphone o subiendo archivos de imagen desde tu disco).
-2. Toma **entre 1 y 6 fotografías** abarcando todas las hojas de tu cuaderno donde desarrollaste los ejercicios.
-   - *Consejo de nitidez:* Asegúrate de contar con buena iluminación cenital, evitar sombras pronunciadas y encuadrar las páginas completas.
-   - La plataforma empaqueta tus fotos y las envía concurrentemente al servicio de visión con Gemini 1.5 Pro.
+Al terminar de escribir tus soluciones en papel:
+1. Pulsa el botón principal **"Ya terminé, capturar"** (`#btn-finish-round`).
+2. Se desplegará el panel de captura multimodal (`RoundPhotoCapture`), que soporta dos modos complementarios:
+   - **Cámara Directa (WebRTC):** Haz clic en *"Activar Cámara"* para abrir el visor con guías de encuadre escáner. Puedes alternar entre cámara frontal y trasera en dispositivos móviles y capturar cada página con el botón *"📸 Tomar Foto"*.
+   - **Subida de Archivos:** Haz clic en *"Subir fotos de archivo"* para seleccionar una o múltiples imágenes (`.jpg`, `.png`, `.heic`) guardadas en tu dispositivo.
+3. **Galería de Miniaturas (`#photo-capture-gallery`):**
+   - Visualiza en tiempo real las páginas agregadas con su contador (*"X de 6 fotos agregadas"*).
+   - Puedes eliminar cualquier fotografía individual que haya salido borrosa con el botón de papelera y agregar nuevas hojas con el botón *"Añadir foto"*.
+4. **Envío Seguro:** El botón **"Enviar a evaluar"** (`#btn-submit-round`) permanece deshabilitado si no hay fotos (0 fotos) o si se excede el límite permitido (>6 fotos). Con entre 1 y 6 imágenes, se activa para iniciar la auditoría con IA.
 
 ### 7.3 Evaluación Pedagógica con Inteligencia Artificial
 
@@ -283,28 +293,43 @@ Gemini 1.5 Pro analiza concurrentemente todas las fotografías provistas y audit
   - **`0 a 2` (Fallo):** Error conceptual severo, infracciones de reglas algebraicas o desarrollo no justificado.
 - **Retroalimentación Detallada Paso a Paso:**
   - Desglose minucioso de cada renglón de tu cuaderno, reconociendo tus aciertos e identificando con precisión quirúrgica el paso exacto donde ocurrió un error.
-- **Pistas Socráticas (`💡 hint`):**
+- **Pistas Socráticas (`💡 Pista Metodológica`):**
   - Recomendaciones metodológicas o preguntas guía para que reflexiones sobre tus áreas de mejora en el siguiente intento sin que se te revele la respuesta final.
 - **Resumen Global de la Ronda (`overall_feedback`):**
   - Una síntesis pedagógica del desempeño general del bloque y recomendaciones para afianzar el dominio de la categoría.
 
-### 7.4 ¿Qué hacer si la aplicación indica que falta algún ejercicio? (Error 422: `exercises_not_found`)
+### 7.4 ¿Qué hacer si la aplicación indica que falta algún ejercicio? (Recuperación ante Error HTTP 422: `exercises_not_found`)
 
 Si alguna hoja de tu libreta quedó fuera del encuadre, la foto salió borrosa, o algún problema no fue resuelto en las páginas enviadas:
 
-- **Alerta de Ejercicios Faltantes:** La aplicación te notificará claramente indicando qué ejercicios específicos no fueron localizados en las fotos (por ejemplo: *"Los ejercicios [2, 3] no fueron detectados en las imágenes provistas"*).
-- **Protección de tu Progreso:** **Tu ronda no se califica con ceros ficticios ni se altera tu progreso en la base de datos.** La ronda se mantiene en estado pendiente (`pending`) y tus intervalos de repetición espaciada permanecen intactos.
+- **Alerta de Ejercicios Faltantes (`#alert-missing-exercises`):** La aplicación te notificará claramente en color ámbar:
+  > *"La IA no encontró el procedimiento de los siguientes ejercicios: #2, #4. Tus fotos anteriores siguen guardadas. Por favor agrega una foto más clara o la hoja donde resolviste esos problemas y vuelve a presionar 'Enviar a evaluar'"*.
+- **Protección de tu Progreso y Conservación de Fotos:**
+  - **Tu ronda no se califica con ceros ficticios ni se altera tu progreso en la base de datos.** La ronda se mantiene en estado pendiente (`pending`) y tus intervalos de repetición espaciada permanecen intactos.
+  - **Las fotos que ya capturaste NO se borran.** Se mantienen visibles en la galería de miniaturas para que no tengas que fotografiar toda tu libreta de nuevo.
 - **Pasos para Continuar:**
-  1. Revisa las páginas de tu cuaderno correspondientes a los ejercicios señalados.
-  2. Vuelve a tomar o añadir las fotografías de las páginas faltantes asegurando que el número del ejercicio y el procedimiento manuscrito queden bien iluminados y legibles.
-  3. Reenvía el lote completo de fotos (1 a 6 imágenes) para obtener tu evaluación integral.
+  1. Revisa las páginas de tu cuaderno correspondientes a los ejercicios señalados en la alerta.
+  2. Pulsa *"Tomar otra foto con cámara"* o *"Subir fotos de archivo"* para anexar la página faltante (hasta el límite de 6 fotos).
+  3. Pulsa nuevamente **"Enviar a evaluar"** (`#btn-submit-round`) para reanudar la evaluación completa.
 
-### 7.5 Cierre de Ronda, Promoción y Calendario SRS
+### 7.5 Panel de Resultados, Progresión Adaptativa y Calendario SRS (`RoundResults`)
 
-Cuando todos los ejercicios son localizados y evaluados con éxito:
-1. El sistema calcula automáticamente el **Puntaje de Ronda (`roundScore`)** y la **Tasa de Aprobación (`passRate`)**.
-2. Si cumples los criterios de promoción ($\ge 4.0$ promedio y $\ge 80\%$ de ejercicios aprobados en dificultad 1 o 2), recibes la insignia de ascenso de nivel y tu próxima práctica se programa en **3 días**.
-3. Si la ronda es aprobada sin promoción o estás en nivel 3, avanza tu intervalo regular de repetición espaciada SM-2.
-4. Si la ronda no alcanza el corte aprobatorio ($< 3.0$), tu dificultad se mantiene sin degradación y se programa un repaso correctivo para **mañana (1 día)**.
+Al culminar con éxito la evaluación, se renderiza la pantalla integral de balance pedagógico (`#round-results`):
+
+1. **Score Global y Tasa de Aprobación:**
+   - Despliega el promedio ponderado de la ronda (`roundScore` de 0.0 a 5.0) y el porcentaje de ejercicios superados con $\ge 3$ puntos (`passRate`).
+2. **Dictamen de Progresión Adaptativa (`#round-progression`):**
+   - **Ascenso de Nivel:** Si lograste `roundScore ≥ 4.0` y `passRate ≥ 80%` en dificultad 1 o 2, verás el mensaje destacado:
+     > *"¡Felicidades! Subes a dificultad 2 en Técnica para el próximo repaso"*.
+     El motor programará tu próxima sesión para dentro de **3 días**.
+   - **Permanencia en el Nivel:** Si no alcanzaste la cuota de excelencia o ya te encuentras en dificultad 3, verás el mensaje:
+     > *"Te mantienes en dificultad 1 en Técnica"*.
+     El motor recalcula tu intervalo SRS normal (o 1 día correctivo si obtuviste $< 3.0$) sin jamás degradar tu nivel adquirido.
+   - **Fecha del Próximo Repaso SRS:** Visualización clara de la fecha agendada para volver a practicar esta pista (`nextReviewAt`).
+3. **Auditoría Individual por Ejercicio (`#round-exercise-result-<order>`):**
+   - Cada ejercicio muestra su badge de puntaje (*Aprobado*, *En Progreso*, *Revisar Conceptos*), el desglose paso a paso de la deducción manuscrita y la pista metodológica.
+4. **Navegación:**
+   - Botón *"Volver al Panel"* para regresar al panel principal de estudio.
+   - Botón *"Iniciar Nueva Práctica"* para comenzar de inmediato otra sesión de entrenamiento.
 
 

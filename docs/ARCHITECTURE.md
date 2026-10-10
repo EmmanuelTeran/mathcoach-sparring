@@ -657,3 +657,117 @@ Se certifica formalmente la erradicación total del endpoint monolítico anterio
    ```
 5. **Frontend Libre de Residuos:** `MathVisionUploader` y los tests de frontend fueron actualizados para desacoplarse del endpoint deprecado.
 
+---
+
+## 10. Arquitectura Frontend de Sesión de Ronda (`RoundSession`)
+
+Con la culminación de **MATH-US-13**, la interfaz de usuario de MathCoach Sparring reemplaza el flujo legado de un único problema aislado por un orquestador integral de rondas de libreta.
+
+### 10.1 Jerarquía y Descomposición de Componentes React
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                          client/src/App.jsx                            │
+│                 (Pestaña "Entrenar" | Pestaña "Panel")                 │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│               client/src/components/RoundSession.jsx                   │
+│            (Orquestador de Ronda y Máquina de Estados Finita)          │
+│                                                                        │
+│  ├── #round-header (Tema, Categoría en español, Dificultad, Meta min)  │
+│  ├── #round-timer (Cronómetro MM:SS informativo no bloqueante)         │
+│  ├── MathStatement.jsx (KaTeX) ──> #round-exercise-<order>            │
+│  │                                                                     │
+│  ├── RoundPhotoCapture.jsx (Lote 1..6 fotos)                           │
+│  │     ├── Visor WebRTC / Selector de Archivos (multiple)              │
+│  │     ├── #photo-capture-gallery (Miniaturas, contador, eliminación)  │
+│  │     └── #btn-submit-round (Envío seguro con 1..6 fotos)             │
+│  │                                                                     │
+│  └── RoundResults.jsx                                                  │
+│        ├── #round-results (Score global y % de aprobación)             │
+│        ├── #round-progression (Dictamen adaptativo + Fecha SRS)        │
+│        └── #round-exercise-result-<order> (Auditoría paso a paso)      │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+1. **`App.jsx`:** Monta `RoundSession` bajo la pestaña *"Entrenar"* (`#tab-math-vision`), comunicando `topicId` y `category` seleccionados desde el Panel.
+2. **`RoundSession.jsx`:** Orquestador de la sesión de práctica. Mantiene el ciclo de vida, cronómetro y llamadas HTTP a `/api/rounds` y `/api/rounds/:id/evaluate`.
+3. **`MathStatement.jsx`:** Renderiza enunciados matemáticos en Markdown y KaTeX con renderizado seguro de fórmulas `$$...$$` y `$...$`.
+4. **`RoundPhotoCapture.jsx`:** Componente modular para capturar y previsualizar de 1 a 6 imágenes fotográficas. Gestiona permisos WebRTC, conmutación de cámaras, subida de archivos múltiples, eliminación individual de páginas y galería de miniaturas.
+5. **`RoundResults.jsx`:** Despliega el balance pedagógico final, dictamen de ascenso o permanencia de dificultad, fecha de revisión SRS y auditoría paso a paso por ejercicio.
+
+### 10.2 Máquina de Estados Local de la Sesión
+
+El componente `RoundSession` opera bajo una máquina de estados finita explícita:
+
+```mermaid
+stateDiagram-v2
+    [*] --> LOADING : Montaje con { topicId, category }
+    LOADING --> ERROR : Fallo HTTP / Error de red
+    LOADING --> PRACTICING : 200/201 Ronda obtenida
+
+    state PRACTICING {
+        [*] --> VerEnunciadosKaTeX
+        VerEnunciadosKaTeX --> CronometroInformativo : Tiempo continuo MM:SS
+        VerEnunciadosKaTeX --> PulsaFinalizar : Clic en #btn-finish-round
+    }
+
+    PRACTICING --> CAPTURING : "Ya terminé, capturar"
+
+    state CAPTURING {
+        [*] --> GaleriaMiniaturas
+        GaleriaMiniaturas --> CapturaWebRTC : Tomar foto
+        GaleriaMiniaturas --> SubidaArchivo : Seleccionar archivo(s)
+        GaleriaMiniaturas --> EliminarFoto : Borrar página individual
+        GaleriaMiniaturas --> HabilitarEnvio : 1..6 fotos listas
+    }
+
+    CAPTURING --> PRACTICING : "Volver a ver ejercicios"
+    CAPTURING --> EVALUATING : Clic en #btn-submit-round
+
+    EVALUATING --> RECOVERY_422 : 422 { error: 'exercises_not_found', missing: [...] }
+    RECOVERY_422 --> CAPTURING : Conserva fotos previas + anexa faltantes
+
+    EVALUATING --> CAPTURING : Fallo de red / Error transitorio (permite reintento)
+    EVALUATING --> RESULTS : 200 OK Evaluación completada
+
+    state RESULTS {
+        [*] --> RoundResults
+        RoundResults --> DictamenProgresion : #round-progression
+        RoundResults --> DesglosePasoAPaso : #round-exercise-result-<order>
+        RoundResults --> VolverAlPanel : Clic en volver
+    }
+
+    RESULTS --> [*]
+```
+
+### 10.3 Manejo de Errores HTTP y Resiliencia en Cliente
+
+| Código HTTP | Causa en Backend | Manejo y Experiencia en Frontend (`RoundSession`) |
+|---|---|---|
+| **`422 Unprocessable Entity`** | `exercises_not_found`: la IA no localizó 1 o más ejercicios. | Entra en estado `RECOVERY_422`. Renderiza la alerta `#alert-missing-exercises` con la lista de ejercicios faltantes. **Conserva intactas las fotos ya tomadas** y permite añadir fotos adicionales con `#btn-submit-round`. |
+| **`400 Bad Request`** | Parámetros inválidos (`topicId` no válido o fotos vacías). | Transiciona al estado `ERROR` mostrando el mensaje amigable devuelto por el servidor y botón de reintento. |
+| **`404 Not Found`** | Tema o ronda inexistente en la base de datos. | Muestra estado `ERROR` con opción de regresar al Panel de Control. |
+| **`409 Conflict`** | La ronda ya había sido evaluada con anterioridad. | Informa que la ronda está concluida y permite cargar los resultados o iniciar una nueva práctica. |
+| **`502 Bad Gateway`** | Gemini 1.5 Pro sobrecargado o fallo de conectividad. | Muestra advertencia no destructiva en `CAPTURING`, preservando las fotos cargadas para permitir reintentar el envío de inmediato. |
+
+### 10.4 Contrato Estricto de Identificadores Estables para E2E
+
+Para asegurar que las pruebas de integración y automatización con Playwright ([MATH-US-15](file:///home/teran/proyectos/mathcoach-sparring/tickets/MATH-US-15-e2e-documentation.md)) sean 100% deterministas y resilientes a cambios de clases CSS, se garantizan los siguientes atributos `id` permanentes:
+
+| Identificador Requerido | Elemento HTML | Componente | Función en el Flujo |
+|---|---|---|---|
+| `#round-header` | `<header>` | `RoundSession` | Encabezado principal: tema, categoría en español, dificultad y tiempo de referencia. |
+| `#round-timer` | `<div>` | `RoundSession` | Contenedor del cronómetro informativo en formato `MM:SS`. |
+| `#round-exercise-<order>` | `<article>` | `RoundSession` | Contenedor de cada ejercicio de la ronda según su número ordinal (ej. `#round-exercise-1`, `#round-exercise-2`). |
+| `#btn-finish-round` | `<button>` | `RoundSession` | Botón que concluye la resolución en libreta e inicia el panel de captura ("Ya terminé, capturar"). |
+| `#photo-capture-gallery` | `<div>` | `RoundPhotoCapture` | Galería con las miniaturas de las 1 a 6 fotos cargadas. |
+| `#btn-submit-round` | `<button>` | `RoundSession` | Botón para enviar las imágenes a evaluación ("Enviar a evaluar"). Deshabilitado con 0 o >6 fotos. |
+| `#alert-missing-exercises` | `<div>` | `RoundSession` | Contenedor de advertencia cuando el backend responde 422 indicando qué ejercicios faltan. |
+| `#round-results` | `<div>` | `RoundResults` | Contenedor principal de la pantalla de balance de ronda. |
+| `#round-progression` | `<div>` | `RoundResults` | Bloque con el dictamen adaptativo de ascenso/permanencia y fecha del próximo repaso SRS. |
+| `#round-exercise-result-<order>` | `<div>` | `RoundResults` | Desglose individual de cada ejercicio evaluado (score, feedback paso a paso y hint). |
+
+
