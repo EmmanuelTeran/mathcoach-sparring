@@ -226,7 +226,9 @@ export function RoundSession({
             {roundData.topic?.title || 'Tema de Práctica'}
           </h2>
           <p className="text-xs text-slate-400 mt-1">
-            Un experto lo resuelve en ~{expertTime} min ({roundData.exercises?.length || 0} ejercicios)
+            {roundData.category === 'proof'
+              ? `Un experto lo resuelve en ~${expertTime} min (1 ejercicio)`
+              : `Un experto lo resuelve en ~${expertTime} min (${roundData.exercises?.length || 0} ejercicios)`}
           </p>
         </div>
 

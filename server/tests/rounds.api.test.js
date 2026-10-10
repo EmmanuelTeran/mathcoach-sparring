@@ -167,36 +167,18 @@ describe('Rounds API Integration Tests (/api/rounds)', () => {
     });
 
     it('crea exitosamente una ronda con 201 y persiste snapshot y muta timesServed / lastServedAt', async () => {
-      // Crear 3 ejercicios en catálogo para technique d1
-      const ex1 = await Exercise.create({
-        topicId: testTopic._id,
-        category: 'technique',
-        difficulty: 1,
-        order: 1,
-        statement: 'E1 statement',
-        expertMinutes: 5,
-        externalKey: 'ex-tech-1',
-      });
-
-      const ex2 = await Exercise.create({
-        topicId: testTopic._id,
-        category: 'technique',
-        difficulty: 1,
-        order: 2,
-        statement: 'E2 statement',
-        expertMinutes: 5,
-        externalKey: 'ex-tech-2',
-      });
-
-      const ex3 = await Exercise.create({
-        topicId: testTopic._id,
-        category: 'technique',
-        difficulty: 1,
-        order: 3,
-        statement: 'E3 statement',
-        expertMinutes: 5,
-        externalKey: 'ex-tech-3',
-      });
+      // Crear 6 ejercicios en catálogo para technique d1 (6 * 5 min = 30 min)
+      const exercises = await Exercise.create(
+        Array.from({ length: 6 }, (_, i) => ({
+          topicId: testTopic._id,
+          category: 'technique',
+          difficulty: 1,
+          order: i + 1,
+          statement: `E${i + 1} statement`,
+          expertMinutes: 5,
+          externalKey: `ex-tech-${i + 1}`,
+        }))
+      );
 
       const res = await request(app).post('/api/rounds').send({
         topicId: testTopic._id,
@@ -207,12 +189,12 @@ describe('Rounds API Integration Tests (/api/rounds)', () => {
       expect(res.body.roundId).toBeDefined();
       expect(res.body.category).toBe('technique');
       expect(res.body.difficulty).toBe(1);
-      expect(res.body.exercises.length).toBe(3);
-      expect(res.body.totalExpertMinutes).toBe(15);
+      expect(res.body.exercises.length).toBe(6);
+      expect(res.body.totalExpertMinutes).toBe(30);
       expect(res.body.warning).toBeUndefined();
 
-      // Verificar que se incrementó timesServed y se fijó lastServedAt
-      const updatedEx1 = await Exercise.findById(ex1._id);
+      // Verificar que se incrementó timesServed y se fijó lastServedAt en los ejercicios servidos
+      const updatedEx1 = await Exercise.findById(exercises[0]._id);
       expect(updatedEx1.timesServed).toBe(1);
       expect(updatedEx1.lastServedAt).not.toBeNull();
 
@@ -220,40 +202,22 @@ describe('Rounds API Integration Tests (/api/rounds)', () => {
       const roundInDb = await Round.findById(res.body.roundId);
       expect(roundInDb).toBeDefined();
       expect(roundInDb.status).toBe('pending');
-      expect(roundInDb.exercises.length).toBe(3);
+      expect(roundInDb.exercises.length).toBe(6);
     });
 
     it('reutiliza ronda pending existente retornando 200 (Idempotencia)', async () => {
-      // Crear 3 ejercicios
-      await Exercise.create([
-        {
+      // Crear 6 ejercicios
+      await Exercise.create(
+        Array.from({ length: 6 }, (_, i) => ({
           topicId: testTopic._id,
           category: 'technique',
           difficulty: 1,
-          order: 1,
-          statement: 'E1',
+          order: i + 1,
+          statement: `E${i + 1}`,
           expertMinutes: 5,
-          externalKey: 'ex-tech-1',
-        },
-        {
-          topicId: testTopic._id,
-          category: 'technique',
-          difficulty: 1,
-          order: 2,
-          statement: 'E2',
-          expertMinutes: 5,
-          externalKey: 'ex-tech-2',
-        },
-        {
-          topicId: testTopic._id,
-          category: 'technique',
-          difficulty: 1,
-          order: 3,
-          statement: 'E3',
-          expertMinutes: 5,
-          externalKey: 'ex-tech-3',
-        },
-      ]);
+          externalKey: `ex-tech-${i + 1}`,
+        }))
+      );
 
       // Primera llamada: 201 Created
       const res1 = await request(app).post('/api/rounds').send({
@@ -277,7 +241,7 @@ describe('Rounds API Integration Tests (/api/rounds)', () => {
     });
 
     it('retorna warning: "catalog_insufficient" cuando hay menos ejercicios que el mínimo', async () => {
-      // Técnica requiere mínimo 3. Insertamos sólo 2
+      // Técnica requiere mínimo 6. Insertamos sólo 2
       await Exercise.create([
         {
           topicId: testTopic._id,
@@ -310,70 +274,40 @@ describe('Rounds API Integration Tests (/api/rounds)', () => {
     });
 
     it('rota ejercicios al generar una nueva ronda tras evaluar la anterior', async () => {
-      // Catálogo con 4 ejercicios de 5 min (Técnica necesita 3 ejercicios de 5 min para completar 15 min)
-      await Exercise.create([
-        {
+      // Catálogo con 7 ejercicios de 5 min (Técnica necesita 6 ejercicios de 5 min para completar 30 min)
+      await Exercise.create(
+        Array.from({ length: 7 }, (_, i) => ({
           topicId: testTopic._id,
           category: 'technique',
           difficulty: 1,
-          order: 1,
-          statement: 'E1',
+          order: i + 1,
+          statement: `E${i + 1}`,
           expertMinutes: 5,
-          externalKey: 'ex-1',
+          externalKey: `ex-${i + 1}`,
           timesServed: 0,
-        },
-        {
-          topicId: testTopic._id,
-          category: 'technique',
-          difficulty: 1,
-          order: 2,
-          statement: 'E2',
-          expertMinutes: 5,
-          externalKey: 'ex-2',
-          timesServed: 0,
-        },
-        {
-          topicId: testTopic._id,
-          category: 'technique',
-          difficulty: 1,
-          order: 3,
-          statement: 'E3',
-          expertMinutes: 5,
-          externalKey: 'ex-3',
-          timesServed: 0,
-        },
-        {
-          topicId: testTopic._id,
-          category: 'technique',
-          difficulty: 1,
-          order: 4,
-          statement: 'E4',
-          expertMinutes: 5,
-          externalKey: 'ex-4',
-          timesServed: 0,
-        },
-      ]);
+        }))
+      );
 
-      // Primera ronda: toma E1, E2, E3 (timesServed: 0)
+      // Primera ronda: toma E1..E6 (timesServed: 0)
       const res1 = await request(app).post('/api/rounds').send({
         topicId: testTopic._id,
         category: 'technique',
       });
       expect(res1.status).toBe(201);
       const firstExerciseKeys = res1.body.exercises.map((e) => e.order);
-      expect(firstExerciseKeys).toEqual([1, 2, 3]);
+      expect(firstExerciseKeys).toEqual([1, 2, 3, 4, 5, 6]);
 
       // Simulamos que la primera ronda fue evaluada para permitir generar una segunda
       await Round.findByIdAndUpdate(res1.body.roundId, { status: 'evaluated' });
 
-      // Segunda ronda: E4 (timesServed: 0) DEBE tener prioridad sobre E1, E2, E3 (timesServed: 1)
+      // Segunda ronda: E7 (timesServed: 0) DEBE tener prioridad sobre E1..E6 (timesServed: 1)
       const res2 = await request(app).post('/api/rounds').send({
         topicId: testTopic._id,
         category: 'technique',
       });
       expect(res2.status).toBe(201);
       const secondOrders = res2.body.exercises.map((e) => e.order);
-      expect(secondOrders).toContain(4);
+      expect(secondOrders).toContain(7);
     });
   });
 

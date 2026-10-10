@@ -307,14 +307,19 @@ Todos los valores numéricos y reglas de corte están desacoplados del código a
 export const PROMOTION_MIN_SCORE = 4.0;       // Nota promedio mínima para promoción (escala 0-5)
 export const PROMOTION_MIN_PASS_RATE = 0.8;    // Proporción mínima de ejercicios aprobados (>= 3)
 export const PROMOTION_INTERVAL_DAYS = 3;      // Intervalo de repaso corto tras ascender de nivel
-export const ROUND_BUDGET_MIN = 15;            // Presupuesto experto por ronda (minutos)
+export const ROUND_BUDGET_MIN = 15;            // Presupuesto experto legado / fallback por ronda (minutos)
+export const ROUND_BUDGETS = {                 // Presupuestos expertos por categoría (minutos)
+  technique: 30,
+  application: 30,
+  proof: 15,
+};
 export const EXERCISE_PASS_SCORE = 3;          // Corte individual de ejercicio aprobado
 export const ROUND_PASS_SCORE = 3.0;           // Corte global para evitar reinicio SM-2
 export const MIN_DIFFICULTY = 1;               // Dificultad base
 export const MAX_DIFFICULTY = 3;               // Tope adaptativo máximo
-export const CATEGORY_LIMITS = {
-  technique: { min: 3, max: 10 },
-  application: { min: 1, max: 3 },
+export const CATEGORY_LIMITS = {               // Límites de cantidad de ejercicios por categoría
+  technique: { min: 6, max: 18 },
+  application: { min: 2, max: 6 },
   proof: { min: 1, max: 1 },
 };
 ```
@@ -360,7 +365,7 @@ interface RoundOutcome {
 
 ---
 
-## 6. Constructor de Rondas de 15 min (`roundBuilder.js`)
+## 6. Constructor de Rondas Calibrado (`roundBuilder.js`)
 
 El servicio [server/src/services/roundBuilder.js](file:///home/teran/proyectos/mathcoach-sparring/server/src/services/roundBuilder.js) orquesta la selección, cuotas pedagógicas y congelamiento inmutable de ejercicios para cada sesión de práctica formal.
 
@@ -375,10 +380,10 @@ flowchart TD
     SortFair --> S1["timesServed ASC (menos servidos primero)"]
     S1 --> S2["lastServedAt ASC (null primero, luego fecha más antigua)"]
     S2 --> S3["order ASC (desempate determinista)"]
-    S3 --> Accumulate[3. Acumulación por Presupuesto y Límites de Categoría]
-    Accumulate --> CheckTechnique["Técnica: [3..10], acumula >= 15 min (min 3)"]
-    Accumulate --> CheckApp["Aplicación: [1..3], acumula >= 15 min"]
-    Accumulate --> CheckProof["Demostración: [1..1], exactamente 1 ejercicio"]
+    S3 --> Accumulate[3. Acumulación por Presupuesto ROUND_BUDGETS y Límites CATEGORY_LIMITS]
+    Accumulate --> CheckTechnique["Técnica: [6..18], acumula >= 30 min (min 6)"]
+    Accumulate --> CheckApp["Aplicación: [2..6], acumula >= 30 min (min 2)"]
+    Accumulate --> CheckProof["Demostración: [1..1], exactamente 1 ejercicio (15 min)"]
     CheckTechnique & CheckApp & CheckProof --> FinalSort[4. Orden Final de Entrega: order ASC]
     FinalSort --> Snapshot[Snapshot inmutable en Round + Mutación atómica en Exercise]
 ```
@@ -389,10 +394,11 @@ flowchart TD
    - **`timesServed` ASC:** Los ejercicios con menor historial de servicio tienen prioridad absoluta.
    - **`lastServedAt` ASC:** En caso de empate en `timesServed`, se priorizan aquellos nunca servidos (`null`) o cuya entrega fue en una fecha más remota.
    - **`order` ASC:** En caso de empate en frecuencia y antigüedad, se desempata por orden de catálogo.
-3. **Control de Presupuesto (`ROUND_BUDGET_MIN = 15`) y Cuotas (`CATEGORY_LIMITS`):**
-   - **Técnica (`technique`):** $3 \le N \le 10$. Acumula hasta $\ge 15$ minutos y al menos 3 ejercicios.
-   - **Aplicación (`application`):** $1 \le N \le 3$. Acumula hasta $\ge 15$ minutos o 3 ejercicios.
-   - **Demostración (`proof`):** Siempre exactamente 1 ejercicio.
+3. **Control de Presupuesto (`ROUND_BUDGETS`) y Cuotas (`CATEGORY_LIMITS`):**
+   - **Técnica (`technique`):** $6 \le N \le 18$. Acumula hasta sumar $\ge 30$ minutos de `expertMinutes` y al menos 6 ejercicios (tope absoluto: 18).
+   - **Aplicación (`application`):** $2 \le N \le 6$. Acumula hasta sumar $\ge 30$ minutos de `expertMinutes` y al menos 2 ejercicios (tope absoluto: 6).
+   - **Demostración (`proof`):** Siempre exactamente 1 ejercicio (presupuesto nominal de 15 min).
+   - **Resiliencia ante Catálogo Insuficiente (`catalog_insufficient`):** Si la cantidad de candidatos disponibles es menor que el mínimo de la categoría (`selected.length < limits.min`), pero existe al menos 1 candidato, se devuelve la selección disponible con `warning: 'catalog_insufficient'`.
 4. **Orden Didáctico Final (`order` ASC):**
    - Una vez seleccionados los ejercicios, se ordenan en forma monótonamente creciente según su atributo `order` catalogado, garantizando que el estudiante comience con problemas introductorios y avance hacia mayor complejidad.
 5. **Snapshot Inmutable y Efectos Colaterales Atómicos:**
@@ -834,7 +840,7 @@ Para asegurar que las pruebas de integración y automatización con Playwright (
 
 | Identificador Requerido | Elemento HTML | Componente | Función en el Flujo |
 |---|---|---|---|
-| `#round-header` | `<header>` | `RoundSession` | Encabezado principal: tema, categoría en español, dificultad y tiempo de referencia. |
+| `#round-header` | `<header>` | `RoundSession` | Encabezado principal: tema, categoría en español, dificultad y expectativa calibrada de tiempo y ejercicios: `"~30 min (N ejercicios)"` para Técnica/Aplicación o `"~15 min (1 ejercicio)"` para Demostración. |
 | `#round-timer` | `<div>` | `RoundSession` | Contenedor del cronómetro informativo en formato `MM:SS`. |
 | `#round-exercise-<order>` | `<article>` | `RoundSession` | Contenedor de cada ejercicio de la ronda según su número ordinal (ej. `#round-exercise-1`, `#round-exercise-2`). |
 | `#btn-finish-round` | `<button>` | `RoundSession` | Botón que concluye la resolución en libreta e inicia el panel de captura ("Ya terminé, capturar"). |

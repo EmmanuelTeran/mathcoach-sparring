@@ -12,7 +12,7 @@ const SAMPLE_ROUND_PAYLOAD = {
   },
   category: 'technique',
   difficulty: 1,
-  totalExpertMinutes: 15,
+  totalExpertMinutes: 30,
   exercises: [
     {
       order: 1,
@@ -22,7 +22,27 @@ const SAMPLE_ROUND_PAYLOAD = {
     {
       order: 2,
       statement: 'Resuelve la ecuación cuadrática: $$x^2 - 5x + 6 = 0$$',
-      expertMinutes: 10,
+      expertMinutes: 5,
+    },
+    {
+      order: 3,
+      statement: 'Factoriza: $$x^3 - 8$$',
+      expertMinutes: 5,
+    },
+    {
+      order: 4,
+      statement: 'Resuelve: $$2x + 4 = 10$$',
+      expertMinutes: 5,
+    },
+    {
+      order: 5,
+      statement: 'Simplifica: $$\\frac{x^2 - 1}{x - 1}$$',
+      expertMinutes: 5,
+    },
+    {
+      order: 6,
+      statement: 'Factoriza: $$x^2 + 5x + 6$$',
+      expertMinutes: 5,
     },
   ],
 };
@@ -123,7 +143,7 @@ describe('RoundSession Component Integration & Finite State Machine Tests', () =
     expect(screen.getByText(/Factorización y Fracciones Algebraicas/i)).toBeInTheDocument();
     expect(screen.getByText(/Técnica/i)).toBeInTheDocument();
     expect(screen.getByText(/Dificultad 1/i)).toBeInTheDocument();
-    expect(screen.getByText(/Un experto lo resuelve en ~15 min/i)).toBeInTheDocument();
+    expect(screen.getByText(/Un experto lo resuelve en ~30 min \(6 ejercicios\)/i)).toBeInTheDocument();
 
     // 2. Cronómetro no bloqueante
     expect(container.querySelector('#round-timer')).toBeInTheDocument();
@@ -141,6 +161,42 @@ describe('RoundSession Component Integration & Finite State Machine Tests', () =
     const finishBtn = container.querySelector('#btn-finish-round');
     expect(finishBtn).toBeInTheDocument();
     expect(finishBtn).toHaveTextContent(/Ya terminé, capturar/i);
+  });
+
+  it('AC-4: Renderiza encabezado en singular estricto para Demostración: ~15 min (1 ejercicio)', async () => {
+    const proofRoundPayload = {
+      roundId: '651a2b3c4d5e6f7a8b9c0d88',
+      topic: {
+        _id: '651a2b3c4d5e6f7a8b9c0d1e',
+        title: 'Teorema del Valor Medio',
+        slug: 'teorema-valor-medio',
+      },
+      category: 'proof',
+      difficulty: 1,
+      totalExpertMinutes: 15,
+      exercises: [
+        {
+          order: 1,
+          statement: 'Demuestre el teorema de Rolle...',
+          expertMinutes: 15,
+        },
+      ],
+    };
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => proofRoundPayload,
+    });
+
+    const { container } = render(
+      <RoundSession topicId="651a2b3c4d5e6f7a8b9c0d1e" category="proof" />
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('#round-header')).toBeInTheDocument();
+    });
+    expect(screen.getByText(/Demostración/i)).toBeInTheDocument();
+    expect(screen.getByText(/Un experto lo resuelve en ~15 min \(1 ejercicio\)/i)).toBeInTheDocument();
   });
 
   it('AC-3: Transiciona a CAPTURING al pulsar #btn-finish-round y valida galería de 1 a 6 fotos', async () => {

@@ -61,25 +61,27 @@ Cada tema curricular se ejercita a través de 3 pistas complementarias e indepen
    - **Expectativa de Tiempo Experto:** **8 a 15 minutos** por demostración.
    - **Composición de Ronda:** **Siempre 1 único ejercicio** de profundidad formal por ronda.
 
-### 2.2 Estructura de las Sesiones de Práctica: El Bloque de ~15 Minutos de Tiempo Experto
+### 2.2 Estructura de las Sesiones de Práctica: Bloques de ~30 Minutos (Técnica y Aplicación) y ~15 Minutos (Demostración)
 
-El entrenamiento deliberado universitario no se realiza problema a problema con la fricción constante de capturar una foto tras cada paso. En MathCoach Sparring, la práctica se organiza en **bloques de trabajo concentrado en libreta física** equivalentes a **~15 minutos de tiempo experto** (`ROUND_BUDGET_MIN = 15`):
+El entrenamiento deliberado universitario no se realiza problema a problema con la fricción constante de capturar una foto tras cada paso. En MathCoach Sparring, la práctica se organiza en **bloques de trabajo concentrado en libreta física** calibrados por categoría para reflejar sesiones de estudio profundo STEM:
+- **Técnica y Aplicación (~30 minutos de tiempo experto):** Representan un bloque sustancial de concentración (~30 a 50 minutos de tiempo real de libreta) enfocado en fluidez procedimental intensiva o modelado analítico estructurado.
+- **Demostración (~15 minutos de tiempo experto):** Mantiene un bloque enfocado y reflexivo en un único problema formal de deducción o rigor axiomático.
 
-- **¿Qué es el Tiempo Experto (`expertMinutes`)?** Es la duración estimada que le tomaría a un docente o estudiante avanzado resolver el ejercicio con rigor. Para ti como estudiante en fase de aprendizaje, el bloque real de libreta suele tomar entre **20 y 35 minutos**, ofreciendo una sesión completa y profunda de enfoque continuo (Deep Work).
+- **¿Qué es el Tiempo Experto (`expertMinutes`)?** Es la duración estimada que le tomaría a un docente o estudiante avanzado resolver el ejercicio con rigor. Para ti como estudiante en fase de aprendizaje, el bloque real de libreta suele tomar entre **35 y 55 minutos** (en Técnica/Aplicación) y **20 a 35 minutos** (en Demostración), ofreciendo una sesión completa y profunda de enfoque continuo (Deep Work).
 - **Inmutabilidad de la Sesión:** Al iniciar la ronda, el sistema congela un *snapshot* exacto con los enunciados seleccionados. Si el catálogo se actualiza con posterioridad, tu sesión conserva intacto el material de práctica asignado.
 
 ### 2.3 Cuotas de Ejercicios por Categoría
 
-La cantidad de ejercicios asignados en una ronda depende directamente de la categoría de la pista:
+La cantidad de ejercicios asignados en una ronda depende directamente de la categoría de la pista y su presupuesto de tiempo experto:
 
-| Categoría | Cuota de Ejercicios | Duración por Ejercicio | Regla de Composición Temporal |
-|---|---|---|---|
-| **Técnica (`technique`)** | **3 a 10 ejercicios** | 1 a 5 min | Acumula ejercicios breves hasta alcanzar $\ge 15$ minutos o alcanzar el tope de 10 ejercicios. Con ejercicios de 5 min se detiene al llegar a 3 ejercicios; con ejercicios de 1–2 min conforma lotes ágiles de 8 a 10 ejercicios. |
-| **Aplicación (`application`)** | **1 a 3 ejercicios** | 5 a 15 min | Problemas de modelado y análisis. Un ejercicio largo de 15 min compone una ronda completa de 1 solo ejercicio; si los ejercicios son medianos (5–8 min), combina 2 o 3. |
-| **Demostración (`proof`)** | **Exactamente 1 ejercicio** | 8 a 15 min | Un único reto deductivo profundo por sesión (reducción al absurdo, inducción, $\varepsilon-\delta$, etc.). |
+| Categoría | Presupuesto Experto | Cuota de Ejercicios | Duración por Ejercicio | Regla de Composición Temporal |
+|---|---|---|---|---|
+| **Técnica (`technique`)** | **~30 min** | **6 a 18 ejercicios** | 1 a 5 min | Drill deliberado de patrones algorítmicos. Acumula ejercicios breves hasta sumar $\ge 30$ minutos y al menos 6 ejercicios (tope absoluto: 18). Con problemas de 5 min se detiene en 6 ejercicios; con problemas de 1–2 min conforma tandas ágiles de 15 a 18 ejercicios. |
+| **Aplicación (`application`)** | **~30 min** | **2 a 6 ejercicios** | 5 a 15 min | Modelado matemático, problemas contextualizados y análisis cuantitativo. Acumula hasta $\ge 30$ minutos y al menos 2 ejercicios (tope: 6). Dos problemas complejos de 15 min conforman una ronda balanceada de 2 problemas. |
+| **Demostración (`proof`)** | **~15 min** | **Exactamente 1 ejercicio** | 8 a 15 min | Un único reto deductivo profundo por sesión (reducción al absurdo, inducción matemática, $\varepsilon-\delta$, etc.) para evitar fatiga cognitiva deductiva. |
 
 > [!NOTE]
-> **Catálogo Insuficiente:** Si estás en un tema o dificultad donde el catálogo cuenta con menos ejercicios que la cuota mínima requerida (pero al menos 1), la plataforma te entrega todos los ejercicios disponibles acompañados de una advertencia (`catalog_insufficient`) para no frenar tu sesión de estudio.
+> **Catálogo Insuficiente:** Si estás en un tema o dificultad donde el catálogo cuenta con menos ejercicios que la cuota mínima requerida (menos de 6 en Técnica o menos de 2 en Aplicación, pero al menos 1), la plataforma te entrega todos los ejercicios disponibles acompañados de una advertencia (`catalog_insufficient`) para no frenar tu sesión de estudio.
 
 ### 2.4 Rotación Inteligente de Problemas
 
@@ -254,14 +256,18 @@ El módulo de entrenamiento (**pestaña "Entrenar"**) permite ejercitar el razon
 
 ### 7.1 El Flujo de Trabajo en Libreta Física (Ronda Completa)
 
-A diferencia de los flujos legados de un único problema aislado, una ronda de MathCoach Sparring representa un bloque inmutable de práctica deliberada equivalente a ~15 minutos de tiempo experto:
+A diferencia de los flujos legados de un único problema aislado, una ronda de MathCoach Sparring representa un bloque inmutable de práctica deliberada calibrado según la categoría de estudio:
+- **Técnica y Aplicación:** Bloques sustanciales de **~30 minutos de tiempo experto** (con 6 a 18 ejercicios procedimentales o 2 a 6 problemas aplicados).
+- **Demostración:** Retos concentrados de **~15 minutos de tiempo experto** en un único problema formal.
 
 1. **Inicio de Sesión desde la Pestaña "Entrenar":**
    - Al pulsar la pestaña **"Entrenar"** (o hacer clic en *"Entrenar"* desde una tarjeta del Panel), la interfaz contacta de forma transparente con el backend (`POST /api/rounds`) enviando el `{ topicId, category }`.
    - Si existía una ronda en estado pendiente para esa pista, se recupera exactamente la misma ronda (idempotencia); si no, se ensambla una nueva con ejercicios rotados.
 2. **Encabezado Informativo (`#round-header`) y Cronómetro de Referencia (`#round-timer`):**
-   - El encabezado destaca el título del tema, la categoría traducida al español (*Técnica*, *Aplicación*, *Demostración*), la dificultad activa (1, 2 o 3) y la leyenda de tiempo de referencia (*"Un experto lo resuelve en ~15 min"*).
-   - Incluye un **cronómetro informativo no punitivo** en formato `MM:SS`. Este cronómetro **no bloquea la pantalla, no impone límite de tiempo estricto ni genera penalizaciones**; su propósito es ofrecerte visibilidad sobre tu ritmo real de resolución.
+   - El encabezado destaca el título del tema, la categoría traducida al español (*Técnica*, *Aplicación*, *Demostración*), la dificultad activa (1, 2 o 3) y la expectativa calibrada de tiempo y conteo de problemas:
+     - Para **Técnica** y **Aplicación**: `"Un experto lo resuelve en ~30 min (N ejercicios)"` (donde $N$ es la cantidad de ejercicios en la ronda).
+     - Para **Demostración**: `"Un experto lo resuelve en ~15 min (1 ejercicio)"` (con concordancia gramatical singular).
+   - Incluye un **cronómetro informativo no punitivo** en formato `MM:SS`. Este cronómetro **no bloquea la pantalla, no impone límite de tiempo estricto ni genera penalizaciones**; su propósito es ofrecerte visibilidad sobre tu ritmo real de resolución en la libreta.
 3. **Revisión de Enunciados con Fórmulas KaTeX (`#round-exercise-<order>`):**
    - La plataforma presenta todos los ejercicios de la ronda ordenados didácticamente (`1..N`) con tipografía matemática rigurosa en LaTeX / KaTeX mediante el componente `MathStatement`.
    - Cada ejercicio indica su número de orden (#1, #2...), su tiempo experto aproximado y el enunciado formal.

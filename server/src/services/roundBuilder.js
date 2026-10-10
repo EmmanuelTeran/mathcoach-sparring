@@ -1,9 +1,9 @@
 import { Exercise } from '../models/Exercise.js';
-import { ROUND_BUDGET_MIN, CATEGORY_LIMITS } from '../config/progression.js';
+import { ROUND_BUDGETS, ROUND_BUDGET_MIN, CATEGORY_LIMITS } from '../config/progression.js';
 
 /**
  * Selecciona y conforma los ejercicios de una ronda según las reglas de negocio
- * de presupuesto temporal (ROUND_BUDGET_MIN = 15) y límites de categoría.
+ * de presupuesto temporal específico por categoría (ROUND_BUDGETS) y límites de categoría.
  *
  * Función síncrona / pura sobre una lista de ejercicios candidatos ya filtrados
  * por topicId, category y difficulty === track.difficulty.
@@ -21,6 +21,8 @@ export function selectExercisesForRound(candidates, category) {
   if (!candidates || candidates.length === 0) {
     throw new Error('No exercises available for this track');
   }
+
+  const budgetMinutes = ROUND_BUDGETS[category] ?? ROUND_BUDGET_MIN;
 
   // Criterio de ordenamiento para selección (Rotación Justa):
   // 1. timesServed ASC (menos servidos primero)
@@ -59,16 +61,16 @@ export function selectExercisesForRound(candidates, category) {
 
     // Condición de parada según categoría y presupuesto
     if (category === 'proof') {
-      // Demostración es exactamente 1 ejercicio
+      // Demostración es exactamente 1 ejercicio (presupuesto nominal 15 min)
       break;
     } else if (category === 'application') {
-      // Mínimo 1, máximo 3. Acumular hasta >= 15 min o máximo 3
-      if (totalMinutes >= ROUND_BUDGET_MIN && selected.length >= limits.min) {
+      // Mínimo 2, máximo 6. Acumular hasta >= 30 min y al menos 2 ejercicios
+      if (totalMinutes >= budgetMinutes && selected.length >= limits.min) {
         break;
       }
     } else if (category === 'technique') {
-      // Mínimo 3, máximo 10. Acumular hasta >= 15 min y al menos 3 ejercicios
-      if (totalMinutes >= ROUND_BUDGET_MIN && selected.length >= limits.min) {
+      // Mínimo 6, máximo 18. Acumular hasta >= 30 min y al menos 6 ejercicios
+      if (totalMinutes >= budgetMinutes && selected.length >= limits.min) {
         break;
       }
     }
