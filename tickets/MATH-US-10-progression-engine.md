@@ -1,6 +1,6 @@
 # [MATH-US-10] Motor de Progresión Adaptativa (Dificultad + SRS por Pista)
 
-- **Estado:** Verificado
+- **Estado:** Done
 - **Rama:** `feature/MATH-US-10-progression-engine`
 - **Fecha de Inicio:** 2026-10-09
 - **Fecha de Cierre:** 2026-10-09
@@ -337,6 +337,8 @@ $ npm test
 
 ## 6. Commit de Cierre en dev
 
-- **Estado:** Verificado (Listo para Merge)
-- Rama de feature: `feature/MATH-US-10-progression-engine`
+- **Estado:** Done
+- **Rama de feature:** `feature/MATH-US-10-progression-engine`
+- **Merge Commit Hash:** `b82fbe302aa01a477d9217fc35d110416bd2a994`
+- **Mensaje de Merge:** `feat(MATH-US-10): resolve acceptance criteria and tests for progression engine`
 
