@@ -24,7 +24,7 @@ mathcoach-sparring/
 ├── server/                     # Backend API en Node.js (ESM) + Express + Mongoose
 │   ├── src/
 │   │   ├── config/             # categories.js, progression.js
-│   │   ├── controllers/        # dashboardController.js (stub seguro hacia MATH-US-14)
+│   │   ├── controllers/        # dashboardController.js (agregación de pistas, SRS y matriz)
 │   │   ├── models/             # MathTopic.js, Exercise.js, TopicTrack.js, Round.js
 │   │   ├── routes/             # health.js, topics.js, practice.js, rounds.js
 │   │   ├── services/           # trackService.js, geminiService.js, roundBuilder.js
@@ -630,13 +630,88 @@ Evalúa las soluciones manuscritas de una ronda completa a partir de 1 a 6 imág
   - `502 Bad Gateway`: Fallo en inferencia de IA o respuesta malformada.
 
 ### 8.6 `GET /api/dashboard/summary`
-Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño de MATH-US-14:
+Retorna las métricas agregadas del estudiante para alimentar el Dashboard analítico ([MATH-US-14](file:///home/teran/proyectos/mathcoach-sparring/tickets/MATH-US-14-dashboard-tracks.md)):
+
 ```json
 {
-  "dueCount": 0,
-  "criticalTopics": [],
-  "recommendedNext": null
+  "dueCount": 2,
+  "dueByCategory": {
+    "technique": 1,
+    "application": 1,
+    "proof": 0
+  },
+  "nextRecommended": {
+    "trackId": "651a2b3c4d5e6f7a8b9c0d1e",
+    "topic": {
+      "_id": "651a2b3c4d5e6f7a8b9c0d1a",
+      "title": "Factorización de Polinomios"
+    },
+    "category": "technique",
+    "difficulty": 1
+  },
+  "criticalTracks": [
+    {
+      "topic": {
+        "_id": "651a2b3c4d5e6f7a8b9c0d1b",
+        "title": "Límites y Continuidad"
+      },
+      "category": "application",
+      "difficulty": 1,
+      "lastRoundScore": 2.5
+    }
+  ],
+  "topics": [
+    {
+      "_id": "651a2b3c4d5e6f7a8b9c0d1a",
+      "title": "Factorización de Polinomios",
+      "area": "algebra",
+      "tracks": [
+        {
+          "category": "technique",
+          "difficulty": 1,
+          "dueDate": "2026-10-09T00:00:00.000Z",
+          "lastRoundScore": 4.5
+        },
+        {
+          "category": "application",
+          "difficulty": 1,
+          "dueDate": "2026-10-12T00:00:00.000Z",
+          "lastRoundScore": null
+        },
+        {
+          "category": "proof",
+          "difficulty": 1,
+          "dueDate": "2026-10-15T00:00:00.000Z",
+          "lastRoundScore": null
+        }
+      ]
+    }
+  ]
 }
+```
+
+#### 8.6.1 Lógica de Agregación y Cómputo (`dashboardController.js`)
+1. **Pistas Vencidas (`dueCount` y `dueByCategory`):**
+   - Evalúa `dueDate <= now` sobre todas las instancias de `TopicTrack`.
+   - `dueByCategory` desglosa cuantitativamente el conteo por categoría (`technique`, `application`, `proof`).
+2. **Recomendación Algorítmica SRS (`nextRecommended`):**
+   - Mantiene **estricta paridad con `/api/rounds/queue`**: ordena las pistas vencidas por menor `lastRoundScore` ascendente (anteponiendo valores `null`) y desempata por mayor retraso (`dueDate` más antiguo en el pasado).
+   - Si no existen pistas vencidas, retorna `null`.
+3. **Pistas Críticas (`criticalTracks`):**
+   - Filtra aquellas pistas con `lastRoundScore !== null && lastRoundScore < 3`.
+   - Ordenadas por `lastRoundScore` ascendente para priorizar didácticamente los puntos de mayor urgencia conceptual.
+4. **Matriz Jerárquica (`topics`):**
+   - Consulta todos los `MathTopic` ordenados por `order` ascendente y proyecta sus `TopicTrack` correspondientes agrupados por tema.
+
+#### 8.6.2 Integración UI con `RoundSession` para Rondas Contextuales
+- **Navegación Fluida:** Tanto el botón hero `#btn-train-now` como el clic en cualquier celda de la matriz (`#matrix-cell-<topicId>-<category>`) y los botones de repaso de áreas críticas (`#btn-practice-critical-<topicId>-<category>`) invocan el callback unificado `onStartTraining('math-vision', { _id, title, category })`.
+- **Despacho Contextual:** En `App.jsx`, el estado transiciona a la pestaña `"math-vision"`, alimentando a `RoundSession` con las propiedades `topicId` y `category`. `RoundSession` ejecuta de inmediato la inicialización o reutilización idempotente de la ronda vía `POST /api/rounds`.
+
+#### 8.6.3 Certificación de Limpieza de Copys Legados
+Se certifica la ausencia absoluta de residuos terminológicos de DevCoach (filtros laborales junior/mid/senior, soft/hard skills o roles de simulaciones/stakeholders) mediante auditoría automatizada en el árbol de código:
+```bash
+grep -ri "junior\|senior\|soft skill\|hard skill\|stakeholder\|coding playground" client/src
+# AUDITORÍA LIMPIA: Cero textos legados (código de salida 1)
 ```
 
 ### 8.7 `GET /api/health`

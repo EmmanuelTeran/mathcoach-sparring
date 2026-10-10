@@ -332,4 +332,88 @@ Al culminar con éxito la evaluación, se renderiza la pantalla integral de bala
    - Botón *"Volver al Panel"* para regresar al panel principal de estudio.
    - Botón *"Iniciar Nueva Práctica"* para comenzar de inmediato otra sesión de entrenamiento.
 
+---
+
+## 8. Panel de Control y Navegación Principal (`Dashboard`)
+
+El **Panel de Control** (accesible mediante la pestaña *"Panel"* en la barra superior) centraliza tu visión analítica del estado de estudio, integrando métricas en tiempo real sobre la retención espaciada (SRS SM-2), la matriz de temas curriculares y el acceso directo al entrenamiento.
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              PANEL DE CONTROL                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  [ Técnica: 2 ]            [ Aplicación: 1 ]         [ Demostración: 1 ]    │
+│  Procedimientos            Modelado analítico        Rigor formal y teoremas│
+│                                                                             │
+│  ┌───────────────────────────────────────────────────────────────────────┐  │
+│  │  ★ RECOMENDACIÓN DEL COACH SRS              [ Entrenar ahora ➜ ]       │  │
+│  │  "Factorización (Técnica - Dif. 1)"          #btn-train-now           │  │
+│  └───────────────────────────────────────────────────────────────────────┘  │
+│                                                                             │
+│  MATRIZ TEMA × CATEGORÍA                                                    │
+│  Tema                     │ Técnica        │ Aplicación     │ Demostración  │
+│  ─────────────────────────┼────────────────┼────────────────┼───────────────│
+│  Factorización Polinomios │ [■□□] 4.5/5    │ [■□□] -        │ [■□□] -       │
+│                           │ Vencido        │ Vence hoy      │ 12 oct        │
+│  Límites y Continuidad    │ [■■□] 4.0/5    │ [■□□] 2.5/5    │ [■□□] -       │
+│                           │ 15 oct         │ Vencido        │ 20 oct        │
+│  (Haz clic sobre cualquier celda para practicar directamente esa pista)     │
+│                                                                             │
+│  ÁREAS CRÍTICAS (Score < 3)                                                 │
+│  ⚠ Límites y Continuidad | Aplicación (Dif. 1) - Score: 2.5/5   [ Repasar ➜]│
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 8.1 Tarjetas de Repasos Pendientes por Categoría
+
+La fila superior desglosa cuantitativamente el volumen de pistas vencidas (`dueDate <= hoy`) para cada una de las 3 habilidades cognitivas:
+
+1. **Técnica (`#card-due-technique` / `#metric-due-technique`):**
+   - Destacada en tonalidad azul/índigo con icono de capas (`Layers`).
+   - Muestra cuántas pistas de procedimientos, cálculos y manipulaciones formales requieren consolidación inmediata.
+2. **Aplicación (`#card-due-application` / `#metric-due-application`):**
+   - Destacada en tonalidad púrpura con icono de libro abierto (`BookOpen`).
+   - Señala cuántas pistas de planteamiento y modelado analítico han llegado a su fecha de repaso programada.
+3. **Demostración (`#card-due-proof` / `#metric-due-proof`):**
+   - Destacada en tonalidad esmeralda con icono de medalla (`Award`).
+   - Indica cuántas pistas de argumentación deductiva formal demandan repaso activo para fijar los teoremas en la memoria a largo plazo.
+
+### 8.2 Botón de Acción Rápida: "Entrenar ahora" (`#btn-train-now`)
+
+En la tarjeta hero destacada con borde gradiente se presenta la **recomendación prioritaria del Coach Matemático**:
+
+- **¿Cómo se elige la pista recomendada?** Aplica exactamente el mismo criterio pedagógico que la cola SRS (`/api/rounds/queue`):
+  1. Primero las pistas con menor calificación en su última ronda (`lastRoundScore` más bajo, anteponiendo aquellas que nunca se han practicado).
+  2. En caso de empate, desempata priorizando la pista cuyo vencimiento acumulado esté más retrasado en el tiempo (`dueDate` más antiguo).
+- **Interacción con un Clic:** Al pulsar el botón **"Entrenar ahora"** (`#btn-train-now`), la aplicación cambia automáticamente a la pestaña *"Entrenar"* e inicia la ronda (`RoundSession`) para ese tema y categoría específicos.
+- **Estado al Día:** Si no tienes pistas vencidas pendientes, el botón se deshabilita elegantemente y la tarjeta te felicita notificando que *"Todos los repasos están al día"*.
+
+### 8.3 Interpretación y Uso de la Matriz Tema × Categoría (`#topics-matrix`)
+
+La matriz interactiva estructura en filas todos los temas del catálogo curricular y en columnas las tres categorías ortogonales. Cada celda (`#matrix-cell-<topicId>-<category>`) representa una pista individual (`TopicTrack`):
+
+1. **Indicador de 3 Segmentos de Dificultad:**
+   - Visualiza gráficamente la dificultad adaptativa actual de la pista:
+     - `■□□` (Verde): Dificultad 1 (fundamentos y ejercicios base).
+     - `■■□` (Ámbar): Dificultad 2 (complejidad intermedia).
+     - `■■■` (Rojo): Dificultad 3 (problemas avanzados de maestría).
+2. **Badge de Calificación Histórica (`lastRoundScore`):**
+   - Verde ($\ge 4.0/5$): Desempeño excelente.
+   - Amarillo ($3.0 - 3.9/5$): Aprobado satisfactorio.
+   - Rojo ($< 3.0/5$): Área con fallos o tropiezos recientes.
+   - Guion (`-`): Pista nueva que aún no ha sido evaluada.
+3. **Etiqueta Contextual de Vencimiento SRS:**
+   - *Vencido* (en texto ámbar destacado): La pista requiere práctica inmediata.
+   - *Vence hoy*: Programada para repasarse durante el día.
+   - Fecha formateada (ej. *15 oct*): Días restantes calculados por el intervalo SM-2.
+4. **Lanzamiento Inmediato:** **Cualquier celda de la matriz es interactiva.** Si deseas practicar un tema particular sin esperar a la recomendación automática, simplemente haz clic sobre su celda y entrarás a su sesión de entrenamiento de inmediato.
+
+### 8.4 Enfoque de Estudio: Sección "Áreas Críticas" (`#critical-tracks-section`)
+
+Ubicada en la parte inferior del Panel, esta sección agrupa exclusivamente aquellas pistas donde el estudiante ha obtenido una calificación inferior a 3 puntos (`lastRoundScore < 3`):
+
+- **Propósito Didáctico:** Te permite identificar y aislar de inmediato tus debilidades o errores conceptuales recientes sin perderte en el catálogo general.
+- **Botón de Repaso Directo:** Cada pista crítica cuenta con su propio botón `#btn-practice-critical-<topicId>-<category>` (*"Repasar"*) para arrancar una ronda de recuperación focalizada.
+- **Mensaje de Éxito:** Cuando todas tus pistas evaluadas tienen notas de 3 a 5, el bloque despliega el estado `#no-critical-tracks-msg` con el mensaje *"¡Sin áreas críticas activas!"*.
+
 

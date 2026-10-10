@@ -17,8 +17,10 @@ describe('App Component Integration Tests', () => {
           ok: true,
           json: async () => ({
             dueCount: 2,
-            criticalTopics: [],
-            recommendedNext: null,
+            dueByCategory: { technique: 1, application: 1, proof: 0 },
+            criticalTracks: [],
+            nextRecommended: null,
+            topics: [],
           }),
         });
       }

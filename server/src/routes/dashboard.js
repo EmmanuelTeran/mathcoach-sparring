@@ -6,10 +6,10 @@ export const dashboardRouter = express.Router();
 /**
  * GET /api/dashboard/summary
  * Retorna las métricas de resumen para la vista del Dashboard:
- * - dueCount: total pendientes
- * - dueHardSkills: retos técnicos pendientes
- * - dueSoftSkills: simulaciones pendientes
- * - criticalTopics: temas con score < 3
- * - recommendedNext: tema seleccionado según acoplamiento pedagógico
+ * - dueCount: total de pistas vencidas (dueDate <= now)
+ * - dueByCategory: desglose por categoría (technique, application, proof)
+ * - nextRecommended: pista prioritaria recomendada por SRS
+ * - criticalTracks: pistas con lastRoundScore < 3
+ * - topics: catálogo de temas y pistas para la matriz interactiva
  */
 dashboardRouter.get('/summary', getDashboardSummary);
