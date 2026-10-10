@@ -1,5 +1,5 @@
 {
-  "0": "4. Historias Pendientes",
+  "0": "3. Historias Completadas (referencia)",
   "1": "[US-XX] {{TITULO_HISTORIA}}",
   "2": "Contexto del Proyecto: Entrenador Personal Fullstack (Hard & Soft Skills)",
   "3": "Skill: document-tech-specs",
@@ -10,8 +10,8 @@
   "8": "rules/graphify.md",
   "9": "workflows/graphify.md",
   "10": "heartbeat.md",
-  "11": "progressionEngine.js",
-  "12": "seed.js",
+  "11": "progression.js",
+  "12": "app.js",
   "13": "package.json",
   "14": "Guía de Usuario: MathCoach Sparring",
   "15": "2. Criterios de Aceptación (AC)",
@@ -22,12 +22,12 @@
   "20": "tailwind.config.js",
   "21": "postcss.config.js",
   "22": "client/package.json",
-  "23": "App.jsx",
+  "23": "2. Criterios de Aceptación (AC)",
   "24": "ref_components_hardskilltrainer",
   "25": "ref_components_softskilltrainer",
   "26": "1. Descripción y Objetivos de Negocio",
-  "27": "2. Criterios de Aceptación (AC)",
-  "28": "app.js",
+  "27": "ensureTracksForTopic",
+  "28": "dependencies",
   "31": "constants/categories.js",
   "32": "server_src_models_topic_topic"
 }

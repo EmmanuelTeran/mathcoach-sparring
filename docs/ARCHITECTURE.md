@@ -358,9 +358,58 @@ interface RoundOutcome {
 
 ---
 
-## 6. Contratos de API Activos
+---
 
-### 6.1 `GET /api/topics`
+## 6. Constructor de Rondas de 15 min (`roundBuilder.js`)
+
+El servicio [server/src/services/roundBuilder.js](file:///home/teran/proyectos/mathcoach-sparring/server/src/services/roundBuilder.js) orquesta la selección, cuotas pedagógicas y congelamiento inmutable de ejercicios para cada sesión de práctica formal.
+
+### 6.1 Algoritmo de Selección, Rotación Justa y Presupuesto Temporal
+
+```mermaid
+flowchart TD
+    Catalog[Colección Exercise] --> Filter[1. Filtrado Estricto: topicId, category, difficulty === track.difficulty]
+    Filter --> EmptyCheck{¿Candidatos == 0?}
+    EmptyCheck -- Sí --> Err422[Error 422: No exercises available for this track]
+    EmptyCheck -- No --> SortFair[2. Priorización de Selección: Rotación Justa]
+    SortFair --> S1["timesServed ASC (menos servidos primero)"]
+    S1 --> S2["lastServedAt ASC (null primero, luego fecha más antigua)"]
+    S2 --> S3["order ASC (desempate determinista)"]
+    S3 --> Accumulate[3. Acumulación por Presupuesto y Límites de Categoría]
+    Accumulate --> CheckTechnique["Técnica: [3..10], acumula >= 15 min (min 3)"]
+    Accumulate --> CheckApp["Aplicación: [1..3], acumula >= 15 min"]
+    Accumulate --> CheckProof["Demostración: [1..1], exactamente 1 ejercicio"]
+    CheckTechnique & CheckApp & CheckProof --> FinalSort[4. Orden Final de Entrega: order ASC]
+    FinalSort --> Snapshot[Snapshot inmutable en Round + Mutación atómica en Exercise]
+```
+
+1. **Filtrado Estricto por Dificultad:**
+   - La consulta selecciona únicamente ejercicios donde `difficulty === track.difficulty`. No se mezclan dificultades bajo ninguna circunstancia.
+2. **Priorización Heurística de Selección (Rotación Justa):**
+   - **`timesServed` ASC:** Los ejercicios con menor historial de servicio tienen prioridad absoluta.
+   - **`lastServedAt` ASC:** En caso de empate en `timesServed`, se priorizan aquellos nunca servidos (`null`) o cuya entrega fue en una fecha más remota.
+   - **`order` ASC:** En caso de empate en frecuencia y antigüedad, se desempata por orden de catálogo.
+3. **Control de Presupuesto (`ROUND_BUDGET_MIN = 15`) y Cuotas (`CATEGORY_LIMITS`):**
+   - **Técnica (`technique`):** $3 \le N \le 10$. Acumula hasta $\ge 15$ minutos y al menos 3 ejercicios.
+   - **Aplicación (`application`):** $1 \le N \le 3$. Acumula hasta $\ge 15$ minutos o 3 ejercicios.
+   - **Demostración (`proof`):** Siempre exactamente 1 ejercicio.
+4. **Orden Didáctico Final (`order` ASC):**
+   - Una vez seleccionados los ejercicios, se ordenan en forma monótonamente creciente según su atributo `order` catalogado, garantizando que el estudiante comience con problemas introductorios y avance hacia mayor complejidad.
+5. **Snapshot Inmutable y Efectos Colaterales Atómicos:**
+   - Al persistir la ronda (`status: 'pending'`), los enunciados y tiempos expertos se copian en el array `exercises` del documento `Round`.
+   - Se ejecuta una actualización masiva atómica sobre `Exercise`:
+     ```javascript
+     await Exercise.updateMany(
+       { _id: { $in: exerciseIds } },
+       { $inc: { timesServed: 1 }, $set: { lastServedAt: new Date() } }
+     );
+     ```
+
+---
+
+## 7. Contratos de API Activos
+
+### 7.1 `GET /api/topics`
 Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 pistas asociadas:
 - **Ruta:** `/api/topics`
 - **Respuesta (200 OK):**
@@ -404,7 +453,83 @@ Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 
 ]
 ```
 
-### 6.2 `POST /api/evaluate-math`
+### 7.2 `GET /api/rounds/queue`
+Retorna la cola de pistas vencidas (`dueDate <= now`) priorizadas para repaso diario:
+- **Ruta:** `/api/rounds/queue`
+- **Orden:** 1. Menor `lastRoundScore` (`null` primero). 2. Mayor retraso (`dueDate` ASC).
+- **Respuesta (200 OK):**
+```json
+[
+  {
+    "trackId": "674c11112222333344440101",
+    "topic": {
+      "_id": "674c11112222333344440001",
+      "title": "Fracciones Algebraicas",
+      "slug": "fracciones-algebraicas"
+    },
+    "category": "technique",
+    "difficulty": 1,
+    "dueDate": "2026-10-08T12:00:00.000Z",
+    "lastRoundScore": null
+  }
+]
+```
+
+### 7.3 `POST /api/rounds`
+Crea una nueva ronda o reutiliza una ronda existente en estado `pending` (idempotencia):
+- **Ruta:** `/api/rounds`
+- **Body:** `{ "topicId": "674c11112222333344440001", "category": "technique" }`
+- **Respuestas:**
+  - `200 OK`: Reutiliza ronda `pending` preexistente sin duplicar ejercicios ni alterar contadores.
+  - `201 Created`: Nueva ronda instanciada con snapshot y rotación de contadores.
+  - `400 Bad Request`: `topicId` o `category` faltantes, inválidos o malformados.
+  - `404 Not Found`: `topicId` inexistente.
+  - `422 Unprocessable Entity`: No hay ejercicios disponibles para esa pista en su dificultad actual.
+- **Respuesta (200 / 201):**
+```json
+{
+  "roundId": "675d22223333444455550001",
+  "topic": {
+    "_id": "674c11112222333344440001",
+    "title": "Fracciones Algebraicas",
+    "slug": "fracciones-algebraicas"
+  },
+  "category": "technique",
+  "difficulty": 1,
+  "exercises": [
+    {
+      "exerciseId": "674e33334444555566660001",
+      "order": 1,
+      "statement": "Simplifica $\\frac{x^2 - 4}{x - 2}$.",
+      "expertMinutes": 3
+    },
+    {
+      "exerciseId": "674e33334444555566660002",
+      "order": 2,
+      "statement": "Efectúa $\\frac{1}{x} + \\frac{2}{x+1}$.",
+      "expertMinutes": 5
+    },
+    {
+      "exerciseId": "674e33334444555566660003",
+      "order": 3,
+      "statement": "Reduce $\\frac{x^2 - 1}{x + 1}$.",
+      "expertMinutes": 7
+    }
+  ],
+  "totalExpertMinutes": 15,
+  "warning": "catalog_insufficient" // Solo si los ejercicios disponibles no alcanzaron el mínimo
+}
+```
+
+### 7.4 `GET /api/rounds/:id`
+Consulta el detalle completo de una ronda por su identificador único:
+- **Ruta:** `/api/rounds/:id`
+- **Respuestas:**
+  - `200 OK`: Documento íntegro de `Round`.
+  - `400 Bad Request`: `:id` malformado.
+  - `404 Not Found`: Ronda inexistente.
+
+### 7.5 `POST /api/evaluate-math`
 Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el motor SRS:
 - **Ruta:** `/api/evaluate-math`
 - **Body:** `{ "problemId": "...", "image": "data:image/jpeg;base64,...", "metadata": { ... } }`
@@ -424,7 +549,7 @@ Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el m
 }
 ```
 
-### 6.3 `GET /api/dashboard/summary`
+### 7.6 `GET /api/dashboard/summary`
 Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño de MATH-US-14:
 ```json
 {
@@ -434,7 +559,7 @@ Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño
 }
 ```
 
-### 6.4 `GET /api/health`
+### 7.7 `GET /api/health`
 Monitorea la salud del servicio y el estado de la base de datos (con fallback `degraded` si Mongo se ejecuta en modo standalone).
 
 ---

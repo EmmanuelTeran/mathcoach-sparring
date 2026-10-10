@@ -1,8 +1,8 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** MATH-US-11
-- **Rama actual:** `dev`
+- **Historia activa:** MATH-US-12
+- **Rama actual:** `feature/MATH-US-12-multimodal-round-eval`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
   - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)
@@ -14,7 +14,7 @@
   - [x] MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado (Done) — depende de 07
   - [x] MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente) (Done) — depende de 08
   - [x] MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista) (Done) — depende de 08
-  - [ ] MATH-US-11: Constructor de Rondas de 15 min + API de Rondas (Backlog) — depende de 08
+  - [x] MATH-US-11: Constructor de Rondas de 15 min + API de Rondas (Done) — depende de 08
   - [ ] MATH-US-12: Evaluación Multimodal de Rondas + Progresión (Backlog) — depende de 10, 11
   - [ ] MATH-US-13: UI de Sesión de Ronda (RoundSession.jsx) (Backlog) — depende de 12 (y 09 para prueba manual)
   - [ ] MATH-US-14: Dashboard por Tema y Categoría (Backlog) — depende de 13

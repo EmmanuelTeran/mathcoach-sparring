@@ -61,6 +61,39 @@ Cada tema curricular se ejercita a través de 3 pistas complementarias e indepen
    - **Expectativa de Tiempo Experto:** **8 a 15 minutos** por demostración.
    - **Composición de Ronda:** **Siempre 1 único ejercicio** de profundidad formal por ronda.
 
+### 2.2 Estructura de las Sesiones de Práctica: El Bloque de ~15 Minutos de Tiempo Experto
+
+El entrenamiento deliberado universitario no se realiza problema a problema con la fricción constante de capturar una foto tras cada paso. En MathCoach Sparring, la práctica se organiza en **bloques de trabajo concentrado en libreta física** equivalentes a **~15 minutos de tiempo experto** (`ROUND_BUDGET_MIN = 15`):
+
+- **¿Qué es el Tiempo Experto (`expertMinutes`)?** Es la duración estimada que le tomaría a un docente o estudiante avanzado resolver el ejercicio con rigor. Para ti como estudiante en fase de aprendizaje, el bloque real de libreta suele tomar entre **20 y 35 minutos**, ofreciendo una sesión completa y profunda de enfoque continuo (Deep Work).
+- **Inmutabilidad de la Sesión:** Al iniciar la ronda, el sistema congela un *snapshot* exacto con los enunciados seleccionados. Si el catálogo se actualiza con posterioridad, tu sesión conserva intacto el material de práctica asignado.
+
+### 2.3 Cuotas de Ejercicios por Categoría
+
+La cantidad de ejercicios asignados en una ronda depende directamente de la categoría de la pista:
+
+| Categoría | Cuota de Ejercicios | Duración por Ejercicio | Regla de Composición Temporal |
+|---|---|---|---|
+| **Técnica (`technique`)** | **3 a 10 ejercicios** | 1 a 5 min | Acumula ejercicios breves hasta alcanzar $\ge 15$ minutos o alcanzar el tope de 10 ejercicios. Con ejercicios de 5 min se detiene al llegar a 3 ejercicios; con ejercicios de 1–2 min conforma lotes ágiles de 8 a 10 ejercicios. |
+| **Aplicación (`application`)** | **1 a 3 ejercicios** | 5 a 15 min | Problemas de modelado y análisis. Un ejercicio largo de 15 min compone una ronda completa de 1 solo ejercicio; si los ejercicios son medianos (5–8 min), combina 2 o 3. |
+| **Demostración (`proof`)** | **Exactamente 1 ejercicio** | 8 a 15 min | Un único reto deductivo profundo por sesión (reducción al absurdo, inducción, $\varepsilon-\delta$, etc.). |
+
+> [!NOTE]
+> **Catálogo Insuficiente:** Si estás en un tema o dificultad donde el catálogo cuenta con menos ejercicios que la cuota mínima requerida (pero al menos 1), la plataforma te entrega todos los ejercicios disponibles acompañados de una advertencia (`catalog_insufficient`) para no frenar tu sesión de estudio.
+
+### 2.4 Rotación Inteligente de Problemas
+
+Para garantizar variedad didáctica y evitar la fatiga cognitiva de resolver siempre los mismos enunciados:
+- **Cero Mezcla de Dificultades:** Una ronda selecciona únicamente ejercicios del nivel de dificultad actual de la pista (`track.difficulty`).
+- **Rotación Justa:** El motor prioriza los ejercicios que menos veces has resuelto (`timesServed` más bajo) o que llevan más tiempo sin presentarse (`lastServedAt` más antiguo o nunca servido).
+- **Secuencia Didáctica Creciente:** Dentro de tu ronda de libreta, los ejercicios se presentan ordenados por complejidad pedagógica creciente (`order` ascendente), permitiéndote entrar en calor antes de abordar los problemas más desafiantes.
+
+### 2.5 Cola Inteligente de Repasos Diarios (`/api/rounds/queue`)
+
+Tu panel de estudio organiza las pistas pendientes según un criterio estricto de prioridad pedagógica:
+1. **Menor Puntuación Previa (`lastRoundScore` ascendente, con pistas nuevas primero):** Las pistas nunca antes practicadas o que tuvieron calificaciones reprobatorias (fallos o tropiezos recientes) se ubican en la cima de tu cola.
+2. **Mayor Retraso Acumulado (`dueDate` ascendente):** A igualdad de puntuación, el sistema prioriza aquellas pistas cuyo vencimiento programado por el algoritmo SM-2 esté más rezagado en el tiempo.
+
 ---
 
 ## 3. Catálogo Curado de Ejercicios Matemáticos

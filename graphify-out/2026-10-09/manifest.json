@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791594191.6956787,
-    "seen": 1791594218.4253337,
-    "ast_hash": "b7a8e63474a5f750e32f4370e3cc3b96",
+    "mtime": 1791594826.9612079,
+    "seen": 1791594835.3493092,
+    "ast_hash": "70005f1dcbb0bd256f3c918b63d33d12",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "server/src/app.js": {
-    "mtime": 1791590424.4289668,
-    "seen": 1791590767.6607435,
-    "ast_hash": "a40e13fc9c308905b38b032c084dfc4e",
+    "mtime": 1791595209.4890532,
+    "seen": 1791595334.0965924,
+    "ast_hash": "cef8043d86051210295a78889f2b9138",
     "semantic_hash": ""
   },
   "server/src/db.js": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791593320.5754268,
-    "seen": 1791593383.2457743,
-    "ast_hash": "566442d9dd1ea847720feb9150b600bd",
+    "mtime": 1791594337.910969,
+    "seen": 1791594392.2311466,
+    "ast_hash": "9b91b6bb33682ac0666d3838ad193f05",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791593351.8840406,
-    "seen": 1791593383.2457721,
-    "ast_hash": "257420187679f6bf13ae1c46f7514325",
+    "mtime": 1791594372.7356677,
+    "seen": 1791594392.2311451,
+    "ast_hash": "425e109f8bee31feeee2bb544e75c308",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -417,6 +417,36 @@
     "mtime": 1791594179.7492983,
     "seen": 1791594218.4253514,
     "ast_hash": "4da11be656a2893c03624d927201f3d9",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-11-round-builder.md": {
+    "mtime": 1791594812.6346347,
+    "seen": 1791594835.3493624,
+    "ast_hash": "78b1894b22654b8eb6fa51bebdcc451c",
+    "semantic_hash": ""
+  },
+  "server/src/routes/rounds.js": {
+    "mtime": 1791595202.584013,
+    "seen": 1791595334.096618,
+    "ast_hash": "03c67db99212ef3e46e17f232c878307",
+    "semantic_hash": ""
+  },
+  "server/src/services/roundBuilder.js": {
+    "mtime": 1791595140.899308,
+    "seen": 1791595334.0966284,
+    "ast_hash": "ce09016c00070516093368158f90985e",
+    "semantic_hash": ""
+  },
+  "server/tests/roundBuilder.test.js": {
+    "mtime": 1791595169.2082837,
+    "seen": 1791595334.0966616,
+    "ast_hash": "820d8f5d082481fd6761bdd5287940ea",
+    "semantic_hash": ""
+  },
+  "server/tests/rounds.api.test.js": {
+    "mtime": 1791595275.02043,
+    "seen": 1791595334.0966644,
+    "ast_hash": "65485aeeb61f113e45cc7d6bfb5ec080",
     "semantic_hash": ""
   }
 }
