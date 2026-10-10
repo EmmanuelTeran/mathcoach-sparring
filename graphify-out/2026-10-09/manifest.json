@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   ".antigravity/context.md": {
-    "mtime": 1791066567.1250763,
-    "seen": 1791067581.0098386,
-    "ast_hash": "cd22787ee2b008a1f1f97e5f25781402",
+    "mtime": 1791601599.7495694,
+    "seen": 1791601699.9581008,
+    "ast_hash": "9addb4920f5070159ea55d956cac65c1",
     "semantic_hash": ""
   },
   ".antigravity/graph.md": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "client/src/App.jsx": {
-    "mtime": 1791598639.9996214,
-    "seen": 1791599332.731548,
-    "ast_hash": "51d480a0e0602c0a3446e7083ac0219f",
+    "mtime": 1791601304.8675277,
+    "seen": 1791601699.958017,
+    "ast_hash": "5d52027e7c84d994fb508a2b01bb13b5",
     "semantic_hash": ""
   },
   "client/src/main.jsx": {
@@ -96,21 +96,21 @@
     "semantic_hash": ""
   },
   "client/vite.config.js": {
-    "mtime": 1791574818.4547665,
-    "seen": 1791576494.2989776,
-    "ast_hash": "cfda9c12a7fde6fcd577a7e78c3d2b62",
+    "mtime": 1791600776.453392,
+    "seen": 1791601699.9580433,
+    "ast_hash": "b3f88b6ed83acd59d112ac92fd5a5dbc",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791593134.5829444,
-    "seen": 1791593383.2456324,
-    "ast_hash": "9da34d0d2067e6081dfe834d40c5e5bd",
+    "mtime": 1791601238.5295646,
+    "seen": 1791601699.9580448,
+    "ast_hash": "1a7bdf050fb19f1e6ff738466859971d",
     "semantic_hash": ""
   },
   "playwright.config.js": {
-    "mtime": 1790823494.176413,
-    "seen": 1790823494.9754105,
-    "ast_hash": "7b17edd8f529a3875f0abe1cef0f3e90",
+    "mtime": 1791601094.1792219,
+    "seen": 1791601699.9580457,
+    "ast_hash": "d0ffc8fd7d4cfaa32fb9aadfea14d5ab",
     "semantic_hash": ""
   },
   "server/package.json": {
@@ -149,28 +149,22 @@
     "ast_hash": "a4425b1f9d40a471175e42b0fc833677",
     "semantic_hash": ""
   },
-  "tests/e2e/smoke.spec.js": {
-    "mtime": 1790823494.180413,
-    "seen": 1790823494.9754329,
-    "ast_hash": "1b5e577cf3cccc7384a8f5485c182bbc",
-    "semantic_hash": ""
-  },
   "client/index.html": {
-    "mtime": 1790823494.176413,
-    "seen": 1790823494.975472,
-    "ast_hash": "b46b19f8f0b9c08c17649a60f59bc065",
+    "mtime": 1791600640.7863686,
+    "seen": 1791601699.958111,
+    "ast_hash": "4d1953bacb4995d0f50f992ad4fcb0e0",
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791600052.1538095,
-    "seen": 1791600396.9087985,
-    "ast_hash": "5291c63e5a6742856d0acd31514e54a2",
+    "mtime": 1791601647.9189804,
+    "seen": 1791601699.958113,
+    "ast_hash": "397ff30839c3a5deaab7b534aee0ede4",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791600052.1538095,
-    "seen": 1791600396.9087975,
-    "ast_hash": "15550ed3f21e91fa505e2e83a280e672",
+    "mtime": 1791601628.5154033,
+    "seen": 1791601699.958112,
+    "ast_hash": "22822926c788afa28e7c264f78b646c0",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -198,9 +192,9 @@
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
-    "mtime": 1791597408.8530056,
-    "seen": 1791597837.0090685,
-    "ast_hash": "707d36c7c29d7e1089f12e53b64df6c9",
+    "mtime": 1791601006.6683395,
+    "seen": 1791601699.9580734,
+    "ast_hash": "db620055b5dbf8bfb2585951f6e7a541",
     "semantic_hash": ""
   },
   "client/src/hooks/useVoiceInteraction.js": {
@@ -216,9 +210,9 @@
     "semantic_hash": ""
   },
   "server/src/controllers/dashboardController.js": {
-    "mtime": 1791600052.1618094,
-    "seen": 1791600396.9087477,
-    "ast_hash": "0cbb0f4570829bae6d20aec7a11a07b8",
+    "mtime": 1791601388.303911,
+    "seen": 1791601699.9580593,
+    "ast_hash": "33bb205614dde8551712c128771c8fe2",
     "semantic_hash": ""
   },
   "server/src/routes/dashboard.js": {
@@ -255,12 +249,6 @@
     "mtime": 1791574818.4547665,
     "seen": 1791576494.2989748,
     "ast_hash": "00e47f7b9836e8f731101981fa2bb2de",
-    "semantic_hash": ""
-  },
-  "tests/e2e/math-vision.spec.js": {
-    "mtime": 1791597408.8530056,
-    "seen": 1791597837.0090892,
-    "ast_hash": "7157db8dd017076b8fd4fbda1714a038",
     "semantic_hash": ""
   },
   "tickets/MATH-US-04-multimodal-pipeline.md": {
@@ -342,9 +330,9 @@
     "semantic_hash": ""
   },
   "server/scripts/seed.js": {
-    "mtime": 1791593134.5869713,
-    "seen": 1791593383.2456434,
-    "ast_hash": "e42f8bf6b2e9afcc9adb48328aa250e4",
+    "mtime": 1791601257.2542577,
+    "seen": 1791601699.9580486,
+    "ast_hash": "ec672f1b6ea44eed9bb9909cbb5c7c9c",
     "semantic_hash": ""
   },
   "server/seed-data/derivadas-regla-cadena.js": {
@@ -414,14 +402,14 @@
     "semantic_hash": ""
   },
   "server/src/routes/rounds.js": {
-    "mtime": 1791597408.8530056,
-    "seen": 1791597837.0090642,
-    "ast_hash": "0d8c2917a054c33a8ce4e5ded9da403d",
+    "mtime": 1791601380.616592,
+    "seen": 1791601699.95807,
+    "ast_hash": "af793f80c5daf91e4d6e41acaf6d5b48",
     "semantic_hash": ""
   },
   "server/src/services/roundBuilder.js": {
-    "mtime": 1791596146.174885,
-    "seen": 1791596478.555749,
+    "mtime": 1791601537.2555878,
+    "seen": 1791601699.958075,
     "ast_hash": "ce09016c00070516093368158f90985e",
     "semantic_hash": ""
   },
@@ -468,9 +456,9 @@
     "semantic_hash": ""
   },
   "client/src/components/RoundSession.jsx": {
-    "mtime": 1791598640.0036356,
-    "seen": 1791599332.7315662,
-    "ast_hash": "0a8f1a0880967c0ea964084d9aad14c4",
+    "mtime": 1791600853.2223115,
+    "seen": 1791601699.9580278,
+    "ast_hash": "312ab9fb64ecd65e520b57e7f74f6913",
     "semantic_hash": ""
   },
   "client/tests/RoundResults.test.jsx": {
@@ -507,6 +495,24 @@
     "mtime": 1791600377.694092,
     "seen": 1791600396.908812,
     "ast_hash": "fe3227383c05293c0043a2c0db631986",
+    "semantic_hash": ""
+  },
+  "tests/e2e/00-smoke.spec.js": {
+    "mtime": 1791600665.0563176,
+    "seen": 1791601699.9580925,
+    "ast_hash": "91931228b9877de3593dbeaa040bf991",
+    "semantic_hash": ""
+  },
+  "tests/e2e/01-round-session.spec.js": {
+    "mtime": 1791601550.3781197,
+    "seen": 1791601699.958094,
+    "ast_hash": "95e631fd38f1f72562a9c2bb511d4e43",
+    "semantic_hash": ""
+  },
+  "tests/e2e/02-progression-dashboard.spec.js": {
+    "mtime": 1791600954.5051076,
+    "seen": 1791601699.9580948,
+    "ast_hash": "2c480fefba6ff1c38cb1d799a53d5626",
     "semantic_hash": ""
   }
 }

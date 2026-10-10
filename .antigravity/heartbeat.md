@@ -1,8 +1,9 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** MATH-US-15
-- **Rama actual:** `feature/MATH-US-15-e2e-and-docs`
+- **Estado del Proyecto:** 🎉 Hito 1 Completado — Todos los tickets del grafo finalizados con éxito
+- **Historia activa:** Ninguna (Hito 1 Completado)
+- **Rama actual:** `dev`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
   - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)
@@ -18,6 +19,6 @@
   - [x] MATH-US-12: Evaluación Multimodal de Rondas + Progresión (Done) — depende de 10, 11
   - [x] MATH-US-13: UI de Sesión de Ronda (RoundSession.jsx) (Done) — depende de 12 (y 09 para prueba manual)
   - [x] MATH-US-14: Dashboard por Tema y Categoría (Done) — depende de 13
-  - [ ] MATH-US-15: Validación E2E Final + Documentación (En Progreso) — depende de 09, 14
+  - [x] MATH-US-15: Validación E2E Final + Documentación (Done) — depende de 09, 14
 - **Decisiones aprobadas (2026-10-09):** Categorías Técnica / Aplicación / Demostración con dificultad adaptativa 1–3 por pista (Tema × Categoría); rondas de ~15 min de tiempo experto (Técnica 3–10, Aplicación 1–3, Demostración 1); promoción con `roundScore ≥ 4.0` y `passRate ≥ 0.8`, sin degradación; promoción → repaso en 3 días; evaluación de ronda completa con 1–6 fotos y `422` si falta algún ejercicio. Detalle en `.antigravity/graph.md` §1.
 - **Bloqueos:** Ninguno

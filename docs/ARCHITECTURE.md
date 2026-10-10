@@ -39,7 +39,7 @@ mathcoach-sparring/
 │   │   └── srsCalculator.test.js
 │   └── package.json
 ├── tests/
-│   └── e2e/                    # Pruebas End-to-End con Playwright (math-vision.spec.js)
+│   └── e2e/                    # Pruebas End-to-End con Playwright (00-smoke, 01-round-session, 02-progression-dashboard)
 ├── docs/                       # Documentación técnica (ARCHITECTURE.md, USER_GUIDE.md)
 ├── tickets/                    # Registro formal de especificaciones y evidencias de historias
 ├── graphify-out/               # Knowledge graph del repositorio generado por Graphify

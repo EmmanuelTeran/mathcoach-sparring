@@ -6953,7 +6953,7 @@
       "node_kind": "heading",
       "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L195"
+      "source_location": "L194"
     },
     {
       "id": "tickets_math_us_15_e2e_and_docs_5_commit_de_cierre_en_dev",
@@ -6965,7 +6965,7 @@
       "node_kind": "heading",
       "norm_label": "5. commit de cierre en dev",
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L211"
+      "source_location": "L239"
     },
     {
       "id": "tickets_math_us_15_e2e_and_docs_flujo_1_flujo_t\u00e9cnica_happy_path_panel_entrenar_ahora_ronda_t\u00e9cnica",
@@ -7037,7 +7037,7 @@
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright)",
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L203"
+      "source_location": "L223"
     },
     {
       "id": "tickets_math_us_15_e2e_and_docs_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
@@ -7049,7 +7049,7 @@
       "node_kind": "heading",
       "norm_label": "tests unitarios e integracion (vitest / supertest)",
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L197"
+      "source_location": "L196"
     },
     {
       "id": "antigravity_skills_document_user_guide",
@@ -16731,7 +16731,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L197",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
@@ -16742,7 +16742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L203",
+      "source_location": "L223",
       "weight": 1.0
     },
     {
@@ -16786,7 +16786,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L195",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -16797,7 +16797,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L211",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -17970,5 +17970,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0b6e55d1ee6c485ce3521bb3b5203e5d8b9c2e58"
+  "built_at_commit": "ea7cd7d3634554c2463e5279d08ccc626ed14605"
 }

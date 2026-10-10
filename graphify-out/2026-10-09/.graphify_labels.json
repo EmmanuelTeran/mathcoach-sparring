@@ -1,7 +1,7 @@
 {
   "0": "4. Historias Pendientes",
   "1": "[US-XX] {{TITULO_HISTORIA}}",
-  "2": "Contexto del Proyecto: Entrenador Personal Fullstack (Hard & Soft Skills)",
+  "2": "Contexto del Proyecto: MathCoach Sparring - Entrenador Personal de Matemáticas Universitarias",
   "3": "Skill: document-tech-specs",
   "4": "Skill: document-user-guide",
   "5": "Skill: implement-story",
@@ -12,7 +12,7 @@
   "10": "heartbeat.md",
   "11": "[MATH-US-14] Dashboard por Tema y Categoría",
   "12": "rounds.js",
-  "13": "package.json",
+  "13": "scripts",
   "14": "Guía de Usuario: MathCoach Sparring",
   "15": "2. Criterios de Aceptación (AC)",
   "16": "1. Descripción y Objetivos de Negocio",
@@ -27,11 +27,10 @@
   "25": "ref_components_softskilltrainer",
   "26": "1. Descripción y Objetivos de Negocio",
   "27": "2. Criterios de Aceptación (AC)",
-  "28": "1. Descripción y Objetivos de Negocio",
-  "29": "computeRoundOutcome",
+  "28": "computeRoundOutcome",
+  "29": "evaluateRoundSolutions",
   "30": "[MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx)",
   "31": "2. Criterios de Aceptación (AC)",
   "32": "server_src_models_topic_topic",
-  "33": "1. Descripción y Objetivos de Negocio",
-  "34": "Respuestas:"
+  "33": "1. Descripción y Objetivos de Negocio"
 }

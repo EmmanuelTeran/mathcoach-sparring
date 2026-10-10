@@ -1,7 +1,7 @@
 # Graph Report - mathcoach-sparring  (2026-10-09)
 
 ## Corpus Check
-- 85 files · ~87,385 words
+- 85 files · ~87,632 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .css 1, .example 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0b6e55d1`
+- Built from commit: `ea7cd7d3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
