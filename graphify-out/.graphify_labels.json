@@ -11,12 +11,12 @@
   "9": "workflows/graphify.md",
   "10": "heartbeat.md",
   "11": "client/package.json",
-  "12": "app.js",
+  "12": "models.test.js",
   "13": "package.json",
   "14": "Guía de Usuario: DevCoach Sparring",
   "15": "2. Criterios de Aceptación (AC)",
   "16": "2. Contratos de API",
-  "17": "server/package.json",
+  "17": "dependencies",
   "18": "2. Criterios de Aceptación (AC)",
   "19": "Arquitectura Técnica del Sistema: DevCoach Sparring",
   "20": "tailwind.config.js",
@@ -25,6 +25,11 @@
   "23": "2. Criterios de Aceptación (AC)",
   "24": "ref_components_hardskilltrainer",
   "25": "ref_components_softskilltrainer",
-  "26": "dependencies",
-  "27": "practice.js"
+  "26": "practice.js",
+  "27": "ensureTracksForTopic",
+  "28": "devDependencies",
+  "29": "devDependencies",
+  "30": "scripts",
+  "31": "constants/categories.js",
+  "32": "server_src_models_topic_topic"
 }

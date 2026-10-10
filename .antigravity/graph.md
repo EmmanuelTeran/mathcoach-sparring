@@ -56,8 +56,8 @@
 └──> [MATH-US-02: Modelo MathTopic y Motor SRS SM-2]                      ✅ Done
      └──> [MATH-US-03: UI Cero Fricción (MathVisionUploader.jsx)]         ✅ Done
           └──> [MATH-US-04: Pipeline Evaluador Multimodal + SRS]          ✅ Done
-               └──> [MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes]
-                    └──> [MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga Backend Legado]
+               └──> [MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes] ✅ Done
+                    └──> [MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga Backend Legado] ✅ Done
                          ├──> [MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente)]
                          ├──> [MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista)]
                          └──> [MATH-US-11: Constructor de Rondas de 15 min + API de Rondas]
@@ -75,8 +75,8 @@
 
 | # | Historia | Depende de | Paralelizable con | Estado |
 |---|---|---|---|---|
-| 1 | MATH-US-07 | 04 | — | Backlog |
-| 2 | MATH-US-08 | 07 | — | Backlog |
+| 1 | MATH-US-07 | 04 | — | Done |
+| 2 | MATH-US-08 | 07 | — | Done |
 | 3 | MATH-US-09 | 08 | 10, 11 | Backlog |
 | 4 | MATH-US-10 | 08 | 09, 11 | Backlog |
 | 5 | MATH-US-11 | 08 | 09, 10 | Backlog |
