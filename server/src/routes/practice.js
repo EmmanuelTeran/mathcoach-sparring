@@ -38,7 +38,10 @@ practiceRouter.post('/evaluate-math', async (req, res) => {
     let aiResult;
     try {
       aiResult = await evaluateMathVisionSolution({
-        topic: problem,
+        topic: {
+          ...problem.toObject(),
+          ...(req.body.metadata || {}),
+        },
         imageBase64: image,
       });
     } catch (aiError) {

@@ -1,9 +1,9 @@
 # [MATH-US-08] Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado
 
-- **Estado:** En Progreso
+- **Estado:** Completado
 - **Rama:** `feature/MATH-US-08-domain-model`
 - **Fecha de Inicio:** 2026-10-09
-- **Fecha de Cierre:** -
+- **Fecha de Cierre:** 2026-10-09
 
 ---
 
@@ -463,25 +463,25 @@ Reescritura completa del endpoint de temas.
 ## 2. Criterios de Aceptación (AC)
 
 ### AC-1: Modelos Mongoose Defensivos (`MathTopic`, `Exercise`, `TopicTrack`, `Round`)
-- [ ] Los 4 modelos existen y están exportados en `server/src/models/`.
-- [ ] Validaciones defensivas de esquema comprobadas:
+- [x] Los 4 modelos existen y están exportados en `server/src/models/`.
+- [x] Validaciones defensivas de esquema comprobadas:
   - `MathTopic`: rechaza áreas inválidas fuera de `['algebra', 'trigonometria', 'geometria', 'calculo', 'analisis']`; `slug` y `title` requeridos; `slug` único.
   - `Exercise`: rechaza categorías no permitidas, dificultades fuera del rango `[1, 2, 3]`, `expertMinutes <= 0`, o ausencia de `statement` / `externalKey`.
   - `TopicTrack`: enforce del índice único `{ topicId, category }` impidiendo duplicidad de pista para un mismo tema; rechaza categorías o dificultades inválidas.
   - `Round`: `exercises` no puede ser un array vacío; `status` sólo admite `'pending'` o `'evaluated'`; valida tipos en snapshots y resultados.
 
 ### AC-2: Servicio Idempotente `ensureTracksForTopic(topicId)`
-- [ ] Existe la función `ensureTracksForTopic(topicId)` en `server/src/services/trackService.js`.
-- [ ] Inicializa exactamente las 3 pistas (`technique`, `application`, `proof`) con `difficulty: 1`, `dueDate` actual y valores SM-2 por defecto (`repetition: 0, interval: 0, efactor: 2.5`).
-- [ ] Ejecutar la función múltiples veces sobre el mismo `topicId` no duplica pistas ni sobreescribe el avance de pistas ya existentes.
+- [x] Existe la función `ensureTracksForTopic(topicId)` en `server/src/services/trackService.js`.
+- [x] Inicializa exactamente las 3 pistas (`technique`, `application`, `proof`) con `difficulty: 1`, `dueDate` actual y valores SM-2 por defecto (`repetition: 0, interval: 0, efactor: 2.5`).
+- [x] Ejecutar la función múltiples veces sobre el mismo `topicId` no duplica pistas ni sobreescribe el avance de pistas ya existentes.
 
 ### AC-3: Endpoint `GET /api/topics` Enriquecido con Pistas
-- [ ] `GET /api/topics` devuelve código 200 y una lista de temas ordenados.
-- [ ] Cada tema devuelto incluye la propiedad `tracks` conteniendo sus 3 pistas asociadas (`technique`, `application`, `proof`).
-- [ ] Si un tema aún no tiene pistas creadas en BD, el endpoint las inicializa vía `ensureTracksForTopic` antes de responder.
+- [x] `GET /api/topics` devuelve código 200 y una lista de temas ordenados.
+- [x] Cada tema devuelto incluye la propiedad `tracks` conteniendo sus 3 pistas asociadas (`technique`, `application`, `proof`).
+- [x] Si un tema aún no tiene pistas creadas en BD, el endpoint las inicializa vía `ensureTracksForTopic` antes de responder.
 
 ### AC-4: Purga Absoluta del Backend Legado
-- [ ] Se eliminan completamente los siguientes archivos:
+- [x] Se eliminan completamente los siguientes archivos:
   - `server/src/models/Topic.js`
   - `server/src/models/SessionLog.js`
   - `server/src/routes/softSkillPractice.js`
@@ -498,24 +498,24 @@ Reescritura completa del endpoint de temas.
   - `tests/e2e/multilevel-catalog.spec.js`
   - `tests/e2e/scaffolding.spec.js`
   - `tests/e2e/dashboard.spec.js` (legado)
-- [ ] En `server/src/routes/practice.js` se eliminan los endpoints `/hard-skill/generate`, `/hard-skill/evaluate` y `/hard-skill/hint`, conservando únicamente `/evaluate-math`.
-- [ ] En `server/src/services/geminiService.js` se eliminan `generateHardSkillChallenge`, `evaluateHardSkillSolution`, `generateHint` y `evaluateCodingSolution`, conservando únicamente `evaluateMathVisionSolution` y el cliente GenAI.
-- [ ] En `server/src/app.js` se desvinculan los routers `softSkillPracticeRouter` y `codingPracticeRouter`.
+- [x] En `server/src/routes/practice.js` se eliminan los endpoints `/hard-skill/generate`, `/hard-skill/evaluate` y `/hard-skill/hint`, conservando únicamente `/evaluate-math`.
+- [x] En `server/src/services/geminiService.js` se eliminan `generateHardSkillChallenge`, `evaluateHardSkillSolution`, `generateHint` y `evaluateCodingSolution`, conservando únicamente `evaluateMathVisionSolution` y el cliente GenAI.
+- [x] En `server/src/app.js` se desvinculan los routers `softSkillPracticeRouter` y `codingPracticeRouter`.
 
 ### AC-5: Cero Residuos Legados en Backend (Auditoría Defensiva)
-- [ ] La ejecución del comando de auditoría:
+- [x] La ejecución del comando de auditoría:
   ```bash
   grep -ri "junior\|senior\|soft_skill\|hard_skill\|SessionLog" server/src
   ```
   no devuelve ningún resultado (código de salida 1).
-- [ ] Ningún archivo en `server/src` importa `Topic.js` ni `SessionLog.js`.
-- [ ] `dashboardController.js` queda reducido a un stub sin referencias obsoletas.
+- [x] Ningún archivo en `server/src` importa `Topic.js` ni `SessionLog.js`.
+- [x] `dashboardController.js` queda reducido a un stub sin referencias obsoletas.
 
 ### AC-6: Suite de Pruebas Automatizadas en Verde
-- [ ] La nueva suite `server/tests/models.test.js` prueba exhaustivamente los 4 modelos y el servicio `ensureTracksForTopic`.
-- [ ] La nueva suite `server/tests/topics.test.js` prueba el contrato `GET /api/topics`.
-- [ ] `npm --prefix server test` pasa al 100% sin tests obsoletos fallando.
-- [ ] `npm --prefix client test` y las pruebas E2E no eliminadas (`tests/e2e/math-vision.spec.js`) se mantienen en verde.
+- [x] La nueva suite `server/tests/models.test.js` prueba exhaustivamente los 4 modelos y el servicio `ensureTracksForTopic`.
+- [x] La nueva suite `server/tests/topics.test.js` prueba el contrato `GET /api/topics`.
+- [x] `npm --prefix server test` pasa al 100% sin tests obsoletos fallando.
+- [x] `npm --prefix client test` y las pruebas E2E no eliminadas (`tests/e2e/math-vision.spec.js`) se mantienen en verde.
 
 ---
 
@@ -623,16 +623,62 @@ LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/home/teran/.local/lib/usr
 ## 5. Evidencia de Pruebas (Completado por verify-user-story)
 
 ### Tests Unitarios e Integración Backend (Vitest / Supertest)
-`[Pendiente de ejecución en verify-user-story]`
+
+```bash
+> @mathcoach-sparring/server@1.0.0 test
+> vitest run
+
+ ✓ tests/practice.test.js (7 tests) 1311ms
+ ✓ tests/topics.test.js (2 tests) 1312ms
+ ✓ tests/models.test.js (19 tests) 1801ms
+ ✓ tests/srsCalculator.test.js (11 tests) 11ms
+ ✓ tests/health.test.js (1 test) 784ms
+
+ Test Files  5 passed (5)
+      Tests  40 passed (40)
+   Duration  4.42s
+```
+
+### Tests Unitarios Frontend (Vitest / React Testing Library)
+
+```bash
+> @mathcoach-sparring/client@1.0.0 test
+> vitest run
+
+ ✓ tests/App.test.jsx (3 tests) 855ms
+ ✓ tests/MathVisionUploader.test.jsx (11 tests) 1385ms
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Duration  4.95s
+```
 
 ### Tests de Auditoría Grep
-`[Pendiente de ejecución en verify-user-story]`
 
-### Tests E2E (Playwright)
-`[Pendiente de ejecución en verify-user-story]`
+```bash
+grep -ri "junior\|senior\|soft_skill\|hard_skill\|SessionLog" server/src
+# Resultado: código de salida 1 (0 coincidencias)
+
+grep -rn "Topic\.js" server/src
+grep -rn "SessionLog\.js" server/src
+# Resultado: código de salida 1 (0 coincidencias a modelos obsoletos; sólo MathTopic.js)
+```
+
+### Tests E2E (Playwright - Math Vision Flow)
+
+```bash
+LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/home/teran/.local/lib/usr/lib/x86_64-linux-gnu" npx playwright test tests/e2e/math-vision.spec.js
+
+Running 1 test using 1 worker
+  ✓ 1 [chromium] › tests/e2e/math-vision.spec.js:4:3 › Math Vision Uploader - Active Recall E2E Flow › renderiza la interfaz de Math Vision, muestra el estado inicial y permite fallback de archivo (2.0s)
+
+1 passed (7.1s)
+```
 
 ---
 
 ## 6. Commit de Cierre en dev
 
-`Pendiente de implementación y validación en feature/MATH-US-08-domain-model`
+- Rama integrada: `feature/MATH-US-08-domain-model`
+- Merge commit hacia `dev`: `feat(MATH-US-08): merge feature/MATH-US-08-domain-model into dev`
+

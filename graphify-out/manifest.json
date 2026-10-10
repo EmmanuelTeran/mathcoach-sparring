@@ -120,15 +120,15 @@
     "semantic_hash": ""
   },
   "server/src/app.js": {
-    "mtime": 1791576251.3676734,
-    "seen": 1791576494.29899,
-    "ast_hash": "5fdb395e75ffb3565c04415d09715b43",
+    "mtime": 1791588337.5463467,
+    "seen": 1791590304.303395,
+    "ast_hash": "a40e13fc9c308905b38b032c084dfc4e",
     "semantic_hash": ""
   },
   "server/src/db.js": {
-    "mtime": 1790823494.180413,
-    "seen": 1790823494.9754198,
-    "ast_hash": "7212f1ed69362cfc1b6b75ce27c44eac",
+    "mtime": 1791590227.8817477,
+    "seen": 1791590304.3033984,
+    "ast_hash": "15124f1467a37cadd21a17c2f72c5b6b",
     "semantic_hash": ""
   },
   "server/src/routes/health.js": {
@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "server/src/server.js": {
-    "mtime": 1790823494.180413,
-    "seen": 1790823494.9754267,
-    "ast_hash": "870c3f8021562abb94cbe7e37e54f184",
+    "mtime": 1791589843.4850817,
+    "seen": 1791590304.3034096,
+    "ast_hash": "be79e947c3dcc3b2fc649502ef07ab79",
     "semantic_hash": ""
   },
   "server/tests/health.test.js": {
@@ -173,22 +173,16 @@
     "ast_hash": "1b4cd18dd5b3f5776cafd82d6d5fc868",
     "semantic_hash": ""
   },
-  "server/src/models/Topic.js": {
-    "mtime": 1791528245.6034656,
-    "seen": 1791529931.9934773,
-    "ast_hash": "4b208f492c1ebe3a58857170c45a476c",
-    "semantic_hash": ""
-  },
   "server/src/routes/topics.js": {
-    "mtime": 1790925695.8826435,
-    "seen": 1790925698.0728507,
-    "ast_hash": "dd2d0d3d697ae86b651ec61979b037b5",
+    "mtime": 1791588325.9103527,
+    "seen": 1791590304.3034086,
+    "ast_hash": "44148d4614b783c88146e6315359369f",
     "semantic_hash": ""
   },
   "server/src/utils/srsCalculator.js": {
-    "mtime": 1791528245.6074653,
-    "seen": 1791529931.993512,
-    "ast_hash": "e4b85c5cbeee228f817ebd70009a3f70",
+    "mtime": 1791588395.5143368,
+    "seen": 1791590304.3034127,
+    "ast_hash": "741c11a40ccbc57739aaf2824f059b81",
     "semantic_hash": ""
   },
   "server/tests/srsCalculator.test.js": {
@@ -198,69 +192,33 @@
     "semantic_hash": ""
   },
   "server/tests/topics.test.js": {
-    "mtime": 1790824873.148601,
-    "seen": 1790824874.3317592,
-    "ast_hash": "55ec692917abdd0bc55b27ec9ee6e33f",
-    "semantic_hash": ""
-  },
-  "server/src/models/SessionLog.js": {
-    "mtime": 1790826336.8555741,
-    "seen": 1790826349.9500413,
-    "ast_hash": "89863567482dcfc6d4c33388a4d26297",
+    "mtime": 1791588420.7782996,
+    "seen": 1791590304.3034184,
+    "ast_hash": "2b5b35a0061775c94b6890ebc19e29c9",
     "semantic_hash": ""
   },
   "server/src/routes/practice.js": {
-    "mtime": 1791576251.3756735,
-    "seen": 1791576494.2990215,
-    "ast_hash": "ffcea30fed0967b560a5e61f1840ee3b",
+    "mtime": 1791589495.1746979,
+    "seen": 1791590304.3034074,
+    "ast_hash": "94ba3e0c90954b80a39e593c4b96ce60",
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
-    "mtime": 1791576251.3756735,
-    "seen": 1791576494.2990353,
-    "ast_hash": "9451dbf60782249cca4b611bbf47d476",
+    "mtime": 1791588385.5383284,
+    "seen": 1791590304.303411,
+    "ast_hash": "9cb445ce167625420f2146a9d6a82bf3",
     "semantic_hash": ""
   },
   "server/tests/practice.test.js": {
-    "mtime": 1791576251.3756735,
-    "seen": 1791576494.2990615,
-    "ast_hash": "2a4e95f9506274dd5ca0132431aa9841",
-    "semantic_hash": ""
-  },
-  "tests/e2e/hard-skills.spec.js": {
-    "mtime": 1790925695.8946435,
-    "seen": 1790925698.0728688,
-    "ast_hash": "e6d1f38fc1794ebcbc5a54ef8c7ddf09",
+    "mtime": 1791588411.442309,
+    "seen": 1791590304.3034163,
+    "ast_hash": "b0e58127f13993280c9b50d3c4fd7795",
     "semantic_hash": ""
   },
   "client/src/hooks/useVoiceInteraction.js": {
     "mtime": 1791587268.8741775,
     "seen": 1791587868.0398245,
     "ast_hash": "60dc03fe280692d55cda97b9d4678316",
-    "semantic_hash": ""
-  },
-  "server/src/routes/softSkillPractice.js": {
-    "mtime": 1790996148.299983,
-    "seen": 1790996159.2209265,
-    "ast_hash": "5d79bbc8d02b29bbffadb21719ad9d21",
-    "semantic_hash": ""
-  },
-  "server/src/services/softSkillSparringService.js": {
-    "mtime": 1790997905.7795823,
-    "seen": 1791065406.7115755,
-    "ast_hash": "1c627e387f90628c8d237ef999c55407",
-    "semantic_hash": ""
-  },
-  "server/tests/softSkillPractice.test.js": {
-    "mtime": 1790996148.3625855,
-    "seen": 1790996159.220946,
-    "ast_hash": "da371d5bcaa7ea8e6e2c8913114d2727",
-    "semantic_hash": ""
-  },
-  "tests/e2e/soft-skills.spec.js": {
-    "mtime": 1790927473.130681,
-    "seen": 1790927477.7084644,
-    "ast_hash": "d4d5b3bf66c5111c0fb8390f3f33558a",
     "semantic_hash": ""
   },
   "client/src/components/Dashboard.jsx": {
@@ -270,9 +228,9 @@
     "semantic_hash": ""
   },
   "server/src/controllers/dashboardController.js": {
-    "mtime": 1790927473.130681,
-    "seen": 1790927477.7084234,
-    "ast_hash": "aa86c716ae0f8b33b3f4f5493576e1a6",
+    "mtime": 1791588332.0583534,
+    "seen": 1791590304.3033974,
+    "ast_hash": "3279d75b78b64bbff85fc4751ab017ab",
     "semantic_hash": ""
   },
   "server/src/routes/dashboard.js": {
@@ -281,64 +239,10 @@
     "ast_hash": "2a07ff1fd3cedb51c00179cec0ef0b4f",
     "semantic_hash": ""
   },
-  "server/tests/dashboard.test.js": {
-    "mtime": 1790927473.130681,
-    "seen": 1790927477.7084446,
-    "ast_hash": "70ac4c364c64f3651e1081713054f61b",
-    "semantic_hash": ""
-  },
-  "tests/e2e/dashboard.spec.js": {
-    "mtime": 1790827998.2839859,
-    "seen": 1790827999.6678047,
-    "ast_hash": "ca6a699faa8c45c0a10b194d0a648b41",
-    "semantic_hash": ""
-  },
-  "server/tests/hint.test.js": {
-    "mtime": 1790925695.8946435,
-    "seen": 1790925698.0728605,
-    "ast_hash": "af103d6c70fb59a9720046be06ad15be",
-    "semantic_hash": ""
-  },
-  "tests/e2e/scaffolding.spec.js": {
-    "mtime": 1790925695.8946435,
-    "seen": 1790925698.0728703,
-    "ast_hash": "217d4e658a7264377f4a7e336386cb86",
-    "semantic_hash": ""
-  },
-  "tests/e2e/multilevel-catalog.spec.js": {
-    "mtime": 1790927473.130681,
-    "seen": 1790927477.70846,
-    "ast_hash": "8f9721d9416fc5685e960238348c7650",
-    "semantic_hash": ""
-  },
-  "tests/e2e/stratified-prompts.spec.js": {
-    "mtime": 1790996148.3625855,
-    "seen": 1790996159.2209609,
-    "ast_hash": "19fb37c22558db0a27a34c1670606e16",
-    "semantic_hash": ""
-  },
-  "server/src/routes/codingPractice.js": {
-    "mtime": 1791067156.7570858,
-    "seen": 1791067581.0097444,
-    "ast_hash": "2a56265a64acd40312727d1f5a6a19b9",
-    "semantic_hash": ""
-  },
-  "server/tests/codingPractice.test.js": {
-    "mtime": 1791067142.577093,
-    "seen": 1791067581.0097773,
-    "ast_hash": "204a3c1d29dc64d33002e2d7273b77ca",
-    "semantic_hash": ""
-  },
   "server/src/models/MathTopic.js": {
-    "mtime": 1791576251.3676734,
-    "seen": 1791576494.299,
-    "ast_hash": "02e85f128ce685c13ee2f1bd457623bd",
-    "semantic_hash": ""
-  },
-  "server/tests/mathTopic.test.js": {
-    "mtime": 1791528245.6074653,
-    "seen": 1791529931.9935281,
-    "ast_hash": "fd8da25c586c8b3393f37c4667a8995b",
+    "mtime": 1791588285.0542877,
+    "seen": 1791590304.303401,
+    "ast_hash": "4aa195c3328f0dec94ad7da5d07653e9",
     "semantic_hash": ""
   },
   "tickets/MATH-US-03-vision-uploader.md": {
@@ -399,6 +303,48 @@
     "mtime": 1791587850.6902478,
     "seen": 1791587868.0398986,
     "ast_hash": "f371386b78d3d2f2a84150e53395e0e6",
+    "semantic_hash": ""
+  },
+  "client/src/constants/categories.js": {
+    "mtime": 1791588278.9503038,
+    "seen": 1791590304.30338,
+    "ast_hash": "35930960bf1fd2d97f3367e7457270a4",
+    "semantic_hash": ""
+  },
+  "server/src/config/categories.js": {
+    "mtime": 1791588273.8863118,
+    "seen": 1791590304.303396,
+    "ast_hash": "35930960bf1fd2d97f3367e7457270a4",
+    "semantic_hash": ""
+  },
+  "server/src/models/Exercise.js": {
+    "mtime": 1791588292.5662766,
+    "seen": 1791590304.3033993,
+    "ast_hash": "a98d397b3f81ac6d349df93170b2ca6d",
+    "semantic_hash": ""
+  },
+  "server/src/models/Round.js": {
+    "mtime": 1791588307.5743163,
+    "seen": 1791590304.303402,
+    "ast_hash": "5d09c60c593e284f86e1fc519f0e19fe",
+    "semantic_hash": ""
+  },
+  "server/src/models/TopicTrack.js": {
+    "mtime": 1791588299.9982836,
+    "seen": 1791590304.303403,
+    "ast_hash": "17f14fc07954c7bda092f17b651ceb31",
+    "semantic_hash": ""
+  },
+  "server/src/services/trackService.js": {
+    "mtime": 1791588318.0743415,
+    "seen": 1791590304.3034117,
+    "ast_hash": "99619ead63a825bf4a48a20e081fde50",
+    "semantic_hash": ""
+  },
+  "server/tests/models.test.js": {
+    "mtime": 1791588446.6343255,
+    "seen": 1791590304.303415,
+    "ast_hash": "45ff2001379de64e6cef7cc6a67ddbcd",
     "semantic_hash": ""
   }
 }
