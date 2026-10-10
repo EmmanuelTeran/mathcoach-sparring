@@ -1,7 +1,7 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** Ninguna (Siguiente: MATH-US-11)
+- **Historia activa:** MATH-US-11
 - **Rama actual:** `dev`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)

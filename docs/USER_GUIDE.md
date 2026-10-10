@@ -102,27 +102,66 @@ El proceso es **estrictamente idempotente**: si ya tienes repasos acumulados o h
 
 ## 4. Dinámica de Dificultad Adaptativa y Motor SRS (SM-2)
 
-A diferencia de las metodologías tradicionales donde se mezcla todo en una única calificación, MathCoach Sparring maneja la memoria y la dificultad por **Pista (`TopicTrack`)**.
+A diferencia de las metodologías tradicionales donde se mezcla todo en una única calificación global, MathCoach Sparring gobierna el aprendizaje mediante un **Motor de Progresión Adaptativa puro** por **Pista (`TopicTrack`)**, evaluando cada dimensión curricular de forma independiente.
 
-### 4.1 Progresión y Promoción Adaptativa
+### 4.1 Calificación de la Ronda y Métricas de Rendimiento
 
-- Cada ejercicio de una ronda recibe una calificación de `0 a 5`.
-- Se calcula:
-  $$\text{roundScore} = \text{promedio}(\text{scores})$$
-  $$\text{passRate} = \frac{\text{ejercicios con score } \ge 3}{\text{total ejercicios}}$$
-- **Regla de Promoción:**
-  $$\text{dificultad} < 3 \quad \land \quad \text{roundScore} \ge 4.0 \quad \land \quad \text{passRate} \ge 0.8 \implies \text{Dificultad} + 1$$
-  Al ser promovido, el próximo repaso se programa en un intervalo fijo corto (**3 días**) para afianzar el material nuevo de nivel superior.
-- **Regla de Permanencia:** Si no se cumplen los umbrales de promoción, la dificultad se mantiene. **No existe degradación** involuntaria de dificultad hacia atrás.
+Al culminar una ronda de práctica de ~15 minutos, cada ejercicio resuelto en libreta física y evaluado por la IA recibe una calificación numérica individual en escala formal de **0 a 5**:
+- **`5` (Excelente / Dominio):** Procedimiento impecable, rigor algebraico o deductivo completo.
+- **`4` (Bueno):** Planteamiento correcto con detalles menores de formato o simplificación.
+- **`3` (Aprobado raspado):** Idea central correcta pero con tropiezos aritméticos intermedios (ejercicio aprobado individualmente).
+- **`0 a 2` (Fallo):** Errores conceptuales graves, procedimiento incompleto o inconsistencia lógica.
 
-### 4.2 Impacto en la Repetición Espaciada (SM-2 por Pista)
+A partir de estas notas individuales, el motor calcula automáticamente dos métricas deterministas:
+1. **Puntaje de Ronda (`roundScore`):** Promedio aritmético de los ejercicios, redondeado estrictamente a **1 decimal**:
+   $$\text{roundScore} = \frac{\text{round}\left(\frac{\sum \text{scores}}{N} \times 10\right)}{10}$$
+2. **Tasa de Aprobación (`passRate`):** Porcentaje de ejercicios con calificación aprobatoria ($\ge 3$):
+   $$\text{passRate} = \frac{|\{s \in \text{scores} : s \ge 3\}|}{N}$$
 
-| Resultado de la Ronda | Impacto en Dificultad | Impacto en Repetición Espaciada (SRS) |
-|---|---|---|
-| `roundScore < 3` (Fallo) | Se mantiene | **Reinicio SM-2:** `repetition = 0`, intervalo fijado en `1 día`. |
-| Aprobada sin promoción | Se mantiene | **SM-2 Estándar:** Progresión regular según `calculateNextReview`. |
-| Promoción | Sube a la siguiente dificultad | `repetition = 1`, intervalo en `3 días` (repaso rápido de material nuevo). `efactor` conservado. |
-| Dificultad 3 con score alto | Se mantiene (tope) | **SM-2 Estándar:** Intervalos exponenciales largos (consolidación de maestría). |
+### 4.2 Condiciones Exactas para Subir de Dificultad (1 a 3)
+
+La progresión de dificultad no es aleatoria ni depende de corazonadas; para que asciendas de nivel dentro de una pista (ej. de dificultad 1 a 2, o de 2 a 3), debes satisfacer **tres condiciones simultáneas**:
+
+1. **No estar en el nivel máximo:** $\text{dificultad actual} < 3$. Si ya te encuentras en dificultad 3, has alcanzado el tope adaptativo de esa categoría.
+2. **Puntaje promedio sobresaliente:** $\text{roundScore} \ge 4.0$ (al menos 4.0 puntos sobre 5.0).
+3. **Consistencia en la ronda:** $\text{passRate} \ge 0.8$ (al menos el 80% de los ejercicios de la ronda deben estar aprobados con $\ge 3$).
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                   CONDICIÓN DE PROMOCIÓN ESTRICTA                      │
+├────────────────────────────────────────────────────────────────────────┤
+│  ¿dificultad < 3  Y  roundScore >= 4.0  Y  passRate >= 0.8?            │
+│       │                                                                │
+│       ├── SÍ ──► ¡PROMOVIDO! (Dificultad + 1)                          │
+│       │          Próximo repaso en 3 días (repaso rápido)              │
+│       │                                                                │
+│       └── NO ──► Se mantiene dificultad actual                         │
+│                  Ajuste de intervalo según desempeño SM-2              │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Ejemplos de Casos Límite:
+- **`[5, 5, 5, 5, 0]`:** Promedio $4.0$ y $4/5 = 80\%$ aprobados $\implies$ **Promovido** a la siguiente dificultad.
+- **`[4, 4, 4, 4, 3.5]`:** Promedio $3.9$ y $100\%$ aprobados $\implies$ **No promovido** (no alcanza el promedio de 4.0).
+- **`[5, 5, 5, 2]`:** Promedio $4.3$ pero sólo $3/4 = 75\%$ aprobados $\implies$ **No promovido** (requiere $\ge 80\%$ de aprobación).
+- **Dificultad 3 con `[5, 5, 5, 5]`:** Promedio $5.0$ y $100\%$ aprobados $\implies$ **Permanece en Dificultad 3** (nivel de maestría consolidado).
+
+### 4.3 Garantía de No-Degradación
+
+MathCoach Sparring respeta el principio pedagógico de **no-degradación de dificultad**:
+- Tu nivel de dificultad alcanzado (**1, 2 o 3**) **nunca retrocede**, incluso ante rondas con bajas calificaciones o tropiezos severos (puntuaciones de 0 o 1).
+- La penalización por un mal desempeño se canaliza exclusivamente en el **calendario de repasos espaciados (SM-2)**: el sistema te programa un repaso correctivo al día siguiente para recuperar fluidez en los conceptos clave, pero no te hace perder el nivel de desafío conquistado.
+
+### 4.4 Impacto en el Calendario de Repasos Espaciados (SRS SM-2)
+
+El resultado de tu ronda modula directamente tu cola de estudio en función de cuatro escenarios pedagógicos:
+
+| Resultado de la Ronda | Condición Técnica | Impacto en Dificultad | Impacto en Calendario SRS (SM-2) | Justificación para el Estudiante |
+|---|---|---|---|---|
+| **Fallo** | `roundScore < 3.0` | Se mantiene (sin degradación) | **Reinicio SM-2:** `repetition = 0`, intervalo fijado en **1 día** (`dueDate = mañana`). Se reduce el factor de facilidad (`efactor`). | Requiere repaso correctivo inmediato para subsanar dudas conceptuales antes de acumular lagunas. |
+| **Aprobada sin Promoción** | `roundScore >= 3.0` y no cumple promoción | Se mantiene | **SM-2 Estándar:** Progresión habitual (1 día $\to$ 3 o 6 días $\to$ 15+ días según fluidez y factor de facilidad). | Continuas ejercitando el mismo nivel, consolidando retención con intervalos progresivamente más amplios. |
+| **Promoción Exitosa** | Cumple los 3 requisitos de ascenso | **Asciende a nivel superior:** `dificultad = dificultad + 1` | **Repaso rápido:** `repetition = 1`, intervalo fijado en **3 días** (`dueDate = hoy + 3 días`). Se premia tu factor de facilidad (`efactor`). | El material de nivel superior es nuevo y más desafiante; un repaso a los 3 días asegura que fijes las bases antes de distanciar las sesiones. |
+| **Dificultad 3 con Alto Rendimiento** | Dificultad en tope (3) con `roundScore >= 4.0` | Se mantiene en 3 (tope) | **SM-2 Estándar de Maestría:** Intervalos exponenciales largos (6, 15, 30+ días). | Dominas los problemas más avanzados de la categoría; el sistema afianza tu retención a largo plazo. |
 
 ---
 

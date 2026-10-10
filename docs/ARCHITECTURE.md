@@ -254,9 +254,113 @@ El diseño del catálogo garantiza las cuotas operativas exigidas por la regla d
 
 ---
 
-## 5. Contratos de API Activos
+## 5. Motor de Progresión Adaptativa y Acoplamiento SRS (`progressionEngine.js`)
 
-### 5.1 `GET /api/topics`
+El módulo `server/src/utils/progressionEngine.js` gobierna la progresión de dificultad y el cálculo de la próxima fecha de repaso tras evaluar una ronda de práctica.
+
+Está diseñado siguiendo el patrón arquitectónico de **núcleo funcional puro (Functional Core)**:
+- **Cero Efectos Secundarios:** No realiza operaciones de entrada/salida (E/S), no accede a colecciones de MongoDB ni interactúa con Express o llamadas a modelos de IA.
+- **Determinismo y Testabilidad:** El 100% de sus cómputos son funciones puras $f(\text{scores}, \text{track}, \text{now}) \to \text{outcome}$, lo que permite pruebas unitarias instantáneas con Vitest y reproducibilidad matemática total.
+
+```mermaid
+flowchart TD
+    Scores["scores: number[] [0..5]"] --> Validate{"Validación Defensiva"}
+    TrackState["track: { difficulty, repetition, interval, efactor }"] --> Validate
+    NowParam["now: Date"] --> Validate
+
+    Validate -->|Error| ThrowErr["throw Error(...)"]
+    Validate -->|Válido| Metrics["Cálculo de Métricas:
+    roundScore = round(avg * 10) / 10
+    passRate = count(score >= 3) / N"]
+
+    Metrics --> BranchPromo{"¿track.difficulty < 3
+    && roundScore >= 4.0
+    && passRate >= 0.8?"}
+
+    BranchPromo -->|SÍ: Promoción| DoPromo["promoted = true
+    newDifficulty = difficulty + 1
+    srs: repetition = 1, interval = 3d
+    dueDate = now + 3 días
+    efactor = SM2(roundScore)"]
+
+    BranchPromo -->|NO| BranchFail{"¿roundScore < 3.0? (Fallo)"}
+
+    BranchFail -->|SÍ: Fallo de Ronda| DoFail["promoted = false
+    newDifficulty = difficulty (no-degradación)
+    srs: repetition = 0, interval = 1d
+    dueDate = now + 1 día
+    efactor = SM2(roundScore)"]
+
+    BranchFail -->|NO: Aprobada sin Ascenso| DoStandard["promoted = false
+    newDifficulty = difficulty
+    srs = calculateNextReview(repetition, efactor, roundScore, interval)
+    dueDate = now + interval * 24h"]
+
+    DoPromo & DoFail & DoStandard --> Outcome["Retorno RoundOutcome"]
+```
+
+### 5.1 Centralización de Constantes y Umbrales (`server/src/config/progression.js`)
+
+Todos los valores numéricos y reglas de corte están desacoplados del código algorítmico y centralizados en `server/src/config/progression.js`:
+
+```javascript
+export const PROMOTION_MIN_SCORE = 4.0;       // Nota promedio mínima para promoción (escala 0-5)
+export const PROMOTION_MIN_PASS_RATE = 0.8;    // Proporción mínima de ejercicios aprobados (>= 3)
+export const PROMOTION_INTERVAL_DAYS = 3;      // Intervalo de repaso corto tras ascender de nivel
+export const ROUND_BUDGET_MIN = 15;            // Presupuesto experto por ronda (minutos)
+export const EXERCISE_PASS_SCORE = 3;          // Corte individual de ejercicio aprobado
+export const ROUND_PASS_SCORE = 3.0;           // Corte global para evitar reinicio SM-2
+export const MIN_DIFFICULTY = 1;               // Dificultad base
+export const MAX_DIFFICULTY = 3;               // Tope adaptativo máximo
+export const CATEGORY_LIMITS = {
+  technique: { min: 3, max: 10 },
+  application: { min: 1, max: 3 },
+  proof: { min: 1, max: 1 },
+};
+```
+
+### 5.2 Contrato Funcional de `computeRoundOutcome`
+
+```typescript
+interface ComputeRoundOutcomeParams {
+  scores: number[];                          // Calificaciones individuales de la ronda (0 a 5)
+  track: {
+    difficulty: number;                      // 1, 2 o 3 (obligatorio)
+    repetition?: number;                     // Etapa de repeticiones previas (default: 0)
+    interval?: number;                       // Intervalo previo en días (default: 0)
+    efactor?: number;                        // Factor de facilidad previo (min 1.3, default: 2.5)
+  };
+  now?: Date | number;                       // Instante base inyectable (default: new Date())
+}
+
+interface RoundOutcome {
+  roundScore: number;                        // Promedio aritmético redondeado formalmente a 1 decimal
+  passRate: number;                          // Proporción de ejercicios con calificación >= 3 (0.0 a 1.0)
+  promoted: boolean;                         // true si asciende a la siguiente dificultad
+  newDifficulty: number;                     // 1, 2 o 3 (garantía: newDifficulty >= track.difficulty)
+  srs: {
+    repetition: number;                      // Etapa SM-2 resultante
+    interval: number;                        // Intervalo en días hasta el próximo repaso
+    efactor: number;                         // Factor de facilidad actualizado (>= 1.3)
+    dueDate: Date;                           // Fecha exacta del próximo repaso
+  };
+}
+```
+
+### 5.3 Matriz de Acoplamiento Bidireccional: Dificultad Adaptativa vs. Algoritmo SM-2
+
+| Escenario Pedagógico | Regla Lógica | Efecto en Dificultad | Efecto en Motor SRS SM-2 | Justificación de Aprendizaje |
+|---|---|---|---|---|
+| **Fallo de Ronda** | `roundScore < 3.0` | Se mantiene (`newDifficulty = track.difficulty`) | **Reinicio SM-2:** `repetition = 0`, `interval = 1` día, `dueDate = now + 1d`. Ajuste de penalización en `efactor` según fórmula SM-2 sobre `Math.round(roundScore)`. | No se degrada la dificultad, pero se exige repaso correctivo al día siguiente para consolidar bases. |
+| **Aprobada sin Promoción** | `roundScore >= 3.0` y `!promoted` (p. ej. `roundScore < 4.0` o `passRate < 0.8`) | Se mantiene (`newDifficulty = track.difficulty`) | **SM-2 Estándar:** Delega a `calculateNextReview(track.repetition, track.efactor, Math.round(roundScore), track.interval)`. | El estudiante se consolida en la dificultad actual espaciando las sesiones gradualmente. |
+| **Promoción Exitosa** | `track.difficulty < 3` y `roundScore >= 4.0` y `passRate >= 0.8` | **Asciende:** `newDifficulty = track.difficulty + 1`, `promoted = true` | **Repaso rápido:** `repetition = 1`, `interval = PROMOTION_INTERVAL_DAYS` (3 días), `dueDate = now + 3d`. `efactor` actualizado positivamente con SM-2. | Desafío de nivel superior requiere afianzamiento inicial más rápido (3 días) antes de espaciar. |
+| **Dificultad 3 (Tope Máximo)** | `track.difficulty === 3` y `roundScore >= 4.0` | Se mantiene en tope (`newDifficulty = 3`, `promoted = false`) | **SM-2 Estándar de Maestría:** Escala exponencialmente con intervalos largos (6, 15, 30+ días) según su `efactor`. | El estudiante alcanzó el nivel máximo del catálogo en esta pista; se entrena retención a largo plazo. |
+
+---
+
+## 6. Contratos de API Activos
+
+### 6.1 `GET /api/topics`
 Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 pistas asociadas:
 - **Ruta:** `/api/topics`
 - **Respuesta (200 OK):**
@@ -300,7 +404,7 @@ Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 
 ]
 ```
 
-### 5.2 `POST /api/evaluate-math`
+### 6.2 `POST /api/evaluate-math`
 Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el motor SRS:
 - **Ruta:** `/api/evaluate-math`
 - **Body:** `{ "problemId": "...", "image": "data:image/jpeg;base64,...", "metadata": { ... } }`
@@ -320,7 +424,7 @@ Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el m
 }
 ```
 
-### 5.3 `GET /api/dashboard/summary`
+### 6.3 `GET /api/dashboard/summary`
 Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño de MATH-US-14:
 ```json
 {
@@ -330,12 +434,12 @@ Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño
 }
 ```
 
-### 5.4 `GET /api/health`
+### 6.4 `GET /api/health`
 Monitorea la salud del servicio y el estado de la base de datos (con fallback `degraded` si Mongo se ejecuta en modo standalone).
 
 ---
 
-## 6. Certificación de la Purga Definitiva de DevCoach
+## 7. Certificación de la Purga Definitiva de DevCoach
 
 Se certifica formalmente la erradicación de toda la deuda técnica heredada del prototipo anterior:
 1. **Modelos Eliminados:** Se purgaron definitivamente `Topic.js` y `SessionLog.js`.
