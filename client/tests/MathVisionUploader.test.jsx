@@ -151,7 +151,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
     expect(await screen.findByRole('button', { name: /tomar foto/i })).toBeInTheDocument();
   });
 
-  it('AC-4, AC-5 & AC-6: envía POST /api/evaluate-math y muestra los resultados y badge pedagógico', async () => {
+  it('AC-4, AC-5 & AC-6: envía POST /api/rounds/:id/evaluate y muestra los resultados y badge pedagógico', async () => {
     const mockApiResponse = {
       success: true,
       score: 4,
@@ -196,7 +196,7 @@ describe('MathVisionUploader Integration & Unit Tests', () => {
     expect(screen.getByText(/el profesor de ia está evaluando tus deducciones matemáticas/i)).toBeInTheDocument();
 
     await waitFor(() => {
-      expect(global.fetch).toHaveBeenCalledWith('/api/evaluate-math', expect.objectContaining({
+      expect(global.fetch).toHaveBeenCalledWith('/api/rounds/651a2b3c4d5e6f7a8b9c0d1e/evaluate', expect.objectContaining({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       }));

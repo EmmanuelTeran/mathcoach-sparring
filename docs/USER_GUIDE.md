@@ -248,26 +248,63 @@ npm run test:all
 
 ---
 
-## 7. Módulo de Entrenamiento en Cuaderno Físico: Math Vision
+## 7. Módulo de Entrenamiento en Cuaderno Físico y Evaluación de Rondas
 
-El módulo **Math Vision** permite ejercitar el razonamiento matemático sobre papel y libreta, evitando distracciones digitales.
+El módulo de entrenamiento permite ejercitar el razonamiento matemático sobre papel y libreta física, resolviendo sesiones de práctica completas sin interrupciones digitales.
 
-### 7.1 Enunciado Formal en Pantalla (`MathStatement.jsx`)
-- En la pestaña **"Entrenar"**, la aplicación renderiza el problema matemático con **notación tipográfica LaTeX** mediante **KaTeX** (`$ ... $` y `$$ ... $$`).
-- Si no hay ejercicio cargado, se muestra un estado claro: *"No hay ejercicio cargado — elige un tema desde el Panel"*.
+### 7.1 El Flujo de Trabajo en Libreta Física (Ronda Completa)
 
-### 7.2 Resolución y Captura con Cámara
-1. Lee el enunciado y resuélvelo por completo a mano en tu libreta física.
-2. Haz clic en **"Activar Cámara"** (o usa el botón de subida manual si tu dispositivo no cuenta con cámara web).
-3. Encuadra la página con las guías del visor y presiona **"📸 Tomar Foto / Capturar"**.
-4. La cámara se detiene de inmediato para ahorrar batería. Revisa la nitidez y haz clic en **"🚀 Evaluar con IA"**.
+A diferencia de los flujos de un único problema aislado, una ronda de MathCoach Sparring representa un bloque de práctica deliberada equivalente a ~15 minutos de tiempo experto:
 
-### 7.3 Evaluación Multimodal y Feedback Pedagógico
-- **Score (0 a 5):**
-  - **4 a 5 (Verde):** Rigor formal, álgebra impecable o errores mínimos de notación.
-  - **3 (Ámbar):** Planteamiento correcto con tropiezos aritméticos o dudas intermedias.
-  - **0 a 2 (Rojo):** Errores conceptuales graves o procedimiento inconsistente.
-- **Desglose Paso a Paso:** Inspección de los renglones manuscritos identificando la validez de cada paso lógico.
-- **Pista Socrática (`💡 hint`):** Guía metodológica para superar el error sin revelar la respuesta final.
-- **Actualización SRS:** Reprogramación automática de la pista para su próximo repaso espaciado.
+1. **Revisión de Enunciados en Pantalla:**
+   - La plataforma presenta todos los ejercicios de la ronda ordenados didácticamente (`1..N`) con tipografía matemática rigurosa en LaTeX / KaTeX.
+   - Cada ejercicio indica su número de orden, enunciado formal y tiempo experto estimado.
+2. **Resolución Continua en Cuaderno:**
+   - Trabajas directamente sobre tu libreta de papel con pluma o lápiz, resolviendo la ronda completa de principio a fin.
+   - Es recomendable rotular claramente en tu libreta el número de cada ejercicio (ej. *"Ejercicio 1"*, *"Ejercicio 2"*) para facilitar la lectura visual por parte de la IA.
+   - Tus soluciones pueden ocupar una o varias páginas (típicamente entre 1 y 4 páginas según la extensión de los desarrollos).
+
+### 7.2 Captura Multimodal de la Libreta (1 a 6 Fotografías)
+
+Al terminar todos los ejercicios de la ronda:
+1. Dirígete a la sección de entrega de la ronda y activa la captura de fotos (mediante cámara web/smartphone o subiendo archivos de imagen desde tu disco).
+2. Toma **entre 1 y 6 fotografías** abarcando todas las hojas de tu cuaderno donde desarrollaste los ejercicios.
+   - *Consejo de nitidez:* Asegúrate de contar con buena iluminación cenital, evitar sombras pronunciadas y encuadrar las páginas completas.
+   - La plataforma empaqueta tus fotos y las envía concurrentemente al servicio de visión con Gemini 1.5 Pro.
+
+### 7.3 Evaluación Pedagógica con Inteligencia Artificial
+
+Gemini 1.5 Pro analiza concurrentemente todas las fotografías provistas y audita cada ejercicio contra la solución canónica de referencia y la rúbrica especializada de la categoría:
+
+- **Calificación Individual por Ejercicio (Escala 0 a 5):**
+  - **`5` (Excelente):** Planteamiento riguroso, desarrollo algebraico o deductivo impecable y conclusión correcta.
+  - **`4` (Bueno):** Planteamiento y técnica correctos con pequeños detalles menores de aritmética o formato en los pasos finales.
+  - **`3` (Aprobado):** Comprensión del concepto central pero con errores intermedios subsanables.
+  - **`0 a 2` (Fallo):** Error conceptual severo, infracciones de reglas algebraicas o desarrollo no justificado.
+- **Retroalimentación Detallada Paso a Paso:**
+  - Desglose minucioso de cada renglón de tu cuaderno, reconociendo tus aciertos e identificando con precisión quirúrgica el paso exacto donde ocurrió un error.
+- **Pistas Socráticas (`💡 hint`):**
+  - Recomendaciones metodológicas o preguntas guía para que reflexiones sobre tus áreas de mejora en el siguiente intento sin que se te revele la respuesta final.
+- **Resumen Global de la Ronda (`overall_feedback`):**
+  - Una síntesis pedagógica del desempeño general del bloque y recomendaciones para afianzar el dominio de la categoría.
+
+### 7.4 ¿Qué hacer si la aplicación indica que falta algún ejercicio? (Error 422: `exercises_not_found`)
+
+Si alguna hoja de tu libreta quedó fuera del encuadre, la foto salió borrosa, o algún problema no fue resuelto en las páginas enviadas:
+
+- **Alerta de Ejercicios Faltantes:** La aplicación te notificará claramente indicando qué ejercicios específicos no fueron localizados en las fotos (por ejemplo: *"Los ejercicios [2, 3] no fueron detectados en las imágenes provistas"*).
+- **Protección de tu Progreso:** **Tu ronda no se califica con ceros ficticios ni se altera tu progreso en la base de datos.** La ronda se mantiene en estado pendiente (`pending`) y tus intervalos de repetición espaciada permanecen intactos.
+- **Pasos para Continuar:**
+  1. Revisa las páginas de tu cuaderno correspondientes a los ejercicios señalados.
+  2. Vuelve a tomar o añadir las fotografías de las páginas faltantes asegurando que el número del ejercicio y el procedimiento manuscrito queden bien iluminados y legibles.
+  3. Reenvía el lote completo de fotos (1 a 6 imágenes) para obtener tu evaluación integral.
+
+### 7.5 Cierre de Ronda, Promoción y Calendario SRS
+
+Cuando todos los ejercicios son localizados y evaluados con éxito:
+1. El sistema calcula automáticamente el **Puntaje de Ronda (`roundScore`)** y la **Tasa de Aprobación (`passRate`)**.
+2. Si cumples los criterios de promoción ($\ge 4.0$ promedio y $\ge 80\%$ de ejercicios aprobados en dificultad 1 o 2), recibes la insignia de ascenso de nivel y tu próxima práctica se programa en **3 días**.
+3. Si la ronda es aprobada sin promoción o estás en nivel 3, avanza tu intervalo regular de repetición espaciada SM-2.
+4. Si la ronda no alcanza el corte aprobatorio ($< 3.0$), tu dificultad se mantiene sin degradación y se programa un repaso correctivo para **mañana (1 día)**.
+
 

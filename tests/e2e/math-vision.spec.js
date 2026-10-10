@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Math Vision Uploader - Active Recall E2E Flow', () => {
   test('renderiza la interfaz de Math Vision, muestra el estado inicial y permite fallback de archivo', async ({ page }) => {
     // Interceptar la petición de evaluación para garantizar determinismo en E2E
-    await page.route('**/api/evaluate-math', async (route) => {
+    await page.route('**/api/rounds/*/evaluate', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/json',

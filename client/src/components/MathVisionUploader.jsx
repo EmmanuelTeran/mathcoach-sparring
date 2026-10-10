@@ -223,12 +223,15 @@ export function MathVisionUploader({
     };
 
     try {
-      const response = await fetch('/api/evaluate-math', {
+      const endpoint = topic.roundId
+        ? `/api/rounds/${topic.roundId}/evaluate`
+        : `/api/rounds/${topic._id || topic.id || '651a2b3c4d5e6f7a8b9c0d1e'}/evaluate`;
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(topic.roundId ? { images: [capturedImage] } : payload),
         signal: controller.signal,
       });
 
@@ -541,7 +544,7 @@ export function MathVisionUploader({
               </button>
 
               <button
-                id="btn-evaluate-math"
+                id="btn-evaluate-solution"
                 onClick={handleEvaluate}
                 className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-600/30 active:scale-95"
               >

@@ -35,7 +35,7 @@ mathcoach-sparring/
 │   ├── tests/                  # Pruebas con Vitest, Supertest y MongoMemoryServer
 │   │   ├── models.test.js      # Validación exhaustiva de los 4 modelos y trackService
 │   │   ├── topics.test.js      # Validación del contrato GET /api/topics con pistas
-│   │   ├── practice.test.js    # Evaluación multimodal POST /api/evaluate-math
+│   │   ├── roundEvaluation.test.js # Evaluación multimodal de rondas POST /api/rounds/:id/evaluate
 │   │   └── srsCalculator.test.js
 │   └── package.json
 ├── tests/
@@ -407,9 +407,77 @@ flowchart TD
 
 ---
 
-## 7. Contratos de API Activos
+## 7. Pipeline Multimodal de Evaluación de Rondas (`geminiService.js`)
 
-### 7.1 `GET /api/topics`
+El servicio [server/src/services/geminiService.js](file:///home/teran/proyectos/mathcoach-sparring/server/src/services/geminiService.js) (`evaluateRoundSolutions`) implementa la auditoría de visión computacional y evaluación pedagógica con **Gemini 1.5 Pro** (`@google/genai`) para rondas completas de ejercicios manuscritos.
+
+```mermaid
+flowchart TD
+    Req["POST /api/rounds/:id/evaluate (1..6 imágenes Base64)"] --> Val["Validación Defensiva (id, 1..6 Base64)"]
+    Val --> Load["Carga de Round, TopicTrack y Exercise (con referenceSolution)"]
+    Load --> Service["evaluateRoundSolutions({ round, exercises, imagesBase64 })"]
+    
+    Service --> Prompt["Prompt Engineering: Inyección de Enunciados + Soluciones Canónicas"]
+    Service --> Rubric["buildSystemInstruction: Rúbricas por Categoría y Dificultad"]
+    
+    Rubric --> Gemini["Gemini 1.5 Pro (temperature: 0.2, responseMimeType: 'application/json')"]
+    Gemini --> Parsing["Parsing Defensivo y Normalización [0..5]"]
+    
+    Parsing --> MissingCheck{"¿Algún ejercicio tiene found: false?"}
+    MissingCheck -- Sí --> Res422["HTTP 422 { error: 'exercises_not_found', missing: [...] } (BD Inmutable)"]
+    MissingCheck -- No --> Engine["computeRoundOutcome({ scores, track, now })"]
+    
+    Engine --> AtomicSave["Persistencia Atómica: Round.save() + TopicTrack.save()"]
+    AtomicSave --> Res200["HTTP 200 OK con métricas, desglose pedagógico y próximo repaso SRS"]
+```
+
+### 7.1 Prompt Engineering y Rúbricas Especializadas
+
+El evaluador inyecta dinámicamente un **System Instruction** calibrado según la categoría de la pista y su dificultad adaptativa activa:
+
+1. **Categoría Técnica (`technique`):**
+   - *Objetivo:* Precisión analítica, agilidad computacional y exactitud de cómputo.
+   - *Dificultad 1:* Operaciones básicas y aritméticas; tolerancia cero a errores de signo, simplificación de fracciones y jerarquía de operaciones.
+   - *Dificultad 2:* Manipulaciones compuestas, factorización avanzada y simplificación analítica sistemática.
+   - *Dificultad 3:* Expresiones analíticas extensas, álgebra avanzada y cálculo analítico exhaustivo.
+2. **Categoría Aplicación (`application`):**
+   - *Objetivo:* Planteamiento analítico de problemas, formulación de modelos y aplicación de teoremas de cálculo.
+   - *Dificultad 1:* Identificación directa de variables, modelado básico y aplicación inmediata de fórmulas y teoremas.
+   - *Dificultad 2:* Modelado en múltiples pasos, verificación explícita de hipótesis de teoremas (TFC, regla de la cadena, extremos).
+   - *Dificultad 3:* Problemas de optimización y modelado no trivial con análisis cualitativo y rigurosa justificación física o geométrica.
+3. **Categoría Demostración (`proof`):**
+   - *Objetivo:* Rigor deductivo formal, validez lógica de cada implicación y fundamentación axiomática.
+   - *Dificultad 1:* Demostraciones directas, propiedades algebraicas fundamentales y axiomas de los reales.
+   - *Dificultad 2:* Inducción matemática, demostraciones por contradicción y contrarrecíproca con rigurosa verificación de hipótesis.
+   - *Dificultad 3:* Rigor $\varepsilon-\delta$, análisis matemático avanzado (Spivak), topología de reales y deducciones analíticas profundas.
+
+### 7.2 Esquema JSON Estricto y Auditoría de Cobertura (`found: boolean`)
+
+La llamada al SDK de Gemini utiliza configuración estricta (`temperature: 0.2`, `responseMimeType: 'application/json'`) garantizando el siguiente contrato tipado:
+
+```json
+{
+  "exercises": [
+    {
+      "order": 1,
+      "found": true,
+      "score": 5,
+      "feedback_paso_a_paso": "Paso 1: Planteamiento correcto...",
+      "hint": "Consejo o pista socrática..."
+    }
+  ],
+  "overall_feedback": "Resumen pedagógico general del desempeño de la ronda."
+}
+```
+
+- **Auditoría de Cobertura:** Si el modelo determina que un ejercicio no aparece resuelto en las páginas proporcionadas o es ilegible, marca obligatoriamente `"found": false`, `"score": 0`.
+- **Modo Offline Determinista:** Si `GEMINI_API_KEY` no está configurada, el servicio provee una evaluación simulada determinista que permite la ejecución ininterrumpida de pruebas unitarias locales y flujos de CI.
+
+---
+
+## 8. Contratos de API Activos
+
+### 8.1 `GET /api/topics`
 Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 pistas asociadas:
 - **Ruta:** `/api/topics`
 - **Respuesta (200 OK):**
@@ -453,7 +521,7 @@ Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 
 ]
 ```
 
-### 7.2 `GET /api/rounds/queue`
+### 8.2 `GET /api/rounds/queue`
 Retorna la cola de pistas vencidas (`dueDate <= now`) priorizadas para repaso diario:
 - **Ruta:** `/api/rounds/queue`
 - **Orden:** 1. Menor `lastRoundScore` (`null` primero). 2. Mayor retraso (`dueDate` ASC).
@@ -475,7 +543,7 @@ Retorna la cola de pistas vencidas (`dueDate <= now`) priorizadas para repaso di
 ]
 ```
 
-### 7.3 `POST /api/rounds`
+### 8.3 `POST /api/rounds`
 Crea una nueva ronda o reutiliza una ronda existente en estado `pending` (idempotencia):
 - **Ruta:** `/api/rounds`
 - **Body:** `{ "topicId": "674c11112222333344440001", "category": "technique" }`
@@ -521,7 +589,7 @@ Crea una nueva ronda o reutiliza una ronda existente en estado `pending` (idempo
 }
 ```
 
-### 7.4 `GET /api/rounds/:id`
+### 8.4 `GET /api/rounds/:id`
 Consulta el detalle completo de una ronda por su identificador único:
 - **Ruta:** `/api/rounds/:id`
 - **Respuestas:**
@@ -529,27 +597,39 @@ Consulta el detalle completo de una ronda por su identificador único:
   - `400 Bad Request`: `:id` malformado.
   - `404 Not Found`: Ronda inexistente.
 
-### 7.5 `POST /api/evaluate-math`
-Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el motor SRS:
-- **Ruta:** `/api/evaluate-math`
-- **Body:** `{ "problemId": "...", "image": "data:image/jpeg;base64,...", "metadata": { ... } }`
+### 8.5 `POST /api/rounds/:id/evaluate`
+Evalúa las soluciones manuscritas de una ronda completa a partir de 1 a 6 imágenes con Gemini 1.5 Pro, calcula métricas con `computeRoundOutcome` y persiste atómicamente en `Round` y `TopicTrack`:
+- **Ruta:** `/api/rounds/:id/evaluate`
+- **Body:** `{ "images": ["data:image/jpeg;base64,..."] }`
 - **Respuesta (200 OK):**
 ```json
 {
-  "success": true,
-  "score": 4,
-  "feedback_paso_a_paso": "Procedimiento ordenado...",
-  "hint": "Recuerda factorizar antes de simplificar.",
-  "srs": {
-    "repetition": 1,
-    "interval": 1,
-    "efactor": 2.5,
-    "dueDate": "2026-10-10T18:00:00.000Z"
-  }
+  "roundScore": 4.3,
+  "passRate": 1.0,
+  "promoted": true,
+  "previousDifficulty": 1,
+  "newDifficulty": 2,
+  "nextReviewAt": "2026-10-12T19:30:00.000Z",
+  "results": [
+    {
+      "exerciseId": "...",
+      "order": 1,
+      "score": 5,
+      "feedback_paso_a_paso": "Paso 1: Planteamiento correcto...",
+      "hint": "Excelente trabajo."
+    }
+  ],
+  "overall_feedback": "Ronda completada con solvencia."
 }
 ```
+- **Errores:**
+  - `400 Bad Request`: `:id` inválido o array `images` con longitud fuera de 1..6 o strings inválidos.
+  - `404 Not Found`: Ronda inexistente.
+  - `409 Conflict`: Ronda ya evaluada.
+  - `422 Unprocessable Entity`: Ejercicios faltantes en las fotos (`{ error: 'exercises_not_found', missing: [...] }`).
+  - `502 Bad Gateway`: Fallo en inferencia de IA o respuesta malformada.
 
-### 7.6 `GET /api/dashboard/summary`
+### 8.6 `GET /api/dashboard/summary`
 Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño de MATH-US-14:
 ```json
 {
@@ -559,20 +639,21 @@ Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño
 }
 ```
 
-### 7.7 `GET /api/health`
+### 8.7 `GET /api/health`
 Monitorea la salud del servicio y el estado de la base de datos (con fallback `degraded` si Mongo se ejecuta en modo standalone).
 
 ---
 
-## 7. Certificación de la Purga Definitiva de DevCoach
+## 9. Deprecación y Purga Definitiva de Endpoints Legados
 
-Se certifica formalmente la erradicación de toda la deuda técnica heredada del prototipo anterior:
-1. **Modelos Eliminados:** Se purgaron definitivamente `Topic.js` y `SessionLog.js`.
-2. **Rutas Eliminadas:** Se removieron `routes/softSkillPractice.js`, `routes/codingPractice.js` y los endpoints de texto legados en `routes/practice.js`.
-3. **Servicios Eliminados:** Se eliminó `services/softSkillSparringService.js` y las funciones no matemáticas de `geminiService.js`.
+Se certifica formalmente la erradicación total del endpoint monolítico anterior `POST /api/evaluate-math` y de los artefactos de prototipos anteriores:
+1. **Endpoint `POST /api/evaluate-math` Eliminado:** Se eliminó [server/src/routes/practice.js](file:///home/teran/proyectos/mathcoach-sparring/server/src/routes/practice.js) y se retiró su montaje de Express en [server/src/app.js](file:///home/teran/proyectos/mathcoach-sparring/server/src/app.js). La evaluación se realiza ahora con validación atómica y contexto multimodal en `POST /api/rounds/:id/evaluate`.
+2. **Pruebas Legadas Purgadas:** Se retiró `server/tests/practice.test.js`, siendo reemplazado por la suite de integración exhaustiva [server/tests/roundEvaluation.test.js](file:///home/teran/proyectos/mathcoach-sparring/server/tests/roundEvaluation.test.js).
+3. **Modelos y Rutas Antiguas Purgadas:** Removidos los modelos `Topic.js`, `SessionLog.js` y las rutas `routes/softSkillPractice.js` y `routes/codingPractice.js`.
 4. **Cero Coincidencias en Auditoría Grep:**
    ```bash
-   grep -ri "junior\|senior\|soft_skill\|hard_skill\|SessionLog" server/src
-   # Resultado: Salida vacía (código de salida 1)
+   grep -ri "evaluate-math" server/src
+   # Resultado: Salida vacía (PULCRITUD CONFIRMADA: Endpoint legado retirado)
    ```
-5. **Frontend Libre de Residuos:** Eliminación de pestañas de simulación conversacional, dependencias de Monaco Editor y filtros de seniority.
+5. **Frontend Libre de Residuos:** `MathVisionUploader` y los tests de frontend fueron actualizados para desacoplarse del endpoint deprecado.
+

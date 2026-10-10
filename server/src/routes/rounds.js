@@ -6,6 +6,8 @@ import { Round } from '../models/Round.js';
 import { Exercise } from '../models/Exercise.js';
 import { VALID_CATEGORIES } from '../config/categories.js';
 import { buildRound } from '../services/roundBuilder.js';
+import { evaluateRoundSolutions } from '../services/geminiService.js';
+import { computeRoundOutcome } from '../utils/progressionEngine.js';
 
 export const roundsRouter = express.Router();
 
@@ -202,3 +204,193 @@ roundsRouter.get('/:id', async (req, res) => {
     return res.status(500).json({ error: error.message || 'Internal server error' });
   }
 });
+
+/**
+ * POST /api/rounds/:id/evaluate
+ * Evalúa las soluciones manuscritas de la ronda contra 1..6 imágenes.
+ * Actualiza atómicamente Round y TopicTrack con computeRoundOutcome.
+ */
+roundsRouter.post('/:id/evaluate', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { images } = req.body;
+
+    // 1. Validar ID de la ronda
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid round ID' });
+    }
+
+    // 2. Validar images (array de 1 a 6 cadenas Base64)
+    if (!images || !Array.isArray(images) || images.length < 1 || images.length > 6) {
+      return res.status(400).json({ error: 'images must be an array of 1 to 6 base64 strings' });
+    }
+
+    for (const img of images) {
+      if (typeof img !== 'string' || !img.trim()) {
+        return res.status(400).json({ error: 'Invalid image data' });
+      }
+      const clean = img.replace(/^data:image\/[a-zA-Z+]+;base64,/, '').trim();
+      if (!clean) {
+        return res.status(400).json({ error: 'Invalid image data' });
+      }
+    }
+
+    // 3. Obtener la ronda
+    const round = await Round.findById(id);
+    if (!round) {
+      return res.status(404).json({ error: 'Round not found' });
+    }
+
+    // 4. Validar que no esté ya evaluada (409 Conflict)
+    if (round.status === 'evaluated') {
+      return res.status(409).json({ error: 'Round already evaluated' });
+    }
+
+    // 5. Obtener el topic y los ejercicios con sus referenceSolutions
+    const [topic, topicTrack, exerciseDocs] = await Promise.all([
+      MathTopic.findById(round.topicId).lean(),
+      TopicTrack.findById(round.trackId),
+      Exercise.find({ _id: { $in: round.exercises.map((e) => e.exerciseId) } }).lean(),
+    ]);
+
+    if (!topicTrack) {
+      return res.status(404).json({ error: 'Topic track not found' });
+    }
+
+    const exerciseMap = new Map();
+    exerciseDocs.forEach((ex) => {
+      exerciseMap.set(ex._id.toString(), ex);
+    });
+
+    const exercisesForAi = round.exercises.map((snap) => {
+      const fullEx = exerciseMap.get(snap.exerciseId.toString());
+      return {
+        order: snap.order,
+        statement: snap.statement,
+        referenceSolution: fullEx?.referenceSolution || '',
+      };
+    });
+
+    // 6. Ejecutar inferencia de IA
+    let aiEvaluation;
+    try {
+      aiEvaluation = await evaluateRoundSolutions({
+        round: {
+          category: round.category,
+          difficulty: round.difficulty,
+          topicTitle: topic?.title || 'Tema de Práctica',
+        },
+        exercises: exercisesForAi,
+        imagesBase64: images,
+      });
+    } catch (aiError) {
+      console.error('Error in evaluateRoundSolutions:', aiError);
+      return res.status(502).json({
+        error: 'AI evaluation service unavailable',
+        details: aiError.message,
+      });
+    }
+
+    // 7. Verificar si faltan ejercicios (422 Unprocessable Entity)
+    const missingOrders = [];
+    aiEvaluation.exercises.forEach((ex) => {
+      if (ex.found === false) {
+        missingOrders.push(ex.order);
+      }
+    });
+
+    // También comprobar si algún ejercicio esperado no vino en el retorno
+    round.exercises.forEach((expected) => {
+      const returned = aiEvaluation.exercises.find((e) => e.order === expected.order);
+      if (!returned || returned.found === false) {
+        if (!missingOrders.includes(expected.order)) {
+          missingOrders.push(expected.order);
+        }
+      }
+    });
+
+    if (missingOrders.length > 0) {
+      missingOrders.sort((a, b) => a - b);
+      return res.status(422).json({
+        error: 'exercises_not_found',
+        missing: missingOrders,
+      });
+    }
+
+    // 8. Mapear resultados a los ejercicios de la ronda
+    const resultsMap = new Map();
+    aiEvaluation.exercises.forEach((evaluatedEx) => {
+      resultsMap.set(evaluatedEx.order, evaluatedEx);
+    });
+
+    const mappedResults = round.exercises.map((snap) => {
+      const evalItem = resultsMap.get(snap.order);
+      return {
+        exerciseId: snap.exerciseId,
+        order: snap.order,
+        score: evalItem?.score ?? 0,
+        feedback_paso_a_paso: evalItem?.feedback_paso_a_paso || '',
+        hint: evalItem?.hint || '',
+      };
+    });
+
+    // 9. Cómputo de Progresión y SRS
+    const scores = mappedResults.map((r) => r.score);
+    const outcome = computeRoundOutcome({
+      scores,
+      track: topicTrack.toObject ? topicTrack.toObject() : topicTrack,
+      now: new Date(),
+    });
+
+    // 10. Persistencia atómica en Round y TopicTrack
+    const evaluatedAt = new Date();
+
+    // Actualizar Round
+    round.status = 'evaluated';
+    round.results = mappedResults.map((r) => ({
+      exerciseId: r.exerciseId,
+      score: r.score,
+      feedback_paso_a_paso: r.feedback_paso_a_paso,
+      hint: r.hint,
+    }));
+    round.roundScore = outcome.roundScore;
+    round.passRate = outcome.passRate;
+    round.promoted = outcome.promoted;
+    round.previousDifficulty = topicTrack.difficulty;
+    round.newDifficulty = outcome.newDifficulty;
+    round.evaluatedAt = evaluatedAt;
+
+    // Actualizar TopicTrack
+    topicTrack.difficulty = outcome.newDifficulty;
+    topicTrack.repetition = outcome.srs.repetition;
+    topicTrack.interval = outcome.srs.interval;
+    topicTrack.efactor = outcome.srs.efactor;
+    topicTrack.dueDate = outcome.srs.dueDate;
+    topicTrack.lastRoundScore = outcome.roundScore;
+    topicTrack.roundsCompleted = (topicTrack.roundsCompleted || 0) + 1;
+
+    // Guardar concurrentemente ambas entidades
+    await Promise.all([round.save(), topicTrack.save()]);
+
+    return res.status(200).json({
+      roundScore: outcome.roundScore,
+      passRate: outcome.passRate,
+      promoted: outcome.promoted,
+      previousDifficulty: round.previousDifficulty,
+      newDifficulty: outcome.newDifficulty,
+      nextReviewAt: outcome.srs.dueDate.toISOString(),
+      results: mappedResults.map((r) => ({
+        exerciseId: r.exerciseId,
+        order: r.order,
+        score: r.score,
+        feedback_paso_a_paso: r.feedback_paso_a_paso,
+        hint: r.hint,
+      })),
+      overall_feedback: aiEvaluation.overall_feedback || 'Evaluación de ronda completada.',
+    });
+  } catch (error) {
+    console.error('Unhandled error in round evaluation:', error);
+    return res.status(500).json({ error: error.message || 'Internal server error' });
+  }
+});
+
