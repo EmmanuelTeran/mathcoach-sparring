@@ -20,5 +20,14 @@
   - [x] MATH-US-13: UI de Sesión de Ronda (RoundSession.jsx) (Done) — depende de 12 (y 09 para prueba manual)
   - [x] MATH-US-14: Dashboard por Tema y Categoría (Done) — depende de 13
   - [x] MATH-US-15: Validación E2E Final + Documentación (Done) — depende de 09, 14
-- **Decisiones aprobadas (2026-10-09):** Categorías Técnica / Aplicación / Demostración con dificultad adaptativa 1–3 por pista (Tema × Categoría); rondas de ~15 min de tiempo experto (Técnica 3–10, Aplicación 1–3, Demostración 1); promoción con `roundScore ≥ 4.0` y `passRate ≥ 0.8`, sin degradación; promoción → repaso en 3 días; evaluación de ronda completa con 1–6 fotos y `422` si falta algún ejercicio. Detalle en `.antigravity/graph.md` §1.
+  - [ ] MATH-US-16: Calibración de Rondas a 30 min (Técnica y Aplicación) (Backlog) — depende de 15
+  - [ ] MATH-US-17: Expansión Curricular: Cuatro Nuevos Temas Matemáticos (Backlog) — depende de 16
+  - [ ] MATH-US-18: Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditoría) (Backlog) — depende de 16, 17
+  - [ ] MATH-US-19: Diagnóstico Quirúrgico de Errores y Prerrequisitos Rotos (Backlog) — depende de 16
+  - [ ] MATH-US-20: Rondas Intercaladas ("Interleaving Mode" / Práctica Mixta Multitema) (Backlog) — depende de 18
+  - [ ] MATH-US-21: Sistema de Pistas Escalonadas Socráticas (3-Tier Hint Scaffolding) (Backlog) — depende de 16
+- **Decisiones aprobadas:**
+  - Hito 1: Categorías Técnica / Aplicación / Demostración con dificultad adaptativa 1–3 por pista; promoción con `roundScore ≥ 4.0` y `passRate ≥ 0.8`, sin degradación; evaluación multifoto y recuperación 422.
+  - Hito 2: Rondas de ~30 min de tiempo experto para Técnica (6–18 ejercicios) y Aplicación (2–6 ejercicios); Demostración se mantiene en 15 min (1 ejercicio); expansión a 8 temas curriculares; banco curado de ejercicios de al menos 60 min por celda técnica/aplicación (2 rondas disjuntas). Detalle en `.antigravity/graph.md`.
 - **Bloqueos:** Ninguno
+

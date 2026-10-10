@@ -27,7 +27,7 @@
       "file_type": "code",
       "norm_label": "mockfilereader2",
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L248"
+      "source_location": "L249"
     },
     {
       "id": "client_tests_roundsession_test_mockfilereaderfull",
@@ -40,7 +40,7 @@
       "file_type": "code",
       "norm_label": "mockfilereaderfull",
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L296"
+      "source_location": "L297"
     },
     {
       "id": "server_scripts_seed_seeddatabase",
@@ -328,7 +328,7 @@
       "file_type": "code",
       "norm_label": ".readasdataurl()",
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L249"
+      "source_location": "L250"
     },
     {
       "id": "client_tests_roundsession_test_mockfilereader_readasdataurl",
@@ -352,7 +352,7 @@
       "file_type": "code",
       "norm_label": ".readasdataurl()",
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L297"
+      "source_location": "L298"
     },
     {
       "id": "server_src_services_geminiservice_buildsysteminstruction",
@@ -7689,7 +7689,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/src/services/geminiService.js",
-      "source_location": "L177",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -7701,7 +7701,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/src/services/geminiService.js",
-      "source_location": "L209",
+      "source_location": "L217",
       "weight": 1.0
     },
     {
@@ -12688,7 +12688,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L248",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -12699,7 +12699,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L296",
+      "source_location": "L297",
       "weight": 1.0
     },
     {
@@ -17258,7 +17258,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L249",
+      "source_location": "L250",
       "weight": 1.0
     },
     {
@@ -17269,7 +17269,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L297",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -18294,5 +18294,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ab0594e0d92fa8999be1e40d3825b5753661cb62"
+  "built_at_commit": "199eded9698b792b3a02c64b25b5618d066a76da"
 }

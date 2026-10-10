@@ -7,38 +7,43 @@
 
 | Término | Definición |
 |---|---|
-| **Tema** (`MathTopic`) | Unidad de contenido (p. ej. "Fracciones algebraicas", "Límites"). Tiene `slug`, `title`, `area`, `source`. |
-| **Categoría** | Tipo de ejercicio. Sustituye a los antiguos "niveles 1/2/3". Valores fijos: **Técnica** (`technique`), **Aplicación** (`application`), **Demostración** (`proof`). |
-| **Dificultad** | Escalón adaptativo **dentro** de cada categoría: `1`, `2`, `3`. Sube según el desempeño. |
-| **Pista** (`TopicTrack`) | Par único *Tema × Categoría*. Es la unidad que lleva **SRS y dificultad actual**. Cada tema tiene 3 pistas. |
-| **Ejercicio** (`Exercise`) | Enunciado concreto (Markdown + LaTeX) asociado a tema, categoría y dificultad, con `expertMinutes` y `order` (complejidad creciente). |
-| **Ronda** (`Round`) | Sesión de práctica de una pista: conjunto de ejercicios que **un experto resolvería en ~15 min**. Se evalúa como un todo. |
-| **Tiempo experto** (`expertMinutes`) | Minutos estimados que tarda alguien que domina el tema en resolver el ejercicio. Base para componer rondas. |
+| **Tema** (`MathTopic`) | Unidad de contenido curricular (p. ej. "Fracciones algebraicas", "Límites y continuidad"). Tiene `slug`, `title`, `area`, `source`. |
+| **Categoría** | Dimensión pedagógica del ejercicio. Valores fijos: **Técnica** (`technique`), **Aplicación** (`application`), **Demostración** (`proof`). |
+| **Dificultad** | Escalón adaptativo numérico (**1, 2, 3**) **dentro** de cada categoría. Sube según el desempeño de la ronda. |
+| **Pista** (`TopicTrack`) | Par único *Tema × Categoría*. Es la unidad atómica que mantiene **SRS SM-2 y dificultad actual**. Cada tema posee exactamente 3 pistas. |
+| **Ejercicio** (`Exercise`) | Enunciado concreto de libreta (Markdown + LaTeX KaTeX) asociado a tema, categoría y dificultad, con `expertMinutes` (> 0) y `order` (complejidad creciente). |
+| **Ronda** (`Round`) | Sesión de práctica en libreta física evaluada en bloque. Snapshot inmutable de ejercicios. En Hito 1: ~15 min; en Hito 2: **~30 min** para Técnica y Aplicación. |
+| **Tiempo experto** (`expertMinutes`) | Minutos estimados que tarda un docente o estudiante avanzado en resolver el ejercicio con rigor. Base para componer rondas balanceadas. |
 
-> [!NOTE]
-> "Técnica" reemplaza a "procedimentales". Si se prefiere otro nombre, sólo cambia la etiqueta UI en `client/src/constants/categories.js`; la clave interna `technique` no cambia.
+---
 
-## 1. Reglas de Negocio Globales (aplican a varias historias)
+## 1. Reglas de Negocio Globales
 
-### 1.1 Composición de rondas (`ROUND_BUDGET_MIN = 15`)
+### 1.1 Composición de rondas (Evolución Hito 2: Rondas de 30 min)
 
-| Categoría | Mín. ejercicios | Máx. ejercicios | Regla |
-|---|---|---|---|
-| Técnica | 3 | 10 | Acumular `expertMinutes` hasta alcanzar ≥ 15 o llegar al máximo. |
-| Aplicación | 1 | 3 | Igual, pero normalmente 1–2 ejercicios. |
-| Demostración | 1 | 1 | Siempre un único ejercicio por ronda. |
+A partir de **Hito 2 (MATH-US-16)**, el tiempo de referencia para alguien que domina el tema se calibra a **30 minutos de tiempo experto** para Técnica y Aplicación (`TECHNIQUE_BUDGET_MIN = 30`, `APPLICATION_BUDGET_MIN = 30`), manteniendo Demostración en un ejercicio reflexivo profundo (`PROOF_BUDGET_MIN = 15`):
 
-- Se toman ejercicios de la **dificultad actual** de la pista.
-- Prioridad de selección: menos veces servido (`timesServed` asc) → más antiguo (`lastServedAt` asc) → `order` asc.
-- Los ejercicios seleccionados se **presentan ordenados por `order` ascendente** (dificultad incremental dentro de la ronda).
-- Si el catálogo no alcanza el mínimo, se sirve lo disponible (≥ 1) y la respuesta incluye `warning: 'catalog_insufficient'`.
+| Categoría | Presupuesto (`expertMinutes`) | Mín. ejercicios | Máx. ejercicios | Regla de Selección |
+|---|---|---|---|---|
+| **Técnica** | **30 min** | 6 | 18 | Acumular `expertMinutes` hasta alcanzar $\ge 30$ o llegar al máximo (18). |
+| **Aplicación** | **30 min** | 2 | 6 | Acumular `expertMinutes` hasta alcanzar $\ge 30$ o llegar al máximo (6). |
+| **Demostración** | **15 min** | 1 | 1 | Siempre un único ejercicio deductivo profundo por ronda. |
+
+- Se toman ejercicios de la **dificultad actual** de la pista (`track.difficulty`).
+- Prioridad de selección (Rotación Justa): menos veces servido (`timesServed` asc) → más antiguo (`lastServedAt` asc) → `order` asc.
+- Los ejercicios seleccionados se presentan ordenados por `order` ascendente (dificultad incremental dentro de la ronda de libreta).
+- Si el catálogo no alcanza el mínimo, se sirve lo disponible ($\ge 1$) y la respuesta incluye `warning: 'catalog_insufficient'`.
+- **Regla de suficiencia del catálogo (Seed 2.0):** Para permitir al menos 2 rondas disjuntas completas por celda (tema × dificultad):
+  - Técnica: $\ge 60$ min acumulados y $\ge 12$ ejercicios.
+  - Aplicación: $\ge 60$ min acumulados y $\ge 4$ ejercicios.
+  - Demostración: $\ge 2$ ejercicios.
 
 ### 1.2 Score de ronda y progresión adaptativa
 
 - Cada ejercicio recibe un score `0–5`. `roundScore = promedio` (1 decimal). `passRate = % de ejercicios con score ≥ 3`.
 - **Promoción** (sube dificultad para el próximo repaso): `difficulty < 3 && roundScore >= 4.0 && passRate >= 0.8`.
 - **Permanencia:** cualquier otro caso. **No hay degradación** de dificultad.
-- Umbrales centralizados en `server/src/config/progression.js` (`PROMOTION_MIN_SCORE`, `PROMOTION_MIN_PASS_RATE`, `PROMOTION_INTERVAL_DAYS`, `ROUND_BUDGET_MIN`, límites por categoría).
+- Umbrales centralizados en `server/src/config/progression.js` (`PROMOTION_MIN_SCORE = 4.0`, `PROMOTION_MIN_PASS_RATE = 0.8`, `PROMOTION_INTERVAL_DAYS = 3`, presupuestos por categoría, cuotas).
 
 ### 1.3 Acoplamiento con Spaced Repetition (SM-2 por pista)
 
@@ -47,211 +52,191 @@
 | `roundScore < 3` (fallo) | Se mantiene | Reinicio SM-2: `repetition = 0`, intervalo 1 día. |
 | Aprobada sin promoción | Se mantiene | SM-2 estándar (`calculateNextReview` con `round(roundScore)`). |
 | Promoción | `difficulty + 1` | `repetition = 1`, intervalo fijo `PROMOTION_INTERVAL_DAYS` (3) — material nuevo, repaso pronto. `efactor` se conserva del cálculo SM-2. |
-| Dificultad 3 con score alto | Se mantiene (tope) | SM-2 estándar → intervalos largos (dominio). |
+| Dificultad 3 con score alto | Se mantiene (tope) | SM-2 estándar → intervalos largos (consolidación de maestría). |
+
+---
 
 ## 2. Grafo de Dependencias
 
 ```text
+[HITO 1: Cimiento Funcional y Flujo de Rondas]
 [MATH-US-01: Limpieza Legada y Renombrado Monorepo]                       ✅ Done
 └──> [MATH-US-02: Modelo MathTopic y Motor SRS SM-2]                      ✅ Done
      └──> [MATH-US-03: UI Cero Fricción (MathVisionUploader.jsx)]         ✅ Done
           └──> [MATH-US-04: Pipeline Evaluador Multimodal + SRS]          ✅ Done
-               └──> [MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes] ✅ Done
-                    └──> [MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga Backend Legado] ✅ Done
-                         ├──> [MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente)]
-                         ├──> [MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista)]
-                         └──> [MATH-US-11: Constructor de Rondas de 15 min + API de Rondas]
+               └──> [MATH-US-07: Hotfix UI: Enunciado y Captura Única]    ✅ Done
+                    └──> [MATH-US-08: Modelo Tema × Categoría × Dificultad] ✅ Done
+                         ├──> [MATH-US-09: Catálogo Curado (Seed 1.0)]    ✅ Done
+                         ├──> [MATH-US-10: Motor de Progresión Adaptativa] ✅ Done
+                         └──> [MATH-US-11: Constructor de Rondas + API]   ✅ Done
                                    │            (MATH-US-10 + MATH-US-11)
-                                   └──> [MATH-US-12: Evaluación Multimodal de Rondas + Progresión]
-                                        └──> [MATH-US-13: UI de Sesión de Ronda (RoundSession.jsx)]
-                                             └──> [MATH-US-14: Dashboard por Tema y Categoría]
-                                                  └──> [MATH-US-15: Validación E2E Final + Documentación]  (requiere MATH-US-09)
+                                   └──> [MATH-US-12: Evaluación Multimodal Rondas] ✅ Done
+                                        └──> [MATH-US-13: UI Sesión RoundSession]  ✅ Done
+                                             └──> [MATH-US-14: Dashboard de Pistas] ✅ Done
+                                                  └──> [MATH-US-15: Validación E2E + Docs] ✅ Done
 
-[MATH-US-05] ❌ Reemplazada por MATH-US-14
-[MATH-US-06] ❌ Reemplazada por MATH-US-09 (seed) + MATH-US-15 (E2E)
+[HITO 2: Rondas de 30 Minutos, Expansión Curricular y Potenciadores Cognitivos]
+[MATH-US-15: Cierre Hito 1] ✅ Done
+└──> [MATH-US-16: Calibración de Rondas a 30 min (Técnica y Aplicación)]
+     ├──> [MATH-US-17: Expansión Curricular (4 Nuevos Temas)]
+     │    └──> [MATH-US-18: Banco Masivo de Ejercicios Curados (Seed 2.0)]
+     ├──> [MATH-US-19: Diagnóstico Quirúrgico de Errores y Prerrequisitos Rotos]
+     ├──> [MATH-US-20: Rondas Intercaladas (Interleaving Mode Multitema)] (requiere MATH-US-18)
+     └──> [MATH-US-21: Sistema de Pistas Escalonadas Socráticas (3-Tier Hints)]
 ```
 
-### 2.1 Orden de ejecución recomendado
+### 2.1 Orden de ejecución de Hito 2
 
 | # | Historia | Depende de | Paralelizable con | Estado |
 |---|---|---|---|---|
-| 1 | MATH-US-07 | 04 | — | Done |
-| 2 | MATH-US-08 | 07 | — | Done |
-| 3 | MATH-US-09 | 08 | 10, 11 | Backlog |
-| 4 | MATH-US-10 | 08 | 09, 11 | Backlog |
-| 5 | MATH-US-11 | 08 | 09, 10 | Backlog |
-| 6 | MATH-US-12 | 10, 11 | — | Backlog |
-| 7 | MATH-US-13 | 12, 09 (para prueba manual) | — | Backlog |
-| 8 | MATH-US-14 | 13 | — | Backlog |
-| 9 | MATH-US-15 | 09, 14 | — | Backlog |
+| 16 | MATH-US-16 (Rondas de 30 min) | 15 | — | Backlog |
+| 17 | MATH-US-17 (4 Nuevos Temas) | 16 | 19, 21 | Backlog |
+| 18 | MATH-US-18 (Banco Masivo Seed 2.0) | 16, 17 | 19, 21 | Backlog |
+| 19 | MATH-US-19 (Diagnóstico de Errores) | 16 | 17, 18, 21 | Backlog |
+| 20 | MATH-US-20 (Rondas Intercaladas) | 18 | 19, 21 | Backlog |
+| 21 | MATH-US-21 (Pistas Escalonadas) | 16 | 17, 18, 19 | Backlog |
 
 ---
 
-## 3. Historias Completadas (referencia)
+## 3. Historias Completadas (Hito 1)
 
 ### [MATH-US-01] Limpieza de Base Legada y Renombrado Monorepo
-- **Estado:** Done
-- **Criterios de Aceptación (AC):**
-  1. Monorepo renombrado a `mathcoach-sparring` en raíz y packages (`@mathcoach-sparring/client`, `@mathcoach-sparring/server`).
-  2. Eliminación de componentes legados de DevCoach (`HardSkillTrainer.jsx`, `SoftSkillTrainer.jsx`).
-  3. Eliminación de scripts y tests acoplados a semillas anteriores.
+- **Estado:** ✅ Done (2026-10-09)
+- Monorepo renombrado a `mathcoach-sparring`. Purga de componentes y rutas legadas de DevCoach.
 
 ### [MATH-US-02] Modelo de Datos MathTopic y Motor SRS SM-2
-- **Estado:** Done
-- **Criterios de Aceptación (AC):**
-  1. Modelo `MathTopic` en `server/src/models/MathTopic.js` con `title`, `source`, `level` (1, 2, 3), `problemStatement` e historial.
-  2. Motor SRS SM-2 (`srsCalculator.js`) con rango 0–5 y aliases bidireccionales (`repetition`, `interval`, `efactor`, `dueDate`).
-  3. Tests unitarios en verde (`server/tests/mathTopic.test.js`).
+- **Estado:** ✅ Done (2026-10-09)
+- Modelo curricular inicial y motor matemático SM-2 en escala 0–5 con tests unitarios.
 
 ### [MATH-US-03] UI de Cero Fricción para Active Recall (MathVisionUploader.jsx)
-- **Estado:** Done
-- **Criterios de Aceptación (AC):**
-  1. `MathVisionUploader.jsx` con WebRTC (`getUserMedia`), selector de cámara y fallback a `<input type="file">`.
-  2. Visor en vivo con guías de encuadre y captura a `<canvas>`.
-  3. Conversión a Base64 JPEG (0.85) y detención de tracks.
-  4. Estados de UI: "Activar Cámara", "Capturar Ejercicio", "Analizando con IA..." y resultados (score, feedback, hint, fecha SRS).
-  5. Contrato `POST /api/evaluate-math` con `{ problemId, image, metadata }`.
+- **Estado:** ✅ Done (2026-10-09)
+- Captura WebRTC en vivo con selector de cámaras, fallback a subida de archivos y feedback visual.
 
 ### [MATH-US-04] Pipeline Evaluador Multimodal y Actualización SRS
-- **Estado:** Done
-- **Criterios de Aceptación (AC):**
-  1. Endpoint `POST /api/evaluate-math` delegando a Gemini 1.5 Pro (`@google/genai`).
-  2. Prompt riguroso por nivel (1: Computacional, 2: Modelado, 3: Demostración). *(Se generaliza a Categoría × Dificultad en MATH-US-12.)*
-  3. Salida JSON `{ score, feedback_paso_a_paso, hint }` y actualización SRS en BD.
+- **Estado:** ✅ Done (2026-10-09)
+- Endpoint inicial con Gemini 1.5 Pro y persistencia de calificaciones.
 
-### [MATH-US-05] ~~Dashboard Matemático & Cola Diaria por Nivel~~
-- **Estado:** Cancelada — reemplazada por **MATH-US-14** (el concepto "nivel" desaparece en favor de Categoría × Dificultad).
+### [MATH-US-07] Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes
+- **Estado:** ✅ Done (2026-10-09)
+- Render KaTeX con `MathStatement.jsx`, eliminación de duplicidad de montado y purga de copy no matemático.
 
-### [MATH-US-06] ~~Seed Multinivel & E2E Final~~
-- **Estado:** Cancelada — dividida en **MATH-US-09** (catálogo/seed) y **MATH-US-15** (E2E + docs).
+### [MATH-US-08] Modelo de Dominio Tema × Categoría × Dificultad + Purga Backend
+- **Estado:** ✅ Done (2026-10-09)
+- Cuatro modelos formales Mongoose: `MathTopic`, `Exercise`, `TopicTrack`, `Round`. Índices compuestos y purga total de código legado.
+
+### [MATH-US-09] Catálogo Curado de Ejercicios (Seed 1.0)
+- **Estado:** ✅ Done (2026-10-09)
+- 4 temas universitarios con las 3 categorías × 3 dificultades. 132 ejercicios iniciales validados con suite de auditoría estricta (`catalog.test.js`).
+
+### [MATH-US-10] Motor de Progresión Adaptativa (Dificultad + SRS por Pista)
+- **Estado:** ✅ Done (2026-10-09)
+- Lógica pura determinista en `progressionEngine.js`: promociones con score $\ge 4.0$ y passRate $\ge 0.8$, permanencia sin degradación y reinicio en fallos.
+
+### [MATH-US-11] Constructor de Rondas de 15 min + API de Rondas
+- **Estado:** ✅ Done (2026-10-09)
+- `roundBuilder.js` con algoritmo de selección equitativa (`timesServed`, `lastServedAt`, `order`), snapshot inmutable de ejercicios y cola de repaso prioritario (`/api/rounds/queue`).
+
+### [MATH-US-12] Evaluación Multimodal de Rondas + Progresión
+- **Estado:** ✅ Done (2026-10-09)
+- Evaluación multimodal en bloque (1–6 fotos de libreta) mediante Gemini con rúbricas rigurosas por categoría, respuesta 422 para ejercicios no localizados y persistencia atómica.
+
+### [MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx)
+- **Estado:** ✅ Done (2026-10-09)
+- Máquina de estados completa para la sesión de práctica: visualización ordenada de enunciados, cronómetro informativo, subida multifoto y desglose de resultados por ejercicio.
+
+### [MATH-US-14] Dashboard por Tema y Categoría
+- **Estado:** ✅ Done (2026-10-09)
+- Panel de control universitario con matriz Tema × Categoría, métricas de pistas pendientes, botón de acción rápida "Entrenar ahora" y sección de áreas críticas.
+
+### [MATH-US-15] Validación E2E Final + Documentación
+- **Estado:** ✅ Done (2026-10-09)
+- Suite Playwright completa, actualización de `ARCHITECTURE.md` y `USER_GUIDE.md`, y cierre exitoso del Hito 1.
 
 ---
 
-## 4. Historias Pendientes
+## 4. Historias Pendientes (Hito 2: Backlog)
 
-### [MATH-US-07] Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes
-- **Dependencias:** MATH-US-04
-- **Contexto / Bugs reportados:**
-  - El ejercicio no se ve: `MathVisionUploader.jsx` sólo pinta `topic.title`; nunca renderiza `problemStatement`, y el `topic` por defecto en `App.jsx` no trae enunciado.
-  - Captura duplicada: `App.jsx` monta `<MathVisionUploader>` **dos veces** cuando `activeTab === 'math-vision'` (L102–111 y L118–127).
-  - Textos heredados de DevCoach sin sentido: pestaña "Coding Playground", filtros "Junior/Mid/Senior", tarjetas "Hard Skills (Técnico)", "Soft Skills (Voz)", "simulaciones", "Defensa y consultoría con stakeholders", "retos activos", "trade-offs omitidos".
-- **Archivos esperados:** `client/src/App.jsx`, `client/src/components/MathVisionUploader.jsx`, `client/src/components/Dashboard.jsx`, nuevo `client/src/components/MathStatement.jsx`; eliminar `client/src/components/CodingPlayground.jsx`, `client/src/utils/codeRunner.js`, `client/src/utils/codeRunner.test.js`, `client/src/utils/monacoSetup.js`, dependencia `@monaco-editor/react`, `tests/e2e/coding-playground.spec.js`.
+### [MATH-US-16] Calibración de Rondas a 30 Minutos (Técnica y Aplicación)
+- **Dependencias:** MATH-US-15
+- **Contexto:** Actualmente las rondas tienen un presupuesto de 15 min de tiempo experto (`ROUND_BUDGET_MIN = 15`). Para un entrenamiento más profundo y representativo de sesiones de estudio universitario en libreta, el presupuesto para las categorías **Técnica** y **Aplicación** se amplía a **30 minutos de tiempo experto**. Demostración se mantiene en 15 min (1 ejercicio reflexivo profundo).
+- **Archivos esperados:** `server/src/config/progression.js`, `server/src/services/roundBuilder.js`, `server/tests/roundBuilder.test.js`, `server/tests/rounds.api.test.js`, `client/src/components/RoundSession.jsx`, `client/tests/RoundSession.test.jsx`.
 - **Criterios de Aceptación (AC):**
-  1. `App.jsx` monta un único `MathVisionUploader`; existe test (Vitest) que verifica una sola instancia de `#btn-activate-camera` (o id equivalente) en la pestaña de captura.
-  2. Nuevo componente `MathStatement.jsx` que renderiza Markdown + LaTeX con KaTeX (`react-markdown` + `remark-math` + `rehype-katex` + `katex/dist/katex.min.css`). Se muestra de forma prominente **encima** del área de captura con id `#problem-statement`.
-  3. Si no hay ejercicio cargado (`!topic?.problemStatement`), se muestra un estado vacío claro ("No hay ejercicio cargado — elige un tema desde el Panel") en lugar de la cámara.
-  4. Se elimina la pestaña y todo el código de "Coding Playground" (componente, utilidades, dependencia Monaco, spec E2E). Pestañas resultantes: **Entrenar** y **Panel**.
-  5. Limpieza de copy en `Dashboard.jsx`: desaparecen el filtro Junior/Mid/Senior y las tarjetas Hard/Soft Skills; quedan sólo métricas matemáticas neutras ("Repasos pendientes", "Áreas críticas"). El rediseño completo llega en MATH-US-14.
-  6. `grep -ri "junior\|senior\|soft skill\|hard skill\|coding playground\|stakeholder" client/src` no devuelve resultados.
-  7. Tests de cliente y E2E existentes (no eliminados) en verde.
+  1. `server/src/config/progression.js` define presupuestos por categoría:
+     - `ROUND_BUDGETS = { technique: 30, application: 30, proof: 15 }`.
+     - `CATEGORY_LIMITS = { technique: { min: 6, max: 18 }, application: { min: 2, max: 6 }, proof: { min: 1, max: 1 } }`.
+  2. `roundBuilder.js` (`selectExercisesForRound`) utiliza el presupuesto respectivo de la categoría (`ROUND_BUDGETS[category]`):
+     - Para Técnica: acumula hasta sumar $\ge 30$ min de `expertMinutes` y al menos 6 ejercicios (hasta un máximo de 18).
+     - Para Aplicación: acumula hasta sumar $\ge 30$ min de `expertMinutes` y al menos 2 ejercicios (hasta un máximo de 6).
+     - Para Demostración: selecciona exactamente 1 ejercicio.
+  3. Si la base no alcanza el mínimo requerido, se devuelven los ejercicios disponibles ($\ge 1$) con `warning: 'catalog_insufficient'`.
+  4. La UI de `RoundSession.jsx` actualiza dinámicamente el mensaje informativo en `#round-header`:
+     - Técnica y Aplicación: *"Un experto lo resuelve en ~30 min (N ejercicios)"*.
+     - Demostración: *"Un experto lo resuelve en ~15 min (1 ejercicio)"*.
+  5. Tests unitarios y de integración de backend y frontend actualizados y pasando al 100%.
 
-### [MATH-US-08] Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado
-- **Dependencias:** MATH-US-07
-- **Contexto:** Hoy `MathTopic` mezcla "tema" y "ejercicio" y lleva el SRS por ejercicio con `level` 1/2/3 (y valores legados `junior/mid/senior`). El backend aún contiene `Topic.js`, `SessionLog.js`, `softSkillPractice`, `codingPractice`, `softSkillSparringService.js` y un `dashboardController` basado en hard/soft skills. Proyecto en desarrollo: **no se requiere migración de datos**, se re-siembra (MATH-US-09).
-- **Modelos (Mongoose):**
-  - `MathTopic` (reescrito): `{ slug (unique), title, area ('algebra'|'trigonometria'|'geometria'|'calculo'|'analisis'), source, order, description }`.
-  - `Exercise` (nuevo): `{ topicId (ref), category ('technique'|'application'|'proof'), difficulty (1|2|3), order (Number, complejidad creciente), statement (Markdown+LaTeX, required), referenceSolution (String, para el evaluador), expertMinutes (Number > 0, required), source, timesServed (default 0), lastServedAt (Date|null), externalKey (unique, para seed idempotente) }`. Índice `{ topicId, category, difficulty, order }`.
-  - `TopicTrack` (nuevo): `{ topicId (ref), category, difficulty (1..3, default 1), repetition, interval, efactor, dueDate, lastRoundScore, roundsCompleted }`. Índice único `{ topicId, category }`; índice `{ dueDate }`.
-  - `Round` (nuevo): `{ trackId, topicId, category, difficulty, exercises: [{ exerciseId, order, statement, expertMinutes }], totalExpertMinutes, status ('pending'|'evaluated'), results: [{ exerciseId, score, feedback_paso_a_paso, hint }], roundScore, passRate, promoted, previousDifficulty, newDifficulty, createdAt, evaluatedAt }`.
-  - Constantes compartidas: `server/src/config/categories.js` y `client/src/constants/categories.js` (`technique → "Técnica"`, `application → "Aplicación"`, `proof → "Demostración"`).
-- **Purga:** eliminar `Topic.js`, `SessionLog.js`, `routes/softSkillPractice.js`, `routes/codingPractice.js`, `services/softSkillSparringService.js`, rutas/servicios de práctica de texto no matemáticos en `practice.js` y `geminiService.js`, y sus tests (`softSkillPractice.test.js`, `codingPractice.test.js`, `hint.test.js`, `topics.test.js`, `dashboard.test.js` legados) y specs E2E legados (`hard-skills`, `soft-skills`, `stratified-prompts`, `multilevel-catalog`, `scaffolding` si aplica). `routes/topics.js` se reescribe para `GET /api/topics` (lista de temas con sus 3 pistas).
+### [MATH-US-17] Expansión Curricular: Cuatro Nuevos Temas Matemáticos
+- **Dependencias:** MATH-US-16
+- **Contexto:** Actualmente el catálogo cuenta con 4 temas (2 de álgebra y 2 de cálculo). Para ampliar el espectro de preparación universitaria, se incorporan 4 temas fundamentales adicionales, abarcando Álgebra, Trigonometría, Cálculo Integral y Geometría Analítica.
+- **Nuevos Temas y Fuentes Curriculares:**
+  1. **Ecuaciones y Sistemas Lineales** (`slug: 'ecuaciones-sistemas-lineales'`, `area: 'algebra'`, fuente: CONAMAT / Baldor): Ecuaciones lineales, cuadráticas por fórmula y factorización, sistemas 2×2 y 3×3, problemas de mezclas y cinemática.
+  2. **Identidades y Ecuaciones Trigonométricas** (`slug: 'trigonometria-identidades'`, `area: 'trigonometria'`, fuente: Granville / CONAMAT): Identidades pitagóricas y cocientes, suma/resta de ángulos, ecuaciones trigonométricas en $[0, 2\pi)$ y modelado periódico.
+  3. **Técnicas de Integración Indefinida** (`slug: 'tecnicas-integracion'`, `area: 'calculo'`, fuente: Stewart / Thomas): Integrales inmediatas y por sustitución algebraica, integración por partes y sustitución trigonométrica básica.
+  4. **Geometría Analítica: Secciones Cónicas y Vectores** (`slug: 'geometria-analitica-conicas'`, `area: 'geometria'`, fuente: Lehmann / Larson): Ecuaciones canónicas y generales de circunferencia, parábola y elipse; vectores en $\mathbb{R}^2$ y producto punto.
+- **Archivos esperados:** `server/seed-data/ecuaciones-sistemas-lineales.js`, `server/seed-data/trigonometria-identidades.js`, `server/seed-data/tecnicas-integracion.js`, `server/seed-data/geometria-analitica-conicas.js`, actualización de `server/seed-data/index.js`.
 - **Criterios de Aceptación (AC):**
-  1. Los 4 modelos existen con validaciones defensivas (categorías y dificultades fuera de rango rechazadas; `expertMinutes > 0`; `statement` requerido) y tests en `server/tests/models.test.js`.
-  2. Hook/servicio `ensureTracksForTopic(topicId)` crea idempotentemente las 3 pistas (dificultad 1, `dueDate = now`).
-  3. `GET /api/topics` devuelve `[{ _id, slug, title, area, tracks: [{ category, difficulty, dueDate, lastRoundScore }] }]`.
-  4. No queda ninguna referencia a `Topic.js`, `SessionLog`, `soft_skill`, `hard_skill`, `junior/mid/senior` en `server/src` (verificado con grep en el ticket).
-  5. `dashboardController` queda temporalmente reducido a un stub compatible (se reescribe en MATH-US-14) o se elimina junto a su ruta si nada lo consume.
-  6. `npm test` en verde.
+  1. Cada archivo exporta la estructura canónica con `slug`, `metadata` completo (`title`, `area`, `source`, `order`, `description`) y array `exercises`.
+  2. Cada tema define sus 9 celdas (3 categorías × 3 dificultades).
+  3. `curatedTopics` en `server/seed-data/index.js` incluye los 8 temas en total.
+  4. `npm run seed` inserta idempotentemente los nuevos temas y genera sus 3 pistas (`TopicTrack`) por tema con dificultad 1 y `dueDate = now`.
 
-### [MATH-US-09] Catálogo Curado de Ejercicios (Seed Idempotente)
-- **Dependencias:** MATH-US-08
-- **Contexto:** El catálogo es la materia prima de las rondas. Debe permitir **al menos 2 rondas distintas** por pista y dificultad respetando §1.1.
-- **Archivos esperados:** `server/scripts/seed.js`, `server/seed-data/<topic-slug>.js` (un archivo por tema), script `"seed"` en `server/package.json` y raíz.
+### [MATH-US-18] Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditoría)
+- **Dependencias:** MATH-US-16, MATH-US-17
+- **Contexto:** Para soportar rondas de 30 minutos sin repetición inmediata (respetando la regla de al menos 2 rondas disjuntas completas por celda adaptativa), el volumen de ejercicios curados debe crecer sustancialmente tanto en los 4 temas previos como en los 4 nuevos temas.
+- **Cuotas mínimas por celda (Tema × Dificultad):**
+  - **Técnica:** $\ge 60$ minutos acumulados de `expertMinutes` y $\ge 12$ ejercicios (rango 1–5 min por ejercicio).
+  - **Aplicación:** $\ge 60$ minutos acumulados de `expertMinutes` y $\ge 4$ ejercicios (rango 6–15 min por ejercicio).
+  - **Demostración:** $\ge 2$ demostraciones formales completas (rango 8–15 min por demostración).
+- **Archivos esperados:** Actualización de los 8 archivos en `server/seed-data/`, actualización de `server/tests/catalog.test.js`.
 - **Criterios de Aceptación (AC):**
-  1. `npm run seed` hace upsert por `slug` (temas) y `externalKey` (ejercicios); ejecutarlo dos veces no duplica nada. Crea las 3 pistas de cada tema vía `ensureTracksForTopic`.
-  2. Mínimo **4 temas** (≥ 2 de álgebra CONAMAT, ≥ 2 de cálculo/análisis Stewart/Spivak), cada uno con las 3 categorías × 3 dificultades.
-  3. Volumen mínimo por (tema, categoría, dificultad): Técnica ≥ 2 × 15 min de `expertMinutes` y ≥ 6 ejercicios; Aplicación ≥ 3; Demostración ≥ 2.
-  4. `expertMinutes` realistas (guía: Técnica 1–5 min, Aplicación 5–15 min, Demostración 8–15 min) y `order` reflejando complejidad creciente (p. ej. en fracciones: una suma y un producto → combinaciones anidadas extensas).
-  5. Todo enunciado en Markdown + LaTeX válido y con `referenceSolution`.
-  6. Test `server/tests/catalog.test.js` que carga los datos del seed y verifica AC-2, AC-3 y que el constructor de rondas (cuando exista) puede formar 2 rondas por pista/dificultad.
+  1. Todos los ejercicios cuentan con `externalKey` canónico único (`<slug>-(tech|app|proof)-d<1-3>-<order>`), `order` secuencial estricto sin saltos, enunciado en Markdown + KaTeX balanceado y `referenceSolution` exhaustiva paso a paso.
+  2. Cada celda de los 8 temas cumple las nuevas cuotas de volumen (Técnica $\ge 60$ min y $\ge 12$ ejercicios; Aplicación $\ge 60$ min y $\ge 4$ ejercicios; Demostración $\ge 2$ ejercicios).
+  3. `server/tests/catalog.test.js` simula la construcción de 2 rondas disjuntas completas de 30 min por cada celda de Técnica y valida la intersección vacía de ejercicios.
+  4. `npm run seed` ejecuta de forma limpia e idempotente sin alterar el progreso SM-2 de pistas preexistentes.
 
-### [MATH-US-10] Motor de Progresión Adaptativa (Dificultad + SRS por Pista)
-- **Dependencias:** MATH-US-08
-- **Contexto:** Lógica pura (sin Express ni Gemini) que implementa §1.2 y §1.3. TDD estricto.
-- **Archivos esperados:** `server/src/config/progression.js`, `server/src/utils/progressionEngine.js`, `server/tests/progressionEngine.test.js`. Reutiliza `srsCalculator.js` (actualizar su JSDoc: rango 0–5, quitar "DevCoach").
-- **Contrato:**
-  ```js
-  computeRoundOutcome({ scores: number[], track: { difficulty, repetition, interval, efactor } })
-  // => { roundScore, passRate, promoted, newDifficulty, srs: { repetition, interval, efactor, dueDate } }
-  ```
+### [MATH-US-19] Diagnóstico Quirúrgico de Errores y Prerrequisitos Rotos
+- **Dependencias:** MATH-US-16
+- **Contexto:** Al fallar un ejercicio en la libreta, la mayor causa de desmotivación es no saber si el error fue por no entender el tema o por arrastrar una deficiencia de álgebra básica. Esta historia enriquece la evaluación multimodal de Gemini con una taxonomía de errores que detecta lagunas de prerrequisitos y recomienda acciones de remediación.
+- **Taxonomía de Errores Formativa:**
+  - `prerequisite_algebra`: Tropezón en manipulación elemental (signos, leyes de exponentes, factorización básica, simplificación de fracciones).
+  - `conceptual_topic`: Comprensión errónea de la regla o teorema central (ej. olvidar la regla de la cadena, aplicar mal L'Hôpital, confundir identidades).
+  - `rigor_notation`: Omisión de condiciones de validez, cuantificadores, dominio, notación de límite o constantes $+C$.
+- **Archivos esperados:** `server/src/services/geminiService.js`, `server/src/models/Round.js`, `client/src/components/RoundResults.jsx`, `client/src/components/Dashboard.jsx`.
 - **Criterios de Aceptación (AC):**
-  1. `roundScore` = promedio a 1 decimal; `passRate` = proporción con score ≥ 3; `scores` vacío lanza error.
-  2. Promoción exactamente según §1.2 (casos límite: 4.0 y 0.8 promueven; 3.9 o 0.79 no; dificultad 3 nunca sube).
-  3. Efectos SRS exactamente según tabla §1.3 (fallo → reinicio 1 día; promoción → `repetition = 1`, intervalo `PROMOTION_INTERVAL_DAYS`; resto → SM-2 estándar).
-  4. Nunca degrada la dificultad.
-  5. Cobertura de tests ≥ 95 % del módulo.
+  1. El prompt de evaluación multimodal en `geminiService.js` exige clasificar cualquier ejercicio con score $< 4$ con `error_type: 'prerequisite_algebra' | 'conceptual_topic' | 'rigor_notation' | 'none'`.
+  2. El modelo `Round.results` almacena `error_type` por ejercicio.
+  3. `RoundResults.jsx` muestra un badge visual distintivo por cada tipo de error junto a una explicación concisa.
+  4. Si una ronda acumula 2 o más errores de tipo `prerequisite_algebra`, se presenta un banner inteligente sugiriendo una ronda rápida en el tema base (ej. "Recomendación: practica una ronda técnica de Factorización antes de tu próximo repaso de Derivadas").
 
-### [MATH-US-11] Constructor de Rondas de 15 min + API de Rondas
-- **Dependencias:** MATH-US-08
-- **Contexto:** Implementa §1.1. Una ronda se crea para una pista y "congela" sus ejercicios (snapshot) para que la evaluación sea consistente.
-- **Archivos esperados:** `server/src/services/roundBuilder.js`, `server/src/routes/rounds.js`, `server/tests/roundBuilder.test.js`, `server/tests/rounds.api.test.js`.
-- **Contratos API:**
-  - `GET /api/rounds/queue` → pistas vencidas (`dueDate <= now`) ordenadas por: menor `lastRoundScore` (null primero) y mayor retraso. `[{ trackId, topic: { _id, title, slug }, category, difficulty, dueDate, lastRoundScore }]`.
-  - `POST /api/rounds` body `{ topicId, category }` → `201 { roundId, topic, category, difficulty, exercises: [{ exerciseId, order, statement, expertMinutes }], totalExpertMinutes, warning? }`. Si ya existe una ronda `pending` para la pista, la reutiliza (200).
-  - `GET /api/rounds/:id` → ronda completa (incluye `results` si está evaluada).
+### [MATH-US-20] Rondas Intercaladas ("Interleaving Mode" / Práctica Mixta Multitema)
+- **Dependencias:** MATH-US-18
+- **Contexto:** La ciencia del aprendizaje demuestra que la práctica en bloque (hacer solo derivadas) crea ilusión de competencia. En exámenes reales no se indica qué técnica usar. Esta historia implementa un modo de práctica intercalada (Interleaving) que selecciona ejercicios de temas diversos ya desbloqueados por el estudiante para entrenar la discriminación de problemas.
+- **Archivos esperados:** `server/src/services/roundBuilder.js`, `server/src/routes/rounds.js`, `client/src/components/Dashboard.jsx`, `client/src/components/RoundSession.jsx`.
 - **Criterios de Aceptación (AC):**
-  1. `buildRound(track)` respeta mínimos/máximos por categoría y el presupuesto de 15 min (tests con fixtures: ejercicios cortos → hasta 10; largos → 3; Aplicación de 15 min → 1; Demostración → siempre 1).
-  2. Selecciona sólo de la dificultad actual de la pista, con la prioridad de §1.1, y devuelve los ejercicios ordenados por `order` asc.
-  3. Al crear la ronda incrementa `timesServed` y fija `lastServedAt` de los ejercicios incluidos (rondas sucesivas rotan ejercicios).
-  4. `warning: 'catalog_insufficient'` cuando no se alcanza el mínimo; `404` si el tema no existe; `400` si la categoría es inválida.
-  5. Tests Supertest + MongoMemoryServer en verde.
+  1. Endpoint `POST /api/rounds/interleaved`: genera una ronda combinando ejercicios de al menos 2 temas que tengan dificultad $\ge 1$.
+  2. Distribución equilibrada de ejercicios respetando el presupuesto de 30 minutos de tiempo experto.
+  3. La evaluación multimodal califica cada ejercicio y actualiza de manera atómica el SRS y las estadísticas de cada pista correspondiente.
+  4. En el Dashboard se agrega un botón accesible *"Ronda Intercalada (Desafío Multitema)"*.
 
-### [MATH-US-12] Evaluación Multimodal de Rondas + Progresión
-- **Dependencias:** MATH-US-10, MATH-US-11
-- **Contexto:** El usuario resuelve **todos** los ejercicios de la ronda en su libreta y al final sube 1..N fotos (una página puede contener varios ejercicios). Gemini evalúa cada ejercicio por separado y el motor de progresión actualiza la pista. Reemplaza a `POST /api/evaluate-math` (se retira y sus tests se migran).
-- **Archivos esperados:** `server/src/services/geminiService.js` (generalizar `evaluateMathVisionSolution` → `evaluateRoundSolutions`), `server/src/routes/rounds.js`, `server/tests/roundEvaluation.test.js`.
-- **Contrato API:**
-  - `POST /api/rounds/:id/evaluate` body `{ images: string[] (1..6, base64 JPEG) }`.
-  - `200 { roundScore, passRate, promoted, previousDifficulty, newDifficulty, nextReviewAt, results: [{ exerciseId, order, score, feedback_paso_a_paso, hint }], overall_feedback }`.
-  - `422 { error: 'exercises_not_found', missing: [order...] }` si Gemini no localiza algún ejercicio en las fotos (no persiste nada; la UI pide otra foto).
-  - `409` si la ronda ya fue evaluada; `400` payload inválido; `502` fallo de IA.
-- **Prompt:** recibe la lista numerada de enunciados + `referenceSolution`, y una rúbrica por **categoría** (Técnica: exactitud del cómputo y pasos algebraicos; Aplicación: planteamiento, modelado y uso correcto de teoremas; Demostración: validez deductiva, cuantificadores, hipótesis) ajustada por **dificultad**. Respuesta JSON forzada (`responseMimeType: 'application/json'`) `{ exercises: [{ order, found, score, feedback_paso_a_paso, hint }], overall_feedback }` con parsing defensivo.
+### [MATH-US-21] Sistema de Pistas Escalonadas Socráticas (3-Tier Hint Scaffolding)
+- **Dependencias:** MATH-US-16
+- **Contexto:** En una sesión de libreta de 30 minutos, quedarse atascado en un paso suele llevar a abandonar la sesión o buscar la respuesta completa. Un sistema de pistas escalonadas bajo demanda permite al estudiante desbloquearse preservando el esfuerzo cognitivo.
+- **Niveles de Pista:**
+  - Nivel 1 (Principio rector): Recuerda el teorema o identidad aplicable sin revelar el procedimiento.
+  - Nivel 2 (Primer paso clave): Sugiere el cambio de variable o la descomposición inicial.
+  - Nivel 3 (Estrategia global): Esquematiza el camino de resolución en 3 viñetas.
+- **Archivos esperados:** `server/src/models/Exercise.js`, `client/src/components/RoundSession.jsx`, tests en backend y frontend.
 - **Criterios de Aceptación (AC):**
-  1. Validaciones de entrada y códigos de error según contrato.
-  2. Persistencia atómica: `Round` (`status: 'evaluated'`, `results`, `roundScore`, `passRate`, `promoted`, dificultades) y `TopicTrack` (dificultad, SRS, `lastRoundScore`, `roundsCompleted`) usando `computeRoundOutcome`.
-  3. Tests con Gemini mockeado cubriendo: promoción, permanencia, fallo (reinicio SRS), ejercicio no encontrado (422), JSON malformado (502).
-  4. `/api/evaluate-math` eliminado sin referencias restantes en cliente ni servidor.
-
-### [MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx)
-- **Dependencias:** MATH-US-12 (y MATH-US-09 para prueba manual con datos reales)
-- **Contexto:** Pantalla principal de práctica. Sustituye el flujo de "un ejercicio = una foto".
-- **Archivos esperados:** `client/src/components/RoundSession.jsx`, `client/src/components/RoundResults.jsx`, refactor de `MathVisionUploader.jsx` a componente de captura reutilizable (múltiples fotos), `client/src/App.jsx`, tests en `client/tests/`.
-- **Criterios de Aceptación (AC):**
-  1. Al entrar con `{ topicId, category }` llama `POST /api/rounds` y muestra encabezado: tema, categoría (etiqueta en español), dificultad (1–3) y tiempo de referencia ("Un experto lo resuelve en ~15 min").
-  2. Lista numerada de enunciados con `MathStatement` (KaTeX), en el orden de la ronda (incremental). Cronómetro informativo opcional (no bloquea).
-  3. Botón "Ya terminé, capturar" → captura 1..6 fotos (cámara o archivo) con miniaturas, posibilidad de borrar/añadir, y envío a `POST /api/rounds/:id/evaluate`.
-  4. Manejo de `422`: indica qué ejercicios no se encontraron y permite añadir otra foto y reenviar.
-  5. `RoundResults` muestra score por ejercicio con feedback y hint, `roundScore`, mensaje de progresión ("Subes a dificultad 2 en Técnica para el próximo repaso" / "Te mantienes en dificultad 1") y fecha del próximo repaso.
-  6. Ids estables para E2E: `#round-header`, `#round-exercise-<order>`, `#btn-finish-round`, `#btn-submit-round`, `#round-results`, `#round-progression`.
-  7. Tests Vitest con `fetch` mockeado para los estados: cargando, lista, captura, evaluando, 422, resultados.
-
-### [MATH-US-14] Dashboard por Tema y Categoría
-- **Dependencias:** MATH-US-13
-- **Contexto:** Reemplaza MATH-US-05. Reescribe `Dashboard.jsx` y `dashboardController.js` alrededor de pistas.
-- **Contrato API:** `GET /api/dashboard/summary` → `{ dueCount, dueByCategory: { technique, application, proof }, nextRecommended: { trackId, topic, category, difficulty } | null, criticalTracks: [{ topic, category, difficulty, lastRoundScore }] (lastRoundScore < 3), topics: [{ _id, title, area, tracks: [{ category, difficulty, dueDate, lastRoundScore }] }] }`.
-- **Criterios de Aceptación (AC):**
-  1. Tarjetas de repasos pendientes por categoría (Técnica / Aplicación / Demostración) con su conteo.
-  2. Matriz Tema × Categoría: cada celda muestra dificultad actual (1–3, p. ej. indicador de 3 segmentos), fecha del próximo repaso y último score; clic en la celda inicia una ronda de esa pista.
-  3. "Entrenar ahora" abre `RoundSession` con la pista recomendada (primera de `/api/rounds/queue`).
-  4. Sección "Áreas críticas" con pistas `lastRoundScore < 3`.
-  5. Sin textos heredados (verificación por grep como en MATH-US-07).
-  6. Tests de controlador (Supertest) y de componente (Vitest).
-
-### [MATH-US-15] Validación E2E Final + Documentación
-- **Dependencias:** MATH-US-09, MATH-US-14
-- **Criterios de Aceptación (AC):**
-  1. Specs Playwright con backend real sobre BD sembrada y Gemini mockeado (variable de entorno o interceptor de red): (a) Panel → Entrenar ahora → ronda Técnica con 3–10 ejercicios visibles; (b) captura por archivo → resultados → promoción a dificultad 2 reflejada en el Panel; (c) ronda de Demostración con 1 solo ejercicio; (d) flujo 422 con foto adicional.
-  2. Se eliminan specs E2E obsoletos (`math-vision.spec.js`, `dashboard.spec.js`, `smoke.spec.js` se actualizan o reemplazan).
-  3. `npm run test:all` en verde.
-  4. `docs/ARCHITECTURE.md` y `docs/USER_GUIDE.md` actualizados (skills `document-tech-specs` y `document-user-guide`) explicando categorías, dificultades, rondas de 15 min y su efecto en el SRS.
-  5. `.antigravity/context.md` actualizado: título y stack sin referencias a Hard/Soft Skills ni Web Speech API.
+  1. Cada ejercicio en el catálogo puede incluir `hints: [tier1, tier2, tier3]`.
+  2. En `RoundSession.jsx`, cada ejercicio tiene un acordeón colapsable con confirmación explícita para revelar pistas progresivas.
+  3. Se registra en la ronda si se solicitaron pistas para ese ejercicio (`hintsUsed: number`).
+  4. La evaluación de Gemini toma en cuenta las pistas consultadas como factor formativo.
