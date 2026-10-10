@@ -10,12 +10,12 @@
   "8": "rules/graphify.md",
   "9": "workflows/graphify.md",
   "10": "heartbeat.md",
-  "11": "2. Criterios de Aceptación (AC)",
+  "11": "progressionEngine.js",
   "12": "seed.js",
   "13": "package.json",
   "14": "Guía de Usuario: MathCoach Sparring",
   "15": "2. Criterios de Aceptación (AC)",
-  "16": "2. Criterios de Aceptación (AC)",
+  "16": "1. Descripción y Objetivos de Negocio",
   "17": "server/package.json",
   "18": "2. Criterios de Aceptación (AC)",
   "19": "Arquitectura Técnica del Sistema: MathCoach Sparring",
@@ -28,8 +28,6 @@
   "26": "1. Descripción y Objetivos de Negocio",
   "27": "2. Criterios de Aceptación (AC)",
   "28": "app.js",
-  "29": "1. Descripción y Objetivos de Negocio",
-  "30": "devDependencies",
   "31": "constants/categories.js",
   "32": "server_src_models_topic_topic"
 }

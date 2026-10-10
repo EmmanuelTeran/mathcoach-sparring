@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791593364.974481,
-    "seen": 1791593383.245753,
-    "ast_hash": "fecabe33486143cbc9926a657918412b",
+    "mtime": 1791594383.6771157,
+    "seen": 1791594392.2311358,
+    "ast_hash": "3f15a3a5d340f5b9230cf784e4f45a0f",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791593320.5754268,
-    "seen": 1791593383.2457743,
-    "ast_hash": "566442d9dd1ea847720feb9150b600bd",
+    "mtime": 1791594337.910969,
+    "seen": 1791594392.2311466,
+    "ast_hash": "9b91b6bb33682ac0666d3838ad193f05",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791593351.8840406,
-    "seen": 1791593383.2457721,
-    "ast_hash": "257420187679f6bf13ae1c46f7514325",
+    "mtime": 1791594372.7356677,
+    "seen": 1791594392.2311451,
+    "ast_hash": "425e109f8bee31feeee2bb544e75c308",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -180,9 +180,9 @@
     "semantic_hash": ""
   },
   "server/src/utils/srsCalculator.js": {
-    "mtime": 1791590424.4289668,
-    "seen": 1791590767.6607933,
-    "ast_hash": "741c11a40ccbc57739aaf2824f059b81",
+    "mtime": 1791594165.0653734,
+    "seen": 1791594218.4253156,
+    "ast_hash": "52a76d2685e10b48f2ba6f18de1fa2af",
     "semantic_hash": ""
   },
   "server/tests/srsCalculator.test.js": {
@@ -393,6 +393,30 @@
     "mtime": 1791593134.5869713,
     "seen": 1791593383.2457175,
     "ast_hash": "c67d632ad1842565b8c179269a7954e5",
+    "semantic_hash": ""
+  },
+  "server/src/config/progression.js": {
+    "mtime": 1791594165.0573323,
+    "seen": 1791594218.4252949,
+    "ast_hash": "d6c07a42c694b5615ad43b158b41afa3",
+    "semantic_hash": ""
+  },
+  "server/src/utils/progressionEngine.js": {
+    "mtime": 1791594165.0573323,
+    "seen": 1791594218.4253142,
+    "ast_hash": "8db0e2dfa4f3e191b70ad637c941fff4",
+    "semantic_hash": ""
+  },
+  "server/tests/progressionEngine.test.js": {
+    "mtime": 1791594165.0653734,
+    "seen": 1791594218.4253218,
+    "ast_hash": "06c3b9af17180d7616c6c4e4ae945279",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-10-progression-engine.md": {
+    "mtime": 1791594179.7492983,
+    "seen": 1791594218.4253514,
+    "ast_hash": "4da11be656a2893c03624d927201f3d9",
     "semantic_hash": ""
   }
 }

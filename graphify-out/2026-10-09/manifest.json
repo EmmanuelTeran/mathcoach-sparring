@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791590758.646152,
-    "seen": 1791590767.6608324,
-    "ast_hash": "59c53297eeea4f8b503ed007d18e2a67",
+    "mtime": 1791594191.6956787,
+    "seen": 1791594218.4253337,
+    "ast_hash": "b7a8e63474a5f750e32f4370e3cc3b96",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -102,8 +102,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791591563.2559695,
-    "seen": 1791593034.8590665,
+    "mtime": 1791593134.5829444,
+    "seen": 1791593383.2456324,
     "ast_hash": "9da34d0d2067e6081dfe834d40c5e5bd",
     "semantic_hash": ""
   },
@@ -114,8 +114,8 @@
     "semantic_hash": ""
   },
   "server/package.json": {
-    "mtime": 1791591569.1775053,
-    "seen": 1791593034.8590744,
+    "mtime": 1791593134.5829444,
+    "seen": 1791593383.24564,
     "ast_hash": "36ce0bc9f68b9bd6e6d96c489724fdc3",
     "semantic_hash": ""
   },
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791590710.722535,
-    "seen": 1791590767.6608646,
-    "ast_hash": "07fd45eab5c1fff13d4c2e562f0c0a3a",
+    "mtime": 1791593320.5754268,
+    "seen": 1791593383.2457743,
+    "ast_hash": "566442d9dd1ea847720feb9150b600bd",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791590740.2431931,
-    "seen": 1791590767.660861,
-    "ast_hash": "2786fdf0b3361cabcd19414eb9b8b0fa",
+    "mtime": 1791593351.8840406,
+    "seen": 1791593383.2457721,
+    "ast_hash": "257420187679f6bf13ae1c46f7514325",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -180,9 +180,9 @@
     "semantic_hash": ""
   },
   "server/src/utils/srsCalculator.js": {
-    "mtime": 1791590424.4289668,
-    "seen": 1791590767.6607933,
-    "ast_hash": "741c11a40ccbc57739aaf2824f059b81",
+    "mtime": 1791594165.0653734,
+    "seen": 1791594218.4253156,
+    "ast_hash": "52a76d2685e10b48f2ba6f18de1fa2af",
     "semantic_hash": ""
   },
   "server/tests/srsCalculator.test.js": {
@@ -348,51 +348,75 @@
     "semantic_hash": ""
   },
   "tickets/MATH-US-09-curated-catalog.md": {
-    "mtime": 1791591359.4770765,
-    "seen": 1791591367.439495,
-    "ast_hash": "0e5db29c573b1aea064f2470d7f66862",
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2457888,
+    "ast_hash": "636a52a1d83fd2b5a6341e27d404c2a4",
     "semantic_hash": ""
   },
   "server/scripts/seed.js": {
-    "mtime": 1791591915.3729143,
-    "seen": 1791593034.8590784,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456434,
     "ast_hash": "e42f8bf6b2e9afcc9adb48328aa250e4",
     "semantic_hash": ""
   },
   "server/seed-data/derivadas-regla-cadena.js": {
-    "mtime": 1791591897.0760238,
-    "seen": 1791593034.8590825,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456465,
     "ast_hash": "8c5fc3e57455bacc3a0a9d2de17fd4ca",
     "semantic_hash": ""
   },
   "server/seed-data/factorizacion-polinomios.js": {
-    "mtime": 1791591720.0722442,
-    "seen": 1791593034.8590848,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456496,
     "ast_hash": "43b5a77f7e6bf0fcc4ab7641a686d6aa",
     "semantic_hash": ""
   },
   "server/seed-data/fracciones-algebraicas.js": {
-    "mtime": 1791591648.7478735,
-    "seen": 1791593034.8590868,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456527,
     "ast_hash": "609c75507559f354df5a7f4b57f7705c",
     "semantic_hash": ""
   },
   "server/seed-data/index.js": {
-    "mtime": 1791591904.226445,
-    "seen": 1791593034.8590891,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456558,
     "ast_hash": "cc8e6056f4b9dee2fdd6556af44b3e0a",
     "semantic_hash": ""
   },
   "server/seed-data/limites-continuidad.js": {
-    "mtime": 1791591807.5170588,
-    "seen": 1791593034.8590918,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2456589,
     "ast_hash": "34c0d7facd7a6e8441b91149c50217d8",
     "semantic_hash": ""
   },
   "server/tests/catalog.test.js": {
-    "mtime": 1791591936.6267445,
-    "seen": 1791593034.859154,
+    "mtime": 1791593134.5869713,
+    "seen": 1791593383.2457175,
     "ast_hash": "c67d632ad1842565b8c179269a7954e5",
+    "semantic_hash": ""
+  },
+  "server/src/config/progression.js": {
+    "mtime": 1791594165.0573323,
+    "seen": 1791594218.4252949,
+    "ast_hash": "d6c07a42c694b5615ad43b158b41afa3",
+    "semantic_hash": ""
+  },
+  "server/src/utils/progressionEngine.js": {
+    "mtime": 1791594165.0573323,
+    "seen": 1791594218.4253142,
+    "ast_hash": "8db0e2dfa4f3e191b70ad637c941fff4",
+    "semantic_hash": ""
+  },
+  "server/tests/progressionEngine.test.js": {
+    "mtime": 1791594165.0653734,
+    "seen": 1791594218.4253218,
+    "ast_hash": "06c3b9af17180d7616c6c4e4ae945279",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-10-progression-engine.md": {
+    "mtime": 1791594179.7492983,
+    "seen": 1791594218.4253514,
+    "ast_hash": "4da11be656a2893c03624d927201f3d9",
     "semantic_hash": ""
   }
 }
