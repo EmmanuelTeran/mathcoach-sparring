@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791528245.6034656,
-    "seen": 1791529931.9934497,
-    "ast_hash": "46e38fd9eca16599e4ae02d4190b11ac",
+    "mtime": 1791591563.2559695,
+    "seen": 1791593034.8590665,
+    "ast_hash": "9da34d0d2067e6081dfe834d40c5e5bd",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -114,9 +114,9 @@
     "semantic_hash": ""
   },
   "server/package.json": {
-    "mtime": 1791528245.6034656,
-    "seen": 1791529931.9934556,
-    "ast_hash": "8aa64f40a7557c7e3edc3b537f8ab252",
+    "mtime": 1791591569.1775053,
+    "seen": 1791593034.8590744,
+    "ast_hash": "36ce0bc9f68b9bd6e6d96c489724fdc3",
     "semantic_hash": ""
   },
   "server/src/app.js": {
@@ -345,6 +345,54 @@
     "mtime": 1791590424.4289668,
     "seen": 1791590767.6607997,
     "ast_hash": "45ff2001379de64e6cef7cc6a67ddbcd",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-09-curated-catalog.md": {
+    "mtime": 1791591359.4770765,
+    "seen": 1791591367.439495,
+    "ast_hash": "0e5db29c573b1aea064f2470d7f66862",
+    "semantic_hash": ""
+  },
+  "server/scripts/seed.js": {
+    "mtime": 1791591915.3729143,
+    "seen": 1791593034.8590784,
+    "ast_hash": "e42f8bf6b2e9afcc9adb48328aa250e4",
+    "semantic_hash": ""
+  },
+  "server/seed-data/derivadas-regla-cadena.js": {
+    "mtime": 1791591897.0760238,
+    "seen": 1791593034.8590825,
+    "ast_hash": "8c5fc3e57455bacc3a0a9d2de17fd4ca",
+    "semantic_hash": ""
+  },
+  "server/seed-data/factorizacion-polinomios.js": {
+    "mtime": 1791591720.0722442,
+    "seen": 1791593034.8590848,
+    "ast_hash": "43b5a77f7e6bf0fcc4ab7641a686d6aa",
+    "semantic_hash": ""
+  },
+  "server/seed-data/fracciones-algebraicas.js": {
+    "mtime": 1791591648.7478735,
+    "seen": 1791593034.8590868,
+    "ast_hash": "609c75507559f354df5a7f4b57f7705c",
+    "semantic_hash": ""
+  },
+  "server/seed-data/index.js": {
+    "mtime": 1791591904.226445,
+    "seen": 1791593034.8590891,
+    "ast_hash": "cc8e6056f4b9dee2fdd6556af44b3e0a",
+    "semantic_hash": ""
+  },
+  "server/seed-data/limites-continuidad.js": {
+    "mtime": 1791591807.5170588,
+    "seen": 1791593034.8590918,
+    "ast_hash": "34c0d7facd7a6e8441b91149c50217d8",
+    "semantic_hash": ""
+  },
+  "server/tests/catalog.test.js": {
+    "mtime": 1791591936.6267445,
+    "seen": 1791593034.859154,
+    "ast_hash": "c67d632ad1842565b8c179269a7954e5",
     "semantic_hash": ""
   }
 }
