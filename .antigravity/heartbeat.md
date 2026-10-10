@@ -1,7 +1,7 @@
 # Heartbeat del Proyecto: MathCoach Sparring
 
 - **Última actualización:** 2026-10-09
-- **Historia activa:** MATH-US-09
+- **Historia activa:** MATH-US-10
 - **Rama actual:** `dev`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
@@ -12,7 +12,7 @@
   - [-] MATH-US-06: Seed Multinivel & E2E Final (Cancelada → reemplazada por MATH-US-09 + MATH-US-15)
   - [x] MATH-US-07: Hotfix UI: Enunciado Visible, Captura Única y Textos Coherentes (Done) — depende de 04
   - [x] MATH-US-08: Modelo de Dominio Tema × Categoría × Dificultad + Purga de Backend Legado (Done) — depende de 07
-  - [ ] MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente) (Backlog) — depende de 08
+  - [x] MATH-US-09: Catálogo Curado de Ejercicios (Seed Idempotente) (Done) — depende de 08
   - [ ] MATH-US-10: Motor de Progresión Adaptativa (Dificultad + SRS por Pista) (Backlog) — depende de 08
   - [ ] MATH-US-11: Constructor de Rondas de 15 min + API de Rondas (Backlog) — depende de 08
   - [ ] MATH-US-12: Evaluación Multimodal de Rondas + Progresión (Backlog) — depende de 10, 11

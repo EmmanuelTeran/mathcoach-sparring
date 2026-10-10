@@ -194,9 +194,69 @@ export async function ensureTracksForTopic(topicId) {
 
 ---
 
-## 4. Contratos de API Activos
+## 4. Pipeline de Siembra Idempotente y Catálogo Curado (`server/scripts/seed.js`)
 
-### 4.1 `GET /api/topics`
+Para asegurar la disponibilidad inmediata de material pedagógico formal sin recurrir a scripts monolíticos frágiles, el sistema cuenta con un pipeline de siembra desacoplado y estrictamente idempotente.
+
+```mermaid
+flowchart TD
+    CLI[npm run seed / node scripts/seed.js] --> Boot[connectDB]
+    Boot --> Registry[curatedTopics en server/seed-data/index.js]
+    Registry --> T1[fracciones-algebraicas.js]
+    Registry --> T2[factorizacion-polinomios.js]
+    Registry --> T3[limites-continuidad.js]
+    Registry --> T4[derivadas-regla-cadena.js]
+
+    T1 & T2 & T3 & T4 --> UpsertTopic["MathTopic.findOneAndUpdate({ slug }, $set, upsert: true)"]
+    UpsertTopic --> EnsureTracks["ensureTracksForTopic(topic._id)"]
+    EnsureTracks --> TracksDB[("TopicTrack: 3 pistas por tema (d=1, SM-2 base con $setOnInsert)")]
+
+    EnsureTracks --> LoopEx[Iterar exercises del dataset]
+    LoopEx --> UpsertEx["Exercise.findOneAndUpdate({ externalKey }, $set, $setOnInsert, upsert: true)"]
+    UpsertEx --> ExDB[("Exercise: externalKey único (132 docs, sin duplicados)")]
+
+    ExDB --> Finish[Resumen por consola + disconnectDB]
+```
+
+### 4.1 Modularidad de Datasets Curados (`server/seed-data/`)
+
+Los datos están divididos en archivos independientes por tema matemático que exportan un contrato común `{ slug, metadata, exercises }`:
+- **`fracciones-algebraicas.js`**: Álgebra CONAMAT (33 ejercicios).
+- **`factorizacion-polinomios.js`**: Álgebra CONAMAT (33 ejercicios).
+- **`limites-continuidad.js`**: Cálculo / Análisis Stewart / Spivak (33 ejercicios).
+- **`derivadas-regla-cadena.js`**: Cálculo / Análisis Stewart / Spivak (33 ejercicios).
+- **`index.js`**: Reúne y exporta el array canónico `curatedTopics`.
+
+### 4.2 Estrategia de Idempotencia Estricta con `externalKey`
+
+1. **Upsert Atómico de Temas:**
+   - Criterio de unicidad: `{ slug: topicData.slug }`.
+   - Modificador: `$set` con los atributos `metadata` (`title`, `area`, `source`, `order`, `description`).
+2. **Inicialización de Pistas (`ensureTracksForTopic`):**
+   - Emplea `$setOnInsert` para inicializar dificultad en 1 y valores SM-2 base (`repetition: 0, interval: 0, efactor: 2.5`). Si el estudiante ya tiene un progreso de repaso acumulado, este no se sobreescribe ni se reinicia.
+3. **Upsert Atómico de Ejercicios por `externalKey`:**
+   - Criterio de unicidad: `{ externalKey: exData.externalKey }` (ej. `'alg-frac-tech-d1-01'`).
+   - Modificador: `$set` asociando `topicId: topic._id`, `category`, `difficulty`, `order`, `statement`, `referenceSolution`, `expertMinutes` y `source`.
+   - Modificador `$setOnInsert`: Establece `timesServed: 0` y `lastServedAt: null`. De este modo, re-ejecutar el seed en un entorno en producción conserva los contadores de servicio y rotación de ejercicios.
+4. **Duplicidad Cero ($\Delta N = 0$):**
+   - Ejecutar `npm run seed` $N$ veces consecutivas mantiene exactamente:
+     $$\Delta N_{\text{MathTopic}} = 0, \quad \Delta N_{\text{TopicTrack}} = 0, \quad \Delta N_{\text{Exercise}} = 0$$
+
+### 4.3 Garantía de Volumen para el Constructor de Rondas
+
+El diseño del catálogo garantiza las cuotas operativas exigidas por la regla de negocio §1.1 para armar rondas de ~15 minutos de tiempo experto:
+
+| Categoría | Presupuesto por Ronda | Cuota Mínima por (Tema, Dificultad) | Minutos Mínimos por (Tema, Dificultad) | Capacidad de Generación Disjunta |
+|---|---|---|---|---|
+| **Técnica** | 3 a 10 ejercicios ($\ge 15$ min) | 6 ejercicios | $\ge 30$ min acumulados | Permite armar Ronda 1 ($\ge 3$ ex, $\ge 15$ min) y Ronda 2 ($\ge 3$ ex, $\ge 15$ min) **sin repetir ejercicios**. |
+| **Aplicación** | 1 a 3 ejercicios ($\sim 15$ min) | 3 ejercicios | $\ge 20$ min acumulados | Permite armar al menos 2 rondas de aplicación distintas. |
+| **Demostración** | Exactamente 1 ejercicio (8–15 min) | 2 ejercicios | $\ge 16$ min acumulados | Ronda 1 consume el primer problema; Ronda 2 consume el segundo de forma disjunta. |
+
+---
+
+## 5. Contratos de API Activos
+
+### 5.1 `GET /api/topics`
 Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 pistas asociadas:
 - **Ruta:** `/api/topics`
 - **Respuesta (200 OK):**
@@ -240,7 +300,7 @@ Devuelve el catálogo de temas ordenados, enriquecidos dinámicamente con sus 3 
 ]
 ```
 
-### 4.2 `POST /api/evaluate-math`
+### 5.2 `POST /api/evaluate-math`
 Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el motor SRS:
 - **Ruta:** `/api/evaluate-math`
 - **Body:** `{ "problemId": "...", "image": "data:image/jpeg;base64,...", "metadata": { ... } }`
@@ -260,7 +320,7 @@ Evalúa la imagen manuscrita de un ejercicio con Gemini 1.5 Pro y actualiza el m
 }
 ```
 
-### 4.3 `GET /api/dashboard/summary`
+### 5.3 `GET /api/dashboard/summary`
 Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño de MATH-US-14:
 ```json
 {
@@ -270,12 +330,12 @@ Stub seguro y compatible que previene rupturas en la interfaz hasta el rediseño
 }
 ```
 
-### 4.4 `GET /api/health`
+### 5.4 `GET /api/health`
 Monitorea la salud del servicio y el estado de la base de datos (con fallback `degraded` si Mongo se ejecuta en modo standalone).
 
 ---
 
-## 5. Certificación de la Purga Definitiva de DevCoach
+## 6. Certificación de la Purga Definitiva de DevCoach
 
 Se certifica formalmente la erradicación de toda la deuda técnica heredada del prototipo anterior:
 1. **Modelos Eliminados:** Se purgaron definitivamente `Topic.js` y `SessionLog.js`.
