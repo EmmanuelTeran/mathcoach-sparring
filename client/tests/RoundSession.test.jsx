@@ -236,7 +236,8 @@ describe('RoundSession Component Integration & Finite State Machine Tests', () =
     await waitFor(() => {
       expect(container.querySelector('#alert-missing-exercises')).toBeInTheDocument();
     });
-    expect(screen.getByText(/#2/i)).toBeInTheDocument();
+    const missingAlert = container.querySelector('#alert-missing-exercises');
+    expect(missingAlert).toHaveTextContent('#2');
     expect(screen.getByText(/La IA no encontró el procedimiento de los siguientes ejercicios/i)).toBeInTheDocument();
 
     // Las fotos previas deben preservarse (1 foto)
