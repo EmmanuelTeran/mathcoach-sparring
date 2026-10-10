@@ -83,4 +83,42 @@ describe('Topics API Integration Tests (GET /api/topics)', () => {
     const categories2 = t2.tracks.map((tr) => tr.category);
     expect(categories2).toEqual(['technique', 'application', 'proof']);
   });
+
+  it('GET /api/topics retorna la lista completa con los 8 temas sembrados y sus 24 pistas activas', async () => {
+    const { seedDatabase } = await import('../scripts/seed.js');
+    await seedDatabase({ log: false });
+
+    const res = await request(app).get('/api/topics');
+    expect(res.status).toBe(200);
+    expect(res.body.length).toBe(8);
+
+    const expectedSlugs = [
+      'fracciones-algebraicas',
+      'factorizacion-polinomios',
+      'limites-continuidad',
+      'derivadas-regla-cadena',
+      'ecuaciones-sistemas-lineales',
+      'trigonometria-identidades',
+      'tecnicas-integracion',
+      'geometria-analitica-conicas',
+    ];
+
+    const returnedSlugs = res.body.map((t) => t.slug);
+    expect(returnedSlugs).toEqual(expect.arrayContaining(expectedSlugs));
+
+    let totalTracksCount = 0;
+    for (const topic of res.body) {
+      expect(topic.tracks).toBeDefined();
+      expect(topic.tracks.length).toBe(3);
+      totalTracksCount += topic.tracks.length;
+
+      topic.tracks.forEach((track) => {
+        expect(track.difficulty).toBe(1);
+        expect(track.dueDate).toBeDefined();
+        expect(['technique', 'application', 'proof']).toContain(track.category);
+      });
+    }
+
+    expect(totalTracksCount).toBe(24);
+  });
 });

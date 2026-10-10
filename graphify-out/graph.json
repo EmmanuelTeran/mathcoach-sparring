@@ -9,8 +9,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
+      "community": 23,
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "mockfilereader",
       "source_file": "client/tests/RoundSession.test.jsx",
@@ -22,8 +22,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
+      "community": 23,
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "mockfilereader2",
       "source_file": "client/tests/RoundSession.test.jsx",
@@ -35,8 +35,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
+      "community": 23,
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "mockfilereaderfull",
       "source_file": "client/tests/RoundSession.test.jsx",
@@ -53,6 +53,18 @@
       "norm_label": "seeddatabase()",
       "source_file": "server/scripts/seed.js",
       "source_location": "L22"
+    },
+    {
+      "id": "server_src_controllers_dashboardcontroller_getdashboardsummary",
+      "label": "getDashboardSummary()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "getdashboardsummary()",
+      "source_file": "server/src/controllers/dashboardController.js",
+      "source_location": "L13"
     },
     {
       "id": "server_src_db_connectdb",
@@ -91,52 +103,16 @@
       "source_location": "L9"
     },
     {
-      "id": "client_src_components_mathstatement_mathstatement",
-      "label": "MathStatement()",
+      "id": "server_src_services_trackservice_ensuretracksfortopic",
+      "label": "ensureTracksForTopic()",
       "_callable": true,
       "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
+      "community": 12,
+      "community_name": "seed.js",
       "file_type": "code",
-      "norm_label": "mathstatement()",
-      "source_file": "client/src/components/MathStatement.jsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "client_src_components_roundphotocapture_roundphotocapture",
-      "label": "RoundPhotoCapture()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "code",
-      "norm_label": "roundphotocapture()",
-      "source_file": "client/src/components/RoundPhotoCapture.jsx",
-      "source_location": "L27"
-    },
-    {
-      "id": "client_src_components_roundresults_roundresults",
-      "label": "RoundResults()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "code",
-      "norm_label": "roundresults()",
-      "source_file": "client/src/components/RoundResults.jsx",
-      "source_location": "L22"
-    },
-    {
-      "id": "client_src_components_roundsession_roundsession",
-      "label": "RoundSession()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "code",
-      "norm_label": "roundsession()",
-      "source_file": "client/src/components/RoundSession.jsx",
-      "source_location": "L29"
+      "norm_label": "ensuretracksfortopic()",
+      "source_file": "server/src/services/trackService.js",
+      "source_location": "L11"
     },
     {
       "id": "client_src_app_app",
@@ -144,7 +120,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "app()",
       "source_file": "client/src/App.jsx",
@@ -156,7 +132,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "dashboard()",
       "source_file": "client/src/components/Dashboard.jsx",
@@ -168,7 +144,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "difficultysegments()",
       "source_file": "client/src/components/Dashboard.jsx",
@@ -180,7 +156,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "formatduedate()",
       "source_file": "client/src/components/Dashboard.jsx",
@@ -192,11 +168,71 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "scorebadge()",
       "source_file": "client/src/components/Dashboard.jsx",
       "source_location": "L47"
+    },
+    {
+      "id": "client_src_components_mathstatement_mathstatement",
+      "label": "MathStatement()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "mathstatement()",
+      "source_file": "client/src/components/MathStatement.jsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "client_src_components_mathvisionuploader_mathvisionuploader",
+      "label": "MathVisionUploader()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "mathvisionuploader()",
+      "source_file": "client/src/components/MathVisionUploader.jsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "client_src_components_roundphotocapture_roundphotocapture",
+      "label": "RoundPhotoCapture()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundphotocapture()",
+      "source_file": "client/src/components/RoundPhotoCapture.jsx",
+      "source_location": "L27"
+    },
+    {
+      "id": "client_src_components_roundresults_roundresults",
+      "label": "RoundResults()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundresults()",
+      "source_file": "client/src/components/RoundResults.jsx",
+      "source_location": "L22"
+    },
+    {
+      "id": "client_src_components_roundsession_roundsession",
+      "label": "RoundSession()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundsession()",
+      "source_file": "client/src/components/RoundSession.jsx",
+      "source_location": "L29"
     },
     {
       "id": "client_src_hooks_usevoiceinteraction_usevoiceinteraction",
@@ -204,35 +240,95 @@
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "usevoiceinteraction()",
       "source_file": "client/src/hooks/useVoiceInteraction.js",
       "source_location": "L7"
     },
     {
-      "id": "server_src_controllers_dashboardcontroller_getdashboardsummary",
-      "label": "getDashboardSummary()",
+      "id": "client_src_utils_compressimage_compressimagefile",
+      "label": "compressImageFile()",
       "_callable": true,
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
-      "norm_label": "getdashboardsummary()",
-      "source_file": "server/src/controllers/dashboardController.js",
-      "source_location": "L13"
+      "norm_label": "compressimagefile()",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L61"
     },
     {
-      "id": "server_src_services_trackservice_ensuretracksfortopic",
-      "label": "ensureTracksForTopic()",
+      "id": "client_src_utils_compressimage_drawtocompresseddataurl",
+      "label": "drawToCompressedDataUrl()",
       "_callable": true,
       "_origin": "ast",
-      "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community": 23,
+      "community_name": "RoundSession",
       "file_type": "code",
-      "norm_label": "ensuretracksfortopic()",
-      "source_file": "server/src/services/trackService.js",
-      "source_location": "L11"
+      "norm_label": "drawtocompresseddataurl()",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "client_src_utils_compressimage_loadimage",
+      "label": "loadImage()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "loadimage()",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "client_src_utils_compressimage_readfileasdataurl",
+      "label": "readFileAsDataUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "readfileasdataurl()",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "client_tests_roundsession_test_mockfilereader2_readasdataurl",
+      "label": ".readAsDataURL()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": ".readasdataurl()",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L306"
+    },
+    {
+      "id": "client_tests_roundsession_test_mockfilereader_readasdataurl",
+      "label": ".readAsDataURL()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": ".readasdataurl()",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L274"
+    },
+    {
+      "id": "client_tests_roundsession_test_mockfilereaderfull_readasdataurl",
+      "label": ".readAsDataURL()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": ".readasdataurl()",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L354"
     },
     {
       "id": "server_src_services_roundbuilder_buildround",
@@ -317,102 +413,6 @@
       "norm_label": "getclient()",
       "source_file": "server/src/services/geminiService.js",
       "source_location": "L3"
-    },
-    {
-      "id": "client_src_components_mathvisionuploader_mathvisionuploader",
-      "label": "MathVisionUploader()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "code",
-      "norm_label": "mathvisionuploader()",
-      "source_file": "client/src/components/MathVisionUploader.jsx",
-      "source_location": "L29"
-    },
-    {
-      "id": "client_tests_roundsession_test_mockfilereader2_readasdataurl",
-      "label": ".readAsDataURL()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": ".readasdataurl()",
-      "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L306"
-    },
-    {
-      "id": "client_tests_roundsession_test_mockfilereader_readasdataurl",
-      "label": ".readAsDataURL()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": ".readasdataurl()",
-      "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L274"
-    },
-    {
-      "id": "client_tests_roundsession_test_mockfilereaderfull_readasdataurl",
-      "label": ".readAsDataURL()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": ".readasdataurl()",
-      "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L354"
-    },
-    {
-      "id": "client_src_utils_compressimage_compressimagefile",
-      "label": "compressImageFile()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "compressimagefile()",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L61"
-    },
-    {
-      "id": "client_src_utils_compressimage_drawtocompresseddataurl",
-      "label": "drawToCompressedDataUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "drawtocompresseddataurl()",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L14"
-    },
-    {
-      "id": "client_src_utils_compressimage_loadimage",
-      "label": "loadImage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "loadimage()",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L48"
-    },
-    {
-      "id": "client_src_utils_compressimage_readfileasdataurl",
-      "label": "readFileAsDataUrl()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "readfileasdataurl()",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L39"
     },
     {
       "id": "antigravity_graph",
@@ -521,18 +521,6 @@
       "norm_label": "3. historias completadas (hito 1)",
       "source_file": ".antigravity/graph.md",
       "source_location": "L101"
-    },
-    {
-      "id": "antigravity_graph_4_historias_pendientes_hito_2_backlog",
-      "label": "4. Historias Pendientes (Hito 2: Backlog)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. historias pendientes (hito 2: backlog)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L157"
     },
     {
       "id": "antigravity_graph_grafo_de_implementaci\u00f3n_mathcoach_sparring",
@@ -701,78 +689,6 @@
       "norm_label": "[math-us-15] validacion e2e final + documentacion",
       "source_file": ".antigravity/graph.md",
       "source_location": "L151"
-    },
-    {
-      "id": "antigravity_graph_math_us_16_calibraci\u00f3n_de_rondas_a_30_minutos_t\u00e9cnica_y_aplicaci\u00f3n",
-      "label": "[MATH-US-16] Calibraci\u00f3n de Rondas a 30 Minutos (T\u00e9cnica y Aplicaci\u00f3n)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-16] calibracion de rondas a 30 minutos (tecnica y aplicacion)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L159"
-    },
-    {
-      "id": "antigravity_graph_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
-      "label": "[MATH-US-17] Expansi\u00f3n Curricular: Cuatro Nuevos Temas Matem\u00e1ticos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-17] expansion curricular: cuatro nuevos temas matematicos",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L177"
-    },
-    {
-      "id": "antigravity_graph_math_us_18_banco_curado_masivo_de_ejercicios_seed_2_0_y_auditor\u00eda",
-      "label": "[MATH-US-18] Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditor\u00eda)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-18] banco curado masivo de ejercicios (seed 2.0 y auditoria)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L192"
-    },
-    {
-      "id": "antigravity_graph_math_us_19_diagn\u00f3stico_quir\u00fargico_de_errores_y_prerrequisitos_rotos",
-      "label": "[MATH-US-19] Diagn\u00f3stico Quir\u00fargico de Errores y Prerrequisitos Rotos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-19] diagnostico quirurgico de errores y prerrequisitos rotos",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L206"
-    },
-    {
-      "id": "antigravity_graph_math_us_20_rondas_intercaladas_interleaving_mode_pr\u00e1ctica_mixta_multitema",
-      "label": "[MATH-US-20] Rondas Intercaladas (\"Interleaving Mode\" / Pr\u00e1ctica Mixta Multitema)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-20] rondas intercaladas (\"interleaving mode\" / practica mixta multitema)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L220"
-    },
-    {
-      "id": "antigravity_graph_math_us_21_sistema_de_pistas_escalonadas_socr\u00e1ticas_3_tier_hint_scaffolding",
-      "label": "[MATH-US-21] Sistema de Pistas Escalonadas Socr\u00e1ticas (3-Tier Hint Scaffolding)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "3. Historias Completadas (Hito 1)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-21] sistema de pistas escalonadas socraticas (3-tier hint scaffolding)",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L230"
     },
     {
       "id": "tickets_templates_ticket_template",
@@ -1027,6 +943,18 @@
       "source_location": "L227"
     },
     {
+      "id": "tickets_math_us_14_dashboard_tracks_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "[MATH-US-14] Dashboard por Tema y Categor\u00eda",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
+      "source_location": "L240"
+    },
+    {
       "id": "tickets_math_us_14_dashboard_tracks_4_1_backend_tests_de_integraci\u00f3n_supertest_server_tests_dashboard_test_js",
       "label": "4.1 Backend: Tests de Integraci\u00f3n Supertest (`server/tests/dashboard.test.js`)",
       "_origin": "ast",
@@ -1158,6 +1086,61 @@
       "source_file": "mongoose"
     },
     {
+      "id": "server_package",
+      "label": "server/package.json",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "server/package.json",
+      "source_file": "server/package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "server/package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "server_package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "server/package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "server_package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "server/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "server_package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "server/package.json",
+      "source_location": "L3"
+    },
+    {
       "id": "server_scripts_seed",
       "label": "seed.js",
       "_origin": "ast",
@@ -1169,50 +1152,6 @@
       "source_location": "L1"
     },
     {
-      "id": "server_seed_data_derivadas_regla_cadena",
-      "label": "derivadas-regla-cadena.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "seed.js",
-      "file_type": "code",
-      "norm_label": "derivadas-regla-cadena.js",
-      "source_file": "server/seed-data/derivadas-regla-cadena.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_seed_data_factorizacion_polinomios",
-      "label": "factorizacion-polinomios.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "seed.js",
-      "file_type": "code",
-      "norm_label": "factorizacion-polinomios.js",
-      "source_file": "server/seed-data/factorizacion-polinomios.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_seed_data_fracciones_algebraicas",
-      "label": "fracciones-algebraicas.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "seed.js",
-      "file_type": "code",
-      "norm_label": "fracciones-algebraicas.js",
-      "source_file": "server/seed-data/fracciones-algebraicas.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_seed_data_index",
-      "label": "index.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "seed.js",
-      "file_type": "code",
-      "norm_label": "index.js",
-      "source_file": "server/seed-data/index.js",
-      "source_location": "L1"
-    },
-    {
       "id": "server_seed_data_index_curatedtopics",
       "label": "curatedTopics",
       "_origin": "ast",
@@ -1221,18 +1160,7 @@
       "file_type": "code",
       "norm_label": "curatedtopics",
       "source_file": "server/seed-data/index.js",
-      "source_location": "L6"
-    },
-    {
-      "id": "server_seed_data_limites_continuidad",
-      "label": "limites-continuidad.js",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "seed.js",
-      "file_type": "code",
-      "norm_label": "limites-continuidad.js",
-      "source_file": "server/seed-data/limites-continuidad.js",
-      "source_location": "L1"
+      "source_location": "L10"
     },
     {
       "id": "server_src_app",
@@ -1675,6 +1603,17 @@
       "source_location": "L1"
     },
     {
+      "id": "ref_cors",
+      "label": "cors",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "concept",
+      "norm_label": "cors",
+      "source_file": "server/package.json",
+      "source_location": "L14"
+    },
+    {
       "id": "ref_dotenv",
       "label": "dotenv",
       "_origin": "ast",
@@ -1730,6 +1669,17 @@
       "source_location": "L21"
     },
     {
+      "id": "server_package_json_ref_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "concept",
+      "norm_label": "vitest",
+      "source_file": "server/package.json",
+      "source_location": "L22"
+    },
+    {
       "id": "tickets_math_us_09_curated_catalog_3_subgrafo_afectado_identificado_con_graphify",
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
@@ -1740,6 +1690,18 @@
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
       "source_file": "tickets/MATH-US-09-curated-catalog.md",
       "source_location": "L256"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "seed.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L190"
     },
     {
       "id": "package",
@@ -2147,14 +2109,14 @@
       "source_location": "L45"
     },
     {
-      "id": "docs_user_guide_3_1_temas_curriculares_disponibles",
-      "label": "3.1 Temas Curriculares Disponibles",
+      "id": "docs_user_guide_3_1_temas_curriculares_disponibles_8_temas_can\u00f3nicos",
+      "label": "3.1 Temas Curriculares Disponibles (8 Temas Can\u00f3nicos)",
       "_origin": "ast",
       "community": 14,
       "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.1 temas curriculares disponibles",
+      "norm_label": "3.1 temas curriculares disponibles (8 temas canonicos)",
       "source_file": "docs/USER_GUIDE.md",
       "source_location": "L105"
     },
@@ -2168,7 +2130,7 @@
       "node_kind": "heading",
       "norm_label": "3.2 distribucion de ejercicios por matriz (tema \u00d7 categoria \u00d7 dificultad)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L114"
+      "source_location": "L118"
     },
     {
       "id": "docs_user_guide_3_3_siembra_e_inicializaci\u00f3n_del_cat\u00e1logo_npm_run_seed",
@@ -2180,7 +2142,7 @@
       "node_kind": "heading",
       "norm_label": "3.3 siembra e inicializacion del catalogo (`npm run seed`)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L125"
+      "source_location": "L130"
     },
     {
       "id": "docs_user_guide_3_cat\u00e1logo_curado_de_ejercicios_matem\u00e1ticos",
@@ -2204,7 +2166,7 @@
       "node_kind": "heading",
       "norm_label": "4.1 calificacion de la ronda y metricas de rendimiento",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L142"
+      "source_location": "L147"
     },
     {
       "id": "docs_user_guide_4_2_condiciones_exactas_para_subir_de_dificultad_1_a_3",
@@ -2216,7 +2178,7 @@
       "node_kind": "heading",
       "norm_label": "4.2 condiciones exactas para subir de dificultad (1 a 3)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L156"
+      "source_location": "L161"
     },
     {
       "id": "docs_user_guide_4_3_garant\u00eda_de_no_degradaci\u00f3n",
@@ -2228,7 +2190,7 @@
       "node_kind": "heading",
       "norm_label": "4.3 garantia de no-degradacion",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L184"
+      "source_location": "L189"
     },
     {
       "id": "docs_user_guide_4_4_impacto_en_el_calendario_de_repasos_espaciados_srs_sm_2",
@@ -2240,7 +2202,7 @@
       "node_kind": "heading",
       "norm_label": "4.4 impacto en el calendario de repasos espaciados (srs sm-2)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L190"
+      "source_location": "L195"
     },
     {
       "id": "docs_user_guide_4_din\u00e1mica_de_dificultad_adaptativa_y_motor_srs_sm_2",
@@ -2252,7 +2214,7 @@
       "node_kind": "heading",
       "norm_label": "4. dinamica de dificultad adaptativa y motor srs (sm-2)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L138"
+      "source_location": "L143"
     },
     {
       "id": "docs_user_guide_5_1_instalaci\u00f3n_de_dependencias",
@@ -2264,7 +2226,7 @@
       "node_kind": "heading",
       "norm_label": "5.1 instalacion de dependencias",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L209"
+      "source_location": "L214"
     },
     {
       "id": "docs_user_guide_5_2_ejecuci\u00f3n_en_desarrollo",
@@ -2276,7 +2238,7 @@
       "node_kind": "heading",
       "norm_label": "5.2 ejecucion en desarrollo",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L215"
+      "source_location": "L220"
     },
     {
       "id": "docs_user_guide_5_requisitos_del_entorno_e_instalaci\u00f3n",
@@ -2288,7 +2250,7 @@
       "node_kind": "heading",
       "norm_label": "5. requisitos del entorno e instalacion",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L203"
+      "source_location": "L208"
     },
     {
       "id": "docs_user_guide_6_bater\u00eda_de_pruebas_automatizadas",
@@ -2300,7 +2262,7 @@
       "node_kind": "heading",
       "norm_label": "6. bateria de pruebas automatizadas",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L229"
+      "source_location": "L234"
     },
     {
       "id": "docs_user_guide_8_1_tarjetas_de_repasos_pendientes_por_categor\u00eda",
@@ -2312,7 +2274,7 @@
       "node_kind": "heading",
       "norm_label": "8.1 tarjetas de repasos pendientes por categoria",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L373"
+      "source_location": "L378"
     },
     {
       "id": "docs_user_guide_8_2_bot\u00f3n_de_acci\u00f3n_r\u00e1pida_entrenar_ahora_btn_train_now",
@@ -2324,7 +2286,7 @@
       "node_kind": "heading",
       "norm_label": "8.2 boton de accion rapida: \"entrenar ahora\" (`#btn-train-now`)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L387"
+      "source_location": "L392"
     },
     {
       "id": "docs_user_guide_8_3_interpretaci\u00f3n_y_uso_de_la_matriz_tema_categor\u00eda_topics_matrix",
@@ -2336,7 +2298,7 @@
       "node_kind": "heading",
       "norm_label": "8.3 interpretacion y uso de la matriz tema \u00d7 categoria (`#topics-matrix`)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L397"
+      "source_location": "L402"
     },
     {
       "id": "docs_user_guide_8_4_enfoque_de_estudio_secci\u00f3n_\u00e1reas_cr\u00edticas_critical_tracks_section",
@@ -2348,7 +2310,7 @@
       "node_kind": "heading",
       "norm_label": "8.4 enfoque de estudio: seccion \"areas criticas\" (`#critical-tracks-section`)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L417"
+      "source_location": "L422"
     },
     {
       "id": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
@@ -2360,7 +2322,7 @@
       "node_kind": "heading",
       "norm_label": "8. panel de control y navegacion principal (`dashboard`)",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L343"
+      "source_location": "L348"
     },
     {
       "id": "docs_user_guide_9_flujo_integral_de_pr\u00e1ctica_del_panel_a_la_libreta_f\u00edsica_y_ascenso_srs",
@@ -2372,7 +2334,7 @@
       "node_kind": "heading",
       "norm_label": "9. flujo integral de practica: del panel a la libreta fisica y ascenso srs",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L427"
+      "source_location": "L432"
     },
     {
       "id": "docs_user_guide_ejemplos_de_casos_l\u00edmite",
@@ -2384,7 +2346,7 @@
       "node_kind": "heading",
       "norm_label": "ejemplos de casos limite:",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L178"
+      "source_location": "L183"
     },
     {
       "id": "docs_user_guide_gu\u00eda_de_usuario_mathcoach_sparring",
@@ -2399,172 +2361,244 @@
       "source_location": "L1"
     },
     {
-      "id": "docs_architecture_10_1_jerarqu\u00eda_y_descomposici\u00f3n_de_componentes_react",
-      "label": "10.1 Jerarqu\u00eda y Descomposici\u00f3n de Componentes React",
+      "id": "tickets_math_us_17_curricular_expansion",
+      "label": "MATH-US-17-curricular-expansion.md",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "10.1 jerarquia y descomposicion de componentes react",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L747"
+      "node_kind": "page",
+      "norm_label": "math-us-17-curricular-expansion.md",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L1"
     },
     {
-      "id": "docs_architecture_10_2_m\u00e1quina_de_estados_local_de_la_sesi\u00f3n",
-      "label": "10.2 M\u00e1quina de Estados Local de la Sesi\u00f3n",
+      "id": "tickets_math_us_17_curricular_expansion_1_1_contexto_pedag\u00f3gico_y_raz\u00f3n_de_cambio_hito_2",
+      "label": "1.1 Contexto Pedag\u00f3gico y Raz\u00f3n de Cambio (Hito 2)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "10.2 maquina de estados local de la sesion",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L782"
+      "norm_label": "1.1 contexto pedagogico y razon de cambio (hito 2)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L12"
     },
     {
-      "id": "docs_architecture_10_3_manejo_de_errores_http_y_resiliencia_en_cliente",
-      "label": "10.3 Manejo de Errores HTTP y Resiliencia en Cliente",
+      "id": "tickets_math_us_17_curricular_expansion_1_2_ficha_curricular_can\u00f3nica_de_los_cuatro_nuevos_temas",
+      "label": "1.2 Ficha Curricular Can\u00f3nica de los Cuatro Nuevos Temas",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "10.3 manejo de errores http y resiliencia en cliente",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L827"
+      "norm_label": "1.2 ficha curricular canonica de los cuatro nuevos temas",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L30"
     },
     {
-      "id": "docs_architecture_10_4_contrato_estricto_de_identificadores_estables_para_e2e",
-      "label": "10.4 Contrato Estricto de Identificadores Estables para E2E",
+      "id": "tickets_math_us_17_curricular_expansion_1_3_estructura_modular_en_server_seed_data_y_matriz_adaptativa_9_celdas_por_tema",
+      "label": "1.3 Estructura Modular en `server/seed-data/` y Matriz Adaptativa (9 Celdas por Tema)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "10.4 contrato estricto de identificadores estables para e2e",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L837"
+      "norm_label": "1.3 estructura modular en `server/seed-data/` y matriz adaptativa (9 celdas por tema)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L64"
     },
     {
-      "id": "docs_architecture_10_arquitectura_frontend_de_sesi\u00f3n_de_ronda_roundsession",
-      "label": "10. Arquitectura Frontend de Sesi\u00f3n de Ronda (`RoundSession`)",
+      "id": "tickets_math_us_17_curricular_expansion_1_4_consolidaci\u00f3n_en_server_seed_data_index_js_curatedtopics",
+      "label": "1.4 Consolidaci\u00f3n en `server/seed-data/index.js` (`curatedTopics`)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "10. arquitectura frontend de sesion de ronda (`roundsession`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L743"
+      "norm_label": "1.4 consolidacion en `server/seed-data/index.js` (`curatedtopics`)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L105"
     },
     {
-      "id": "docs_user_guide_7_1_el_flujo_de_trabajo_en_libreta_f\u00edsica_ronda_completa",
-      "label": "7.1 El Flujo de Trabajo en Libreta F\u00edsica (Ronda Completa)",
+      "id": "tickets_math_us_17_curricular_expansion_1_5_pipeline_de_siembra_idempotente_npm_run_seed",
+      "label": "1.5 Pipeline de Siembra Idempotente (`npm run seed`)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "7.1 el flujo de trabajo en libreta fisica (ronda completa)",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L257"
+      "norm_label": "1.5 pipeline de siembra idempotente (`npm run seed`)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L135"
     },
     {
-      "id": "docs_user_guide_7_2_captura_fotogr\u00e1fica_multimodal_1_a_6_fotograf\u00edas",
-      "label": "7.2 Captura Fotogr\u00e1fica Multimodal (1 a 6 Fotograf\u00edas)",
+      "id": "tickets_math_us_17_curricular_expansion_1_6_estrategia_de_auditor\u00eda_y_pruebas_automatizadas",
+      "label": "1.6 Estrategia de Auditor\u00eda y Pruebas Automatizadas",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "7.2 captura fotografica multimodal (1 a 6 fotografias)",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L279"
+      "norm_label": "1.6 estrategia de auditoria y pruebas automatizadas",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L151"
     },
     {
-      "id": "docs_user_guide_7_3_evaluaci\u00f3n_pedag\u00f3gica_con_inteligencia_artificial",
-      "label": "7.3 Evaluaci\u00f3n Pedag\u00f3gica con Inteligencia Artificial",
+      "id": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "label": "1. Descripci\u00f3n y Objetivos de Negocio",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "7.3 evaluacion pedagogica con inteligencia artificial",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L291"
+      "norm_label": "1. descripcion y objetivos de negocio",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L10"
     },
     {
-      "id": "docs_user_guide_7_4_qu\u00e9_hacer_si_la_aplicaci\u00f3n_indica_que_falta_alg\u00fan_ejercicio_recuperaci\u00f3n_ante_error_http_422_exercises_not_found",
-      "label": "7.4 \u00bfQu\u00e9 hacer si la aplicaci\u00f3n indica que falta alg\u00fan ejercicio? (Recuperaci\u00f3n ante Error HTTP 422: `exercises_not_found`)",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "7.4 \u00bfque hacer si la aplicacion indica que falta algun ejercicio? (recuperacion ante error http 422: `exercises_not_found`)",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L307"
-    },
-    {
-      "id": "docs_user_guide_7_5_panel_de_resultados_progresi\u00f3n_adaptativa_y_calendario_srs_roundresults",
-      "label": "7.5 Panel de Resultados, Progresi\u00f3n Adaptativa y Calendario SRS (`RoundResults`)",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "7.5 panel de resultados, progresion adaptativa y calendario srs (`roundresults`)",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L321"
-    },
-    {
-      "id": "docs_user_guide_7_m\u00f3dulo_de_entrenamiento_en_cuaderno_f\u00edsico_y_evaluaci\u00f3n_de_rondas_roundsession",
-      "label": "7. M\u00f3dulo de Entrenamiento en Cuaderno F\u00edsico y Evaluaci\u00f3n de Rondas (`RoundSession`)",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "RoundSession",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "7. modulo de entrenamiento en cuaderno fisico y evaluacion de rondas (`roundsession`)",
-      "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L253"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_2_criterios_de_aceptaci\u00f3n_ac",
+      "id": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L196"
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L161"
     },
     {
-      "id": "tickets_math_us_13_round_session_ui_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "id": "tickets_math_us_17_curricular_expansion_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L208"
+      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L222"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "id": "tickets_math_us_17_curricular_expansion_5_commit_de_cierre_en_dev",
+      "label": "5. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 15,
-      "community_name": "RoundSession",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L163"
+      "norm_label": "5. commit de cierre en dev",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L260"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_ac_1_exportaci\u00f3n_can\u00f3nica_en_los_cuatro_nuevos_m\u00f3dulos",
+      "label": "AC-1: Exportaci\u00f3n Can\u00f3nica en los Cuatro Nuevos M\u00f3dulos",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-1: exportacion canonica en los cuatro nuevos modulos",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L166"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_ac_2_cobertura_exhaustiva_de_las_9_celdas_adaptativas_por_tema",
+      "label": "AC-2: Cobertura Exhaustiva de las 9 Celdas Adaptativas por Tema",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-2: cobertura exhaustiva de las 9 celdas adaptativas por tema",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L172"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_ac_3_registro_completo_de_los_8_temas_en_server_seed_data_index_js",
+      "label": "AC-3: Registro Completo de los 8 Temas en `server/seed-data/index.js`",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-3: registro completo de los 8 temas en `server/seed-data/index.js`",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L177"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_ac_4_siembra_idempotente_y_generaci\u00f3n_de_pistas_npm_run_seed",
+      "label": "AC-4: Siembra Idempotente y Generaci\u00f3n de Pistas (`npm run seed`)",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-4: siembra idempotente y generacion de pistas (`npm run seed`)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L182"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_base_de_datos_y_pipeline_de_siembra",
+      "label": "Base de Datos y Pipeline de Siembra",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "base de datos y pipeline de siembra",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L244"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_especificaci\u00f3n_de_celdas_adaptativas_por_tema",
+      "label": "Especificaci\u00f3n de Celdas Adaptativas por Tema:",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "especificacion de celdas adaptativas por tema:",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "label": "[MATH-US-17] Expansi\u00f3n Curricular: Cuatro Nuevos Temas Matem\u00e1ticos",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-17] expansion curricular: cuatro nuevos temas matematicos",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_tests_e2e_playwright",
+      "label": "Tests E2E (Playwright)",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests e2e (playwright)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L252"
+    },
+    {
+      "id": "tickets_math_us_17_curricular_expansion_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
+      "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
+      "_origin": "ast",
+      "community": 15,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests unitarios e integracion (vitest / supertest)",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L224"
     },
     {
       "id": "tickets_math_us_11_round_builder",
@@ -2709,18 +2743,6 @@
       "norm_label": "3. `get /api/rounds/:id` \u2014 consulta de ronda existente",
       "source_file": "tickets/MATH-US-11-round-builder.md",
       "source_location": "L169"
-    },
-    {
-      "id": "tickets_math_us_11_round_builder_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-11-round-builder.md",
-      "source_location": "L224"
     },
     {
       "id": "tickets_math_us_11_round_builder_4_1_plan_de_pruebas_unitarias_de_roundbuilder_js_server_tests_roundbuilder_test_js",
@@ -2891,22 +2913,11 @@
       "source_location": "L300"
     },
     {
-      "id": "server_package",
-      "label": "server/package.json",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "server/package.json",
-      "source_file": "server/package.json",
-      "source_location": "L1"
-    },
-    {
       "id": "server_package_dependencies",
       "label": "dependencies",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "server/package.json",
@@ -2917,7 +2928,7 @@
       "label": "cors",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "cors",
       "source_file": "server/package.json",
@@ -2928,7 +2939,7 @@
       "label": "dotenv",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "dotenv",
       "source_file": "server/package.json",
@@ -2939,7 +2950,7 @@
       "label": "express",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "express",
       "source_file": "server/package.json",
@@ -2950,7 +2961,7 @@
       "label": "@google/genai",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "@google/genai",
       "source_file": "server/package.json",
@@ -2961,176 +2972,11 @@
       "label": "mongoose",
       "_origin": "ast",
       "community": 17,
-      "community_name": "server/package.json",
+      "community_name": "dependencies",
       "file_type": "code",
       "norm_label": "mongoose",
       "source_file": "server/package.json",
       "source_location": "L17"
-    },
-    {
-      "id": "server_package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "server/package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "server_package_devdependencies_mongodb_memory_server",
-      "label": "mongodb-memory-server",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "mongodb-memory-server",
-      "source_file": "server/package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "server_package_devdependencies_supertest",
-      "label": "supertest",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "supertest",
-      "source_file": "server/package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "server_package_devdependencies_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "vitest",
-      "source_file": "server/package.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "server_package_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "server/package.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "server_package_private",
-      "label": "private",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "private",
-      "source_file": "server/package.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "server_package_scripts",
-      "label": "scripts",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "server/package.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "server_package_scripts_dev",
-      "label": "dev",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "dev",
-      "source_file": "server/package.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "server_package_scripts_seed",
-      "label": "seed",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "seed",
-      "source_file": "server/package.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "server_package_scripts_start",
-      "label": "start",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "start",
-      "source_file": "server/package.json",
-      "source_location": "L8"
-    },
-    {
-      "id": "server_package_scripts_test",
-      "label": "test",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "test",
-      "source_file": "server/package.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "server_package_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "server/package.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "server_package_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "server/package.json",
-      "source_location": "L3"
-    },
-    {
-      "id": "ref_cors",
-      "label": "cors",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "concept",
-      "norm_label": "cors",
-      "source_file": "server/package.json",
-      "source_location": "L14"
-    },
-    {
-      "id": "server_package_json_ref_vitest",
-      "label": "vitest",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "concept",
-      "norm_label": "vitest",
-      "source_file": "server/package.json",
-      "source_location": "L22"
     },
     {
       "id": "tickets_math_us_04_multimodal_pipeline",
@@ -3334,7 +3180,7 @@
       "node_kind": "heading",
       "norm_label": "11.1 mocking determinista de gemini 1.5 pro",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L872"
+      "source_location": "L882"
     },
     {
       "id": "docs_architecture_11_2_cobertura_de_flujos_e2e_cr\u00edticos",
@@ -3346,7 +3192,7 @@
       "node_kind": "heading",
       "norm_label": "11.2 cobertura de flujos e2e criticos",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L876"
+      "source_location": "L886"
     },
     {
       "id": "docs_architecture_11_estrategia_de_pruebas_automatizadas_y_validaci\u00f3n_e2e",
@@ -3358,7 +3204,7 @@
       "node_kind": "heading",
       "norm_label": "11. estrategia de pruebas automatizadas y validacion e2e",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L856"
+      "source_location": "L866"
     },
     {
       "id": "docs_architecture_1_topolog\u00eda_del_monorepo",
@@ -3454,7 +3300,7 @@
       "node_kind": "heading",
       "norm_label": "4.1 modularidad de datasets curados (`server/seed-data/`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L221"
+      "source_location": "L225"
     },
     {
       "id": "docs_architecture_4_2_estrategia_de_idempotencia_estricta_con_externalkey",
@@ -3466,7 +3312,7 @@
       "node_kind": "heading",
       "norm_label": "4.2 estrategia de idempotencia estricta con `externalkey`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L230"
+      "source_location": "L238"
     },
     {
       "id": "docs_architecture_4_3_garant\u00eda_de_volumen_para_el_constructor_de_rondas",
@@ -3478,7 +3324,7 @@
       "node_kind": "heading",
       "norm_label": "4.3 garantia de volumen para el constructor de rondas",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L245"
+      "source_location": "L255"
     },
     {
       "id": "docs_architecture_4_pipeline_de_siembra_idempotente_y_cat\u00e1logo_curado_server_scripts_seed_js",
@@ -3502,7 +3348,7 @@
       "node_kind": "heading",
       "norm_label": "5.1 centralizacion de constantes y umbrales (`server/src/config/progression.js`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L302"
+      "source_location": "L312"
     },
     {
       "id": "docs_architecture_5_2_contrato_funcional_de_computeroundoutcome",
@@ -3514,7 +3360,7 @@
       "node_kind": "heading",
       "norm_label": "5.2 contrato funcional de `computeroundoutcome`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L327"
+      "source_location": "L337"
     },
     {
       "id": "docs_architecture_5_3_matriz_de_acoplamiento_bidireccional_dificultad_adaptativa_vs_algoritmo_sm_2",
@@ -3526,7 +3372,7 @@
       "node_kind": "heading",
       "norm_label": "5.3 matriz de acoplamiento bidireccional: dificultad adaptativa vs. algoritmo sm-2",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L355"
+      "source_location": "L365"
     },
     {
       "id": "docs_architecture_5_motor_de_progresi\u00f3n_adaptativa_y_acoplamiento_srs_progressionengine_js",
@@ -3538,7 +3384,7 @@
       "node_kind": "heading",
       "norm_label": "5. motor de progresion adaptativa y acoplamiento srs (`progressionengine.js`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L257"
+      "source_location": "L267"
     },
     {
       "id": "docs_architecture_6_1_algoritmo_de_selecci\u00f3n_rotaci\u00f3n_justa_y_presupuesto_temporal",
@@ -3550,7 +3396,7 @@
       "node_kind": "heading",
       "norm_label": "6.1 algoritmo de seleccion, rotacion justa y presupuesto temporal",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L372"
+      "source_location": "L382"
     },
     {
       "id": "docs_architecture_6_constructor_de_rondas_calibrado_roundbuilder_js",
@@ -3562,7 +3408,7 @@
       "node_kind": "heading",
       "norm_label": "6. constructor de rondas calibrado (`roundbuilder.js`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L368"
+      "source_location": "L378"
     },
     {
       "id": "docs_architecture_8_1_get_api_topics",
@@ -3574,7 +3420,7 @@
       "node_kind": "heading",
       "norm_label": "8.1 `get /api/topics`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L486"
+      "source_location": "L496"
     },
     {
       "id": "docs_architecture_8_2_get_api_rounds_queue",
@@ -3586,7 +3432,7 @@
       "node_kind": "heading",
       "norm_label": "8.2 `get /api/rounds/queue`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L530"
+      "source_location": "L540"
     },
     {
       "id": "docs_architecture_8_3_post_api_rounds",
@@ -3598,7 +3444,7 @@
       "node_kind": "heading",
       "norm_label": "8.3 `post /api/rounds`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L552"
+      "source_location": "L562"
     },
     {
       "id": "docs_architecture_8_4_get_api_rounds_id",
@@ -3610,7 +3456,7 @@
       "node_kind": "heading",
       "norm_label": "8.4 `get /api/rounds/:id`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L598"
+      "source_location": "L608"
     },
     {
       "id": "docs_architecture_8_5_post_api_rounds_id_evaluate",
@@ -3622,7 +3468,7 @@
       "node_kind": "heading",
       "norm_label": "8.5 `post /api/rounds/:id/evaluate`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L606"
+      "source_location": "L616"
     },
     {
       "id": "docs_architecture_8_6_1_l\u00f3gica_de_agregaci\u00f3n_y_c\u00f3mputo_dashboardcontroller_js",
@@ -3634,7 +3480,7 @@
       "node_kind": "heading",
       "norm_label": "8.6.1 logica de agregacion y computo (`dashboardcontroller.js`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L699"
+      "source_location": "L709"
     },
     {
       "id": "docs_architecture_8_6_2_integraci\u00f3n_ui_con_roundsession_para_rondas_contextuales",
@@ -3646,7 +3492,7 @@
       "node_kind": "heading",
       "norm_label": "8.6.2 integracion ui con `roundsession` para rondas contextuales",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L712"
+      "source_location": "L722"
     },
     {
       "id": "docs_architecture_8_6_3_certificaci\u00f3n_de_limpieza_de_copys_legados",
@@ -3658,7 +3504,7 @@
       "node_kind": "heading",
       "norm_label": "8.6.3 certificacion de limpieza de copys legados",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L716"
+      "source_location": "L726"
     },
     {
       "id": "docs_architecture_8_6_get_api_dashboard_summary",
@@ -3670,7 +3516,7 @@
       "node_kind": "heading",
       "norm_label": "8.6 `get /api/dashboard/summary`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L638"
+      "source_location": "L648"
     },
     {
       "id": "docs_architecture_8_7_get_api_health",
@@ -3682,7 +3528,7 @@
       "node_kind": "heading",
       "norm_label": "8.7 `get /api/health`",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L723"
+      "source_location": "L733"
     },
     {
       "id": "docs_architecture_8_contratos_de_api_activos",
@@ -3694,7 +3540,19 @@
       "node_kind": "heading",
       "norm_label": "8. contratos de api activos",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L484"
+      "source_location": "L494"
+    },
+    {
+      "id": "docs_architecture_9_deprecaci\u00f3n_y_purga_definitiva_de_endpoints_legados",
+      "label": "9. Deprecaci\u00f3n y Purga Definitiva de Endpoints Legados",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9. deprecacion y purga definitiva de endpoints legados",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L738"
     },
     {
       "id": "docs_architecture_arquitectura_t\u00e9cnica_del_sistema_mathcoach_sparring",
@@ -4222,6 +4080,17 @@
       "source_location": "L27"
     },
     {
+      "id": "ref_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "client/package.json",
+      "file_type": "concept",
+      "norm_label": "react-dom",
+      "source_file": "client/package.json",
+      "source_location": "L16"
+    },
+    {
       "id": "ref_react_markdown",
       "label": "react-markdown",
       "_origin": "ast",
@@ -4303,7 +4172,7 @@
       "label": "App.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "app.jsx",
       "source_file": "client/src/App.jsx",
@@ -4314,7 +4183,7 @@
       "label": "DEFAULT_TOPIC",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "default_topic",
       "source_file": "client/src/App.jsx",
@@ -4325,7 +4194,7 @@
       "label": "Dashboard.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "dashboard.jsx",
       "source_file": "client/src/components/Dashboard.jsx",
@@ -4336,18 +4205,84 @@
       "label": "MathVisionUploader.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "mathvisionuploader.jsx",
       "source_file": "client/src/components/MathVisionUploader.jsx",
       "source_location": "L1"
     },
     {
+      "id": "client_src_components_roundphotocapture",
+      "label": "RoundPhotoCapture.jsx",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundphotocapture.jsx",
+      "source_file": "client/src/components/RoundPhotoCapture.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_roundresults",
+      "label": "RoundResults.jsx",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundresults.jsx",
+      "source_file": "client/src/components/RoundResults.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_roundsession",
+      "label": "RoundSession.jsx",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundsession.jsx",
+      "source_file": "client/src/components/RoundSession.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_constants_categories",
+      "label": "constants/categories.js",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "constants/categories.js",
+      "source_file": "client/src/constants/categories.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_constants_categories_categories",
+      "label": "CATEGORIES",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "categories",
+      "source_file": "client/src/constants/categories.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_constants_categories_valid_categories",
+      "label": "VALID_CATEGORIES",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "valid_categories",
+      "source_file": "client/src/constants/categories.js",
+      "source_location": "L7"
+    },
+    {
       "id": "client_src_hooks_usevoiceinteraction",
       "label": "useVoiceInteraction.js",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "usevoiceinteraction.js",
       "source_file": "client/src/hooks/useVoiceInteraction.js",
@@ -4358,18 +4293,51 @@
       "label": "main.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "main.jsx",
       "source_file": "client/src/main.jsx",
       "source_location": "L1"
     },
     {
+      "id": "client_src_utils_compressimage",
+      "label": "compressImage.js",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "compressimage.js",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_utils_compressimage_jpeg_quality",
+      "label": "JPEG_QUALITY",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "jpeg_quality",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "client_src_utils_compressimage_max_image_dimension",
+      "label": "MAX_IMAGE_DIMENSION",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "max_image_dimension",
+      "source_file": "client/src/utils/compressImage.js",
+      "source_location": "L8"
+    },
+    {
       "id": "client_tests_app_test",
       "label": "App.test.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "app.test.jsx",
       "source_file": "client/tests/App.test.jsx",
@@ -4380,7 +4348,7 @@
       "label": "Dashboard.test.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "dashboard.test.jsx",
       "source_file": "client/tests/Dashboard.test.jsx",
@@ -4391,7 +4359,7 @@
       "label": "MathVisionUploader.test.jsx",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "mathvisionuploader.test.jsx",
       "source_file": "client/tests/MathVisionUploader.test.jsx",
@@ -4402,56 +4370,397 @@
       "label": "SAMPLE_TOPIC",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "code",
       "norm_label": "sample_topic",
       "source_file": "client/tests/MathVisionUploader.test.jsx",
       "source_location": "L6"
     },
     {
+      "id": "client_tests_roundresults_test",
+      "label": "RoundResults.test.jsx",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundresults.test.jsx",
+      "source_file": "client/tests/RoundResults.test.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_tests_roundresults_test_sample_evaluation_not_promoted",
+      "label": "SAMPLE_EVALUATION_NOT_PROMOTED",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "sample_evaluation_not_promoted",
+      "source_file": "client/tests/RoundResults.test.jsx",
+      "source_location": "L43"
+    },
+    {
+      "id": "client_tests_roundresults_test_sample_evaluation_promoted",
+      "label": "SAMPLE_EVALUATION_PROMOTED",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "sample_evaluation_promoted",
+      "source_file": "client/tests/RoundResults.test.jsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "client_tests_roundresults_test_sample_round",
+      "label": "SAMPLE_ROUND",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "sample_round",
+      "source_file": "client/tests/RoundResults.test.jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "client_tests_roundsession_test",
+      "label": "RoundSession.test.jsx",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "roundsession.test.jsx",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_tests_roundsession_test_sample_evaluation_success",
+      "label": "SAMPLE_EVALUATION_SUCCESS",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "sample_evaluation_success",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "client_tests_roundsession_test_sample_round_payload",
+      "label": "SAMPLE_ROUND_PAYLOAD",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "code",
+      "norm_label": "sample_round_payload",
+      "source_file": "client/tests/RoundSession.test.jsx",
+      "source_location": "L6"
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "concept",
+      "norm_label": "lucide-react",
+      "source_file": "client/package.json",
+      "source_location": "L14"
+    },
+    {
       "id": "ref_react",
       "label": "react",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "client/package.json",
       "source_location": "L15"
     },
     {
-      "id": "ref_react_dom",
-      "label": "react-dom",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "react-dom",
-      "source_file": "client/package.json",
-      "source_location": "L16"
-    },
-    {
       "id": "ref_testing_library_react",
       "label": "@testing-library/react",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "concept",
       "norm_label": "@testing-library/react",
       "source_file": "client/package.json",
       "source_location": "L23"
     },
     {
-      "id": "tickets_math_us_14_dashboard_tracks_3_subgrafo_afectado_identificado_con_graphify",
+      "id": "docs_architecture_10_1_jerarqu\u00eda_y_descomposici\u00f3n_de_componentes_react",
+      "label": "10.1 Jerarqu\u00eda y Descomposici\u00f3n de Componentes React",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "10.1 jerarquia y descomposicion de componentes react",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L757"
+    },
+    {
+      "id": "docs_architecture_10_2_m\u00e1quina_de_estados_local_de_la_sesi\u00f3n",
+      "label": "10.2 M\u00e1quina de Estados Local de la Sesi\u00f3n",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "10.2 maquina de estados local de la sesion",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L792"
+    },
+    {
+      "id": "docs_architecture_10_3_manejo_de_errores_http_y_resiliencia_en_cliente",
+      "label": "10.3 Manejo de Errores HTTP y Resiliencia en Cliente",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "10.3 manejo de errores http y resiliencia en cliente",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L837"
+    },
+    {
+      "id": "docs_architecture_10_4_contrato_estricto_de_identificadores_estables_para_e2e",
+      "label": "10.4 Contrato Estricto de Identificadores Estables para E2E",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "10.4 contrato estricto de identificadores estables para e2e",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L847"
+    },
+    {
+      "id": "docs_architecture_10_arquitectura_frontend_de_sesi\u00f3n_de_ronda_roundsession",
+      "label": "10. Arquitectura Frontend de Sesi\u00f3n de Ronda (`RoundSession`)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "10. arquitectura frontend de sesion de ronda (`roundsession`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L753"
+    },
+    {
+      "id": "docs_user_guide_7_1_el_flujo_de_trabajo_en_libreta_f\u00edsica_ronda_completa",
+      "label": "7.1 El Flujo de Trabajo en Libreta F\u00edsica (Ronda Completa)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.1 el flujo de trabajo en libreta fisica (ronda completa)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L262"
+    },
+    {
+      "id": "docs_user_guide_7_2_captura_fotogr\u00e1fica_multimodal_1_a_6_fotograf\u00edas",
+      "label": "7.2 Captura Fotogr\u00e1fica Multimodal (1 a 6 Fotograf\u00edas)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.2 captura fotografica multimodal (1 a 6 fotografias)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L284"
+    },
+    {
+      "id": "docs_user_guide_7_3_evaluaci\u00f3n_pedag\u00f3gica_con_inteligencia_artificial",
+      "label": "7.3 Evaluaci\u00f3n Pedag\u00f3gica con Inteligencia Artificial",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.3 evaluacion pedagogica con inteligencia artificial",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L296"
+    },
+    {
+      "id": "docs_user_guide_7_4_qu\u00e9_hacer_si_la_aplicaci\u00f3n_indica_que_falta_alg\u00fan_ejercicio_recuperaci\u00f3n_ante_error_http_422_exercises_not_found",
+      "label": "7.4 \u00bfQu\u00e9 hacer si la aplicaci\u00f3n indica que falta alg\u00fan ejercicio? (Recuperaci\u00f3n ante Error HTTP 422: `exercises_not_found`)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.4 \u00bfque hacer si la aplicacion indica que falta algun ejercicio? (recuperacion ante error http 422: `exercises_not_found`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L312"
+    },
+    {
+      "id": "docs_user_guide_7_5_panel_de_resultados_progresi\u00f3n_adaptativa_y_calendario_srs_roundresults",
+      "label": "7.5 Panel de Resultados, Progresi\u00f3n Adaptativa y Calendario SRS (`RoundResults`)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.5 panel de resultados, progresion adaptativa y calendario srs (`roundresults`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L326"
+    },
+    {
+      "id": "docs_user_guide_7_m\u00f3dulo_de_entrenamiento_en_cuaderno_f\u00edsico_y_evaluaci\u00f3n_de_rondas_roundsession",
+      "label": "7. M\u00f3dulo de Entrenamiento en Cuaderno F\u00edsico y Evaluaci\u00f3n de Rondas (`RoundSession`)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. modulo de entrenamiento en cuaderno fisico y evaluacion de rondas (`roundsession`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L258"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_3_subgrafo_afectado_identificado_con_graphify",
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L240"
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L117"
+    },
+    {
+      "id": "tickets_math_us_07_hotfix_ui_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-07-hotfix-ui.md",
+      "source_location": "L95"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui",
+      "label": "MATH-US-13-round-session-ui.md",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "math-us-13-round-session-ui.md",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_2_criterios_de_aceptaci\u00f3n_ac",
+      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. criterios de aceptacion (ac)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L196"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L208"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_4_estrategia_de_pruebas_y_cobertura_vitest_testing_library",
+      "label": "4. Estrategia de Pruebas y Cobertura (Vitest + Testing Library)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. estrategia de pruebas y cobertura (vitest + testing library)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L234"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_5_evidencia_de_pruebas_completado_por_verify_user_story",
+      "label": "5. Evidencia de Pruebas (Completado por verify-user-story)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. evidencia de pruebas (completado por verify-user-story)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L272"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_6_commit_de_cierre_en_dev",
+      "label": "6. Commit de Cierre en dev",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. commit de cierre en dev",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L288"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_math_us_13_ui_de_sesi\u00f3n_de_ronda_roundsession_jsx",
+      "label": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-13] ui de sesion de ronda (roundsession.jsx)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_tests_e2e_playwright",
+      "label": "Tests E2E (Playwright)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests e2e (playwright)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L282"
+    },
+    {
+      "id": "tickets_math_us_13_round_session_ui_tests_unitarios_e_integraci\u00f3n_vitest",
+      "label": "Tests Unitarios e Integraci\u00f3n (Vitest)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests unitarios e integracion (vitest)",
+      "source_file": "tickets/MATH-US-13-round-session-ui.md",
+      "source_location": "L274"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L163"
     },
     {
       "id": "tickets_math_us_09_curated_catalog",
@@ -4818,7 +5127,7 @@
       "label": "MATH-US-08-domain-model.md",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "math-us-08-domain-model.md",
@@ -4830,7 +5139,7 @@
       "label": "1.1 Contexto Arquitect\u00f3nico y Raz\u00f3n de Cambio",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1.1 contexto arquitectonico y razon de cambio",
@@ -4842,7 +5151,7 @@
       "label": "1.2 Modelo Mental y Glosario de Dominio (\u00a70 y \u00a71 de `graph.md`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1.2 modelo mental y glosario de dominio (\u00a70 y \u00a71 de `graph.md`)",
@@ -4854,7 +5163,7 @@
       "label": "1.3 Esquemas de Base de Datos Mongoose Exactos",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1.3 esquemas de base de datos mongoose exactos",
@@ -4866,7 +5175,7 @@
       "label": "1.4 Mapeo de Categor\u00edas y Servicio Idempotente `ensureTracksForTopic`",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1.4 mapeo de categorias y servicio idempotente `ensuretracksfortopic`",
@@ -4878,7 +5187,7 @@
       "label": "1.5 Contratos API",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1.5 contratos api",
@@ -4890,7 +5199,7 @@
       "label": "1. Descripci\u00f3n y Objetivos de Negocio",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. descripcion y objetivos de negocio",
@@ -4902,7 +5211,7 @@
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
@@ -4914,7 +5223,7 @@
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
@@ -4926,7 +5235,7 @@
       "label": "4.1 Casos de Prueba TDD para `server/tests/models.test.js`",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4.1 casos de prueba tdd para `server/tests/models.test.js`",
@@ -4938,7 +5247,7 @@
       "label": "4.2 Casos de Prueba para `server/tests/topics.test.js`",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4.2 casos de prueba para `server/tests/topics.test.js`",
@@ -4950,7 +5259,7 @@
       "label": "4.3 Comandos de Verificaci\u00f3n Exactos",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4.3 comandos de verificacion exactos",
@@ -4962,7 +5271,7 @@
       "label": "4. Estrategia de Pruebas TDD y Evidencia de Verificaci\u00f3n",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. estrategia de pruebas tdd y evidencia de verificacion",
@@ -4974,7 +5283,7 @@
       "label": "5. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. evidencia de pruebas (completado por verify-user-story)",
@@ -4986,7 +5295,7 @@
       "label": "6. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "6. commit de cierre en dev",
@@ -4998,7 +5307,7 @@
       "label": "A. `GET /api/topics` (`server/src/routes/topics.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "a. `get /api/topics` (`server/src/routes/topics.js`)",
@@ -5010,7 +5319,7 @@
       "label": "A. Modelo `MathTopic` (`server/src/models/MathTopic.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "a. modelo `mathtopic` (`server/src/models/mathtopic.js`)",
@@ -5022,7 +5331,7 @@
       "label": "AC-1: Modelos Mongoose Defensivos (`MathTopic`, `Exercise`, `TopicTrack`, `Round`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-1: modelos mongoose defensivos (`mathtopic`, `exercise`, `topictrack`, `round`)",
@@ -5034,7 +5343,7 @@
       "label": "AC-2: Servicio Idempotente `ensureTracksForTopic(topicId)`",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-2: servicio idempotente `ensuretracksfortopic(topicid)`",
@@ -5046,7 +5355,7 @@
       "label": "AC-3: Endpoint `GET /api/topics` Enriquecido con Pistas",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-3: endpoint `get /api/topics` enriquecido con pistas",
@@ -5058,7 +5367,7 @@
       "label": "AC-4: Purga Absoluta del Backend Legado",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-4: purga absoluta del backend legado",
@@ -5070,7 +5379,7 @@
       "label": "AC-5: Cero Residuos Legados en Backend (Auditor\u00eda Defensiva)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-5: cero residuos legados en backend (auditoria defensiva)",
@@ -5082,7 +5391,7 @@
       "label": "AC-6: Suite de Pruebas Automatizadas en Verde",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-6: suite de pruebas automatizadas en verde",
@@ -5094,7 +5403,7 @@
       "label": "B. Modelo `Exercise` (`server/src/models/Exercise.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "b. modelo `exercise` (`server/src/models/exercise.js`)",
@@ -5106,7 +5415,7 @@
       "label": "B. Stub Compatible `GET /api/dashboard/summary` (`server/src/controllers/dashboardController.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "b. stub compatible `get /api/dashboard/summary` (`server/src/controllers/dashboardcontroller.js`)",
@@ -5118,7 +5427,7 @@
       "label": "C. Modelo `TopicTrack` (`server/src/models/TopicTrack.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "c. modelo `topictrack` (`server/src/models/topictrack.js`)",
@@ -5130,7 +5439,7 @@
       "label": "D. Modelo `Round` (`server/src/models/Round.js`)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "d. modelo `round` (`server/src/models/round.js`)",
@@ -5142,7 +5451,7 @@
       "label": "[MATH-US-08] Modelo de Dominio Tema \u00d7 Categor\u00eda \u00d7 Dificultad + Purga de Backend Legado",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "[math-us-08] modelo de dominio tema \u00d7 categoria \u00d7 dificultad + purga de backend legado",
@@ -5154,7 +5463,7 @@
       "label": "Tests de Auditor\u00eda Grep",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests de auditoria grep",
@@ -5166,7 +5475,7 @@
       "label": "Tests E2E (Playwright - Math Vision Flow)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright - math vision flow)",
@@ -5178,7 +5487,7 @@
       "label": "Tests Unitarios e Integraci\u00f3n Backend (Vitest / Supertest)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests unitarios e integracion backend (vitest / supertest)",
@@ -5190,7 +5499,7 @@
       "label": "Tests Unitarios Frontend (Vitest / React Testing Library)",
       "_origin": "ast",
       "community": 27,
-      "community_name": "ensureTracksForTopic",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests unitarios frontend (vitest / react testing library)",
@@ -5383,6 +5692,90 @@
       "norm_label": "srscalculator.test.js",
       "source_file": "server/tests/srsCalculator.test.js",
       "source_location": "L1"
+    },
+    {
+      "id": "antigravity_graph_4_historias_pendientes_hito_2_backlog",
+      "label": "4. Historias Pendientes (Hito 2: Backlog)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. historias pendientes (hito 2: backlog)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L157"
+    },
+    {
+      "id": "antigravity_graph_math_us_16_calibraci\u00f3n_de_rondas_a_30_minutos_t\u00e9cnica_y_aplicaci\u00f3n",
+      "label": "[MATH-US-16] Calibraci\u00f3n de Rondas a 30 Minutos (T\u00e9cnica y Aplicaci\u00f3n)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-16] calibracion de rondas a 30 minutos (tecnica y aplicacion)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L159"
+    },
+    {
+      "id": "antigravity_graph_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "label": "[MATH-US-17] Expansi\u00f3n Curricular: Cuatro Nuevos Temas Matem\u00e1ticos",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-17] expansion curricular: cuatro nuevos temas matematicos",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L177"
+    },
+    {
+      "id": "antigravity_graph_math_us_18_banco_curado_masivo_de_ejercicios_seed_2_0_y_auditor\u00eda",
+      "label": "[MATH-US-18] Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditor\u00eda)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-18] banco curado masivo de ejercicios (seed 2.0 y auditoria)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L192"
+    },
+    {
+      "id": "antigravity_graph_math_us_19_diagn\u00f3stico_quir\u00fargico_de_errores_y_prerrequisitos_rotos",
+      "label": "[MATH-US-19] Diagn\u00f3stico Quir\u00fargico de Errores y Prerrequisitos Rotos",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-19] diagnostico quirurgico de errores y prerrequisitos rotos",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L206"
+    },
+    {
+      "id": "antigravity_graph_math_us_20_rondas_intercaladas_interleaving_mode_pr\u00e1ctica_mixta_multitema",
+      "label": "[MATH-US-20] Rondas Intercaladas (\"Interleaving Mode\" / Pr\u00e1ctica Mixta Multitema)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-20] rondas intercaladas (\"interleaving mode\" / practica mixta multitema)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L220"
+    },
+    {
+      "id": "antigravity_graph_math_us_21_sistema_de_pistas_escalonadas_socr\u00e1ticas_3_tier_hint_scaffolding",
+      "label": "[MATH-US-21] Sistema de Pistas Escalonadas Socr\u00e1ticas (3-Tier Hint Scaffolding)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-21] sistema de pistas escalonadas socraticas (3-tier hint scaffolding)",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L230"
     },
     {
       "id": "tickets_math_us_10_progression_engine",
@@ -5673,6 +6066,18 @@
       "source_location": "L270"
     },
     {
+      "id": "tickets_math_us_11_round_builder_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "progression.js",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-11-round-builder.md",
+      "source_location": "L224"
+    },
+    {
       "id": "tickets_math_us_16_round_calibration_3_subgrafo_afectado_identificado_con_graphify",
       "label": "3. Subgrafo Afectado (Identificado con Graphify)",
       "_origin": "ast",
@@ -5716,7 +6121,7 @@
       "node_kind": "heading",
       "norm_label": "7.1 prompt engineering y rubricas especializadas",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L440"
+      "source_location": "L450"
     },
     {
       "id": "docs_architecture_7_2_esquema_json_estricto_y_auditor\u00eda_de_cobertura_found_boolean",
@@ -5728,7 +6133,7 @@
       "node_kind": "heading",
       "norm_label": "7.2 esquema json estricto y auditoria de cobertura (`found: boolean`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L460"
+      "source_location": "L470"
     },
     {
       "id": "docs_architecture_7_pipeline_multimodal_de_evaluaci\u00f3n_de_rondas_geminiservice_js",
@@ -5740,7 +6145,7 @@
       "node_kind": "heading",
       "norm_label": "7. pipeline multimodal de evaluacion de rondas (`geminiservice.js`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L416"
+      "source_location": "L426"
     },
     {
       "id": "tickets_math_us_12_round_evaluation",
@@ -6283,227 +6688,11 @@
       "source_location": "L187"
     },
     {
-      "id": "docs_architecture_9_deprecaci\u00f3n_y_purga_definitiva_de_endpoints_legados",
-      "label": "9. Deprecaci\u00f3n y Purga Definitiva de Endpoints Legados",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9. deprecacion y purga definitiva de endpoints legados",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L728"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader",
-      "label": "MATH-US-03-vision-uploader.md",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "math-us-03-vision-uploader.md",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_1_descripci\u00f3n",
-      "label": "1. Descripci\u00f3n",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. descripcion",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L8"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_2_criterios_de_aceptaci\u00f3n_ac",
-      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. criterios de aceptacion (ac)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L117"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_4_evidencia_de_pruebas_completado_por_verify_user_story",
-      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L129"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_5_commit_de_cierre_en_dev",
-      "label": "5. Commit de Cierre en dev",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. commit de cierre en dev",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L153"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_1_inicializaci\u00f3n_y_gesti\u00f3n_defensiva_de_permisos_webrtc",
-      "label": "AC-1: Inicializaci\u00f3n y Gesti\u00f3n Defensiva de Permisos WebRTC",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-1: inicializacion y gestion defensiva de permisos webrtc",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L20"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_2_estado_capturar_ejercicio_stream_en_vivo_y_gu\u00edas_de_encuadre",
-      "label": "AC-2: Estado \"Capturar Ejercicio\" (Stream en Vivo y Gu\u00edas de Encuadre)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-2: estado \"capturar ejercicio\" (stream en vivo y guias de encuadre)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L39"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_3_congelado_de_fotograma_canvas_y_conversi\u00f3n_base64",
-      "label": "AC-3: Congelado de Fotograma, Canvas y Conversi\u00f3n Base64",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-3: congelado de fotograma, canvas y conversion base64",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L48"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_4_estado_analizando_con_ia_feedback_inmersivo",
-      "label": "AC-4: Estado \"Analizando con IA...\" (Feedback Inmersivo)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-4: estado \"analizando con ia...\" (feedback inmersivo)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_5_contrato_de_comunicaci\u00f3n_post_al_backend",
-      "label": "AC-5: Contrato de Comunicaci\u00f3n POST al Backend",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-5: contrato de comunicacion post al backend",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L61"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_6_visualizaci\u00f3n_de_resultados_pedag\u00f3gicos_y_actualizaci\u00f3n_srs",
-      "label": "AC-6: Visualizaci\u00f3n de Resultados Pedag\u00f3gicos y Actualizaci\u00f3n SRS",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-6: visualizacion de resultados pedagogicos y actualizacion srs",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L95"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_7_arquitectura_del_componente_y_buenas_pr\u00e1cticas",
-      "label": "AC-7: Arquitectura del Componente y Buenas Pr\u00e1cticas",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-7: arquitectura del componente y buenas practicas",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L105"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_ac_8_harness_de_pruebas_automatizadas",
-      "label": "AC-8: Harness de Pruebas Automatizadas",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-8: harness de pruebas automatizadas",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L111"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_math_us_03_ui_de_cero_fricci\u00f3n_para_active_recall_mathvisionuploader_jsx",
-      "label": "[MATH-US-03] UI de Cero Fricci\u00f3n para Active Recall (MathVisionUploader.jsx)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-03] ui de cero friccion para active recall (mathvisionuploader.jsx)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_tests_e2e_playwright",
-      "label": "Tests E2E (Playwright)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests e2e (playwright)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L147"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_tests_unitarios_e_integraci\u00f3n_vitest",
-      "label": "Tests Unitarios e Integraci\u00f3n (Vitest)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests unitarios e integracion (vitest)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L131"
-    },
-    {
       "id": "tickets_math_us_07_hotfix_ui",
       "label": "MATH-US-07-hotfix-ui.md",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "math-us-07-hotfix-ui.md",
@@ -6515,7 +6704,7 @@
       "label": "1. Descripci\u00f3n",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. descripcion",
@@ -6527,7 +6716,7 @@
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
@@ -6535,23 +6724,11 @@
       "source_location": "L39"
     },
     {
-      "id": "tickets_math_us_07_hotfix_ui_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "MathVisionUploader",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-07-hotfix-ui.md",
-      "source_location": "L95"
-    },
-    {
       "id": "tickets_math_us_07_hotfix_ui_4_evidencia_de_pruebas_completado_por_verify_user_story",
       "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
@@ -6563,7 +6740,7 @@
       "label": "5. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. commit de cierre en dev",
@@ -6575,7 +6752,7 @@
       "label": "AC-1: Montaje \u00danico de `MathVisionUploader` y Test de Instancia \u00danica",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-1: montaje unico de `mathvisionuploader` y test de instancia unica",
@@ -6587,7 +6764,7 @@
       "label": "AC-2: Componente `MathStatement.jsx` con Markdown + LaTeX (KaTeX)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-2: componente `mathstatement.jsx` con markdown + latex (katex)",
@@ -6599,7 +6776,7 @@
       "label": "AC-3: Estado Vac\u00edo cuando no hay Ejercicio Cargado",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-3: estado vacio cuando no hay ejercicio cargado",
@@ -6611,7 +6788,7 @@
       "label": "AC-4: Eliminaci\u00f3n Total de \"Coding Playground\" y Navegaci\u00f3n Simplificada",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-4: eliminacion total de \"coding playground\" y navegacion simplificada",
@@ -6623,7 +6800,7 @@
       "label": "AC-5: Limpieza de Copys Legados en `Dashboard.jsx`",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-5: limpieza de copys legados en `dashboard.jsx`",
@@ -6635,7 +6812,7 @@
       "label": "AC-6: Verificaci\u00f3n de Cero Residuos Legados en Frontend",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-6: verificacion de cero residuos legados en frontend",
@@ -6647,7 +6824,7 @@
       "label": "AC-7: Suite de Tests Verde (Cliente y E2E)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-7: suite de tests verde (cliente y e2e)",
@@ -6659,7 +6836,7 @@
       "label": "Contexto y Defectos Detectados",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "contexto y defectos detectados",
@@ -6671,7 +6848,7 @@
       "label": "[MATH-US-07] Hotfix UI: Enunciado Visible, Captura \u00danica y Textos Coherentes",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "[math-us-07] hotfix ui: enunciado visible, captura unica y textos coherentes",
@@ -6683,7 +6860,7 @@
       "label": "Tests E2E (Playwright - Flujo Math Vision Activo)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright - flujo math vision activo)",
@@ -6695,7 +6872,7 @@
       "label": "Tests Unitarios e Integraci\u00f3n (Vitest)",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests unitarios e integracion (vitest)",
@@ -6707,12 +6884,24 @@
       "label": "Verificaci\u00f3n Grep Legados en Frontend",
       "_origin": "ast",
       "community": 31,
-      "community_name": "MathVisionUploader",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "verificacion grep legados en frontend",
       "source_file": "tickets/MATH-US-07-hotfix-ui.md",
       "source_location": "L147"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs",
+      "label": "MATH-US-15-e2e-and-docs.md",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "math-us-15-e2e-and-docs.md",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L1"
     },
     {
       "id": "tickets_math_us_15_e2e_and_docs_1_1_contexto_arquitect\u00f3nico_y_cierre_del_roadmap",
@@ -6823,6 +7012,42 @@
       "source_location": "L10"
     },
     {
+      "id": "tickets_math_us_15_e2e_and_docs_2_criterios_de_aceptaci\u00f3n_ac",
+      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. criterios de aceptacion (ac)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L151"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L194"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_5_commit_de_cierre_en_dev",
+      "label": "5. Commit de Cierre en dev",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. commit de cierre en dev",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L239"
+    },
+    {
       "id": "tickets_math_us_15_e2e_and_docs_flujo_1_flujo_t\u00e9cnica_happy_path_panel_entrenar_ahora_ronda_t\u00e9cnica",
       "label": "Flujo 1: Flujo T\u00e9cnica (Happy Path: Panel \u2192 \"Entrenar ahora\" \u2192 Ronda T\u00e9cnica)",
       "_origin": "ast",
@@ -6869,6 +7094,42 @@
       "norm_label": "flujo 4: flujo resiliencia 422 (deteccion de ejercicio faltante y reevaluacion exitosa)",
       "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
       "source_location": "L83"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "label": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-15] validacion e2e final + documentacion",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_tests_e2e_playwright",
+      "label": "Tests E2E (Playwright)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests e2e (playwright)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L223"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
+      "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests unitarios e integracion (vitest / supertest)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L196"
     },
     {
       "id": "tickets_math_us_16_round_calibration",
@@ -7087,315 +7348,394 @@
       "source_location": "L157"
     },
     {
-      "id": "client_tests_roundsession_test",
-      "label": "RoundSession.test.jsx",
+      "id": "tickets_math_us_03_vision_uploader",
+      "label": "MATH-US-03-vision-uploader.md",
       "_origin": "ast",
       "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": "roundsession.test.jsx",
-      "source_file": "client/tests/RoundSession.test.jsx",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "math-us-03-vision-uploader.md",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
       "source_location": "L1"
     },
     {
-      "id": "client_tests_roundsession_test_sample_evaluation_success",
-      "label": "SAMPLE_EVALUATION_SUCCESS",
+      "id": "tickets_math_us_03_vision_uploader_1_descripci\u00f3n",
+      "label": "1. Descripci\u00f3n",
       "_origin": "ast",
       "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": "sample_evaluation_success",
-      "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L50"
-    },
-    {
-      "id": "client_tests_roundsession_test_sample_round_payload",
-      "label": "SAMPLE_ROUND_PAYLOAD",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "RoundSession.test.jsx",
-      "file_type": "code",
-      "norm_label": "sample_round_payload",
-      "source_file": "client/tests/RoundSession.test.jsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "client_src_components_roundphotocapture",
-      "label": "RoundPhotoCapture.jsx",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "roundphotocapture.jsx",
-      "source_file": "client/src/components/RoundPhotoCapture.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_src_utils_compressimage",
-      "label": "compressImage.js",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "compressimage.js",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_src_utils_compressimage_jpeg_quality",
-      "label": "JPEG_QUALITY",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "jpeg_quality",
-      "source_file": "client/src/utils/compressImage.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "client_src_utils_compressimage_max_image_dimension",
-      "label": "MAX_IMAGE_DIMENSION",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "RoundPhotoCapture.jsx",
-      "file_type": "code",
-      "norm_label": "max_image_dimension",
-      "source_file": "client/src/utils/compressImage.js",
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. descripcion",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
       "source_location": "L8"
     },
     {
-      "id": "tickets_math_us_13_round_session_ui",
-      "label": "MATH-US-13-round-session-ui.md",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "math-us-13-round-session-ui.md",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_4_estrategia_de_pruebas_y_cobertura_vitest_testing_library",
-      "label": "4. Estrategia de Pruebas y Cobertura (Vitest + Testing Library)",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. estrategia de pruebas y cobertura (vitest + testing library)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L234"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_5_evidencia_de_pruebas_completado_por_verify_user_story",
-      "label": "5. Evidencia de Pruebas (Completado por verify-user-story)",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. evidencia de pruebas (completado por verify-user-story)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L272"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_6_commit_de_cierre_en_dev",
-      "label": "6. Commit de Cierre en dev",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "6. commit de cierre en dev",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L288"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_math_us_13_ui_de_sesi\u00f3n_de_ronda_roundsession_jsx",
-      "label": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-13] ui de sesion de ronda (roundsession.jsx)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_tests_e2e_playwright",
-      "label": "Tests E2E (Playwright)",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests e2e (playwright)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L282"
-    },
-    {
-      "id": "tickets_math_us_13_round_session_ui_tests_unitarios_e_integraci\u00f3n_vitest",
-      "label": "Tests Unitarios e Integraci\u00f3n (Vitest)",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "tests unitarios e integracion (vitest)",
-      "source_file": "tickets/MATH-US-13-round-session-ui.md",
-      "source_location": "L274"
-    },
-    {
-      "id": "tickets_math_us_15_e2e_and_docs",
-      "label": "MATH-US-15-e2e-and-docs.md",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "math-us-15-e2e-and-docs.md",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "tickets_math_us_15_e2e_and_docs_2_criterios_de_aceptaci\u00f3n_ac",
+      "id": "tickets_math_us_03_vision_uploader_2_criterios_de_aceptaci\u00f3n_ac",
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L151"
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L18"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "id": "tickets_math_us_03_vision_uploader_4_evidencia_de_pruebas_completado_por_verify_user_story",
       "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L194"
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L129"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_5_commit_de_cierre_en_dev",
+      "id": "tickets_math_us_03_vision_uploader_5_commit_de_cierre_en_dev",
       "label": "5. Commit de Cierre en dev",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. commit de cierre en dev",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L239"
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L153"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
-      "label": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "id": "tickets_math_us_03_vision_uploader_ac_1_inicializaci\u00f3n_y_gesti\u00f3n_defensiva_de_permisos_webrtc",
+      "label": "AC-1: Inicializaci\u00f3n y Gesti\u00f3n Defensiva de Permisos WebRTC",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "[math-us-15] validacion e2e final + documentacion",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "norm_label": "ac-1: inicializacion y gestion defensiva de permisos webrtc",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_2_estado_capturar_ejercicio_stream_en_vivo_y_gu\u00edas_de_encuadre",
+      "label": "AC-2: Estado \"Capturar Ejercicio\" (Stream en Vivo y Gu\u00edas de Encuadre)",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-2: estado \"capturar ejercicio\" (stream en vivo y guias de encuadre)",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_3_congelado_de_fotograma_canvas_y_conversi\u00f3n_base64",
+      "label": "AC-3: Congelado de Fotograma, Canvas y Conversi\u00f3n Base64",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-3: congelado de fotograma, canvas y conversion base64",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L48"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_4_estado_analizando_con_ia_feedback_inmersivo",
+      "label": "AC-4: Estado \"Analizando con IA...\" (Feedback Inmersivo)",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-4: estado \"analizando con ia...\" (feedback inmersivo)",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_5_contrato_de_comunicaci\u00f3n_post_al_backend",
+      "label": "AC-5: Contrato de Comunicaci\u00f3n POST al Backend",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-5: contrato de comunicacion post al backend",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L61"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_6_visualizaci\u00f3n_de_resultados_pedag\u00f3gicos_y_actualizaci\u00f3n_srs",
+      "label": "AC-6: Visualizaci\u00f3n de Resultados Pedag\u00f3gicos y Actualizaci\u00f3n SRS",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-6: visualizacion de resultados pedagogicos y actualizacion srs",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L95"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_7_arquitectura_del_componente_y_buenas_pr\u00e1cticas",
+      "label": "AC-7: Arquitectura del Componente y Buenas Pr\u00e1cticas",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-7: arquitectura del componente y buenas practicas",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_ac_8_harness_de_pruebas_automatizadas",
+      "label": "AC-8: Harness de Pruebas Automatizadas",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-8: harness de pruebas automatizadas",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L111"
+    },
+    {
+      "id": "tickets_math_us_03_vision_uploader_math_us_03_ui_de_cero_fricci\u00f3n_para_active_recall_mathvisionuploader_jsx",
+      "label": "[MATH-US-03] UI de Cero Fricci\u00f3n para Active Recall (MathVisionUploader.jsx)",
+      "_origin": "ast",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-03] ui de cero friccion para active recall (mathvisionuploader.jsx)",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
       "source_location": "L1"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_tests_e2e_playwright",
+      "id": "tickets_math_us_03_vision_uploader_tests_e2e_playwright",
       "label": "Tests E2E (Playwright)",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright)",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L223"
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L147"
     },
     {
-      "id": "tickets_math_us_15_e2e_and_docs_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
-      "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
+      "id": "tickets_math_us_03_vision_uploader_tests_unitarios_e_integraci\u00f3n_vitest",
+      "label": "Tests Unitarios e Integraci\u00f3n (Vitest)",
       "_origin": "ast",
-      "community": 38,
-      "community_name": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "community": 35,
+      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "tests unitarios e integracion (vitest / supertest)",
-      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
-      "source_location": "L196"
+      "norm_label": "tests unitarios e integracion (vitest)",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L131"
     },
     {
-      "id": "client_src_components_roundresults",
-      "label": "RoundResults.jsx",
+      "id": "server_seed_data_derivadas_regla_cadena",
+      "label": "derivadas-regla-cadena.js",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
+      "community": 36,
+      "community_name": "index.js",
       "file_type": "code",
-      "norm_label": "roundresults.jsx",
-      "source_file": "client/src/components/RoundResults.jsx",
+      "norm_label": "derivadas-regla-cadena.js",
+      "source_file": "server/seed-data/derivadas-regla-cadena.js",
       "source_location": "L1"
     },
     {
-      "id": "client_src_components_roundsession",
-      "label": "RoundSession.jsx",
+      "id": "server_seed_data_ecuaciones_sistemas_lineales",
+      "label": "ecuaciones-sistemas-lineales.js",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
+      "community": 36,
+      "community_name": "index.js",
       "file_type": "code",
-      "norm_label": "roundsession.jsx",
-      "source_file": "client/src/components/RoundSession.jsx",
+      "norm_label": "ecuaciones-sistemas-lineales.js",
+      "source_file": "server/seed-data/ecuaciones-sistemas-lineales.js",
       "source_location": "L1"
     },
     {
-      "id": "client_src_constants_categories",
-      "label": "constants/categories.js",
+      "id": "server_seed_data_factorizacion_polinomios",
+      "label": "factorizacion-polinomios.js",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
+      "community": 36,
+      "community_name": "index.js",
       "file_type": "code",
-      "norm_label": "constants/categories.js",
-      "source_file": "client/src/constants/categories.js",
+      "norm_label": "factorizacion-polinomios.js",
+      "source_file": "server/seed-data/factorizacion-polinomios.js",
       "source_location": "L1"
     },
     {
-      "id": "client_src_constants_categories_categories",
-      "label": "CATEGORIES",
+      "id": "server_seed_data_fracciones_algebraicas",
+      "label": "fracciones-algebraicas.js",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
+      "community": 36,
+      "community_name": "index.js",
       "file_type": "code",
-      "norm_label": "categories",
-      "source_file": "client/src/constants/categories.js",
+      "norm_label": "fracciones-algebraicas.js",
+      "source_file": "server/seed-data/fracciones-algebraicas.js",
       "source_location": "L1"
     },
     {
-      "id": "client_src_constants_categories_valid_categories",
-      "label": "VALID_CATEGORIES",
+      "id": "server_seed_data_geometria_analitica_conicas",
+      "label": "geometria-analitica-conicas.js",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
+      "community": 36,
+      "community_name": "index.js",
       "file_type": "code",
-      "norm_label": "valid_categories",
-      "source_file": "client/src/constants/categories.js",
+      "norm_label": "geometria-analitica-conicas.js",
+      "source_file": "server/seed-data/geometria-analitica-conicas.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_seed_data_index",
+      "label": "index.js",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "index.js",
+      "source_file": "server/seed-data/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_seed_data_limites_continuidad",
+      "label": "limites-continuidad.js",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "limites-continuidad.js",
+      "source_file": "server/seed-data/limites-continuidad.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_seed_data_tecnicas_integracion",
+      "label": "tecnicas-integracion.js",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "tecnicas-integracion.js",
+      "source_file": "server/seed-data/tecnicas-integracion.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_seed_data_trigonometria_identidades",
+      "label": "trigonometria-identidades.js",
+      "_origin": "ast",
+      "community": 36,
+      "community_name": "index.js",
+      "file_type": "code",
+      "norm_label": "trigonometria-identidades.js",
+      "source_file": "server/seed-data/trigonometria-identidades.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "server/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "server_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "server/package.json",
       "source_location": "L7"
     },
     {
-      "id": "ref_lucide_react",
-      "label": "lucide-react",
+      "id": "server_package_scripts_seed",
+      "label": "seed",
       "_origin": "ast",
-      "community": 39,
-      "community_name": "RoundSession.jsx",
-      "file_type": "concept",
-      "norm_label": "lucide-react",
-      "source_file": "client/package.json",
-      "source_location": "L14"
+      "community": 37,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "seed",
+      "source_file": "server/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "server_package_scripts_start",
+      "label": "start",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "start",
+      "source_file": "server/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "server_package_scripts_test",
+      "label": "test",
+      "_origin": "ast",
+      "community": 37,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "test",
+      "source_file": "server/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "server_package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "server/package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "server_package_devdependencies_mongodb_memory_server",
+      "label": "mongodb-memory-server",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "mongodb-memory-server",
+      "source_file": "server/package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "server_package_devdependencies_supertest",
+      "label": "supertest",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "supertest",
+      "source_file": "server/package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "server_package_devdependencies_vitest",
+      "label": "vitest",
+      "_origin": "ast",
+      "community": 38,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "vitest",
+      "source_file": "server/package.json",
+      "source_location": "L22"
     },
     {
       "id": "antigravity_skills_document_user_guide",
@@ -7444,50 +7784,6 @@
       "norm_label": "skill: document-user-guide",
       "source_file": ".antigravity/skills/document-user-guide.md",
       "source_location": "L1"
-    },
-    {
-      "id": "client_tests_roundresults_test",
-      "label": "RoundResults.test.jsx",
-      "_origin": "ast",
-      "community": 40,
-      "community_name": "RoundResults.test.jsx",
-      "file_type": "code",
-      "norm_label": "roundresults.test.jsx",
-      "source_file": "client/tests/RoundResults.test.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "client_tests_roundresults_test_sample_evaluation_not_promoted",
-      "label": "SAMPLE_EVALUATION_NOT_PROMOTED",
-      "_origin": "ast",
-      "community": 40,
-      "community_name": "RoundResults.test.jsx",
-      "file_type": "code",
-      "norm_label": "sample_evaluation_not_promoted",
-      "source_file": "client/tests/RoundResults.test.jsx",
-      "source_location": "L43"
-    },
-    {
-      "id": "client_tests_roundresults_test_sample_evaluation_promoted",
-      "label": "SAMPLE_EVALUATION_PROMOTED",
-      "_origin": "ast",
-      "community": 40,
-      "community_name": "RoundResults.test.jsx",
-      "file_type": "code",
-      "norm_label": "sample_evaluation_promoted",
-      "source_file": "client/tests/RoundResults.test.jsx",
-      "source_location": "L19"
-    },
-    {
-      "id": "client_tests_roundresults_test_sample_round",
-      "label": "SAMPLE_ROUND",
-      "_origin": "ast",
-      "community": 40,
-      "community_name": "RoundResults.test.jsx",
-      "file_type": "code",
-      "norm_label": "sample_round",
-      "source_file": "client/tests/RoundResults.test.jsx",
-      "source_location": "L6"
     },
     {
       "id": "antigravity_skills_implement_story",
@@ -7730,7 +8026,7 @@
       "label": "client_src_index",
       "_origin": "semantic",
       "community": 23,
-      "community_name": "react",
+      "community_name": "RoundSession",
       "external": true,
       "file_type": "concept",
       "norm_label": "client_src_index",
@@ -8016,6 +8312,18 @@
       "weight": 1.0
     },
     {
+      "source": "server_tests_topics_test",
+      "target": "server_scripts_seed_seeddatabase",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "server/tests/topics.test.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
       "source": "server_scripts_seed",
       "target": "server_scripts_seed_seeddatabase",
       "relation": "contains",
@@ -8038,6 +8346,19 @@
       "deferred": true,
       "source_file": "server/scripts/seed.js",
       "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "server_tests_topics_test",
+      "target": "server_scripts_seed",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "deferred": true,
+      "source_file": "server/tests/topics.test.js",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -10510,6 +10831,54 @@
       "context": "import",
       "source_file": "server/seed-data/index.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "server_seed_data_index",
+      "target": "server_seed_data_ecuaciones_sistemas_lineales",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/seed-data/index.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "server_seed_data_index",
+      "target": "server_seed_data_trigonometria_identidades",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/seed-data/index.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "server_seed_data_index",
+      "target": "server_seed_data_tecnicas_integracion",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/seed-data/index.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "server_seed_data_index",
+      "target": "server_seed_data_geometria_analitica_conicas",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "server/seed-data/index.js",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -13086,7 +13455,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L747",
+      "source_location": "L757",
       "weight": 1.0
     },
     {
@@ -13097,7 +13466,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L782",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -13108,7 +13477,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L827",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -13119,7 +13488,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L837",
+      "source_location": "L847",
       "weight": 1.0
     },
     {
@@ -13130,7 +13499,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L872",
+      "source_location": "L882",
       "weight": 1.0
     },
     {
@@ -13141,7 +13510,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L876",
+      "source_location": "L886",
       "weight": 1.0
     },
     {
@@ -13196,7 +13565,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L221",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -13207,7 +13576,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L230",
+      "source_location": "L238",
       "weight": 1.0
     },
     {
@@ -13218,7 +13587,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L245",
+      "source_location": "L255",
       "weight": 1.0
     },
     {
@@ -13229,7 +13598,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L302",
+      "source_location": "L312",
       "weight": 1.0
     },
     {
@@ -13240,7 +13609,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L327",
+      "source_location": "L337",
       "weight": 1.0
     },
     {
@@ -13251,7 +13620,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L355",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -13262,7 +13631,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L372",
+      "source_location": "L382",
       "weight": 1.0
     },
     {
@@ -13273,7 +13642,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L440",
+      "source_location": "L450",
       "weight": 1.0
     },
     {
@@ -13284,7 +13653,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L460",
+      "source_location": "L470",
       "weight": 1.0
     },
     {
@@ -13295,7 +13664,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L699",
+      "source_location": "L709",
       "weight": 1.0
     },
     {
@@ -13306,7 +13675,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L712",
+      "source_location": "L722",
       "weight": 1.0
     },
     {
@@ -13317,7 +13686,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L716",
+      "source_location": "L726",
       "weight": 1.0
     },
     {
@@ -13328,7 +13697,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L486",
+      "source_location": "L496",
       "weight": 1.0
     },
     {
@@ -13339,7 +13708,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L530",
+      "source_location": "L540",
       "weight": 1.0
     },
     {
@@ -13350,7 +13719,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L552",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -13361,7 +13730,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L598",
+      "source_location": "L608",
       "weight": 1.0
     },
     {
@@ -13372,7 +13741,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L606",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
@@ -13383,7 +13752,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L638",
+      "source_location": "L648",
       "weight": 1.0
     },
     {
@@ -13394,7 +13763,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L723",
+      "source_location": "L733",
       "weight": 1.0
     },
     {
@@ -13427,7 +13796,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L257",
+      "source_location": "L267",
       "weight": 1.0
     },
     {
@@ -13438,7 +13807,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L368",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -13449,7 +13818,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L416",
+      "source_location": "L426",
       "weight": 1.0
     },
     {
@@ -13460,7 +13829,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L484",
+      "source_location": "L494",
       "weight": 1.0
     },
     {
@@ -13493,7 +13862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L728",
+      "source_location": "L738",
       "weight": 1.0
     },
     {
@@ -13504,7 +13873,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L743",
+      "source_location": "L753",
       "weight": 1.0
     },
     {
@@ -13515,7 +13884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L856",
+      "source_location": "L866",
       "weight": 1.0
     },
     {
@@ -13597,7 +13966,7 @@
     },
     {
       "source": "docs_user_guide_3_cat\u00e1logo_curado_de_ejercicios_matem\u00e1ticos",
-      "target": "docs_user_guide_3_1_temas_curriculares_disponibles",
+      "target": "docs_user_guide_3_1_temas_curriculares_disponibles_8_temas_can\u00f3nicos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -13614,7 +13983,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L114",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -13625,7 +13994,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L125",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -13636,7 +14005,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L178",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -13647,7 +14016,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L142",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -13658,7 +14027,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L156",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -13669,7 +14038,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L184",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -13680,7 +14049,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L190",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -13691,7 +14060,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L209",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -13702,7 +14071,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L215",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -13713,7 +14082,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L257",
+      "source_location": "L262",
       "weight": 1.0
     },
     {
@@ -13724,7 +14093,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L279",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -13735,7 +14104,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L291",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -13746,7 +14115,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L307",
+      "source_location": "L312",
       "weight": 1.0
     },
     {
@@ -13757,7 +14126,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L321",
+      "source_location": "L326",
       "weight": 1.0
     },
     {
@@ -13768,7 +14137,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L373",
+      "source_location": "L378",
       "weight": 1.0
     },
     {
@@ -13779,7 +14148,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L387",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -13790,7 +14159,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L397",
+      "source_location": "L402",
       "weight": 1.0
     },
     {
@@ -13801,7 +14170,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L417",
+      "source_location": "L422",
       "weight": 1.0
     },
     {
@@ -13823,7 +14192,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L138",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -13834,7 +14203,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L203",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -13845,7 +14214,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L229",
+      "source_location": "L234",
       "weight": 1.0
     },
     {
@@ -13856,7 +14225,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L253",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -13867,7 +14236,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L343",
+      "source_location": "L348",
       "weight": 1.0
     },
     {
@@ -13878,7 +14247,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L427",
+      "source_location": "L432",
       "weight": 1.0
     },
     {
@@ -14340,7 +14709,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/seed-data/index.js",
-      "source_location": "L6",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -17677,6 +18046,226 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_17_curricular_expansion",
+      "target": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_3_estructura_modular_en_server_seed_data_y_matriz_adaptativa_9_celdas_por_tema",
+      "target": "tickets_math_us_17_curricular_expansion_especificaci\u00f3n_de_celdas_adaptativas_por_tema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_4_consolidaci\u00f3n_en_server_seed_data_index_js_curatedtopics",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_1_contexto_pedag\u00f3gico_y_raz\u00f3n_de_cambio_hito_2",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_5_pipeline_de_siembra_idempotente_npm_run_seed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_6_estrategia_de_auditor\u00eda_y_pruebas_automatizadas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_2_ficha_curricular_can\u00f3nica_de_los_cuatro_nuevos_temas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_17_curricular_expansion_1_3_estructura_modular_en_server_seed_data_y_matriz_adaptativa_9_celdas_por_tema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
+      "target": "tickets_math_us_17_curricular_expansion_ac_1_exportaci\u00f3n_can\u00f3nica_en_los_cuatro_nuevos_m\u00f3dulos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
+      "target": "tickets_math_us_17_curricular_expansion_ac_2_cobertura_exhaustiva_de_las_9_celdas_adaptativas_por_tema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
+      "target": "tickets_math_us_17_curricular_expansion_ac_3_registro_completo_de_los_8_temas_en_server_seed_data_index_js",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
+      "target": "tickets_math_us_17_curricular_expansion_ac_4_siembra_idempotente_y_generaci\u00f3n_de_pistas_npm_run_seed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "target": "tickets_math_us_17_curricular_expansion_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "target": "tickets_math_us_17_curricular_expansion_base_de_datos_y_pipeline_de_siembra",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "target": "tickets_math_us_17_curricular_expansion_tests_e2e_playwright",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L252",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "target": "tickets_math_us_17_curricular_expansion_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "target": "tickets_math_us_17_curricular_expansion_2_criterios_de_aceptaci\u00f3n_ac",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "target": "tickets_math_us_17_curricular_expansion_3_subgrafo_afectado_identificado_con_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "target": "tickets_math_us_17_curricular_expansion_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_math_us_17_expansi\u00f3n_curricular_cuatro_nuevos_temas_matem\u00e1ticos",
+      "target": "tickets_math_us_17_curricular_expansion_5_commit_de_cierre_en_dev",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
       "source": "tickets_templates_ticket_template",
       "target": "tickets_templates_ticket_template_us_xx_titulo_historia",
       "relation": "contains",
@@ -17905,7 +18494,7 @@
       "confidence_score": 0.95,
       "context": "Dashboard",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L343",
+      "source_location": "L348",
       "weight": 1.0
     },
     {
@@ -17953,7 +18542,7 @@
       "confidence_score": 0.95,
       "context": "MathStatement",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L272",
+      "source_location": "L277",
       "weight": 1.0
     },
     {
@@ -18013,7 +18602,7 @@
       "confidence_score": 0.95,
       "context": "MathVisionUploader",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L739",
+      "source_location": "L749",
       "weight": 1.0
     },
     {
@@ -18085,7 +18674,7 @@
       "confidence_score": 0.95,
       "context": "RoundPhotoCapture",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L847",
+      "source_location": "L857",
       "weight": 1.0
     },
     {
@@ -18097,7 +18686,7 @@
       "confidence_score": 0.95,
       "context": "RoundPhotoCapture",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L283",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -18133,7 +18722,7 @@
       "confidence_score": 0.95,
       "context": "RoundResults",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L850",
+      "source_location": "L860",
       "weight": 1.0
     },
     {
@@ -18145,7 +18734,7 @@
       "confidence_score": 0.95,
       "context": "RoundResults",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L321",
+      "source_location": "L326",
       "weight": 1.0
     },
     {
@@ -18205,7 +18794,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L776",
+      "source_location": "L786",
       "weight": 1.0
     },
     {
@@ -18217,7 +18806,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L784",
+      "source_location": "L794",
       "weight": 1.0
     },
     {
@@ -18229,7 +18818,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L829",
+      "source_location": "L839",
       "weight": 1.0
     },
     {
@@ -18241,7 +18830,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L843",
+      "source_location": "L853",
       "weight": 1.0
     },
     {
@@ -18253,7 +18842,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L743",
+      "source_location": "L753",
       "weight": 1.0
     },
     {
@@ -18265,7 +18854,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L712",
+      "source_location": "L722",
       "weight": 1.0
     },
     {
@@ -18277,7 +18866,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L253",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -18289,7 +18878,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/USER_GUIDE.md",
-      "source_location": "L394",
+      "source_location": "L399",
       "weight": 1.0
     },
     {
@@ -18457,7 +19046,7 @@
       "confidence_score": 0.95,
       "context": "computeRoundOutcome",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L327",
+      "source_location": "L337",
       "weight": 1.0
     },
     {
@@ -18469,7 +19058,7 @@
       "confidence_score": 0.95,
       "context": "computeRoundOutcome",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L607",
+      "source_location": "L617",
       "weight": 1.0
     },
     {
@@ -18613,7 +19202,7 @@
       "confidence_score": 0.95,
       "context": "ensureTracksForTopic",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L235",
+      "source_location": "L243",
       "weight": 1.0
     },
     {
@@ -18677,6 +19266,30 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_17_curricular_expansion_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "server_src_services_trackservice_ensuretracksfortopic",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "ensureTracksForTopic",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_ac_4_siembra_idempotente_y_generaci\u00f3n_de_pistas_npm_run_seed",
+      "target": "server_src_services_trackservice_ensuretracksfortopic",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "ensureTracksForTopic",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
       "source": "tickets_math_us_08_domain_model_3_subgrafo_afectado_identificado_con_graphify",
       "target": "server_src_services_trackservice_ensuretracksfortopic",
       "relation": "references",
@@ -18709,7 +19322,7 @@
       "confidence_score": 0.95,
       "context": "evaluateRoundSolutions",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L418",
+      "source_location": "L428",
       "weight": 1.0
     },
     {
@@ -18785,6 +19398,30 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_17_curricular_expansion_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "server_scripts_seed_seeddatabase",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "seedDatabase",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_17_curricular_expansion_1_6_estrategia_de_auditor\u00eda_y_pruebas_automatizadas",
+      "target": "server_scripts_seed_seeddatabase",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "seedDatabase()",
+      "source_file": "tickets/MATH-US-17-curricular-expansion.md",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
       "source": "antigravity_graph_math_us_16_calibraci\u00f3n_de_rondas_a_30_minutos_t\u00e9cnica_y_aplicaci\u00f3n",
       "target": "server_src_services_roundbuilder_selectexercisesforround",
       "relation": "references",
@@ -18810,5 +19447,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e4017e34043ea3e2bd035a75dc87a193f54cc4b2"
+  "built_at_commit": "332f2ff20f0e78d40c50d7be15836f8a9ee45bc1"
 }

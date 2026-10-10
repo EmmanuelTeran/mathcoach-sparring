@@ -12,8 +12,8 @@ describe('Curated Catalog Audit & Seed Idempotency Suite (MATH-US-09)', () => {
   // BLOQUE 1: Auditoría Estática de Estructura y Cuotas
   // ========================================================
   describe('Auditoría de Datos Curados (seed-data)', () => {
-    it('debe contener al menos 4 temas: mínimo 2 de álgebra y 2 de cálculo/análisis', () => {
-      expect(curatedTopics.length).toBeGreaterThanOrEqual(4);
+    it('debe contener los 8 temas curriculares distribuidos en sus 4 áreas canónicas', () => {
+      expect(curatedTopics.length).toBe(8);
 
       const algebraTopics = curatedTopics.filter(
         (t) => t.metadata.area === 'algebra'
@@ -21,9 +21,17 @@ describe('Curated Catalog Audit & Seed Idempotency Suite (MATH-US-09)', () => {
       const calculusTopics = curatedTopics.filter(
         (t) => t.metadata.area === 'calculo' || t.metadata.area === 'analisis'
       );
+      const trigTopics = curatedTopics.filter(
+        (t) => t.metadata.area === 'trigonometria'
+      );
+      const geomTopics = curatedTopics.filter(
+        (t) => t.metadata.area === 'geometria'
+      );
 
-      expect(algebraTopics.length).toBeGreaterThanOrEqual(2);
-      expect(calculusTopics.length).toBeGreaterThanOrEqual(2);
+      expect(algebraTopics.length).toBe(3);
+      expect(calculusTopics.length).toBe(3);
+      expect(trigTopics.length).toBe(1);
+      expect(geomTopics.length).toBe(1);
     });
 
     it('cada tema debe poseer metadatos obligatorios válidos', () => {
@@ -53,8 +61,8 @@ describe('Curated Catalog Audit & Seed Idempotency Suite (MATH-US-09)', () => {
         }
       }
 
-      // El catálogo global debe tener un total de al menos 132 ejercicios
-      expect(seenKeys.size).toBeGreaterThanOrEqual(132);
+      // El catálogo global ampliado (8 temas x 33 ejercicios) = 264 ejercicios
+      expect(seenKeys.size).toBe(264);
     });
 
     it('cada ejercicio debe tener statement y referenceSolution exhaustivos en Markdown + KaTeX balanceado', () => {
@@ -205,20 +213,20 @@ describe('Curated Catalog Audit & Seed Idempotency Suite (MATH-US-09)', () => {
       }
     });
 
-    it('ejecuta seedDatabase() y asegura la estructura de temas, pistas y ejercicios', async () => {
+    it('ejecuta seedDatabase() y asegura la estructura de 8 temas, 24 pistas y 264 ejercicios', async () => {
       const summary1 = await seedDatabase({ log: false });
 
-      expect(summary1.topicsProcessed).toBeGreaterThanOrEqual(4);
-      expect(summary1.tracksProcessed).toBe(summary1.topicsProcessed * 3);
-      expect(summary1.exercisesProcessed).toBeGreaterThanOrEqual(132);
+      expect(summary1.topicsProcessed).toBe(8);
+      expect(summary1.tracksProcessed).toBe(24);
+      expect(summary1.exercisesProcessed).toBe(264);
 
       const topicCount1 = await MathTopic.countDocuments();
       const trackCount1 = await TopicTrack.countDocuments();
       const exerciseCount1 = await Exercise.countDocuments();
 
-      expect(topicCount1).toBe(summary1.topicsProcessed);
-      expect(trackCount1).toBe(summary1.tracksProcessed);
-      expect(exerciseCount1).toBe(summary1.exercisesProcessed);
+      expect(topicCount1).toBe(8);
+      expect(trackCount1).toBe(24);
+      expect(exerciseCount1).toBe(264);
 
       // Verificar que cada pista tenga dificultad 1 y dueDate
       const sampleTracks = await TopicTrack.find();

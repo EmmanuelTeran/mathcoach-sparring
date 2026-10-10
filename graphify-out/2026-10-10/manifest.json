@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791649967.4533293,
-    "seen": 1791651012.1752577,
-    "ast_hash": "8a3601077c856b93c41bdf23b9d74d3c",
+    "mtime": 1791652484.7215786,
+    "seen": 1791652494.1297128,
+    "ast_hash": "7be036046797baf6bb11a7b7bb27334a",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -156,15 +156,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791616055.8040776,
-    "seen": 1791617089.0132709,
-    "ast_hash": "397ff30839c3a5deaab7b534aee0ede4",
+    "mtime": 1791651301.939628,
+    "seen": 1791652494.1297393,
+    "ast_hash": "27a8be3b6981158c055fd41e452ecc36",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791616055.8040776,
-    "seen": 1791617089.0132654,
-    "ast_hash": "b4d2433d0eb0afc3d8cb0e52357f0d4b",
+    "mtime": 1791651301.9356732,
+    "seen": 1791652494.1297355,
+    "ast_hash": "d5dca75e5701064d2266892acdbfa034",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "server/tests/topics.test.js": {
-    "mtime": 1791616055.836334,
-    "seen": 1791617089.0132039,
-    "ast_hash": "2b5b35a0061775c94b6890ebc19e29c9",
+    "mtime": 1791652138.6255848,
+    "seen": 1791652494.1296878,
+    "ast_hash": "f3a0c785f3caec0e2f078909361fedf7",
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
@@ -354,9 +354,9 @@
     "semantic_hash": ""
   },
   "server/seed-data/index.js": {
-    "mtime": 1791616055.8242378,
-    "seen": 1791617089.013107,
-    "ast_hash": "cc8e6056f4b9dee2fdd6556af44b3e0a",
+    "mtime": 1791651919.698401,
+    "seen": 1791652494.1295605,
+    "ast_hash": "e90475ce7ea00c85da7a30acf0fb4a61",
     "semantic_hash": ""
   },
   "server/seed-data/limites-continuidad.js": {
@@ -366,14 +366,14 @@
     "semantic_hash": ""
   },
   "server/tests/catalog.test.js": {
-    "mtime": 1791616055.82827,
-    "seen": 1791617089.013171,
-    "ast_hash": "c67d632ad1842565b8c179269a7954e5",
+    "mtime": 1791652097.109833,
+    "seen": 1791652494.129654,
+    "ast_hash": "d08715123d3a7410030787a746579220",
     "semantic_hash": ""
   },
   "server/src/config/progression.js": {
-    "mtime": 1791650826.377344,
-    "seen": 1791651012.1752117,
+    "mtime": 1791651301.955447,
+    "seen": 1791652494.1296086,
     "ast_hash": "f5dcb742f701efa7c42793040836eccb",
     "semantic_hash": ""
   },
@@ -408,20 +408,20 @@
     "semantic_hash": ""
   },
   "server/src/services/roundBuilder.js": {
-    "mtime": 1791650839.6126723,
-    "seen": 1791651012.1752295,
+    "mtime": 1791651301.955447,
+    "seen": 1791652494.1296437,
     "ast_hash": "7f92bb9645bc825a5e6e4203900b37ec",
     "semantic_hash": ""
   },
   "server/tests/roundBuilder.test.js": {
-    "mtime": 1791650892.2004259,
-    "seen": 1791651012.175242,
+    "mtime": 1791651301.955447,
+    "seen": 1791652494.1296759,
     "ast_hash": "3c223e452b0535a1155cb66dd774db61",
     "semantic_hash": ""
   },
   "server/tests/rounds.api.test.js": {
-    "mtime": 1791650934.636038,
-    "seen": 1791651012.1752446,
+    "mtime": 1791651301.9594016,
+    "seen": 1791652494.1296818,
     "ast_hash": "f8c3f94b91fc09fffa5c52da68006b43",
     "semantic_hash": ""
   },
@@ -456,8 +456,8 @@
     "semantic_hash": ""
   },
   "client/src/components/RoundSession.jsx": {
-    "mtime": 1791650846.3812544,
-    "seen": 1791651012.1751766,
+    "mtime": 1791651301.9317183,
+    "seen": 1791652494.129489,
     "ast_hash": "f252a5311bb8af59eb67c56fa620f3d0",
     "semantic_hash": ""
   },
@@ -468,8 +468,8 @@
     "semantic_hash": ""
   },
   "client/tests/RoundSession.test.jsx": {
-    "mtime": 1791650967.3975835,
-    "seen": 1791651012.175192,
+    "mtime": 1791651301.9356732,
+    "seen": 1791652494.1295228,
     "ast_hash": "0318214aa254fa150306b3a3dd5755af",
     "semantic_hash": ""
   },
@@ -528,9 +528,39 @@
     "semantic_hash": ""
   },
   "tickets/MATH-US-16-round-calibration.md": {
-    "mtime": 1791649948.993483,
-    "seen": 1791651012.175287,
-    "ast_hash": "3639fa74b03d7852c033b66456544233",
+    "mtime": 1791651301.9594016,
+    "seen": 1791652494.129781,
+    "ast_hash": "445b51f37efb3f95f0e61b0500f60121",
+    "semantic_hash": ""
+  },
+  "server/seed-data/ecuaciones-sistemas-lineales.js": {
+    "mtime": 1791652063.8139076,
+    "seen": 1791652494.1295488,
+    "ast_hash": "5588e9146b6f8a75bbc59642ae9b8b8e",
+    "semantic_hash": ""
+  },
+  "server/seed-data/geometria-analitica-conicas.js": {
+    "mtime": 1791651913.3892,
+    "seen": 1791652494.1295576,
+    "ast_hash": "95d7213add2a40984a16d6e01b7d2847",
+    "semantic_hash": ""
+  },
+  "server/seed-data/tecnicas-integracion.js": {
+    "mtime": 1791651835.788641,
+    "seen": 1791652494.1295657,
+    "ast_hash": "7f9e3b37731da52c58f64bf672d66da0",
+    "semantic_hash": ""
+  },
+  "server/seed-data/trigonometria-identidades.js": {
+    "mtime": 1791651767.327964,
+    "seen": 1791652494.129568,
+    "ast_hash": "3abec27ce9ef2e4417091024edc18b37",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-17-curricular-expansion.md": {
+    "mtime": 1791652473.7628543,
+    "seen": 1791652494.1297834,
+    "ast_hash": "17ace9795585295b06897496becd42e0",
     "semantic_hash": ""
   }
 }

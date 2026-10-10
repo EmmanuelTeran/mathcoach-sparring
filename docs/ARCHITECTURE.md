@@ -206,14 +206,18 @@ flowchart TD
     Registry --> T2[factorizacion-polinomios.js]
     Registry --> T3[limites-continuidad.js]
     Registry --> T4[derivadas-regla-cadena.js]
+    Registry --> T5[ecuaciones-sistemas-lineales.js]
+    Registry --> T6[trigonometria-identidades.js]
+    Registry --> T7[tecnicas-integracion.js]
+    Registry --> T8[geometria-analitica-conicas.js]
 
-    T1 & T2 & T3 & T4 --> UpsertTopic["MathTopic.findOneAndUpdate({ slug }, $set, upsert: true)"]
+    T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8 --> UpsertTopic["MathTopic.findOneAndUpdate({ slug }, $set, upsert: true)"]
     UpsertTopic --> EnsureTracks["ensureTracksForTopic(topic._id)"]
-    EnsureTracks --> TracksDB[("TopicTrack: 3 pistas por tema (d=1, SM-2 base con $setOnInsert)")]
+    EnsureTracks --> TracksDB[("TopicTrack: 24 pistas en total (8 temas x 3 categorías, d=1, SM-2 base)")]
 
     EnsureTracks --> LoopEx[Iterar exercises del dataset]
     LoopEx --> UpsertEx["Exercise.findOneAndUpdate({ externalKey }, $set, $setOnInsert, upsert: true)"]
-    UpsertEx --> ExDB[("Exercise: externalKey único (132 docs, sin duplicados)")]
+    UpsertEx --> ExDB[("Exercise: externalKey único (264 docs, sin duplicados)")]
 
     ExDB --> Finish[Resumen por consola + disconnectDB]
 ```
@@ -223,9 +227,13 @@ flowchart TD
 Los datos están divididos en archivos independientes por tema matemático que exportan un contrato común `{ slug, metadata, exercises }`:
 - **`fracciones-algebraicas.js`**: Álgebra CONAMAT (33 ejercicios).
 - **`factorizacion-polinomios.js`**: Álgebra CONAMAT (33 ejercicios).
+- **`ecuaciones-sistemas-lineales.js`**: Álgebra CONAMAT / Baldor (33 ejercicios).
+- **`trigonometria-identidades.js`**: Trigonometría Granville / CONAMAT (33 ejercicios).
 - **`limites-continuidad.js`**: Cálculo / Análisis Stewart / Spivak (33 ejercicios).
 - **`derivadas-regla-cadena.js`**: Cálculo / Análisis Stewart / Spivak (33 ejercicios).
-- **`index.js`**: Reúne y exporta el array canónico `curatedTopics`.
+- **`tecnicas-integracion.js`**: Cálculo Integral Stewart / Thomas (33 ejercicios).
+- **`geometria-analitica-conicas.js`**: Geometría Analítica Lehmann / Larson (33 ejercicios).
+- **`index.js`**: Reúne y exporta el array canónico `curatedTopics` con los **8 temas**.
 
 ### 4.2 Estrategia de Idempotencia Estricta con `externalKey`
 
@@ -233,14 +241,16 @@ Los datos están divididos en archivos independientes por tema matemático que e
    - Criterio de unicidad: `{ slug: topicData.slug }`.
    - Modificador: `$set` con los atributos `metadata` (`title`, `area`, `source`, `order`, `description`).
 2. **Inicialización de Pistas (`ensureTracksForTopic`):**
+   - Asegura la creación idempotente de las 3 pistas canónicas (`technique`, `application`, `proof`) por cada tema (totalizando **24 pistas** en la base de datos).
    - Emplea `$setOnInsert` para inicializar dificultad en 1 y valores SM-2 base (`repetition: 0, interval: 0, efactor: 2.5`). Si el estudiante ya tiene un progreso de repaso acumulado, este no se sobreescribe ni se reinicia.
 3. **Upsert Atómico de Ejercicios por `externalKey`:**
-   - Criterio de unicidad: `{ externalKey: exData.externalKey }` (ej. `'alg-frac-tech-d1-01'`).
+   - Criterio de unicidad: `{ externalKey: exData.externalKey }` (ej. `'alg-eq-tech-d1-01'`, `'trig-id-proof-d2-01'`).
    - Modificador: `$set` asociando `topicId: topic._id`, `category`, `difficulty`, `order`, `statement`, `referenceSolution`, `expertMinutes` y `source`.
    - Modificador `$setOnInsert`: Establece `timesServed: 0` y `lastServedAt: null`. De este modo, re-ejecutar el seed en un entorno en producción conserva los contadores de servicio y rotación de ejercicios.
 4. **Duplicidad Cero ($\Delta N = 0$):**
    - Ejecutar `npm run seed` $N$ veces consecutivas mantiene exactamente:
      $$\Delta N_{\text{MathTopic}} = 0, \quad \Delta N_{\text{TopicTrack}} = 0, \quad \Delta N_{\text{Exercise}} = 0$$
+     Totalizando **8 MathTopics**, **24 TopicTracks** y **264 Exercises**.
 
 ### 4.3 Garantía de Volumen para el Constructor de Rondas
 

@@ -100,27 +100,32 @@ Tu panel de estudio organiza las pistas pendientes según un criterio estricto d
 
 ## 3. Catálogo Curado de Ejercicios Matemáticos
 
-MathCoach Sparring incorpora un catálogo pedagógico inicial de **132 ejercicios matemáticos curados**, redactados en **Markdown con KaTeX/LaTeX riguroso** y provistos de soluciones de referencia detalladas paso a paso (`referenceSolution`).
+MathCoach Sparring incorpora un catálogo pedagógico consolidado de **264 ejercicios matemáticos curados** organizados en **8 temas canónicos** distribuidos equitativamente a lo largo de 4 grandes áreas matemáticas, redactados en **Markdown con KaTeX/LaTeX riguroso** y provistos de soluciones de referencia detalladas paso a paso (`referenceSolution`).
 
-### 3.1 Temas Curriculares Disponibles
+### 3.1 Temas Curriculares Disponibles (8 Temas Canónicos)
 
-| Área | Tema (`MathTopic`) | Fuente Curricular | Descripción Pedagógica |
+| Área | Tema (`MathTopic`) | Fuente Curricular | Descripción Pedagógica y Alcance |
 |---|---|---|---|
 | **Álgebra** | **Fracciones Algebraicas** (`fracciones-algebraicas`) | CONAMAT | Simplificación de expresiones racionales, suma/resta con MCM polinomial, multiplicación, división, fracciones complejas y descomposición en fracciones parciales. |
 | **Álgebra** | **Factorización de Polinomios** (`factorizacion-polinomios`) | CONAMAT | Máximo factor común monomio y por agrupación, diferencia de cuadrados, trinomios cuadrados perfectos, trinomios cuadráticos generales, suma/diferencia de cubos, artificios de Sophie Germain y regla de Ruffini. |
+| **Álgebra** | **Ecuaciones y Sistemas Lineales** (`ecuaciones-sistemas-lineales`) | CONAMAT / Baldor | Ecuaciones lineales de una incógnita, ecuaciones cuadráticas (fórmula general y factorización), sistemas de ecuaciones lineales 2×2 y 3×3 (Cramer, sustitución, eliminación gaussiana), y modelado algebraico de problemas de mezclas y cinemática. |
+| **Trigonometría** | **Identidades y Ecuaciones Trigonométricas** (`trigonometria-identidades`) | Granville / CONAMAT | Identidades fundamentales (pitagóricas, recíprocas y por cociente), fórmulas de adición y sustracción de ángulos, identidades de ángulo doble y semiángulo, ecuaciones trigonométricas en el intervalo $[0, 2\pi)$ y modelado de fenómenos periódicos. |
 | **Cálculo / Análisis** | **Límites y Continuidad** (`limites-continuidad`) | Stewart / Spivak | Evaluación directa, resolución analítica de indeterminaciones $\frac{0}{0}$ e $\frac{\infty}{\infty}$, límites al infinito y asíntotas, continuidad puntual y en intervalos, teorema del valor intermedio (TVI) y demostraciones formales $\varepsilon-\delta$. |
 | **Cálculo / Análisis** | **Derivadas y Regla de la Cadena** (`derivadas-regla-cadena`) | Stewart / Spivak | Definición formal de derivada por límite del cociente incremental, reglas del producto y cociente, regla de la cadena para funciones compuestas y trascendentes, derivación implícita y logarítmica, razones de cambio relacionadas y optimización. |
+| **Cálculo / Análisis** | **Técnicas de Integración Indefinida** (`tecnicas-integracion`) | Stewart / Thomas | Integrales inmediatas y algebraicas, método de cambio de variable (sustitución $u$), integración por partes ($\int u \, dv = uv - \int v \, du$), sustitución trigonométrica en radicales $\sqrt{a^2 \pm u^2}$, y fracciones parciales. |
+| **Geometría Analítica** | **Geometría Analítica: Secciones Cónicas y Vectores** (`geometria-analitica-conicas`) | Lehmann / Larson | Ecuaciones canónicas y generales de la circunferencia, parábola, elipse e hipérbola; determinación de focos, directrices, excentricidad y asíntotas; operaciones fundamentales con vectores en $\mathbb{R}^2$, magnitud, ángulo de dirección y producto punto. |
 
 ### 3.2 Distribución de Ejercicios por Matriz (Tema × Categoría × Dificultad)
 
-Cada tema contiene **33 ejercicios** distribuidos equitativamente a lo largo de sus 3 dificultades adaptativas:
+Cada uno de los 8 temas contiene **33 ejercicios** distribuidos equitativamente a lo largo de sus 3 dificultades adaptativas (totalizando **264 ejercicios** en la plataforma):
 
-- **Por cada Dificultad (1, 2 o 3):**
+- **Por cada Dificultad (1, 2 o 3) en cada Tema:**
   - **Técnica:** 6 ejercicios ($\ge 30$ minutos acumulados de tiempo experto).
   - **Aplicación:** 3 ejercicios ($\ge 20$ minutos acumulados).
   - **Demostración:** 2 ejercicios ($\ge 16$ minutos acumulados).
-  - *Subtotal por dificultad:* 11 ejercicios.
-- **Garantía para el Estudiante:** Esta densidad asegura que la plataforma puede construir **al menos 2 rondas de práctica completamente distintas y disjuntas** (~15 min cada una) dentro de cada nivel de dificultad sin repetir ningún ejercicio.
+  - *Subtotal por dificultad:* 11 ejercicios por tema.
+  - *Subtotal por tema:* 33 ejercicios ($11 \times 3$).
+- **Garantía para el Estudiante:** Esta densidad asegura que la plataforma puede construir **al menos 2 rondas de práctica completamente distintas y disjuntas** (~15 min cada una) dentro de cada nivel de dificultad sin repetir ningún ejercicio. Asimismo, permite cubrir sesiones extendidas de ~30 min en Técnica y Aplicación.
 
 ### 3.3 Siembra e Inicialización del Catálogo (`npm run seed`)
 

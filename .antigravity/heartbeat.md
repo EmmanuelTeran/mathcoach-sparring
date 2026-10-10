@@ -2,7 +2,7 @@
 
 - **Última actualización:** 2026-10-10
 - **Estado del Proyecto:** 🚀 Hito 2 en Progreso — Calibración y Expansión Curricular
-- **Historia activa:** MATH-US-17 (Expansión Curricular: Cuatro Nuevos Temas Matemáticos)
+- **Historia activa:** MATH-US-18 (Banco Curado Masivo de Ejercicios)
 - **Rama actual:** `feature/MATH-US-17-curricular-expansion`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
@@ -21,8 +21,8 @@
   - [x] MATH-US-14: Dashboard por Tema y Categoría (Done) — depende de 13
   - [x] MATH-US-15: Validación E2E Final + Documentación (Done) — depende de 09, 14
   - [x] MATH-US-16: Calibración de Rondas a 30 min (Técnica y Aplicación) (Done) — depende de 15
-  - [ ] MATH-US-17: Expansión Curricular: Cuatro Nuevos Temas Matemáticos (En Progreso) — depende de 16
-  - [ ] MATH-US-18: Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditoría) (Backlog) — depende de 16, 17
+  - [x] MATH-US-17: Expansión Curricular: Cuatro Nuevos Temas Matemáticos (Done) — depende de 16
+  - [ ] MATH-US-18: Banco Curado Masivo de Ejercicios (Seed 2.0 y Auditoría) (En Progreso) — depende de 16, 17
   - [ ] MATH-US-19: Diagnóstico Quirúrgico de Errores y Prerrequisitos Rotos (Backlog) — depende de 16
   - [ ] MATH-US-20: Rondas Intercaladas ("Interleaving Mode" / Práctica Mixta Multitema) (Backlog) — depende de 18
   - [ ] MATH-US-21: Sistema de Pistas Escalonadas Socráticas (3-Tier Hint Scaffolding) (Backlog) — depende de 16
