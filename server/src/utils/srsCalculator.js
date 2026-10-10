@@ -3,7 +3,7 @@
  *
  * @param {number} currentStage - Nivel actual de repetición (0, 1, 2, ...)
  * @param {number} easeFactor - Factor de facilidad previo (mínimo 1.3, default 2.5)
- * @param {number} score - Calificación de la sesión (0 a 5)
+ * @param {number} score - Calificación de la sesión (escala formal 0 a 5)
  * @param {number} [previousInterval=0] - Intervalo en días previo (opcional, default 0)
  * @returns {{ repetition: number, efactor: number, interval: number, dueDate: Date, srsStage: number, easeFactor: number, intervalDays: number, nextReviewAt: Date }}
  */
