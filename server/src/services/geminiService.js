@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI } from "@google/genai";
 
 function getClient() {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -18,17 +18,17 @@ function getClient() {
 export function buildSystemInstruction(category, difficulty) {
   const diff = Number(difficulty) || 1;
 
-  if (category === 'technique') {
+  if (category === "technique") {
     return `Eres un Profesor de Matemáticas riguroso pero formativo, especializado en Precisión y Técnica Analítica (Categoría: Técnica, Dificultad: ${diff}).
 Tu objetivo es evaluar concurrentemente las soluciones manuscritas de los ejercicios de una ronda completa a partir de 1 a 6 imágenes del cuaderno del estudiante.
 
 CRITERIOS PEDAGÓGICOS POR DIFICULTAD:
 ${
   diff === 1
-    ? '- Dificultad 1: Operaciones básicas y aritméticas; tolerancia cero a errores de signo, simplificación de fracciones y jerarquía de operaciones.'
+    ? "- Dificultad 1: Operaciones básicas y aritméticas; tolerancia cero a errores de signo, simplificación de fracciones y jerarquía de operaciones."
     : diff === 2
-    ? '- Dificultad 2: Manipulaciones compuestas y combinadas, factorización avanzada y simplificación analítica sistemática.'
-    : '- Dificultad 3: Expresiones analíticas extensas, álgebra avanzada, transformaciones complejas y cálculo analítico exhaustivo.'
+      ? "- Dificultad 2: Manipulaciones compuestas y combinadas, factorización avanzada y simplificación analítica sistemática."
+      : "- Dificultad 3: Expresiones analíticas extensas, álgebra avanzada, transformaciones complejas y cálculo analítico exhaustivo."
 }
 
 INSTRUCCIONES DE AUDITORÍA Y DETECCIÓN:
@@ -58,17 +58,17 @@ Responde EXCLUSIVAMENTE con un JSON válido con la siguiente estructura exacta:
 }`;
   }
 
-  if (category === 'application') {
+  if (category === "application") {
     return `Eres un Profesor de Cálculo Diferencial, Integral y Matemáticas Aplicadas (Categoría: Aplicación, Dificultad: ${diff}).
 Tu objetivo es evaluar concurrentemente las soluciones manuscritas de los ejercicios de una ronda completa a partir de 1 a 6 imágenes del cuaderno del estudiante.
 
 CRITERIOS PEDAGÓGICOS POR DIFICULTAD:
 ${
   diff === 1
-    ? '- Dificultad 1: Identificación directa de variables, modelado básico y aplicación inmediata de fórmulas y teoremas.'
+    ? "- Dificultad 1: Identificación directa de variables, modelado básico y aplicación inmediata de fórmulas y teoremas."
     : diff === 2
-    ? '- Dificultad 2: Modelado en múltiples pasos, verificación explícita de hipótesis de teoremas (TFC, regla de la cadena, extremos).'
-    : '- Dificultad 3: Problemas de optimización y modelado no trivial con análisis cualitativo y rigurosa justificación física o geométrica.'
+      ? "- Dificultad 2: Modelado en múltiples pasos, verificación explícita de hipótesis de teoremas (TFC, regla de la cadena, extremos)."
+      : "- Dificultad 3: Problemas de optimización y modelado no trivial con análisis cualitativo y rigurosa justificación física o geométrica."
 }
 
 INSTRUCCIONES DE AUDITORÍA Y DETECCIÓN:
@@ -105,10 +105,10 @@ Tu objetivo es auditar la deducción matemática formal manuscrita de los ejerci
 CRITERIOS PEDAGÓGICOS POR DIFICULTAD:
 ${
   diff === 1
-    ? '- Dificultad 1: Demostraciones directas, propiedades algebraicas fundamentales y axiomas básicos de los números reales.'
+    ? "- Dificultad 1: Demostraciones directas, propiedades algebraicas fundamentales y axiomas básicos de los números reales."
     : diff === 2
-    ? '- Dificultad 2: Inducción matemática, demostraciones por contradicción y contrarrecíproca con rigurosa verificación de hipótesis.'
-    : '- Dificultad 3: Rigor épsilon-delta, análisis matemático avanzado (Spivak), topología de reales y deducciones analíticas profundas.'
+      ? "- Dificultad 2: Inducción matemática, demostraciones por contradicción y contrarrecíproca con rigurosa verificación de hipótesis."
+      : "- Dificultad 3: Rigor épsilon-delta, análisis matemático avanzado (Spivak), topología de reales y deducciones analíticas profundas."
 }
 
 INSTRUCCIONES DE AUDITORÍA Y DETECCIÓN:
@@ -150,16 +150,24 @@ Responde EXCLUSIVAMENTE con un JSON válido con la siguiente estructura exacta:
  *   overall_feedback: string
  * }>}
  */
-export async function evaluateRoundSolutions({ round, exercises, imagesBase64 }) {
-  if (!Array.isArray(imagesBase64) || imagesBase64.length === 0 || imagesBase64.length > 6) {
-    throw new Error('imagesBase64 must be an array of 1 to 6 base64 strings');
+export async function evaluateRoundSolutions({
+  round,
+  exercises,
+  imagesBase64,
+}) {
+  if (
+    !Array.isArray(imagesBase64) ||
+    imagesBase64.length === 0 ||
+    imagesBase64.length > 6
+  ) {
+    throw new Error("imagesBase64 must be an array of 1 to 6 base64 strings");
   }
 
   const sanitizedImages = imagesBase64.map((img, idx) => {
-    if (typeof img !== 'string' || !img.trim()) {
+    if (typeof img !== "string" || !img.trim()) {
       throw new Error(`Image at index ${idx} must be a valid base64 string`);
     }
-    const clean = img.replace(/^data:image\/[a-zA-Z+]+;base64,/, '').trim();
+    const clean = img.replace(/^data:image\/[a-zA-Z+]+;base64,/, "").trim();
     if (!clean) {
       throw new Error(`Image at index ${idx} must be a valid base64 string`);
     }
@@ -167,12 +175,12 @@ export async function evaluateRoundSolutions({ round, exercises, imagesBase64 })
   });
 
   if (!Array.isArray(exercises) || exercises.length === 0) {
-    throw new Error('exercises must be a non-empty array');
+    throw new Error("exercises must be a non-empty array");
   }
 
-  const category = round?.category || 'technique';
+  const category = round?.category || "technique";
   const difficulty = Number(round?.difficulty) || 1;
-  const topicTitle = round?.topicTitle || round?.title || 'Tema de Práctica';
+  const topicTitle = round?.topicTitle || round?.title || "Tema de Práctica";
 
   const systemInstruction = buildSystemInstruction(category, difficulty);
 
@@ -181,12 +189,12 @@ export async function evaluateRoundSolutions({ round, exercises, imagesBase64 })
     .map(
       (e) => `--- EJERCICIO #${e.order} ---
 ENUNCIADO:
-${e.statement || 'Sin enunciado'}
+${e.statement || "Sin enunciado"}
 
 SOLUCIÓN DE REFERENCIA Y CRITERIOS:
-${e.referenceSolution || 'Sin solución de referencia disponible'}`
+${e.referenceSolution || "Sin solución de referencia disponible"}`,
     )
-    .join('\n\n');
+    .join("\n\n");
 
   const prompt = `TEMA: ${topicTitle}
 CATEGORÍA: ${category.toUpperCase()}
@@ -200,13 +208,18 @@ ${exercisesText}
 
 INSTRUCCIONES PARA LA EVALUACIÓN:
 1. Examina minuciosamente las ${sanitizedImages.length} imágenes adjuntas de la libreta del estudiante.
-2. Localiza cada uno de los ${exercises.length} ejercicios según su numeración o contenido.
-3. Si un ejercicio NO fue resuelto en las páginas provistas, indícalo con "found": false y score 0.
-4. Evalúa con rigor formativo cada ejercicio y provee el feedback paso a paso y la pista socrática.
-5. Devuelve tu respuesta EXCLUSIVAMENTE en formato JSON conforme a la estructura indicada.`;
+2. Una misma imagen puede contener VARIOS ejercicios (incluso todos los de la ronda), y un ejercicio puede continuar en otra imagen. No asumas una imagen por ejercicio.
+3. Localiza cada uno de los ${exercises.length} ejercicios por el número que escribió el estudiante (#1 a #${exercises.length}, en el orden listado arriba) o, si no está numerado, por su contenido.
+4. Si un ejercicio NO fue resuelto en las páginas provistas, indícalo con "found": false y score 0.
+5. Evalúa con rigor formativo cada ejercicio y provee el feedback paso a paso y la pista socrática.
+6. Devuelve tu respuesta EXCLUSIVAMENTE en formato JSON conforme a la estructura indicada, usando en "order" la numeración #1 a #${exercises.length}.`;
 
   const client = getClient();
-  if (!client || process.env.GEMINI_API_KEY === 'mock' || process.env.MOCK_GEMINI === 'true') {
+  if (
+    !client ||
+    process.env.GEMINI_API_KEY === "mock" ||
+    process.env.MOCK_GEMINI === "true"
+  ) {
     // Modo Offline determinista para tests o entornos locales sin API KEY
     return {
       exercises: exercises.map((e) => ({
@@ -214,7 +227,7 @@ INSTRUCCIONES PARA LA EVALUACIÓN:
         found: true,
         score: 4,
         feedback_paso_a_paso: `[Modo Offline] Ejercicio #${e.order}: Procedimiento ordenado y consistente con la solución de referencia para ${category}.`,
-        hint: 'Verifica los signos y la simplificación antes de consolidar el resultado final.',
+        hint: "Verifica los signos y la simplificación antes de consolidar el resultado final.",
       })),
       overall_feedback: `[Modo Offline] Evaluación simulada exitosa para ${topicTitle} (${category}, nivel ${difficulty}).`,
     };
@@ -222,23 +235,26 @@ INSTRUCCIONES PARA LA EVALUACIÓN:
 
   const imageParts = sanitizedImages.map((data) => ({
     inlineData: {
-      mimeType: 'image/jpeg',
+      mimeType: "image/jpeg",
       data,
     },
   }));
 
   const response = await client.models.generateContent({
-    model: 'gemini-1.5-pro',
+    model: "gemini-3.5-flash-lite",
     contents: [prompt, ...imageParts],
     config: {
       systemInstruction,
       temperature: 0.2,
-      responseMimeType: 'application/json',
+      responseMimeType: "application/json",
     },
   });
 
-  const rawText = (response.text || '').trim();
-  const cleanJson = rawText.replace(/^```json\s*/i, '').replace(/\s*```$/i, '').trim();
+  const rawText = (response.text || "").trim();
+  const cleanJson = rawText
+    .replace(/^```json\s*/i, "")
+    .replace(/\s*```$/i, "")
+    .trim();
 
   let parsed = null;
   try {
@@ -255,12 +271,16 @@ INSTRUCCIONES PARA LA EVALUACIÓN:
   }
 
   if (!parsed || !Array.isArray(parsed.exercises)) {
-    throw new Error('Gemini response could not be parsed as valid round evaluation JSON');
+    throw new Error(
+      "Gemini response could not be parsed as valid round evaluation JSON",
+    );
   }
 
   // Normalización defensiva de los ejercicios evaluados
   const normalizedExercises = exercises.map((expectedEx) => {
-    const foundAi = parsed.exercises.find((e) => Number(e.order) === expectedEx.order);
+    const foundAi = parsed.exercises.find(
+      (e) => Number(e.order) === expectedEx.order,
+    );
 
     if (!foundAi) {
       return {
@@ -268,25 +288,34 @@ INSTRUCCIONES PARA LA EVALUACIÓN:
         found: false,
         score: 0,
         feedback_paso_a_paso: `El ejercicio #${expectedEx.order} no fue detectado en las imágenes provistas.`,
-        hint: 'Asegúrate de incluir las fotografías de todas las páginas de tu resolución.',
+        hint: "Asegúrate de incluir las fotografías de todas las páginas de tu resolución.",
       };
     }
 
     const found = Boolean(foundAi.found !== false);
     const rawScore = Number(foundAi.score);
-    const score = found ? Math.max(0, Math.min(5, Math.round(Number.isFinite(rawScore) ? rawScore : 0))) : 0;
+    const score = found
+      ? Math.max(
+          0,
+          Math.min(5, Math.round(Number.isFinite(rawScore) ? rawScore : 0)),
+        )
+      : 0;
 
     return {
       order: expectedEx.order,
       found,
       score,
-      feedback_paso_a_paso: String(foundAi.feedback_paso_a_paso || foundAi.feedback || ''),
-      hint: String(foundAi.hint || ''),
+      feedback_paso_a_paso: String(
+        foundAi.feedback_paso_a_paso || foundAi.feedback || "",
+      ),
+      hint: String(foundAi.hint || ""),
     };
   });
 
   return {
     exercises: normalizedExercises,
-    overall_feedback: String(parsed.overall_feedback || 'Evaluación de ronda completada.'),
+    overall_feedback: String(
+      parsed.overall_feedback || "Evaluación de ronda completada.",
+    ),
   };
 }

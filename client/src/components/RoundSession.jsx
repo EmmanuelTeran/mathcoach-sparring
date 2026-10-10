@@ -254,7 +254,7 @@ export function RoundSession({
       {state === 'PRACTICING' && (
         <div className="space-y-6">
           <div className="space-y-4">
-            {roundData.exercises?.map((exercise) => (
+            {roundData.exercises?.map((exercise, idx) => (
               <article
                 key={exercise.order}
                 id={`round-exercise-${exercise.order}`}
@@ -263,10 +263,10 @@ export function RoundSession({
                 <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
                   <div className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shadow">
-                      {exercise.order}
+                      {idx + 1}
                     </span>
                     <h4 className="text-sm font-bold text-white">
-                      Ejercicio #{exercise.order}
+                      Ejercicio #{idx + 1} de {roundData.exercises.length}
                     </h4>
                   </div>
                   {exercise.expertMinutes && (
@@ -333,7 +333,12 @@ export function RoundSession({
               <p className="text-xs text-amber-200/90 pl-7">
                 Ejercicios faltantes:{' '}
                 <strong className="text-white underline">
-                  {missingExercises.map((num) => `#${num}`).join(', ')}
+                  {missingExercises
+                    .map((num) => {
+                      const pos = roundData.exercises?.findIndex((e) => e.order === num);
+                      return `#${pos >= 0 ? pos + 1 : num}`;
+                    })
+                    .join(', ')}
                 </strong>
                 . Tus fotos anteriores siguen guardadas. Por favor agrega una foto más clara o la hoja donde resolviste esos problemas y vuelve a presionar &quot;Enviar a evaluar&quot;.
               </p>

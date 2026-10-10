@@ -10,7 +10,9 @@ import {
   Trash2,
   Image as ImageIcon,
   AlertCircle,
+  Info,
 } from 'lucide-react';
+import { compressImageFile, drawToCompressedDataUrl } from '../utils/compressImage';
 
 /**
  * RoundPhotoCapture:
@@ -132,59 +134,39 @@ export function RoundPhotoCapture({
     const video = videoRef.current;
     if (!video || images.length >= maxImages) return;
 
-    let canvas = canvasRef.current;
-    if (!canvas) {
-      canvas = document.createElement('canvas');
-      canvasRef.current = canvas;
-    }
-
     const width = video.videoWidth || 1280;
     const height = video.videoHeight || 720;
-    canvas.width = width;
-    canvas.height = height;
 
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      ctx.drawImage(video, 0, 0, width, height);
-      const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-      const newImages = [...images, dataUrl];
-      onImagesChange(newImages);
-
-      // Cerrar la vista de cámara tras la captura para volver a la galería
-      stopStream();
+    try {
+      // Redimensiona/comprime para mantener el payload de evaluación ligero
+      const dataUrl = drawToCompressedDataUrl(video, width, height);
+      onImagesChange([...images, dataUrl]);
+    } catch (err) {
+      console.warn('Error al capturar el cuadro de la cámara:', err);
+      setCameraError('No se pudo capturar la foto. Intenta de nuevo o sube la imagen desde tus archivos.');
     }
+
+    // Cerrar la vista de cámara tras la captura para volver a la galería
+    stopStream();
   };
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = async (e) => {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
 
     const remainingSlots = maxImages - images.length;
     const filesToProcess = files.slice(0, remainingSlots);
 
-    let loadedCount = 0;
-    const readImages = [];
+    // Comprime en paralelo conservando el orden de selección
+    const readImages = (await Promise.all(filesToProcess.map((file) => compressImageFile(file)))).filter(Boolean);
 
-    filesToProcess.forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result;
-        if (dataUrl) {
-          readImages.push(dataUrl);
-        }
-        loadedCount += 1;
-        if (loadedCount === filesToProcess.length) {
-          onImagesChange((prev) => {
-            const currentList = Array.isArray(prev) ? prev : images;
-            return [...currentList, ...readImages];
-          });
-          if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-          }
-        }
-      };
-      reader.readAsDataURL(file);
+    onImagesChange((prev) => {
+      const currentList = Array.isArray(prev) ? prev : images;
+      return [...currentList, ...readImages].slice(0, maxImages);
     });
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   const handleRemoveImage = (indexToRemove) => {
@@ -197,6 +179,19 @@ export function RoundPhotoCapture({
   return (
     <div className="w-full space-y-4">
       <canvas ref={canvasRef} className="hidden" />
+
+      {/* Sugerencia: no hace falta 1 foto por ejercicio */}
+      <div
+        id="photo-capture-hint"
+        className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-200 text-xs flex items-start gap-2.5"
+      >
+        <Info className="w-4 h-4 shrink-0 text-indigo-400 mt-0.5" />
+        <p>
+          No necesitas una foto por ejercicio: una sola foto puede incluir varios (o todos). Solo asegúrate de que
+          cada uno tenga su número visible (#1, #2, …) y que la letra se lea bien. Agrega más fotos solo si tu
+          resolución ocupa varias hojas.
+        </p>
+      </div>
 
       {/* Input accesible de archivo múltiple */}
       <input

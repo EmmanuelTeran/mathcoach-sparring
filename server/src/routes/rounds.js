@@ -267,10 +267,14 @@ roundsRouter.post('/:id/evaluate', async (req, res) => {
       exerciseMap.set(ex._id.toString(), ex);
     });
 
-    const exercisesForAi = round.exercises.map((snap) => {
+    // El estudiante ve los ejercicios numerados por posición en la ronda (1..N),
+    // no por su `order` de catálogo (que puede ser 4, 5, 6...). La IA debe usar la misma numeración.
+    const positionToOrder = new Map();
+    const exercisesForAi = round.exercises.map((snap, idx) => {
       const fullEx = exerciseMap.get(snap.exerciseId.toString());
+      positionToOrder.set(idx + 1, snap.order);
       return {
-        order: snap.order,
+        order: idx + 1,
         statement: snap.statement,
         referenceSolution: fullEx?.referenceSolution || '',
       };
@@ -295,6 +299,12 @@ roundsRouter.post('/:id/evaluate', async (req, res) => {
         details: aiError.message,
       });
     }
+
+    // Traducir la numeración posicional de la IA de vuelta al `order` del snapshot
+    aiEvaluation.exercises = (aiEvaluation.exercises || []).map((ex) => ({
+      ...ex,
+      order: positionToOrder.get(Number(ex.order)) ?? ex.order,
+    }));
 
     // 7. Verificar si faltan ejercicios (422 Unprocessable Entity)
     const missingOrders = [];

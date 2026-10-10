@@ -160,8 +160,10 @@ export function RoundResults({
           Desglose Detallado por Ejercicio ({results.length})
         </h3>
 
-        {results.map((res) => {
+        {results.map((res, resIdx) => {
           const exerciseMeta = round.exercises?.find((e) => e.order === res.order);
+          const metaIdx = round.exercises?.findIndex((e) => e.order === res.order) ?? -1;
+          const displayNumber = metaIdx >= 0 ? metaIdx + 1 : resIdx + 1;
           return (
             <div
               key={res.order}
@@ -171,10 +173,10 @@ export function RoundResults({
               <div className="flex items-center justify-between pb-3 border-b border-slate-800/80">
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-slate-800 text-indigo-400 text-xs font-bold flex items-center justify-center">
-                    {res.order}
+                    {displayNumber}
                   </span>
                   <h4 className="text-sm font-bold text-white">
-                    Ejercicio #{res.order}
+                    Ejercicio #{displayNumber}
                   </h4>
                 </div>
                 {renderBadgeForScore(res.score)}

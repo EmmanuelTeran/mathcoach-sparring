@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "server/src/app.js": {
-    "mtime": 1791597408.8490052,
-    "seen": 1791597837.0090482,
-    "ast_hash": "41abfa74aabd57995c7fe886ef321a26",
+    "mtime": 1791613379.0993404,
+    "seen": 1791613497.9408138,
+    "ast_hash": "654ed41f6226e7b37c8fbdfdd7c8bae0",
     "semantic_hash": ""
   },
   "server/src/db.js": {
@@ -192,9 +192,9 @@
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
-    "mtime": 1791601752.2327447,
-    "seen": 1791601902.528399,
-    "ast_hash": "db620055b5dbf8bfb2585951f6e7a541",
+    "mtime": 1791613422.1883783,
+    "seen": 1791613497.9408617,
+    "ast_hash": "4ba73869d35a09a4bb9087c390ace427",
     "semantic_hash": ""
   },
   "client/src/hooks/useVoiceInteraction.js": {
@@ -402,9 +402,9 @@
     "semantic_hash": ""
   },
   "server/src/routes/rounds.js": {
-    "mtime": 1791601752.2327447,
-    "seen": 1791601902.5283852,
-    "ast_hash": "af793f80c5daf91e4d6e41acaf6d5b48",
+    "mtime": 1791613420.1677532,
+    "seen": 1791613497.9408517,
+    "ast_hash": "263aad2e6e3ddd4c2614ee474230de81",
     "semantic_hash": ""
   },
   "server/src/services/roundBuilder.js": {
@@ -444,21 +444,21 @@
     "semantic_hash": ""
   },
   "client/src/components/RoundPhotoCapture.jsx": {
-    "mtime": 1791598639.9996214,
-    "seen": 1791599332.7315607,
-    "ast_hash": "b9b150eaddf7ab796af7c677603c3a48",
+    "mtime": 1791613400.6695259,
+    "seen": 1791613497.9407318,
+    "ast_hash": "f332480e45cdd9aecb1c3e4635c49b7a",
     "semantic_hash": ""
   },
   "client/src/components/RoundResults.jsx": {
-    "mtime": 1791598639.9996214,
-    "seen": 1791599332.7315636,
-    "ast_hash": "64d9f3f3c55209e8eff4d76cc51e7b65",
+    "mtime": 1791613445.6880136,
+    "seen": 1791613497.9407353,
+    "ast_hash": "bf38fb84814e782f8d6687ed9e8930fa",
     "semantic_hash": ""
   },
   "client/src/components/RoundSession.jsx": {
-    "mtime": 1791601752.2128005,
-    "seen": 1791601902.528327,
-    "ast_hash": "312ab9fb64ecd65e520b57e7f74f6913",
+    "mtime": 1791613435.7161915,
+    "seen": 1791613497.9407387,
+    "ast_hash": "33eb2d858691aca587e1bbb4bb10161c",
     "semantic_hash": ""
   },
   "client/tests/RoundResults.test.jsx": {
@@ -513,6 +513,18 @@
     "mtime": 1791601752.2367334,
     "seen": 1791601902.5284438,
     "ast_hash": "2c480fefba6ff1c38cb1d799a53d5626",
+    "semantic_hash": ""
+  },
+  "client/src/utils/compressImage.js": {
+    "mtime": 1791613381.1213694,
+    "seen": 1791613497.9407535,
+    "ast_hash": "060f70791ca885addb0a7dd52c924b39",
+    "semantic_hash": ""
+  },
+  "server/tests/bodyLimit.test.js": {
+    "mtime": 1791613464.3537064,
+    "seen": 1791613497.9408782,
+    "ast_hash": "5b148364e09553a1f8536c92d329d7d4",
     "semantic_hash": ""
   }
 }
