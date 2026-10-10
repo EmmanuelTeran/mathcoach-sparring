@@ -239,5 +239,5 @@ Running 5 tests using 1 worker
 ## 5. Commit de Cierre en dev
 
 ```text
-Commit pendiente de integración final a dev.
+9489ca29ef851ecee584751380059ce22b7831bd
 ```
