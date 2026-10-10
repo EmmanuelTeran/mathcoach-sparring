@@ -3,6 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { connectDB, disconnectDB } from '../src/db.js';
 import { MathTopic } from '../src/models/MathTopic.js';
+import { TopicTrack } from '../src/models/TopicTrack.js';
+import { Round } from '../src/models/Round.js';
 import { Exercise } from '../src/models/Exercise.js';
 import { ensureTracksForTopic } from '../src/services/trackService.js';
 import { curatedTopics } from '../seed-data/index.js';
@@ -17,11 +19,19 @@ dotenv.config();
  * @param {boolean} [options.log=false] - Imprimir detalles a la consola
  * @returns {Promise<{ topicsProcessed: number, tracksProcessed: number, exercisesProcessed: number }>}
  */
-export async function seedDatabase(options = { log: false }) {
-  const { log } = options;
+export async function seedDatabase(options = { log: false, reset: false }) {
+  const { log, reset = false } = options;
   let topicsCount = 0;
   let tracksCount = 0;
   let exercisesCount = 0;
+
+  if (reset || process.env.RESET_DB === 'true') {
+    const { Round } = await import('../src/models/Round.js');
+    await Promise.all([
+      TopicTrack.deleteMany({}),
+      Round.deleteMany({}),
+    ]);
+  }
 
   for (const topicData of curatedTopics) {
     // 1. Upsert atómico por slug en MathTopic

@@ -71,11 +71,22 @@ export function RoundSession({
     setElapsedSeconds(0);
 
     try {
+      let effectiveTopicId = topicId;
+      if (!effectiveTopicId) {
+        const topicsRes = await fetch('/api/topics');
+        if (topicsRes.ok) {
+          const topicsList = await topicsRes.json();
+          if (Array.isArray(topicsList) && topicsList.length > 0) {
+            effectiveTopicId = topicsList[0]._id;
+          }
+        }
+      }
+
       const response = await fetch('/api/rounds', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          topicId: topicId || '651a2b3c4d5e6f7a8b9c0d1e',
+          topicId: effectiveTopicId || '651a2b3c4d5e6f7a8b9c0d1e',
           category,
         }),
       });

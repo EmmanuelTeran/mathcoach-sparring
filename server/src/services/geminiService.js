@@ -206,7 +206,7 @@ INSTRUCCIONES PARA LA EVALUACIÓN:
 5. Devuelve tu respuesta EXCLUSIVAMENTE en formato JSON conforme a la estructura indicada.`;
 
   const client = getClient();
-  if (!client) {
+  if (!client || process.env.GEMINI_API_KEY === 'mock' || process.env.MOCK_GEMINI === 'true') {
     // Modo Offline determinista para tests o entornos locales sin API KEY
     return {
       exercises: exercises.map((e) => ({

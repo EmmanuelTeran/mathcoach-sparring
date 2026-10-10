@@ -845,4 +845,33 @@ Para asegurar que las pruebas de integración y automatización con Playwright (
 | `#round-progression` | `<div>` | `RoundResults` | Bloque con el dictamen adaptativo de ascenso/permanencia y fecha del próximo repaso SRS. |
 | `#round-exercise-result-<order>` | `<div>` | `RoundResults` | Desglose individual de cada ejercicio evaluado (score, feedback paso a paso y hint). |
 
+---
+
+## 11. Estrategia de Pruebas Automatizadas y Validación E2E
+
+MathCoach Sparring implementa una pirámide de pruebas unificada y automatizada ejecutable mediante `npm run test:all`:
+
+```text
+               ▲
+              / \
+             /E2E\             Playwright (tests/e2e)
+            /-----\            - 00-smoke.spec.js
+           /       \           - 01-round-session.spec.js
+          / Integr. \          - 02-progression-dashboard.spec.js
+         /-----------\         Vitest + Supertest + MongoMemoryServer (Backend)
+        /   Unitarias \        Vitest + React Testing Library (Frontend)
+       /_______________\
+```
+
+### 11.1 Mocking Determinista de Gemini 1.5 Pro
+1. **Modo Offline en Backend (`MOCK_GEMINI=true`):** Permite resolver evaluaciones de rondas de forma reproducible sin conexión a internet ni consumo de tokens, otorgando calificaciones estándar (Score 4) que validan el ascenso adaptativo a dificultad 2.
+2. **Interceptación de Red en Navegador (`page.route`):** Permite simular escenarios límite como el código `422 Unprocessable Entity` (`exercises_not_found`) para validar la preservación de fotos y la recuperación pedagógica sin recargar la página.
+
+### 11.2 Cobertura de Flujos E2E Críticos
+- **Flujo 1 (Técnica):** Panel -> "Entrenar ahora" -> Apertura de Ronda Técnica con 3 a 10 ejercicios renderizados con KaTeX.
+- **Flujo 2 (Promoción):** Captura de soluciones por archivo -> Evaluación -> Banner de ascenso -> Reflejo del nivel 2 en la matriz del Dashboard.
+- **Flujo 3 (Demostración):** Selección desde la celda de Demostración -> Ronda formal compuesta por exactamente 1 ejercicio.
+- **Flujo 4 (Resiliencia 422):** Simulación de ejercicio omitido -> Alerta `#alert-missing-exercises` -> Inclusión de foto complementaria -> Envío y resolución exitosa.
+
+
 

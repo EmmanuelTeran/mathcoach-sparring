@@ -20,13 +20,26 @@ export function App() {
   const [healthStatus, setHealthStatus] = useState('checking...');
   const [activeTab, setActiveTab] = useState('math-vision');
 
-  const [selectedTopicForTraining, setSelectedTopicForTraining] = useState(DEFAULT_TOPIC);
+  const [selectedTopicForTraining, setSelectedTopicForTraining] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/health')
+    fetch('/api/health')
       .then((res) => res.json())
       .then((data) => setHealthStatus(data.status))
       .catch(() => setHealthStatus('offline / standalone'));
+
+    fetch('/api/topics')
+      .then((res) => res.json())
+      .then((topics) => {
+        if (Array.isArray(topics) && topics.length > 0) {
+          setSelectedTopicForTraining({
+            _id: topics[0]._id,
+            title: topics[0].title,
+            category: 'technique',
+          });
+        }
+      })
+      .catch((err) => console.error('Error fetching initial topic:', err));
   }, []);
 
   const handleStartTraining = (_targetTab, topic) => {
@@ -99,6 +112,7 @@ export function App() {
         {/* Contenido Dinámico según la pestaña activa */}
         {activeTab === 'math-vision' && (
           <RoundSession
+            key={`${selectedTopicForTraining?._id || 'default'}-${selectedTopicForTraining?.category || 'technique'}`}
             topicId={selectedTopicForTraining?._id}
             category={selectedTopicForTraining?.category || 'technique'}
             onGoToDashboard={() => setActiveTab('dashboard')}

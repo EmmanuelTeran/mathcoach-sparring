@@ -44,7 +44,12 @@ roundsRouter.get('/queue', async (req, res) => {
 
       const dueTimeA = new Date(a.dueDate).getTime();
       const dueTimeB = new Date(b.dueDate).getTime();
-      return dueTimeA - dueTimeB;
+      if (dueTimeA !== dueTimeB) {
+        return dueTimeA - dueTimeB;
+      }
+
+      const catOrder = { technique: 1, application: 2, proof: 3 };
+      return (catOrder[a.category] || 99) - (catOrder[b.category] || 99);
     });
 
     const formattedQueue = dueTracks.map((track) => ({

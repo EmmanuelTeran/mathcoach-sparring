@@ -2,7 +2,7 @@
 
 - **Última actualización:** 2026-10-09
 - **Historia activa:** MATH-US-15
-- **Rama actual:** `feature/MATH-US-15-e2e-docs`
+- **Rama actual:** `feature/MATH-US-15-e2e-and-docs`
 - **Estado de Tickets:**
   - [x] MATH-US-01: Limpieza de Base Legada y Renombrado Monorepo (Done)
   - [x] MATH-US-02: Modelo de Datos MathTopic y Motor SRS SM-2 (Done)

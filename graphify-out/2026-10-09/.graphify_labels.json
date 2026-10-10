@@ -28,15 +28,10 @@
   "26": "1. Descripción y Objetivos de Negocio",
   "27": "2. Criterios de Aceptación (AC)",
   "28": "1. Descripción y Objetivos de Negocio",
-  "29": "[MATH-US-12] Evaluación Multimodal de Rondas + Progresión",
+  "29": "computeRoundOutcome",
   "30": "[MATH-US-13] UI de Sesión de Ronda (RoundSession.jsx)",
   "31": "2. Criterios de Aceptación (AC)",
   "32": "server_src_models_topic_topic",
-  "33": "progressionEngine.js",
-  "34": "Respuestas:",
-  "35": "1. Descripción y Objetivos de Negocio",
-  "36": "computeRoundOutcome",
-  "37": "8. Contratos de API Activos",
-  "38": "evaluateRoundSolutions",
-  "39": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)"
+  "33": "1. Descripción y Objetivos de Negocio",
+  "34": "Respuestas:"
 }

@@ -307,36 +307,12 @@
       "source_location": "L297"
     },
     {
-      "id": "server_src_utils_srscalculator_calculatenextreview",
-      "label": "calculateNextReview()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "calculatenextreview()",
-      "source_file": "server/src/utils/srsCalculator.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "server_src_utils_progressionengine_computeroundoutcome",
-      "label": "computeRoundOutcome()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "code",
-      "norm_label": "computeroundoutcome()",
-      "source_file": "server/src/utils/progressionEngine.js",
-      "source_location": "L47"
-    },
-    {
       "id": "server_src_services_geminiservice_buildsysteminstruction",
       "label": "buildSystemInstruction()",
       "_callable": true,
       "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
       "file_type": "code",
       "norm_label": "buildsysteminstruction()",
       "source_file": "server/src/services/geminiService.js",
@@ -347,8 +323,8 @@
       "label": "evaluateRoundSolutions()",
       "_callable": true,
       "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
       "file_type": "code",
       "norm_label": "evaluateroundsolutions()",
       "source_file": "server/src/services/geminiService.js",
@@ -359,12 +335,36 @@
       "label": "getClient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
       "file_type": "code",
       "norm_label": "getclient()",
       "source_file": "server/src/services/geminiService.js",
       "source_location": "L3"
+    },
+    {
+      "id": "server_src_utils_progressionengine_computeroundoutcome",
+      "label": "computeRoundOutcome()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "computeroundoutcome()",
+      "source_file": "server/src/utils/progressionEngine.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "server_src_utils_srscalculator_calculatenextreview",
+      "label": "calculateNextReview()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "calculatenextreview()",
+      "source_file": "server/src/utils/srsCalculator.js",
+      "source_location": "L10"
     },
     {
       "id": "antigravity_graph",
@@ -569,6 +569,18 @@
       "norm_label": "[math-us-06] ~~seed multinivel & e2e final~~",
       "source_file": ".antigravity/graph.md",
       "source_location": "L125"
+    },
+    {
+      "id": "antigravity_graph_math_us_07_hotfix_ui_enunciado_visible_captura_\u00fanica_y_textos_coherentes",
+      "label": "[MATH-US-07] Hotfix UI: Enunciado Visible, Captura \u00danica y Textos Coherentes",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "4. Historias Pendientes",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-07] hotfix ui: enunciado visible, captura unica y textos coherentes",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L132"
     },
     {
       "id": "antigravity_graph_math_us_08_modelo_de_dominio_tema_categor\u00eda_dificultad_purga_de_backend_legado",
@@ -964,7 +976,7 @@
       "node_kind": "heading",
       "norm_label": "6. commit de cierre en dev",
       "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L325"
+      "source_location": "L336"
     },
     {
       "id": "tickets_math_us_14_dashboard_tracks_componentes_y_secciones_visuales",
@@ -1000,7 +1012,7 @@
       "node_kind": "heading",
       "norm_label": "tests e2e (playwright)",
       "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L319"
+      "source_location": "L330"
     },
     {
       "id": "tickets_math_us_14_dashboard_tracks_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
@@ -1543,6 +1555,17 @@
       "source_location": "L1"
     },
     {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "rounds.js",
+      "file_type": "concept",
+      "norm_label": "dotenv",
+      "source_file": "server/package.json",
+      "source_location": "L15"
+    },
+    {
       "id": "ref_express",
       "label": "express",
       "_origin": "ast",
@@ -1597,18 +1620,6 @@
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
       "source_file": "tickets/MATH-US-09-curated-catalog.md",
       "source_location": "L256"
-    },
-    {
-      "id": "tickets_math_us_14_dashboard_tracks_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "rounds.js",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L240"
     },
     {
       "id": "package",
@@ -2150,6 +2161,66 @@
       "source_location": "L227"
     },
     {
+      "id": "docs_user_guide_8_1_tarjetas_de_repasos_pendientes_por_categor\u00eda",
+      "label": "8.1 Tarjetas de Repasos Pendientes por Categor\u00eda",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.1 tarjetas de repasos pendientes por categoria",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L367"
+    },
+    {
+      "id": "docs_user_guide_8_2_bot\u00f3n_de_acci\u00f3n_r\u00e1pida_entrenar_ahora_btn_train_now",
+      "label": "8.2 Bot\u00f3n de Acci\u00f3n R\u00e1pida: \"Entrenar ahora\" (`#btn-train-now`)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.2 boton de accion rapida: \"entrenar ahora\" (`#btn-train-now`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L381"
+    },
+    {
+      "id": "docs_user_guide_8_3_interpretaci\u00f3n_y_uso_de_la_matriz_tema_categor\u00eda_topics_matrix",
+      "label": "8.3 Interpretaci\u00f3n y Uso de la Matriz Tema \u00d7 Categor\u00eda (`#topics-matrix`)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.3 interpretacion y uso de la matriz tema \u00d7 categoria (`#topics-matrix`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L391"
+    },
+    {
+      "id": "docs_user_guide_8_4_enfoque_de_estudio_secci\u00f3n_\u00e1reas_cr\u00edticas_critical_tracks_section",
+      "label": "8.4 Enfoque de Estudio: Secci\u00f3n \"\u00c1reas Cr\u00edticas\" (`#critical-tracks-section`)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.4 enfoque de estudio: seccion \"areas criticas\" (`#critical-tracks-section`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L411"
+    },
+    {
+      "id": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "label": "8. Panel de Control y Navegaci\u00f3n Principal (`Dashboard`)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Gu\u00eda de Usuario: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8. panel de control y navegacion principal (`dashboard`)",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L337"
+    },
+    {
       "id": "docs_user_guide_ejemplos_de_casos_l\u00edmite",
       "label": "Ejemplos de Casos L\u00edmite:",
       "_origin": "ast",
@@ -2208,18 +2279,6 @@
       "norm_label": "2. criterios de aceptacion (ac)",
       "source_file": "tickets/MATH-US-03-vision-uploader.md",
       "source_location": "L18"
-    },
-    {
-      "id": "tickets_math_us_03_vision_uploader_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-03-vision-uploader.md",
-      "source_location": "L117"
     },
     {
       "id": "tickets_math_us_03_vision_uploader_4_evidencia_de_pruebas_completado_por_verify_user_story",
@@ -2933,17 +2992,6 @@
       "source_location": "L14"
     },
     {
-      "id": "ref_dotenv",
-      "label": "dotenv",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "server/package.json",
-      "file_type": "concept",
-      "norm_label": "dotenv",
-      "source_file": "server/package.json",
-      "source_location": "L15"
-    },
-    {
       "id": "server_package_json_ref_vitest",
       "label": "vitest",
       "_origin": "ast",
@@ -3159,6 +3207,66 @@
       "source_location": "L7"
     },
     {
+      "id": "docs_architecture_2_1_esquema_mathtopic_server_src_models_mathtopic_js",
+      "label": "2.1 Esquema `MathTopic` (`server/src/models/MathTopic.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.1 esquema `mathtopic` (`server/src/models/mathtopic.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L120"
+    },
+    {
+      "id": "docs_architecture_2_2_esquema_exercise_server_src_models_exercise_js",
+      "label": "2.2 Esquema `Exercise` (`server/src/models/Exercise.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.2 esquema `exercise` (`server/src/models/exercise.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L129"
+    },
+    {
+      "id": "docs_architecture_2_3_esquema_topictrack_server_src_models_topictrack_js",
+      "label": "2.3 Esquema `TopicTrack` (`server/src/models/TopicTrack.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.3 esquema `topictrack` (`server/src/models/topictrack.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L142"
+    },
+    {
+      "id": "docs_architecture_2_4_esquema_round_server_src_models_round_js",
+      "label": "2.4 Esquema `Round` (`server/src/models/Round.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2.4 esquema `round` (`server/src/models/round.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L152"
+    },
+    {
+      "id": "docs_architecture_2_modelo_de_dominio_y_esquemas_de_persistencia_mongoose",
+      "label": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. modelo de dominio y esquemas de persistencia (mongoose)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L52"
+    },
+    {
       "id": "docs_architecture_3_servicio_idempotente_ensuretracksfortopic",
       "label": "3. Servicio Idempotente `ensureTracksForTopic`",
       "_origin": "ast",
@@ -3219,6 +3327,54 @@
       "source_location": "L197"
     },
     {
+      "id": "docs_architecture_5_1_centralizaci\u00f3n_de_constantes_y_umbrales_server_src_config_progression_js",
+      "label": "5.1 Centralizaci\u00f3n de Constantes y Umbrales (`server/src/config/progression.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.1 centralizacion de constantes y umbrales (`server/src/config/progression.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L302"
+    },
+    {
+      "id": "docs_architecture_5_2_contrato_funcional_de_computeroundoutcome",
+      "label": "5.2 Contrato Funcional de `computeRoundOutcome`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.2 contrato funcional de `computeroundoutcome`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L322"
+    },
+    {
+      "id": "docs_architecture_5_3_matriz_de_acoplamiento_bidireccional_dificultad_adaptativa_vs_algoritmo_sm_2",
+      "label": "5.3 Matriz de Acoplamiento Bidireccional: Dificultad Adaptativa vs. Algoritmo SM-2",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.3 matriz de acoplamiento bidireccional: dificultad adaptativa vs. algoritmo sm-2",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L350"
+    },
+    {
+      "id": "docs_architecture_5_motor_de_progresi\u00f3n_adaptativa_y_acoplamiento_srs_progressionengine_js",
+      "label": "5. Motor de Progresi\u00f3n Adaptativa y Acoplamiento SRS (`progressionEngine.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. motor de progresion adaptativa y acoplamiento srs (`progressionengine.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L257"
+    },
+    {
       "id": "docs_architecture_6_1_algoritmo_de_selecci\u00f3n_rotaci\u00f3n_justa_y_presupuesto_temporal",
       "label": "6.1 Algoritmo de Selecci\u00f3n, Rotaci\u00f3n Justa y Presupuesto Temporal",
       "_origin": "ast",
@@ -3277,6 +3433,150 @@
       "norm_label": "7. pipeline multimodal de evaluacion de rondas (`geminiservice.js`)",
       "source_file": "docs/ARCHITECTURE.md",
       "source_location": "L410"
+    },
+    {
+      "id": "docs_architecture_8_1_get_api_topics",
+      "label": "8.1 `GET /api/topics`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.1 `get /api/topics`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L480"
+    },
+    {
+      "id": "docs_architecture_8_2_get_api_rounds_queue",
+      "label": "8.2 `GET /api/rounds/queue`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.2 `get /api/rounds/queue`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L524"
+    },
+    {
+      "id": "docs_architecture_8_3_post_api_rounds",
+      "label": "8.3 `POST /api/rounds`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.3 `post /api/rounds`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L546"
+    },
+    {
+      "id": "docs_architecture_8_4_get_api_rounds_id",
+      "label": "8.4 `GET /api/rounds/:id`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.4 `get /api/rounds/:id`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L592"
+    },
+    {
+      "id": "docs_architecture_8_5_post_api_rounds_id_evaluate",
+      "label": "8.5 `POST /api/rounds/:id/evaluate`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.5 `post /api/rounds/:id/evaluate`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L600"
+    },
+    {
+      "id": "docs_architecture_8_6_1_l\u00f3gica_de_agregaci\u00f3n_y_c\u00f3mputo_dashboardcontroller_js",
+      "label": "8.6.1 L\u00f3gica de Agregaci\u00f3n y C\u00f3mputo (`dashboardController.js`)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.6.1 logica de agregacion y computo (`dashboardcontroller.js`)",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L693"
+    },
+    {
+      "id": "docs_architecture_8_6_2_integraci\u00f3n_ui_con_roundsession_para_rondas_contextuales",
+      "label": "8.6.2 Integraci\u00f3n UI con `RoundSession` para Rondas Contextuales",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.6.2 integracion ui con `roundsession` para rondas contextuales",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L706"
+    },
+    {
+      "id": "docs_architecture_8_6_3_certificaci\u00f3n_de_limpieza_de_copys_legados",
+      "label": "8.6.3 Certificaci\u00f3n de Limpieza de Copys Legados",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.6.3 certificacion de limpieza de copys legados",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L710"
+    },
+    {
+      "id": "docs_architecture_8_6_get_api_dashboard_summary",
+      "label": "8.6 `GET /api/dashboard/summary`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.6 `get /api/dashboard/summary`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L632"
+    },
+    {
+      "id": "docs_architecture_8_7_get_api_health",
+      "label": "8.7 `GET /api/health`",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8.7 `get /api/health`",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L717"
+    },
+    {
+      "id": "docs_architecture_8_contratos_de_api_activos",
+      "label": "8. Contratos de API Activos",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8. contratos de api activos",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L478"
+    },
+    {
+      "id": "docs_architecture_9_deprecaci\u00f3n_y_purga_definitiva_de_endpoints_legados",
+      "label": "9. Deprecaci\u00f3n y Purga Definitiva de Endpoints Legados",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "Arquitectura T\u00e9cnica del Sistema: MathCoach Sparring",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9. deprecacion y purga definitiva de endpoints legados",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L722"
     },
     {
       "id": "docs_architecture_arquitectura_t\u00e9cnica_del_sistema_mathcoach_sparring",
@@ -4178,18 +4478,6 @@
       "source_location": "L23"
     },
     {
-      "id": "antigravity_graph_math_us_07_hotfix_ui_enunciado_visible_captura_\u00fanica_y_textos_coherentes",
-      "label": "[MATH-US-07] Hotfix UI: Enunciado Visible, Captura \u00danica y Textos Coherentes",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "RoundSession",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-07] hotfix ui: enunciado visible, captura unica y textos coherentes",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L132"
-    },
-    {
       "id": "antigravity_graph_math_us_13_ui_de_sesi\u00f3n_de_ronda_roundsession_jsx",
       "label": "[MATH-US-13] UI de Sesi\u00f3n de Ronda (RoundSession.jsx)",
       "_origin": "ast",
@@ -4211,7 +4499,7 @@
       "node_kind": "heading",
       "norm_label": "10.1 jerarquia y descomposicion de componentes react",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L666"
+      "source_location": "L741"
     },
     {
       "id": "docs_architecture_10_2_m\u00e1quina_de_estados_local_de_la_sesi\u00f3n",
@@ -4223,7 +4511,7 @@
       "node_kind": "heading",
       "norm_label": "10.2 maquina de estados local de la sesion",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L701"
+      "source_location": "L776"
     },
     {
       "id": "docs_architecture_10_3_manejo_de_errores_http_y_resiliencia_en_cliente",
@@ -4235,7 +4523,7 @@
       "node_kind": "heading",
       "norm_label": "10.3 manejo de errores http y resiliencia en cliente",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L746"
+      "source_location": "L821"
     },
     {
       "id": "docs_architecture_10_4_contrato_estricto_de_identificadores_estables_para_e2e",
@@ -4247,7 +4535,7 @@
       "node_kind": "heading",
       "norm_label": "10.4 contrato estricto de identificadores estables para e2e",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L756"
+      "source_location": "L831"
     },
     {
       "id": "docs_architecture_10_arquitectura_frontend_de_sesi\u00f3n_de_ronda_roundsession",
@@ -4259,19 +4547,7 @@
       "node_kind": "heading",
       "norm_label": "10. arquitectura frontend de sesion de ronda (`roundsession`)",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L662"
-    },
-    {
-      "id": "docs_architecture_9_deprecaci\u00f3n_y_purga_definitiva_de_endpoints_legados",
-      "label": "9. Deprecaci\u00f3n y Purga Definitiva de Endpoints Legados",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "RoundSession",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9. deprecacion y purga definitiva de endpoints legados",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L647"
+      "source_location": "L737"
     },
     {
       "id": "docs_user_guide_7_1_el_flujo_de_trabajo_en_libreta_f\u00edsica_ronda_completa",
@@ -4346,6 +4622,30 @@
       "source_location": "L251"
     },
     {
+      "id": "tickets_math_us_03_vision_uploader_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-03-vision-uploader.md",
+      "source_location": "L117"
+    },
+    {
+      "id": "tickets_math_us_07_hotfix_ui_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-07-hotfix-ui.md",
+      "source_location": "L95"
+    },
+    {
       "id": "tickets_math_us_13_round_session_ui_2_criterios_de_aceptaci\u00f3n_ac",
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
@@ -4368,6 +4668,30 @@
       "norm_label": "3. subgrafo afectado (identificado con graphify)",
       "source_file": "tickets/MATH-US-13-round-session-ui.md",
       "source_location": "L208"
+    },
+    {
+      "id": "tickets_math_us_14_dashboard_tracks_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
+      "source_location": "L240"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RoundSession",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L163"
     },
     {
       "id": "tickets_math_us_09_curated_catalog",
@@ -5402,11 +5726,199 @@
       "source_location": "L270"
     },
     {
+      "id": "server_src_config_progression",
+      "label": "progression.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "progression.js",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_config_progression_category_limits",
+      "label": "CATEGORY_LIMITS",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "category_limits",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "server_src_config_progression_exercise_pass_score",
+      "label": "EXERCISE_PASS_SCORE",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "exercise_pass_score",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "server_src_config_progression_max_difficulty",
+      "label": "MAX_DIFFICULTY",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "max_difficulty",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L28"
+    },
+    {
+      "id": "server_src_config_progression_min_difficulty",
+      "label": "MIN_DIFFICULTY",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "min_difficulty",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "server_src_config_progression_promotion_interval_days",
+      "label": "PROMOTION_INTERVAL_DAYS",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "promotion_interval_days",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "server_src_config_progression_promotion_min_pass_rate",
+      "label": "PROMOTION_MIN_PASS_RATE",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "promotion_min_pass_rate",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "server_src_config_progression_promotion_min_score",
+      "label": "PROMOTION_MIN_SCORE",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "promotion_min_score",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "server_src_config_progression_round_budget_min",
+      "label": "ROUND_BUDGET_MIN",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "round_budget_min",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "server_src_config_progression_round_pass_score",
+      "label": "ROUND_PASS_SCORE",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "round_pass_score",
+      "source_file": "server/src/config/progression.js",
+      "source_location": "L22"
+    },
+    {
+      "id": "server_src_services_geminiservice",
+      "label": "geminiService.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "geminiservice.js",
+      "source_file": "server/src/services/geminiService.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_utils_progressionengine",
+      "label": "progressionEngine.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "progressionengine.js",
+      "source_file": "server/src/utils/progressionEngine.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_src_utils_srscalculator",
+      "label": "srsCalculator.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "srscalculator.js",
+      "source_file": "server/src/utils/srsCalculator.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_tests_progressionengine_test",
+      "label": "progressionEngine.test.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "progressionengine.test.js",
+      "source_file": "server/tests/progressionEngine.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "server_tests_srscalculator_test",
+      "label": "srsCalculator.test.js",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "code",
+      "norm_label": "srscalculator.test.js",
+      "source_file": "server/tests/srsCalculator.test.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_google_genai",
+      "label": "@google/genai",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "concept",
+      "norm_label": "@google/genai",
+      "source_file": "server/package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "antigravity_graph_math_us_12_evaluaci\u00f3n_multimodal_de_rondas_progresi\u00f3n",
+      "label": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-12] evaluacion multimodal de rondas + progresion",
+      "source_file": ".antigravity/graph.md",
+      "source_location": "L209"
+    },
+    {
       "id": "tickets_math_us_12_round_evaluation",
       "label": "MATH-US-12-round-evaluation.md",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "math-us-12-round-evaluation.md",
@@ -5414,11 +5926,83 @@
       "source_location": "L1"
     },
     {
+      "id": "tickets_math_us_12_round_evaluation_1_1_contexto_arquitect\u00f3nico_y_raz\u00f3n_de_cambio",
+      "label": "1.1 Contexto Arquitect\u00f3nico y Raz\u00f3n de Cambio",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.1 contexto arquitectonico y razon de cambio",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_1_2_reglas_de_negocio_de_progresi\u00f3n_y_srs_1_2_y_1_3_de_graph_md",
+      "label": "1.2 Reglas de Negocio de Progresi\u00f3n y SRS (\u00a71.2 y \u00a71.3 de `graph.md`)",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.2 reglas de negocio de progresion y srs (\u00a71.2 y \u00a71.3 de `graph.md`)",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L30"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_1_3_generalizaci\u00f3n_del_servicio_de_ia_multimodal_geminiservice_js",
+      "label": "1.3 Generalizaci\u00f3n del Servicio de IA Multimodal (`geminiService.js`)",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.3 generalizacion del servicio de ia multimodal (`geminiservice.js`)",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_1_5_persistencia_at\u00f3mica_e_integraci\u00f3n_con_computeroundoutcome",
+      "label": "1.5 Persistencia At\u00f3mica e Integraci\u00f3n con `computeRoundOutcome`",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.5 persistencia atomica e integracion con `computeroundoutcome`",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L228"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_1_6_deprecaci\u00f3n_y_purga_definitiva_de_post_api_evaluate_math",
+      "label": "1.6 Deprecaci\u00f3n y Purga Definitiva de `POST /api/evaluate-math`",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.6 deprecacion y purga definitiva de `post /api/evaluate-math`",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L264"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "label": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. descripcion y objetivos de negocio",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L10"
+    },
+    {
       "id": "tickets_math_us_12_round_evaluation_2_criterios_de_aceptaci\u00f3n_ac",
       "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. criterios de aceptacion (ac)",
@@ -5426,11 +6010,23 @@
       "source_location": "L278"
     },
     {
+      "id": "tickets_math_us_12_round_evaluation_3_subgrafo_afectado_identificado_con_graphify",
+      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. subgrafo afectado (identificado con graphify)",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L330"
+    },
+    {
       "id": "tickets_math_us_12_round_evaluation_4_1_plan_de_pruebas_en_server_tests_roundevaluation_test_js",
       "label": "4.1 Plan de Pruebas en `server/tests/roundEvaluation.test.js`",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4.1 plan de pruebas en `server/tests/roundevaluation.test.js`",
@@ -5442,7 +6038,7 @@
       "label": "4. Estrategia de Pruebas y Cobertura",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. estrategia de pruebas y cobertura",
@@ -5454,7 +6050,7 @@
       "label": "5. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "5. evidencia de pruebas (completado por verify-user-story)",
@@ -5466,7 +6062,7 @@
       "label": "6. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "6. commit de cierre en dev",
@@ -5478,7 +6074,7 @@
       "label": "AC-1: Validaciones de Entrada y C\u00f3digos de Error seg\u00fan Contrato",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-1: validaciones de entrada y codigos de error segun contrato",
@@ -5490,7 +6086,7 @@
       "label": "AC-2: Persistencia At\u00f3mica post-Evaluaci\u00f3n con `computeRoundOutcome`",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-2: persistencia atomica post-evaluacion con `computeroundoutcome`",
@@ -5502,7 +6098,7 @@
       "label": "AC-3: Cobertura Automatizada con Gemini Mockeado",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-3: cobertura automatizada con gemini mockeado",
@@ -5514,7 +6110,7 @@
       "label": "AC-4: Eliminaci\u00f3n Definitiva de `/api/evaluate-math`",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "ac-4: eliminacion definitiva de `/api/evaluate-math`",
@@ -5522,11 +6118,47 @@
       "source_location": "L322"
     },
     {
+      "id": "tickets_math_us_12_round_evaluation_acoplamiento_con_spaced_repetition_sm_2_1_3",
+      "label": "Acoplamiento con Spaced Repetition SM-2 (\u00a71.3):",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "acoplamiento con spaced repetition sm-2 (\u00a71.3):",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L46"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_caracter\u00edsticas_del_servicio_de_inferencia",
+      "label": "Caracter\u00edsticas del Servicio de Inferencia:",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "caracteristicas del servicio de inferencia:",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L77"
+    },
+    {
+      "id": "tickets_math_us_12_round_evaluation_criterio_de_promoci\u00f3n_1_2",
+      "label": "Criterio de Promoci\u00f3n (\u00a71.2):",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "criterio de promocion (\u00a71.2):",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L40"
+    },
+    {
       "id": "tickets_math_us_12_round_evaluation_math_us_12_evaluaci\u00f3n_multimodal_de_rondas_progresi\u00f3n",
       "label": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "[math-us-12] evaluacion multimodal de rondas + progresion",
@@ -5534,11 +6166,23 @@
       "source_location": "L1"
     },
     {
+      "id": "tickets_math_us_12_round_evaluation_m\u00e9tricas_de_ronda",
+      "label": "M\u00e9tricas de Ronda:",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "computeRoundOutcome",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "metricas de ronda:",
+      "source_file": "tickets/MATH-US-12-round-evaluation.md",
+      "source_location": "L34"
+    },
+    {
       "id": "tickets_math_us_12_round_evaluation_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
       "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "tests unitarios e integracion (vitest / supertest)",
@@ -5550,7 +6194,7 @@
       "label": "Verificaci\u00f3n de Purga del Endpoint Legado",
       "_origin": "ast",
       "community": 29,
-      "community_name": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
+      "community_name": "computeRoundOutcome",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "verificacion de purga del endpoint legado",
@@ -5810,18 +6454,6 @@
       "source_location": "L39"
     },
     {
-      "id": "tickets_math_us_07_hotfix_ui_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 31,
-      "community_name": "2. Criterios de Aceptaci\u00f3n (AC)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-07-hotfix-ui.md",
-      "source_location": "L95"
-    },
-    {
       "id": "tickets_math_us_07_hotfix_ui_4_evidencia_de_pruebas_completado_por_verify_user_story",
       "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
@@ -5990,158 +6622,244 @@
       "source_location": "L147"
     },
     {
-      "id": "server_src_config_progression",
-      "label": "progression.js",
+      "id": "tickets_math_us_15_e2e_and_docs",
+      "label": "MATH-US-15-e2e-and-docs.md",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "progression.js",
-      "source_file": "server/src/config/progression.js",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "math-us-15-e2e-and-docs.md",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
       "source_location": "L1"
     },
     {
-      "id": "server_src_config_progression_category_limits",
-      "label": "CATEGORY_LIMITS",
+      "id": "tickets_math_us_15_e2e_and_docs_1_1_contexto_arquitect\u00f3nico_y_cierre_del_roadmap",
+      "label": "1.1 Contexto Arquitect\u00f3nico y Cierre del Roadmap",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "category_limits",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L31"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.1 contexto arquitectonico y cierre del roadmap",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L12"
     },
     {
-      "id": "server_src_config_progression_exercise_pass_score",
-      "label": "EXERCISE_PASS_SCORE",
+      "id": "tickets_math_us_15_e2e_and_docs_1_2_1_topolog\u00eda_y_orquestaci\u00f3n_de_servidores",
+      "label": "1.2.1 Topolog\u00eda y Orquestaci\u00f3n de Servidores",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "exercise_pass_score",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L19"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.2.1 topologia y orquestacion de servidores",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L36"
     },
     {
-      "id": "server_src_config_progression_max_difficulty",
-      "label": "MAX_DIFFICULTY",
+      "id": "tickets_math_us_15_e2e_and_docs_1_2_2_estrategia_de_mocking_determinista_para_gemini_1_5_pro",
+      "label": "1.2.2 Estrategia de Mocking Determinista para Gemini 1.5 Pro",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "max_difficulty",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L28"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.2.2 estrategia de mocking determinista para gemini 1.5 pro",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L41"
     },
     {
-      "id": "server_src_config_progression_min_difficulty",
-      "label": "MIN_DIFFICULTY",
+      "id": "tickets_math_us_15_e2e_and_docs_1_2_configuraci\u00f3n_de_la_suite_e2e_con_playwright_tests_e2e",
+      "label": "1.2 Configuraci\u00f3n de la Suite E2E con Playwright (`tests/e2e/`)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "min_difficulty",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L25"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.2 configuracion de la suite e2e con playwright (`tests/e2e/`)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L34"
     },
     {
-      "id": "server_src_config_progression_promotion_interval_days",
-      "label": "PROMOTION_INTERVAL_DAYS",
+      "id": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "label": "1.3 Cobertura de los 4 Flujos de Usuario Cr\u00edticos",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "promotion_interval_days",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L13"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.3 cobertura de los 4 flujos de usuario criticos",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L50"
     },
     {
-      "id": "server_src_config_progression_promotion_min_pass_rate",
-      "label": "PROMOTION_MIN_PASS_RATE",
+      "id": "tickets_math_us_15_e2e_and_docs_1_4_purga_y_actualizaci\u00f3n_de_tests_e2e_legados",
+      "label": "1.4 Purga y Actualizaci\u00f3n de Tests E2E Legados",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "promotion_min_pass_rate",
-      "source_file": "server/src/config/progression.js",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.4 purga y actualizacion de tests e2e legados",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L104"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_1_5_scripts_y_automatizaci\u00f3n_package_json",
+      "label": "1.5 Scripts y Automatizaci\u00f3n (`package.json`)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.5 scripts y automatizacion (`package.json`)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L116"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_1_6_sincronizaci\u00f3n_y_cierre_documental",
+      "label": "1.6 Sincronizaci\u00f3n y Cierre Documental",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.6 sincronizacion y cierre documental",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L138"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "label": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. descripcion y objetivos de negocio",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
       "source_location": "L10"
     },
     {
-      "id": "server_src_config_progression_promotion_min_score",
-      "label": "PROMOTION_MIN_SCORE",
+      "id": "tickets_math_us_15_e2e_and_docs_2_criterios_de_aceptaci\u00f3n_ac",
+      "label": "2. Criterios de Aceptaci\u00f3n (AC)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "promotion_min_score",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L7"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. criterios de aceptacion (ac)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L151"
     },
     {
-      "id": "server_src_config_progression_round_budget_min",
-      "label": "ROUND_BUDGET_MIN",
+      "id": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "label": "4. Evidencia de Pruebas (Completado por verify-user-story)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "round_budget_min",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L16"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. evidencia de pruebas (completado por verify-user-story)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L195"
     },
     {
-      "id": "server_src_config_progression_round_pass_score",
-      "label": "ROUND_PASS_SCORE",
+      "id": "tickets_math_us_15_e2e_and_docs_5_commit_de_cierre_en_dev",
+      "label": "5. Commit de Cierre en dev",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "round_pass_score",
-      "source_file": "server/src/config/progression.js",
-      "source_location": "L22"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. commit de cierre en dev",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L211"
     },
     {
-      "id": "server_src_utils_progressionengine",
-      "label": "progressionEngine.js",
+      "id": "tickets_math_us_15_e2e_and_docs_flujo_1_flujo_t\u00e9cnica_happy_path_panel_entrenar_ahora_ronda_t\u00e9cnica",
+      "label": "Flujo 1: Flujo T\u00e9cnica (Happy Path: Panel \u2192 \"Entrenar ahora\" \u2192 Ronda T\u00e9cnica)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "progressionengine.js",
-      "source_file": "server/src/utils/progressionEngine.js",
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 1: flujo tecnica (happy path: panel \u2192 \"entrenar ahora\" \u2192 ronda tecnica)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L54"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_flujo_2_flujo_promoci\u00f3n_captura_por_archivo_evaluaci\u00f3n_exitosa_promoci\u00f3n_a_dificultad_2_en_panel",
+      "label": "Flujo 2: Flujo Promoci\u00f3n (Captura por Archivo \u2192 Evaluaci\u00f3n Exitosa \u2192 Promoci\u00f3n a Dificultad 2 en Panel)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 2: flujo promocion (captura por archivo \u2192 evaluacion exitosa \u2192 promocion a dificultad 2 en panel)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L62"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_flujo_3_flujo_demostraci\u00f3n_selecci\u00f3n_manual_en_la_matriz_ronda_de_1_ejercicio",
+      "label": "Flujo 3: Flujo Demostraci\u00f3n (Selecci\u00f3n Manual en la Matriz \u2192 Ronda de 1 Ejercicio)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 3: flujo demostracion (seleccion manual en la matriz \u2192 ronda de 1 ejercicio)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_flujo_4_flujo_resiliencia_422_detecci\u00f3n_de_ejercicio_faltante_y_reevaluaci\u00f3n_exitosa",
+      "label": "Flujo 4: Flujo Resiliencia 422 (Detecci\u00f3n de Ejercicio Faltante y Reevaluaci\u00f3n Exitosa)",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "flujo 4: flujo resiliencia 422 (deteccion de ejercicio faltante y reevaluacion exitosa)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "label": "[MATH-US-15] Validaci\u00f3n E2E Final + Documentaci\u00f3n",
+      "_origin": "ast",
+      "community": 33,
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "[math-us-15] validacion e2e final + documentacion",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
       "source_location": "L1"
     },
     {
-      "id": "server_src_utils_srscalculator",
-      "label": "srsCalculator.js",
+      "id": "tickets_math_us_15_e2e_and_docs_tests_e2e_playwright",
+      "label": "Tests E2E (Playwright)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "srscalculator.js",
-      "source_file": "server/src/utils/srsCalculator.js",
-      "source_location": "L1"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests e2e (playwright)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L203"
     },
     {
-      "id": "server_tests_progressionengine_test",
-      "label": "progressionEngine.test.js",
+      "id": "tickets_math_us_15_e2e_and_docs_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
+      "label": "Tests Unitarios e Integraci\u00f3n (Vitest / Supertest)",
       "_origin": "ast",
       "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "progressionengine.test.js",
-      "source_file": "server/tests/progressionEngine.test.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "server_tests_srscalculator_test",
-      "label": "srsCalculator.test.js",
-      "_origin": "ast",
-      "community": 33,
-      "community_name": "progressionEngine.js",
-      "file_type": "code",
-      "norm_label": "srscalculator.test.js",
-      "source_file": "server/tests/srsCalculator.test.js",
-      "source_location": "L1"
+      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "tests unitarios e integracion (vitest / supertest)",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L197"
     },
     {
       "id": "tickets_math_us_12_round_evaluation_1_4_contrato_formal_de_la_api_http_post_api_rounds_id_evaluate",
@@ -6262,376 +6980,6 @@
       "norm_label": "respuestas:",
       "source_file": "tickets/MATH-US-12-round-evaluation.md",
       "source_location": "L151"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_1_contexto_arquitect\u00f3nico_y_raz\u00f3n_de_cambio",
-      "label": "1.1 Contexto Arquitect\u00f3nico y Raz\u00f3n de Cambio",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1.1 contexto arquitectonico y razon de cambio",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L12"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_2_reglas_de_negocio_de_progresi\u00f3n_y_srs_1_2_y_1_3_de_graph_md",
-      "label": "1.2 Reglas de Negocio de Progresi\u00f3n y SRS (\u00a71.2 y \u00a71.3 de `graph.md`)",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1.2 reglas de negocio de progresion y srs (\u00a71.2 y \u00a71.3 de `graph.md`)",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L30"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_3_generalizaci\u00f3n_del_servicio_de_ia_multimodal_geminiservice_js",
-      "label": "1.3 Generalizaci\u00f3n del Servicio de IA Multimodal (`geminiService.js`)",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1.3 generalizacion del servicio de ia multimodal (`geminiservice.js`)",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L57"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_6_deprecaci\u00f3n_y_purga_definitiva_de_post_api_evaluate_math",
-      "label": "1.6 Deprecaci\u00f3n y Purga Definitiva de `POST /api/evaluate-math`",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1.6 deprecacion y purga definitiva de `post /api/evaluate-math`",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L264"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_descripci\u00f3n_y_objetivos_de_negocio",
-      "label": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. descripcion y objetivos de negocio",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L10"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_acoplamiento_con_spaced_repetition_sm_2_1_3",
-      "label": "Acoplamiento con Spaced Repetition SM-2 (\u00a71.3):",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "acoplamiento con spaced repetition sm-2 (\u00a71.3):",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L46"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_caracter\u00edsticas_del_servicio_de_inferencia",
-      "label": "Caracter\u00edsticas del Servicio de Inferencia:",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "caracteristicas del servicio de inferencia:",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L77"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_criterio_de_promoci\u00f3n_1_2",
-      "label": "Criterio de Promoci\u00f3n (\u00a71.2):",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "criterio de promocion (\u00a71.2):",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L40"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_m\u00e9tricas_de_ronda",
-      "label": "M\u00e9tricas de Ronda:",
-      "_origin": "ast",
-      "community": 35,
-      "community_name": "1. Descripci\u00f3n y Objetivos de Negocio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "metricas de ronda:",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "antigravity_graph_math_us_12_evaluaci\u00f3n_multimodal_de_rondas_progresi\u00f3n",
-      "label": "[MATH-US-12] Evaluaci\u00f3n Multimodal de Rondas + Progresi\u00f3n",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "[math-us-12] evaluacion multimodal de rondas + progresion",
-      "source_file": ".antigravity/graph.md",
-      "source_location": "L209"
-    },
-    {
-      "id": "docs_architecture_5_1_centralizaci\u00f3n_de_constantes_y_umbrales_server_src_config_progression_js",
-      "label": "5.1 Centralizaci\u00f3n de Constantes y Umbrales (`server/src/config/progression.js`)",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5.1 centralizacion de constantes y umbrales (`server/src/config/progression.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L302"
-    },
-    {
-      "id": "docs_architecture_5_2_contrato_funcional_de_computeroundoutcome",
-      "label": "5.2 Contrato Funcional de `computeRoundOutcome`",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5.2 contrato funcional de `computeroundoutcome`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L322"
-    },
-    {
-      "id": "docs_architecture_5_3_matriz_de_acoplamiento_bidireccional_dificultad_adaptativa_vs_algoritmo_sm_2",
-      "label": "5.3 Matriz de Acoplamiento Bidireccional: Dificultad Adaptativa vs. Algoritmo SM-2",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5.3 matriz de acoplamiento bidireccional: dificultad adaptativa vs. algoritmo sm-2",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L350"
-    },
-    {
-      "id": "docs_architecture_5_motor_de_progresi\u00f3n_adaptativa_y_acoplamiento_srs_progressionengine_js",
-      "label": "5. Motor de Progresi\u00f3n Adaptativa y Acoplamiento SRS (`progressionEngine.js`)",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. motor de progresion adaptativa y acoplamiento srs (`progressionengine.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L257"
-    },
-    {
-      "id": "docs_architecture_8_5_post_api_rounds_id_evaluate",
-      "label": "8.5 `POST /api/rounds/:id/evaluate`",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.5 `post /api/rounds/:id/evaluate`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L600"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_1_5_persistencia_at\u00f3mica_e_integraci\u00f3n_con_computeroundoutcome",
-      "label": "1.5 Persistencia At\u00f3mica e Integraci\u00f3n con `computeRoundOutcome`",
-      "_origin": "ast",
-      "community": 36,
-      "community_name": "computeRoundOutcome",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1.5 persistencia atomica e integracion con `computeroundoutcome`",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L228"
-    },
-    {
-      "id": "docs_architecture_8_1_get_api_topics",
-      "label": "8.1 `GET /api/topics`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.1 `get /api/topics`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L480"
-    },
-    {
-      "id": "docs_architecture_8_2_get_api_rounds_queue",
-      "label": "8.2 `GET /api/rounds/queue`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.2 `get /api/rounds/queue`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L524"
-    },
-    {
-      "id": "docs_architecture_8_3_post_api_rounds",
-      "label": "8.3 `POST /api/rounds`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.3 `post /api/rounds`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L546"
-    },
-    {
-      "id": "docs_architecture_8_4_get_api_rounds_id",
-      "label": "8.4 `GET /api/rounds/:id`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.4 `get /api/rounds/:id`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L592"
-    },
-    {
-      "id": "docs_architecture_8_6_get_api_dashboard_summary",
-      "label": "8.6 `GET /api/dashboard/summary`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.6 `get /api/dashboard/summary`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L632"
-    },
-    {
-      "id": "docs_architecture_8_7_get_api_health",
-      "label": "8.7 `GET /api/health`",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8.7 `get /api/health`",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L642"
-    },
-    {
-      "id": "docs_architecture_8_contratos_de_api_activos",
-      "label": "8. Contratos de API Activos",
-      "_origin": "ast",
-      "community": 37,
-      "community_name": "8. Contratos de API Activos",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "8. contratos de api activos",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L478"
-    },
-    {
-      "id": "server_src_services_geminiservice",
-      "label": "geminiService.js",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
-      "file_type": "code",
-      "norm_label": "geminiservice.js",
-      "source_file": "server/src/services/geminiService.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "ref_google_genai",
-      "label": "@google/genai",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
-      "file_type": "concept",
-      "norm_label": "@google/genai",
-      "source_file": "server/package.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "tickets_math_us_12_round_evaluation_3_subgrafo_afectado_identificado_con_graphify",
-      "label": "3. Subgrafo Afectado (Identificado con Graphify)",
-      "_origin": "ast",
-      "community": 38,
-      "community_name": "evaluateRoundSolutions",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. subgrafo afectado (identificado con graphify)",
-      "source_file": "tickets/MATH-US-12-round-evaluation.md",
-      "source_location": "L330"
-    },
-    {
-      "id": "docs_architecture_2_1_esquema_mathtopic_server_src_models_mathtopic_js",
-      "label": "2.1 Esquema `MathTopic` (`server/src/models/MathTopic.js`)",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2.1 esquema `mathtopic` (`server/src/models/mathtopic.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L120"
-    },
-    {
-      "id": "docs_architecture_2_2_esquema_exercise_server_src_models_exercise_js",
-      "label": "2.2 Esquema `Exercise` (`server/src/models/Exercise.js`)",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2.2 esquema `exercise` (`server/src/models/exercise.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L129"
-    },
-    {
-      "id": "docs_architecture_2_3_esquema_topictrack_server_src_models_topictrack_js",
-      "label": "2.3 Esquema `TopicTrack` (`server/src/models/TopicTrack.js`)",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2.3 esquema `topictrack` (`server/src/models/topictrack.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L142"
-    },
-    {
-      "id": "docs_architecture_2_4_esquema_round_server_src_models_round_js",
-      "label": "2.4 Esquema `Round` (`server/src/models/Round.js`)",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2.4 esquema `round` (`server/src/models/round.js`)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L152"
-    },
-    {
-      "id": "docs_architecture_2_modelo_de_dominio_y_esquemas_de_persistencia_mongoose",
-      "label": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "_origin": "ast",
-      "community": 39,
-      "community_name": "2. Modelo de Dominio y Esquemas de Persistencia (Mongoose)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. modelo de dominio y esquemas de persistencia (mongoose)",
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L52"
     },
     {
       "id": "antigravity_skills_document_user_guide",
@@ -11939,7 +12287,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L666",
+      "source_location": "L741",
       "weight": 1.0
     },
     {
@@ -11950,7 +12298,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L701",
+      "source_location": "L776",
       "weight": 1.0
     },
     {
@@ -11961,7 +12309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L746",
+      "source_location": "L821",
       "weight": 1.0
     },
     {
@@ -11972,7 +12320,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L756",
+      "source_location": "L831",
       "weight": 1.0
     },
     {
@@ -12119,6 +12467,39 @@
       "weight": 1.0
     },
     {
+      "source": "docs_architecture_8_6_get_api_dashboard_summary",
+      "target": "docs_architecture_8_6_1_l\u00f3gica_de_agregaci\u00f3n_y_c\u00f3mputo_dashboardcontroller_js",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L693",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_architecture_8_6_get_api_dashboard_summary",
+      "target": "docs_architecture_8_6_2_integraci\u00f3n_ui_con_roundsession_para_rondas_contextuales",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L706",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_architecture_8_6_get_api_dashboard_summary",
+      "target": "docs_architecture_8_6_3_certificaci\u00f3n_de_limpieza_de_copys_legados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L710",
+      "weight": 1.0
+    },
+    {
       "source": "docs_architecture_8_contratos_de_api_activos",
       "target": "docs_architecture_8_1_get_api_topics",
       "relation": "contains",
@@ -12192,7 +12573,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L642",
+      "source_location": "L717",
       "weight": 1.0
     },
     {
@@ -12274,13 +12655,24 @@
     },
     {
       "source": "docs_architecture_arquitectura_t\u00e9cnica_del_sistema_mathcoach_sparring",
+      "target": "docs_architecture_1_topolog\u00eda_del_monorepo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_architecture_arquitectura_t\u00e9cnica_del_sistema_mathcoach_sparring",
       "target": "docs_architecture_9_deprecaci\u00f3n_y_purga_definitiva_de_endpoints_legados",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L647",
+      "source_location": "L722",
       "weight": 1.0
     },
     {
@@ -12291,18 +12683,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L662",
-      "weight": 1.0
-    },
-    {
-      "source": "docs_architecture_arquitectura_t\u00e9cnica_del_sistema_mathcoach_sparring",
-      "target": "docs_architecture_1_topolog\u00eda_del_monorepo",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L7",
+      "source_location": "L737",
       "weight": 1.0
     },
     {
@@ -12548,6 +12929,50 @@
       "weight": 1.0
     },
     {
+      "source": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "target": "docs_user_guide_8_1_tarjetas_de_repasos_pendientes_por_categor\u00eda",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L367",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "target": "docs_user_guide_8_2_bot\u00f3n_de_acci\u00f3n_r\u00e1pida_entrenar_ahora_btn_train_now",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "target": "docs_user_guide_8_3_interpretaci\u00f3n_y_uso_de_la_matriz_tema_categor\u00eda_topics_matrix",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L391",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "target": "docs_user_guide_8_4_enfoque_de_estudio_secci\u00f3n_\u00e1reas_cr\u00edticas_critical_tracks_section",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L411",
+      "weight": 1.0
+    },
+    {
       "source": "docs_user_guide_gu\u00eda_de_usuario_mathcoach_sparring",
       "target": "docs_user_guide_4_din\u00e1mica_de_dificultad_adaptativa_y_motor_srs_sm_2",
       "relation": "contains",
@@ -12589,6 +13014,17 @@
       "confidence_score": 1.0,
       "source_file": "docs/USER_GUIDE.md",
       "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_gu\u00eda_de_usuario_mathcoach_sparring",
+      "target": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L337",
       "weight": 1.0
     },
     {
@@ -15877,7 +16313,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L319",
+      "source_location": "L330",
       "weight": 1.0
     },
     {
@@ -15943,7 +16379,227 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
-      "source_location": "L325",
+      "source_location": "L336",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs",
+      "target": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_2_configuraci\u00f3n_de_la_suite_e2e_con_playwright_tests_e2e",
+      "target": "tickets_math_us_15_e2e_and_docs_1_2_1_topolog\u00eda_y_orquestaci\u00f3n_de_servidores",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_2_configuraci\u00f3n_de_la_suite_e2e_con_playwright_tests_e2e",
+      "target": "tickets_math_us_15_e2e_and_docs_1_2_2_estrategia_de_mocking_determinista_para_gemini_1_5_pro",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "target": "tickets_math_us_15_e2e_and_docs_flujo_1_flujo_t\u00e9cnica_happy_path_panel_entrenar_ahora_ronda_t\u00e9cnica",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "target": "tickets_math_us_15_e2e_and_docs_flujo_2_flujo_promoci\u00f3n_captura_por_archivo_evaluaci\u00f3n_exitosa_promoci\u00f3n_a_dificultad_2_en_panel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "target": "tickets_math_us_15_e2e_and_docs_flujo_3_flujo_demostraci\u00f3n_selecci\u00f3n_manual_en_la_matriz_ronda_de_1_ejercicio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "target": "tickets_math_us_15_e2e_and_docs_flujo_4_flujo_resiliencia_422_detecci\u00f3n_de_ejercicio_faltante_y_reevaluaci\u00f3n_exitosa",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_4_purga_y_actualizaci\u00f3n_de_tests_e2e_legados",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_5_scripts_y_automatizaci\u00f3n_package_json",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_1_contexto_arquitect\u00f3nico_y_cierre_del_roadmap",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_6_sincronizaci\u00f3n_y_cierre_documental",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_2_configuraci\u00f3n_de_la_suite_e2e_con_playwright_tests_e2e",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "target": "tickets_math_us_15_e2e_and_docs_1_3_cobertura_de_los_4_flujos_de_usuario_cr\u00edticos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "target": "tickets_math_us_15_e2e_and_docs_tests_unitarios_e_integraci\u00f3n_vitest_supertest",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L197",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "target": "tickets_math_us_15_e2e_and_docs_tests_e2e_playwright",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "target": "tickets_math_us_15_e2e_and_docs_1_descripci\u00f3n_y_objetivos_de_negocio",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "target": "tickets_math_us_15_e2e_and_docs_2_criterios_de_aceptaci\u00f3n_ac",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "target": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "target": "tickets_math_us_15_e2e_and_docs_4_evidencia_de_pruebas_completado_por_verify_user_story",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_math_us_15_validaci\u00f3n_e2e_final_documentaci\u00f3n",
+      "target": "tickets_math_us_15_e2e_and_docs_5_commit_de_cierre_en_dev",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -16131,6 +16787,18 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_app_app",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "App",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L174",
+      "weight": 1.0
+    },
+    {
       "source": "tickets_math_us_03_vision_uploader_3_subgrafo_afectado_identificado_con_graphify",
       "target": "client_src_app_app",
       "relation": "references",
@@ -16152,6 +16820,30 @@
       "context": "App()",
       "source_file": "tickets/MATH-US-07-hotfix-ui.md",
       "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_8_panel_de_control_y_navegaci\u00f3n_principal_dashboard",
+      "target": "client_src_components_dashboard_dashboard",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "Dashboard",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L337",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_components_dashboard_dashboard",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "Dashboard",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -16227,6 +16919,18 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_components_mathstatement_mathstatement",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "MathStatement",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
       "source": "tickets_math_us_07_hotfix_ui_3_subgrafo_afectado_identificado_con_graphify",
       "target": "client_src_components_mathstatement_mathstatement",
       "relation": "references",
@@ -16259,7 +16963,7 @@
       "confidence_score": 0.95,
       "context": "MathVisionUploader",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L658",
+      "source_location": "L733",
       "weight": 1.0
     },
     {
@@ -16331,7 +17035,7 @@
       "confidence_score": 0.95,
       "context": "RoundPhotoCapture",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L766",
+      "source_location": "L841",
       "weight": 1.0
     },
     {
@@ -16359,6 +17063,18 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_components_roundphotocapture_roundphotocapture",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundPhotoCapture",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
       "source": "antigravity_graph_math_us_13_ui_de_sesi\u00f3n_de_ronda_roundsession_jsx",
       "target": "client_src_components_roundresults_roundresults",
       "relation": "references",
@@ -16379,7 +17095,7 @@
       "confidence_score": 0.95,
       "context": "RoundResults",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L769",
+      "source_location": "L844",
       "weight": 1.0
     },
     {
@@ -16431,6 +17147,18 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_components_roundresults_roundresults",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundResults",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
       "source": "antigravity_graph_math_us_14_dashboard_por_tema_y_categor\u00eda",
       "target": "client_src_components_roundsession_roundsession",
       "relation": "references",
@@ -16451,7 +17179,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L695",
+      "source_location": "L770",
       "weight": 1.0
     },
     {
@@ -16463,7 +17191,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L703",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -16475,7 +17203,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L748",
+      "source_location": "L823",
       "weight": 1.0
     },
     {
@@ -16487,7 +17215,7 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L762",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -16499,7 +17227,19 @@
       "confidence_score": 0.95,
       "context": "RoundSession",
       "source_file": "docs/ARCHITECTURE.md",
-      "source_location": "L662",
+      "source_location": "L737",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_architecture_8_6_2_integraci\u00f3n_ui_con_roundsession_para_rondas_contextuales",
+      "target": "client_src_components_roundsession_roundsession",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundSession",
+      "source_file": "docs/ARCHITECTURE.md",
+      "source_location": "L706",
       "weight": 1.0
     },
     {
@@ -16512,6 +17252,18 @@
       "context": "RoundSession",
       "source_file": "docs/USER_GUIDE.md",
       "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_user_guide_8_2_bot\u00f3n_de_acci\u00f3n_r\u00e1pida_entrenar_ahora_btn_train_now",
+      "target": "client_src_components_roundsession_roundsession",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundSession",
+      "source_file": "docs/USER_GUIDE.md",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -16560,6 +17312,30 @@
       "context": "RoundSession",
       "source_file": "tickets/MATH-US-14-dashboard-tracks.md",
       "source_location": "L250",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_1_6_sincronizaci\u00f3n_y_cierre_documental",
+      "target": "client_src_components_roundsession_roundsession",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundSession",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "client_src_components_roundsession_roundsession",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "RoundSession",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -16716,6 +17492,18 @@
       "context": "computeRoundOutcome",
       "source_file": "tickets/MATH-US-12-round-evaluation.md",
       "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "server_src_utils_progressionengine_computeroundoutcome",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "computeRoundOutcome",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -16947,6 +17735,18 @@
       "weight": 1.0
     },
     {
+      "source": "tickets_math_us_15_e2e_and_docs_3_subgrafo_afectado_identificado_con_graphify",
+      "target": "server_src_services_geminiservice_evaluateroundsolutions",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "evaluateRoundSolutions",
+      "source_file": "tickets/MATH-US-15-e2e-and-docs.md",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
       "source": "tickets_math_us_12_round_evaluation_3_subgrafo_afectado_identificado_con_graphify",
       "target": "server_src_services_geminiservice_getclient",
       "relation": "references",
@@ -16972,5 +17772,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b18fbe1157cf83b4fc53f22f1666ad4ca02fad1c"
+  "built_at_commit": "0b6e55d1ee6c485ce3521bb3b5203e5d8b9c2e58"
 }

@@ -416,4 +416,27 @@ Ubicada en la parte inferior del Panel, esta sección agrupa exclusivamente aque
 - **Botón de Repaso Directo:** Cada pista crítica cuenta con su propio botón `#btn-practice-critical-<topicId>-<category>` (*"Repasar"*) para arrancar una ronda de recuperación focalizada.
 - **Mensaje de Éxito:** Cuando todas tus pistas evaluadas tienen notas de 3 a 5, el bloque despliega el estado `#no-critical-tracks-msg` con el mensaje *"¡Sin áreas críticas activas!"*.
 
+---
+
+## 9. Flujo Integral de Práctica: Del Panel a la Libreta Física y Ascenso SRS
+
+Para aprovechar al máximo MathCoach Sparring, este es el ciclo de estudio recomendado:
+
+1. **Consulta tu Panel de Control:**
+   - Inicia cada día abriendo la pestaña *"Panel"*.
+   - Revisa la recomendación del Coach y pulsa *"Entrenar ahora"* o selecciona cualquier pista de la matriz.
+2. **Resuelve en Papel y Lápiz:**
+   - Visualiza los enunciados en pantalla con sus fórmulas renderizadas nítidamente mediante KaTeX.
+   - Dedica tu atención plena a resolver el procedimiento completo en tu cuaderno sin pantallas intermedias.
+3. **Captura Fotográfica de 1 a 6 Páginas:**
+   - Al terminar, pulsa *"Ya terminé, capturar"*.
+   - Puedes activar tu cámara para capturar foto por foto o usar *"Subir fotos de archivo"* para cargar imágenes desde tu disco o móvil.
+4. **Resiliencia ante Ejercicios Faltantes (Alerta 422):**
+   - Si por descuido olvidaste fotografiar una página, la IA lo detectará y desplegará la alerta `#alert-missing-exercises` señalando exactamente qué problemas no fueron encontrados.
+   - Tus fotos anteriores **se mantienen intactas** en la galería; basta con anexar la foto de la página faltante y reenviar a evaluar.
+5. **Lectura de Resultados y Ascenso Adaptativo:**
+   - La pantalla de resultados desglosa la nota por ejercicio con feedback formativo y pistas socráticas.
+   - Si tu desempeño es sobresaliente ($\ge 80\%$ de aprobación y promedio $\ge 4.0$), verás el dictamen de ascenso a la siguiente dificultad para tu próximo repaso programado por el algoritmo SRS SM-2.
+
+
 

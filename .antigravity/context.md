@@ -1,13 +1,13 @@
-# Contexto del Proyecto: Entrenador Personal Fullstack (Hard & Soft Skills)
+# Contexto del Proyecto: MathCoach Sparring - Entrenador Personal de Matemáticas Universitarias
 
 ## 1. Stack Tecnológico Estricto
 
 - Monorepo ligero:
-  - `/client`: React 18+ (Vite), Tailwind CSS, Lucide Icons, Web Speech API nativa (STT/TTS).
-  - `/server`: Node.js, Express, Mongoose (MongoDB local/Atlas), SDK oficial `@google/genai`.
+  - `/client`: React 18+ (Vite), Tailwind CSS, Lucide Icons, KaTeX (render matemático LaTeX).
+  - `/server`: Node.js, Express, Mongoose (MongoDB local/Atlas), SDK oficial `@google/genai` (Gemini 1.5 Pro).
 - Pruebas automatizadas:
-  - Unitarias y de Integración: Vitest (frontend) y Supertest + MongoMemoryServer (backend).
-  - E2E: Playwright configurado en `/tests/e2e`.
+  - Unitarias y de Integración: Vitest + Testing Library (frontend) y Vitest + Supertest + MongoMemoryServer (backend).
+  - E2E: Playwright configurado en `/tests/e2e` con interceptores de red y modo mock/offline determinista.
 
 ## 2. Política de Tokens y Graphify en Modo Estricto (PreToolUse)
 
