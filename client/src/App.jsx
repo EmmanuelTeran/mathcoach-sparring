@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Activity, ShieldCheck, LayoutDashboard, Camera, Calculator } from 'lucide-react';
 import { Dashboard } from './components/Dashboard';
 import { MathVisionUploader } from './components/MathVisionUploader';
+import { RoundSession } from './components/RoundSession';
 
 const DEFAULT_TOPIC = {
   _id: '651a2b3c4d5e6f7a8b9c0d1e',
@@ -97,9 +98,10 @@ export function App() {
 
         {/* Contenido Dinámico según la pestaña activa */}
         {activeTab === 'math-vision' && (
-          <MathVisionUploader
-            topic={selectedTopicForTraining}
-            onCancel={() => setActiveTab('dashboard')}
+          <RoundSession
+            topicId={selectedTopicForTraining?._id}
+            category={selectedTopicForTraining?.category || 'technique'}
+            onGoToDashboard={() => setActiveTab('dashboard')}
           />
         )}
         {activeTab === 'dashboard' && (

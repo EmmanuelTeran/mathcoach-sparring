@@ -33,6 +33,7 @@ export function MathVisionUploader({
 }) {
   const [state, setState] = useState('IDLE'); // 'IDLE' | 'STREAMING' | 'PREVIEW' | 'ANALYZING' | 'RESULT' | 'ERROR'
   const [capturedImage, setCapturedImage] = useState(null);
+  const [capturedImages, setCapturedImages] = useState([]);
   const [facingMode, setFacingMode] = useState('environment'); // 'environment' | 'user'
   const [errorMessage, setErrorMessage] = useState(null);
   const [evaluationResult, setEvaluationResult] = useState(null);

@@ -39,15 +39,12 @@ describe('App Component Integration Tests', () => {
     });
   });
 
-  it('AC-1: monta un único componente MathVisionUploader en la pestaña de entrenar', async () => {
+  it('AC-1: monta un único componente RoundSession en la pestaña de entrenar', async () => {
     render(<App />);
 
-    // El botón #btn-activate-camera debe existir una sola vez
-    const activateButtons = screen.getAllByRole('button', { name: /activar cámara/i });
-    expect(activateButtons).toHaveLength(1);
-
-    const statementElements = document.querySelectorAll('#problem-statement');
-    expect(statementElements).toHaveLength(1);
+    // El botón #btn-finish-round o #round-header debe existir en la pestaña entrenar
+    expect(await screen.findByRole('button', { name: /ya terminé, capturar/i })).toBeInTheDocument();
+    expect(document.querySelectorAll('#round-header')).toHaveLength(1);
   });
 
   it('AC-4: sólo contiene las pestañas "Entrenar" y "Panel"', () => {
@@ -69,13 +66,13 @@ describe('App Component Integration Tests', () => {
     fireEvent.click(panelTabBtn);
 
     expect(await screen.findByText(/panel de control diario/i)).toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: /activar cámara/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /ya terminé, capturar/i })).not.toBeInTheDocument();
 
     // Cambiar de vuelta a Entrenar
     const trainTabBtn = container.querySelector('#tab-math-vision');
     fireEvent.click(trainTabBtn);
 
-    expect(await screen.findByRole('button', { name: /activar cámara/i })).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /ya terminé, capturar/i })).toBeInTheDocument();
   });
 });
 

@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".antigravity/heartbeat.md": {
-    "mtime": 1791597047.6226583,
-    "seen": 1791597072.0376632,
-    "ast_hash": "be1c90a14ac069429bfd0097aeae448f",
+    "mtime": 1791597828.1902418,
+    "seen": 1791597837.0090985,
+    "ast_hash": "af3855cf450f89e2b0971c169815e481",
     "semantic_hash": ""
   },
   ".antigravity/skills/document-tech-specs.md": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "server/src/app.js": {
-    "mtime": 1791596691.6555216,
-    "seen": 1791597072.037619,
+    "mtime": 1791597408.8490052,
+    "seen": 1791597837.0090482,
     "ast_hash": "41abfa74aabd57995c7fe886ef321a26",
     "semantic_hash": ""
   },
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "docs/USER_GUIDE.md": {
-    "mtime": 1791596146.1589065,
-    "seen": 1791596478.5557902,
-    "ast_hash": "fd75f391851522732f877099c9b70d5d",
+    "mtime": 1791597408.8410041,
+    "seen": 1791597837.0091088,
+    "ast_hash": "5d9bd9ed9ca9860654f1860883c68381",
     "semantic_hash": ""
   },
   "docs/ARCHITECTURE.md": {
-    "mtime": 1791596956.4182744,
-    "seen": 1791597072.0376723,
-    "ast_hash": "c22050ff12f5c7cfb4e684ef69776b6d",
+    "mtime": 1791597408.8410041,
+    "seen": 1791597837.0091074,
+    "ast_hash": "a8a132acf44658f5730b0e711c040aa2",
     "semantic_hash": ""
   },
   "server/src/routes/topics.js": {
@@ -198,8 +198,8 @@
     "semantic_hash": ""
   },
   "server/src/services/geminiService.js": {
-    "mtime": 1791596648.1668372,
-    "seen": 1791597072.0376372,
+    "mtime": 1791597408.8530056,
+    "seen": 1791597837.0090685,
     "ast_hash": "707d36c7c29d7e1089f12e53b64df6c9",
     "semantic_hash": ""
   },
@@ -240,14 +240,14 @@
     "semantic_hash": ""
   },
   "client/src/components/MathVisionUploader.jsx": {
-    "mtime": 1791596786.5131433,
-    "seen": 1791597072.0375934,
+    "mtime": 1791597408.8370035,
+    "seen": 1791597837.0090203,
     "ast_hash": "f083711dd94eb47626f757f325640bf4",
     "semantic_hash": ""
   },
   "client/tests/MathVisionUploader.test.jsx": {
-    "mtime": 1791596807.1574128,
-    "seen": 1791597072.0376031,
+    "mtime": 1791597408.8370035,
+    "seen": 1791597837.009031,
     "ast_hash": "0a912d070b922609c7ecd479fc43e4c5",
     "semantic_hash": ""
   },
@@ -258,8 +258,8 @@
     "semantic_hash": ""
   },
   "tests/e2e/math-vision.spec.js": {
-    "mtime": 1791596819.1661575,
-    "seen": 1791597072.037656,
+    "mtime": 1791597408.8530056,
+    "seen": 1791597837.0090892,
     "ast_hash": "7157db8dd017076b8fd4fbda1714a038",
     "semantic_hash": ""
   },
@@ -414,8 +414,8 @@
     "semantic_hash": ""
   },
   "server/src/routes/rounds.js": {
-    "mtime": 1791596681.1910577,
-    "seen": 1791597072.0376332,
+    "mtime": 1791597408.8530056,
+    "seen": 1791597837.0090642,
     "ast_hash": "0d8c2917a054c33a8ce4e5ded9da403d",
     "semantic_hash": ""
   },
@@ -438,15 +438,21 @@
     "semantic_hash": ""
   },
   "tickets/MATH-US-12-round-evaluation.md": {
-    "mtime": 1791597035.5657225,
-    "seen": 1791597072.0376835,
+    "mtime": 1791597408.8530056,
+    "seen": 1791597837.0091188,
     "ast_hash": "13c1d0a19d23d4b289efbf45becb9807",
     "semantic_hash": ""
   },
   "server/tests/roundEvaluation.test.js": {
-    "mtime": 1791596876.8526692,
-    "seen": 1791597072.03765,
+    "mtime": 1791597408.8530056,
+    "seen": 1791597837.0090835,
     "ast_hash": "c82cd1908b2dd27b25104134e128c8d2",
+    "semantic_hash": ""
+  },
+  "tickets/MATH-US-13-round-session-ui.md": {
+    "mtime": 1791597812.6879742,
+    "seen": 1791597837.009122,
+    "ast_hash": "eae953085469e2ee87f60ba1ab1110fb",
     "semantic_hash": ""
   }
 }
